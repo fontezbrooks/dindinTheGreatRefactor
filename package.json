@@ -1,0 +1,34 @@
+{
+  "name": "dindinTheGreatRefactor",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "check": "oxlint",
+    "ruler:apply": "bunx @intellectronica/ruler@latest apply --local-only",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:native": "turbo -F native dev",
+    "dev:web": "turbo -F web dev",
+    "dev:server": "turbo -F server dev",
+    "db:start": "turbo -F server db:start",
+    "db:watch": "turbo -F server db:watch",
+    "db:stop": "turbo -F server db:stop",
+    "db:down": "turbo -F server db:down"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "oxlint": "^1.8.0"
+  },
+  "lint-staged": {
+    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
+  },
+  "packageManager": "bun@1.2.20"
+}

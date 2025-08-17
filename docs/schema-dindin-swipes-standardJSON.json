@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "__v",
+    "createdAt",
+    "direction",
+    "recipeId",
+    "timestamp",
+    "updatedAt",
+    "userId"
+  ],
+  "properties": {
+    "_id": {
+      "$ref": "#/$defs/ObjectId"
+    },
+    "__v": {
+      "type": "integer"
+    },
+    "createdAt": {
+      "$ref": "#/$defs/Date"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "recipeId": {
+      "$ref": "#/$defs/ObjectId"
+    },
+    "timestamp": {
+      "$ref": "#/$defs/Date"
+    },
+    "updatedAt": {
+      "$ref": "#/$defs/Date"
+    },
+    "userId": {
+      "$ref": "#/$defs/ObjectId"
+    }
+  },
+  "$defs": {
+    "ObjectId": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{24}$"
+        }
+      },
+      "required": [
+        "$oid"
+      ],
+      "additionalProperties": false
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "$date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "$date"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

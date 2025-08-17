@@ -1,0 +1,1342 @@
+[{
+  "_id": {
+    "$oid": "68a0fc613559578a01176955"
+  },
+  "userId": {
+    "$oid": "000000000000000000000777"
+  },
+  "recipeId": {
+    "$oid": "68a0c60a1d3ed343f5826fa8"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:47:13.337Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:47:13.342Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:47:13.342Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fdcdd13bb7b1cc3c98f7"
+  },
+  "userId": {
+    "$oid": "000000000000000000000724"
+  },
+  "recipeId": {
+    "$oid": "68a0c9d4c1005646cfda908d"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:53:17.641Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:53:17.645Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:53:17.645Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fdd0d13bb7b1cc3c98f9"
+  },
+  "userId": {
+    "$oid": "000000000000000000000724"
+  },
+  "recipeId": {
+    "$oid": "689ca7733c457e835acefadf"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:53:20.549Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:53:20.550Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:53:20.550Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fe9400a141c2060f97bd"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c6ea1d3ed343f5826fb2"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:36.280Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:36.284Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:36.284Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fe9600a141c2060f97c1"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0cb454ffed6f8532020a8"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:38.069Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:38.071Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:38.071Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fe9b00a141c2060f97c4"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c7131d3ed343f5826fb4"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:43.580Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:43.581Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:43.581Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fe9d00a141c2060f97c8"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0cb364ffed6f8532020a7"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:45.144Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:45.144Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:45.144Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fe9f00a141c2060f97cb"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c77c1d3ed343f5826fb9"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:47.592Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:47.592Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:47.592Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fea100a141c2060f97ce"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0cb614ffed6f8532020a9"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:49.397Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:49.397Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:49.397Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0fea400a141c2060f97d1"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0caf94ffed6f8532020a4"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:52.856Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:52.856Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:52.856Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0feaa00a141c2060f97d5"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68960cee0b425688e3bc3fe1"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T21:56:58.784Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T21:56:58.784Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T21:56:58.784Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1011300a141c2060f97d8"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c9d4c1005646cfda908d"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:15.595Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:15.596Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:15.596Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1011500a141c2060f97db"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c9a6c1005646cfda908b"
+  },
+  "direction": "left",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:17.198Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:17.199Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:17.199Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1011600a141c2060f97de"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "6896c9aa60d6fa4f11f56a02"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:18.421Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:18.422Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:18.422Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1011800a141c2060f97e2"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "6896c9e060d6fa4f11f56a05"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:20.890Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:20.891Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:20.891Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1011a00a141c2060f97e6"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c6241d3ed343f5826fa9"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:22.214Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:22.214Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:22.214Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1012700a141c2060f97ea"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0ca13c1005646cfda9090"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:35.336Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:35.337Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:35.337Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1012900a141c2060f97ed"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "689ca73f3c457e835acefade"
+  },
+  "direction": "left",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:37.716Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:37.717Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:37.717Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1012b00a141c2060f97f0"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c9b8c1005646cfda908c"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:39.656Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:39.656Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:39.656Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1012d00a141c2060f97f3"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "6896c9ce60d6fa4f11f56a04"
+  },
+  "direction": "left",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:41.187Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:41.188Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:41.188Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1012e00a141c2060f97f6"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0cb8a4ffed6f8532020ab"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:42.440Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:42.441Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:42.441Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1013100a141c2060f97f9"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c60a1d3ed343f5826fa8"
+  },
+  "direction": "left",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:45.304Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:45.305Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:45.305Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1013400a141c2060f97fc"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68960d200b425688e3bc3fe4"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:48.819Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:48.819Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:48.819Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1013600a141c2060f97ff"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c9e4c1005646cfda908e"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:50.122Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:50.123Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:50.123Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1013700a141c2060f9803"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c6d31d3ed343f5826fb1"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:51.656Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:51.656Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:51.656Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1013900a141c2060f9807"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c6951d3ed343f5826faf"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:53.351Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:53.352Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:53.352Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1013a00a141c2060f980b"
+  },
+  "userId": {
+    "$oid": "000000000000000000000792"
+  },
+  "recipeId": {
+    "$oid": "68a0c6321d3ed343f5826faa"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T22:07:54.854Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T22:07:54.856Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T22:07:54.856Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10d7f08cbc3e151427c40"
+  },
+  "userId": {
+    "$oid": "00000000000000000000072d"
+  },
+  "recipeId": {
+    "$oid": "68a0caec4ffed6f8532020a3"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:00:15.499Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:00:15.503Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:00:15.503Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10d8108cbc3e151427c43"
+  },
+  "userId": {
+    "$oid": "00000000000000000000072d"
+  },
+  "recipeId": {
+    "$oid": "68a0c99cc1005646cfda908a"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:00:17.487Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:00:17.489Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:00:17.489Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10d8408cbc3e151427c46"
+  },
+  "userId": {
+    "$oid": "00000000000000000000072d"
+  },
+  "recipeId": {
+    "$oid": "68a0cb6f4ffed6f8532020aa"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:00:20.454Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:00:20.455Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:00:20.455Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10d8608cbc3e151427c49"
+  },
+  "userId": {
+    "$oid": "00000000000000000000072d"
+  },
+  "recipeId": {
+    "$oid": "68a0cb8a4ffed6f8532020ab"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:00:22.139Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:00:22.139Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:00:22.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10d8e08cbc3e151427c4c"
+  },
+  "userId": {
+    "$oid": "00000000000000000000072d"
+  },
+  "recipeId": {
+    "$oid": "689ca7873c457e835acefae0"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:00:30.007Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:00:30.007Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:00:30.007Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10f8f08cbc3e151427c51"
+  },
+  "userId": {
+    "$oid": "000000000000000000000727"
+  },
+  "recipeId": {
+    "$oid": "689ca7e73c457e835acefae1"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:09:03.087Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:09:03.088Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:09:03.088Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10f9108cbc3e151427c54"
+  },
+  "userId": {
+    "$oid": "000000000000000000000727"
+  },
+  "recipeId": {
+    "$oid": "689ca7733c457e835acefadf"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:09:05.691Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:09:05.692Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:09:05.692Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10f9408cbc3e151427c57"
+  },
+  "userId": {
+    "$oid": "000000000000000000000727"
+  },
+  "recipeId": {
+    "$oid": "68a0ca694ffed6f85320209c"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:09:08.472Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:09:08.472Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:09:08.472Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10f9508cbc3e151427c5b"
+  },
+  "userId": {
+    "$oid": "000000000000000000000727"
+  },
+  "recipeId": {
+    "$oid": "68a0cb454ffed6f8532020a8"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:09:09.972Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:09:09.973Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:09:09.973Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a10f9708cbc3e151427c5e"
+  },
+  "userId": {
+    "$oid": "000000000000000000000727"
+  },
+  "recipeId": {
+    "$oid": "68a0cb8a4ffed6f8532020ab"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:09:11.490Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:09:11.490Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:09:11.490Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110ef08cbc3e151427c66"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0ca3e4ffed6f853202099"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:14:55.844Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:14:55.844Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:14:55.844Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110f108cbc3e151427c6a"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0c5f21d3ed343f5826fa7"
+  },
+  "direction": "left",
+  "timestamp": {
+    "$date": "2025-08-16T23:14:57.738Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:14:57.738Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:14:57.738Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110f308cbc3e151427c6d"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0c5d91d3ed343f5826fa6"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:14:59.322Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:14:59.322Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:14:59.322Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110f408cbc3e151427c70"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0c6ea1d3ed343f5826fb2"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:00.845Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:00.845Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:00.845Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110f608cbc3e151427c73"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0c6561d3ed343f5826fac"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:02.705Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:02.706Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:02.706Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110f808cbc3e151427c76"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68960d200b425688e3bc3fe4"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:04.305Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:04.305Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:04.305Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110fa08cbc3e151427c7c"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "6896c9be60d6fa4f11f56a03"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:06.038Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:06.038Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:06.038Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110fb08cbc3e151427c7f"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68960d3e0b425688e3bc3fe5"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:07.487Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:07.487Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:07.487Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110fd08cbc3e151427c82"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68960cee0b425688e3bc3fe1"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:09.380Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:09.381Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:09.381Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a110fe08cbc3e151427c85"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0c6ac1d3ed343f5826fb0"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:10.756Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:10.756Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:10.756Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1110008cbc3e151427c89"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68960d540b425688e3bc3fe6"
+  },
+  "direction": "left",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:12.156Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:12.156Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:12.156Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1111108cbc3e151427c8c"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0ca13c1005646cfda9090"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:29.791Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:29.791Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:29.791Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1111e08cbc3e151427c8f"
+  },
+  "userId": {
+    "$oid": "0000000000000000000006d0"
+  },
+  "recipeId": {
+    "$oid": "68a0c9fbc1005646cfda908f"
+  },
+  "direction": "left",
+  "timestamp": {
+    "$date": "2025-08-16T23:15:42.399Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:15:42.400Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:15:42.400Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115446ca3a26ace65696f"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0c6ff1d3ed343f5826fb3"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:33:24.361Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:33:24.365Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:33:24.365Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115466ca3a26ace656972"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0ca474ffed6f85320209a"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:33:26.409Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:33:26.410Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:33:26.410Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115486ca3a26ace656975"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68960d610b425688e3bc3fe7"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:33:28.572Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:33:28.573Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:33:28.573Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1154b6ca3a26ace656978"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0c6d31d3ed343f5826fb1"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:33:31.427Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:33:31.427Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:33:31.427Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a1154e6ca3a26ace65697b"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0c7631d3ed343f5826fb8"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:33:34.717Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:33:34.718Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:33:34.718Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115506ca3a26ace65697e"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0cb364ffed6f8532020a7"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:33:36.886Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:33:36.886Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:33:36.886Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115b66ca3a26ace656984"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0c6871d3ed343f5826fae"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:35:18.929Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:35:18.930Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:35:18.930Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115bd6ca3a26ace656987"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "689ca8233c457e835acefae3"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:35:25.282Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:35:25.283Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:35:25.283Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115c06ca3a26ace65698a"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68960cee0b425688e3bc3fe1"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:35:28.111Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:35:28.112Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:35:28.112Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115c16ca3a26ace656990"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0c6441d3ed343f5826fab"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:35:29.549Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:35:29.551Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:35:29.551Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a115c36ca3a26ace656993"
+  },
+  "userId": {
+    "$oid": "00000000000000000000071e"
+  },
+  "recipeId": {
+    "$oid": "68a0cb114ffed6f8532020a5"
+  },
+  "direction": "right",
+  "timestamp": {
+    "$date": "2025-08-16T23:35:31.901Z"
+  },
+  "createdAt": {
+    "$date": "2025-08-16T23:35:31.902Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-16T23:35:31.902Z"
+  },
+  "__v": 0
+}]

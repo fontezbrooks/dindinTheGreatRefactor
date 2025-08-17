@@ -1,0 +1,22249 @@
+Directory structure:
+└── fontezbrooks-dindin/
+    ├── README.md
+    ├── CLAUDE.md
+    ├── LICENSE
+    ├── .cursorrules
+    ├── app/
+    │   ├── backend/
+    │   │   ├── README.md
+    │   │   ├── eslint.config.mjs
+    │   │   ├── package.json
+    │   │   ├── server.ts
+    │   │   ├── tsconfig.json
+    │   │   ├── middleware/
+    │   │   │   ├── errorHandler.ts
+    │   │   │   └── notFound.ts
+    │   │   ├── models/
+    │   │   │   ├── Recipe.ts
+    │   │   │   ├── Swipe.ts
+    │   │   │   └── User.ts
+    │   │   ├── routes/
+    │   │   │   ├── auth.ts
+    │   │   │   ├── recipes.ts
+    │   │   │   ├── swipes.ts
+    │   │   │   └── users.ts
+    │   │   ├── scripts/
+    │   │   │   └── seedDatabase.ts
+    │   │   └── types/
+    │   │       └── index.ts
+    │   ├── frontend/
+    │   │   ├── README.md
+    │   │   ├── app.json
+    │   │   ├── babel.config.js
+    │   │   ├── CLAUDE.md
+    │   │   ├── eslint.config.js
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   ├── app/
+    │   │   │   ├── _layout.tsx
+    │   │   │   ├── index.tsx
+    │   │   │   ├── (tabs)/
+    │   │   │   │   ├── _layout.tsx
+    │   │   │   │   ├── index.tsx
+    │   │   │   │   ├── matches.tsx
+    │   │   │   │   └── profile.tsx
+    │   │   │   └── auth/
+    │   │   │       ├── _layout.tsx
+    │   │   │       ├── login.tsx
+    │   │   │       └── signup.tsx
+    │   │   ├── assets/
+    │   │   │   └── fonts/
+    │   │   │       └── SpaceMono-Regular.ttf
+    │   │   ├── components/
+    │   │   │   ├── Card.tsx
+    │   │   │   ├── ExampleUsage.tsx
+    │   │   │   ├── GradientMask.tsx
+    │   │   │   ├── ImprovedRecipeCard.tsx
+    │   │   │   ├── PlaceholderImage.tsx
+    │   │   │   ├── RecipeCardTest.tsx
+    │   │   │   └── TinderStack.tsx
+    │   │   ├── config/
+    │   │   │   ├── api.ts
+    │   │   │   └── database
+    │   │   ├── hooks/
+    │   │   │   ├── useCardStack.ts
+    │   │   │   └── useFlip.ts
+    │   │   ├── models/
+    │   │   │   └── recipeSchema.ts
+    │   │   ├── services/
+    │   │   │   └── recipeService.ts
+    │   │   ├── stores/
+    │   │   │   ├── authStore.ts
+    │   │   │   └── recipeStore.ts
+    │   │   └── utils/
+    │   │       ├── database.js
+    │   │       ├── logger.js
+    │   │       ├── objectId.ts
+    │   │       ├── seedDB.js
+    │   │       └── testDbConnection.js
+    │   └── scraper/
+    │       ├── discover_and_extract.py
+    │       ├── docker-compose.yml
+    │       ├── dockerfile
+    │       ├── pipeline.py
+    │       ├── preview.json
+    │       ├── raw_scraped_recipes.json
+    │       ├── recipe_schema.json
+    │       ├── recipe_transformer.py
+    │       ├── requirements.txt
+    │       └── urls.txt
+    ├── docker/
+    │   ├── dockerfile
+    │   └── requirements.txt
+    ├── docs/
+    │   ├── auth.md
+    │   ├── dindin.recipes.json
+    │   ├── dindin.recipesGUIDELINE.json
+    │   ├── dindin.recipesUSETHISONE.json
+    │   ├── prd.md
+    │   ├── Recipe Card Swiping Feature Implementation Walkthrough.md
+    │   ├── RecipeJsonSchema.json
+    │   └── schema-dindin-recipes-standardJSON.json
+    └── .cursor/
+        └── rules/
+            ├── babel-configuration-for-nativewind.mdc
+            ├── clean-code.mdc
+            ├── codequality.mdc
+            ├── general-project-instructions.mdc
+            ├── nativewind-and-tailwind-css-compatibility.mdc
+            ├── react-native-expo-best-practices.mdc
+            └── react-native-expo-folder-structure.mdc
+
+================================================
+FILE: README.md
+================================================
+# dindin
+What's For Dinner?
+
+
+
+================================================
+FILE: CLAUDE.md
+================================================
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+DinDin is a Tinder-style recipe matching app for couples and individuals to decide what's for dinner. Users swipe through recipes, match with partners on shared preferences, and plan meals together.
+
+## Development Commands
+
+### Frontend (React Native with Expo)
+Working directory: `app/frontend/`
+- `npm start` - Start Expo development server
+- `npm run ios` - Run on iOS simulator
+- `npm run android` - Run on Android emulator
+- `npm run web` - Run web version
+- `npm run lint` - Run ESLint checks
+
+### Troubleshooting
+- `npm run reset-project` - Reset to clean state (moves code to app-example/)
+
+## Architecture
+
+### Tech Stack
+- **Frontend**: React Native with Expo (SDK 53), TypeScript
+- **State Management**: Zustand stores for auth and recipes
+- **Navigation**: Expo Router with file-based routing
+- **Styling**: StyleSheet objects with Tailwind-inspired colors
+- **Animations**: react-native-reanimated + gesture-handler for swipe mechanics
+- **Backend**: Node.js/Express (planned)
+- **Database**: MongoDB (localhost:27017/dindin)
+
+### Project Structure
+```
+app/frontend/          # React Native mobile app
+├── app/              # Expo Router screens
+│   ├── (tabs)/      # Tab navigation screens (index, matches, profile)
+│   └── auth/        # Authentication flow (login, signup)
+├── stores/          # Zustand state management
+│   ├── authStore.ts # User authentication
+│   └── recipeStore.ts # Recipe data and swipes
+└── babel.config.js  # Reanimated plugin configuration
+
+app/OldPythonBackend/  # Legacy Python backend
+app/OldReactFrontend/  # Legacy React web app
+```
+
+### Key Navigation Flow
+1. **Entry**: `app/index.tsx` redirects to auth or tabs
+2. **Auth**: `app/auth/` handles login/signup
+3. **Main App**: `app/(tabs)/` with 3 screens:
+   - `index.tsx` - Recipe swipe interface
+   - `matches.tsx` - Matched recipes list
+   - `profile.tsx` - User preferences
+
+### State Management Patterns
+- **authStore**: User session, login/signup, authentication state
+- **recipeStore**: Recipe data, swipe history, matches, current card index
+- Mock authentication returns success for any credentials (development)
+- Simulated 30% match rate on right swipes
+
+### Gesture & Animation System
+- Swipe threshold: 25% of screen width
+- Pan gesture with spring animations
+- Visual feedback overlays ("LIKE"/"NOPE")
+- Card rotation based on swipe direction
+- Action buttons as fallback to gestures
+
+## Database Schema
+
+MongoDB collections:
+- **users**: User profiles with Google auth integration
+- **recipes**: Recipe data matching imported JSON structure
+- **matches**: User-to-user recipe matches
+- **swipe_history**: Individual swipe records
+
+## Current Implementation Status
+
+### Completed
+✅ Swipe card interface with animations
+✅ Tab navigation structure
+✅ Authentication flow UI
+✅ Zustand state management
+✅ Match detection system
+✅ Responsive layouts
+
+### Pending Integration
+- Backend API connections (currently using mock data)
+- MongoDB database integration
+- Google OAuth implementation
+- Real-time WebSocket for live matching
+- User preference persistence
+
+## Important Development Notes
+
+1. **Babel Config**: The `babel.config.js` must include `react-native-reanimated/plugin` for animations to work
+
+2. **Gesture Handler**: All gesture-enabled components must be wrapped in `GestureHandlerRootView`
+
+3. **Mock Data**: Recipe data is hardcoded in `stores/recipeStore.ts` - replace with API calls when backend ready
+
+4. **Platform-specific code**: Some components have `.ios.tsx` variants (IconSymbol, TabBarBackground)
+
+5. **TypeScript Paths**: Use `@/*` for root imports (configured in tsconfig.json)
+
+6. **Color Scheme**: Uses Tailwind-inspired color names (orange-500, gray-800) in inline styles
+
+
+## Constants Over Magic Numbers
+- Replace hard-coded values with named constants
+- Use descriptive constant names that explain the value's purpose
+- Keep constants at the top of the file or in a dedicated constants file
+
+## Meaningful Names
+- Variables, functions, and classes should reveal their purpose
+- Names should explain why something exists and how it's used
+- Avoid abbreviations unless they're universally understood
+
+## Smart Comments
+- Don't comment on what the code does - make the code self-documenting
+- Use comments to explain why something is done a certain way
+- Document APIs, complex algorithms, and non-obvious side effects
+
+## Single Responsibility
+- Each function should do exactly one thing
+- Functions should be small and focused
+- If a function needs a comment to explain what it does, it should be split
+
+## DRY (Don't Repeat Yourself)
+- Extract repeated code into reusable functions
+- Share common logic through proper abstraction
+- Maintain single sources of truth
+
+## Clean Structure
+- Keep related code together
+- Organize code in a logical hierarchy
+- Use consistent file and folder naming conventions
+
+## Encapsulation
+- Hide implementation details
+- Expose clear interfaces
+- Move nested conditionals into well-named functions
+
+## Code Quality Maintenance
+- Refactor continuously
+- Fix technical debt early
+- Leave code cleaner than you found it
+
+## Testing
+- Write tests before fixing bugs
+- Keep tests readable and maintainable
+- Test edge cases and error conditions
+
+## Version Control
+- Write clear commit messages
+- Make small, focused commits
+- Use meaningful branch names
+
+
+## Verify Information
+Always verify information before presenting it. Do not make assumptions or speculate without clear evidence.
+
+## File-by-File Changes
+Make changes file by file and give me a chance to spot mistakes.
+
+## No Apologies
+Never use apologies.
+
+## No Understanding Feedback
+Avoid giving feedback about understanding in comments or documentation.
+
+## No Whitespace Suggestions
+Don't suggest whitespace changes.
+
+## No Summaries
+Don't summarize changes made.
+
+## No Inventions
+Don't invent changes other than what's explicitly requested.
+
+## No Unnecessary Confirmations
+Don't ask for confirmation of information already provided in the context.
+
+## Preserve Existing Code
+Don't remove unrelated code or functionalities. Pay attention to preserving existing structures.
+
+## Single Chunk Edits
+Provide all edits in a single chunk instead of multiple-step instructions or explanations for the same file.
+
+## No Implementation Checks
+Don't ask the user to verify implementations that are visible in the provided context.
+
+## No Unnecessary Updates
+Don't suggest updates or changes to files when there are no actual modifications needed.
+
+## Provide Real File Links
+Always provide links to the real files, not x.md.
+
+## No Current Implementation
+Don't show or discuss the current implementation unless specifically requested.
+
+
+
+================================================
+FILE: LICENSE
+================================================
+MIT License
+
+Copyright (c) 2025 Fontez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+================================================
+FILE: .cursorrules
+================================================
+// React Native Expo .cursorrules
+
+// React Native Expo Best Practices
+
+const reactNativeExpoBestPractices = [
+  "Use functional components with hooks.",
+  "Leverage Expo SDK features and APIs.",
+  "Implement navigation using Expo Router.",
+  "Manage assets with Expo's asset system for images and fonts.",
+  "Ensure robust error handling and crash reporting.",
+  "Utilize Expo's push notification system.",
+  "Adopt TypeScript for type safety.",
+  "Apply consistent styling using StyleSheet.",
+  "Incorporate Expo's vector icons.",
+  "Secure sensitive data with Expo's SecureStore.",
+  "Implement proper offline support.",
+  "Optimize performance following React Native best practices.",
+  "Deploy updates using Expo's OTA mechanism.",
+  "Style components using NativeWind.",
+];
+
+// Folder Structure
+
+const folderStructure = `
+assets/
+src/
+  components/
+  screens/
+  navigation/
+  hooks/
+  utils/
+app/
+  _layout.tsx
+  index.tsx
+App.js
+app.json
+`;
+
+// Package Version Compatibility Notes
+
+const packageCompatibilityNotes = [
+  "NativeWind and Tailwind CSS compatibility:",
+  "Use nativewind@2.0.11 with tailwindcss@3.3.2.",
+  "Higher versions may cause 'process(css).then(cb)' errors.",
+  "If errors occur, remove both packages and reinstall specific versions:",
+  "  npm remove nativewind tailwindcss",
+  "  npm install nativewind@2.0.11 tailwindcss@3.3.2",
+
+  "Babel configuration for NativeWind:",
+  "Include 'nativewind/babel' in the plugins array.",
+  "Avoid using jsxImportSource in presets.",
+  "Ensure 'react-native-reanimated/plugin' follows 'nativewind/babel'.",
+];
+
+// Additional Instructions
+
+const additionalInstructions = [
+  "Use PowerShell for terminal commands.",
+  "Before installing a new package, check if it's already installed:",
+  "  Get-ChildItem -Recurse -Filter package-name",
+  "If installed, upgrade using:",
+  "  expo upgrade <package-name>",
+  "or",
+  "  npm install <package-name>",
+  "if not supported by Expo.",
+  "Use PowerShell commands to manage the project, e.g., moving and renaming files:",
+  "  Move-Item -Path .\\old\\path\\file.txt -Destination .\\new\\path\\newname.txt",
+  "If unsure about the current structure or details, use PowerShell to list out necessary information:",
+  "  Get-ChildItem -Recurse",
+  "Utilize official Expo libraries and upgrade them using Expo's commands.",
+  "Avoid deleting existing functionality or files without a valid reason.",
+  "Follow the recommended folder structure and maintain organized code for scalability and readability.",
+  "Implement navigation using Expo Router for clean and declarative routing.",
+];
+
+// Clean Code
+
+const cleanCode = [
+  "Replace hard-coded values with named constants",
+  "Use descriptive constant names that explain the value's purpose",
+  "Keep constants at the top of the file or in a dedicated constants file",
+  "Variables, functions, and classes should reveal their purpose",
+  "Names should explain why something exists and how it's used",
+  "Avoid abbreviations unless they're universally understood",
+  "Don't comment on what the code does make the code self-documenting",
+  "Use comments to explain why something is done a certain way",
+  "Document APIs, complex algorithms, and non-obvious side effects",
+  "Each function should do exactly one thing",
+  "Functions should be small and focused",
+  "If a function needs a comment to explain what it does, it should be split",
+  "Extract repeated code into reusable functions",
+  "Share common logic through proper abstraction",
+  "Maintain single sources of truth",
+  "Keep related code together",
+  "Organize code in a logical hierarchy",
+  "Use consistent file and folder naming conventions",
+  "Hide implementation details",
+  "Expose clear interfaces",
+  "Move nested conditionals into well-named functions",
+  "Refactor continuously",
+  "Fix technical debt early",
+  "Leave code cleaner than you found it",
+  "Write tests before fixing bugs",
+  "Keep tests readable and maintainable",
+  "Test edge cases and error conditions",
+  "Write clear commit messages",
+  "Make small, focused commits",
+  "Use meaningful branch names ",
+];
+
+// Code Quality
+
+const codeQuality = [
+  "Always verify information before presenting it. Do not make assumptions or speculate without clear evidence.",
+  "Make changes file by file and give me a chance to spot mistakes.",
+  "Never use apologies.",
+  "Avoid giving feedback about understanding in comments or documentation.",
+  "Don't suggest whitespace changes.",
+  "Don't summarize changes made.",
+  "Don't invent changes other than what's explicitly requested.",
+  "Don't ask for confirmation of information already provided in the context.",
+  "Don't remove unrelated code or functionalities. Pay attention to preserving existing structures.",
+  "Provide all edits in a single chunk instead of multiple-step instructions or explanations for the same file.",
+  "Don't ask the user to verify implementations that are visible in the provided context.",
+  "Don't suggest updates or changes to files when there are no actual modifications needed.",
+  "Always provide links to the real files, not x.md.",
+  "Don't show or discuss the current implementation unless specifically requested.",
+];
+
+
+
+================================================
+FILE: app/backend/README.md
+================================================
+# DinDin Backend API
+
+A RESTful API server for the DinDin recipe matching application built with Node.js, Express, and MongoDB.
+
+## Quick Start
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables:**
+   Copy the `.env` file from the project root or create one with:
+   ```bash
+   MONGODB_URI=mongodb://localhost:27017/
+   DATABASE_NAME=dindin
+   NODE_ENV=development
+   PORT=3001
+   CORS_ORIGIN=http://localhost:8081
+   JWT_SECRET=your-super-secret-jwt-key-change-in-production
+   ```
+
+3. **Start the server:**
+   ```bash
+   # Development mode with auto-reload
+   npm run dev
+
+   # Production mode
+   npm start
+   ```
+
+4. **Verify the server is running:**
+   Visit `http://localhost:3001/api` to see API documentation.
+
+## API Endpoints
+
+### Recipes
+- `GET /api/recipes` - Get all recipes with filtering
+- `GET /api/recipes/personalized` - Get personalized recipes
+- `GET /api/recipes/search` - Search recipes by text
+- `GET /api/recipes/:id` - Get single recipe by ID
+- `POST /api/recipes` - Create new recipe (admin)
+- `PUT /api/recipes/:id` - Update recipe (admin)
+- `DELETE /api/recipes/:id` - Delete recipe (admin)
+- `POST /api/recipes/:id/like` - Like a recipe
+
+### Swipes
+- `POST /api/swipes` - Record a swipe action
+- `GET /api/swipes/history/:userId` - Get user's swipe history
+- `GET /api/swipes/stats/:recipeId` - Get recipe swipe statistics
+- `GET /api/swipes/matches/:userId` - Get user's matches
+- `DELETE /api/swipes/:userId/:recipeId` - Undo a swipe
+
+### Users
+- `GET /api/users/:id` - Get user profile
+- `PUT /api/users/:id` - Update user profile
+
+### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - User login
+- `POST /api/auth/logout` - User logout
+- `POST /api/auth/refresh` - Refresh access token
+
+### System
+- `GET /health` - Health check endpoint
+- `GET /api` - API documentation
+
+## Request/Response Format
+
+### Standard Response Format
+```json
+{
+  "success": true,
+  "data": { /* response data */ },
+  "message": "Optional message",
+  "pagination": { /* for paginated responses */ }
+}
+```
+
+### Error Response Format
+```json
+{
+  "success": false,
+  "message": "Error description",
+  "errors": [ /* validation errors if applicable */ ]
+}
+```
+
+## Recipe API Examples
+
+### Get Recipes with Filtering
+```http
+GET /api/recipes?difficulty=easy&cuisine_type=italian&limit=20&sort=popular
+```
+
+Response:
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "60f7b3b3b3b3b3b3b3b3b3b3",
+      "title": "Creamy Mushroom Pasta",
+      "description": "Rich and creamy pasta with wild mushrooms",
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "name": "pasta",
+          "amount": "400",
+          "unit": "g"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "description": "Cook pasta according to package directions"
+        }
+      ],
+      "cookTime": 25,
+      "image_url": "https://example.com/image.jpg",
+      "tags": ["italian", "vegetarian"],
+      "likes": 150,
+      "rating": 4.8,
+      "createdAt": "2023-07-21T10:30:00.000Z"
+    }
+  ],
+  "pagination": {
+    "limit": 20,
+    "skip": 0,
+    "total": 45
+  }
+}
+```
+
+### Search Recipes
+```http
+GET /api/recipes/search?search=pasta mushroom&limit=10
+```
+
+### Get Personalized Recipes
+```http
+GET /api/recipes/personalized?limit=30
+```
+
+## Swipe API Examples
+
+### Record a Swipe
+```http
+POST /api/swipes
+Content-Type: application/json
+
+{
+  "userId": "user123",
+  "recipeId": "60f7b3b3b3b3b3b3b3b3b3b3",
+  "direction": "right",
+  "sessionId": "session123"
+}
+```
+
+Response:
+```json
+{
+  "success": true,
+  "data": {
+    "swipeId": "60f7b3b3b3b3b3b3b3b3b3b4",
+    "recipeId": "60f7b3b3b3b3b3b3b3b3b3b3",
+    "direction": "right",
+    "timestamp": "2023-07-21T10:30:00.000Z",
+    "isMatch": true,
+    "match": {
+      "matchId": "match_60f7b3b3b3b3b3b3b3b3b3b4",
+      "partnerName": "Alex",
+      "confidence": 0.87,
+      "matchedAt": "2023-07-21T10:30:00.000Z"
+    }
+  }
+}
+```
+
+### Get Swipe History
+```http
+GET /api/swipes/history/user123?limit=50&direction=right
+```
+
+## Authentication Examples
+
+### Register
+```http
+POST /api/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "securepassword123"
+}
+```
+
+### Login
+```http
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "securepassword123"
+}
+```
+
+Response:
+```json
+{
+  "success": true,
+  "data": {
+    "user": {
+      "id": "60f7b3b3b3b3b3b3b3b3b3b3",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "preferences": { /* user preferences */ }
+    },
+    "tokens": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIs...",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIs..."
+    }
+  }
+}
+```
+
+## Database Schema
+
+### Recipe Document
+```javascript
+{
+  _id: ObjectId,
+  title: String (required),
+  description: String (required),
+  difficulty: String (required, enum: ['easy', 'medium', 'hard']),
+  ingredients: [
+    {
+      name: String (required),
+      amount: String (required),
+      unit: String
+    }
+  ],
+  instructions: [
+    {
+      step: Number (required),
+      description: String (required),
+      duration: Number
+    }
+  ],
+  cookTime: Number,
+  prepTime: Number,
+  image_url: String,
+  cuisine_type: String,
+  dietary_tags: [String],
+  tags: [String],
+  likes: Number (default: 0),
+  dislikes: Number (default: 0),
+  servings: Number,
+  nutrition: {
+    calories: Number,
+    protein: Number,
+    carbs: Number,
+    fat: Number,
+    fiber: Number,
+    sugar: Number
+  },
+  isActive: Boolean (default: true),
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+### Swipe Document
+```javascript
+{
+  _id: ObjectId,
+  userId: String (required),
+  recipeId: ObjectId (required, ref: 'Recipe'),
+  direction: String (required, enum: ['left', 'right']),
+  timestamp: Date (default: now),
+  sessionId: String,
+  deviceInfo: {
+    platform: String,
+    userAgent: String,
+    ipAddress: String
+  },
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+## Error Codes
+
+- `200` - Success
+- `201` - Created
+- `400` - Bad Request (validation error)
+- `401` - Unauthorized
+- `404` - Not Found
+- `409` - Conflict (duplicate resource)
+- `429` - Too Many Requests (rate limit exceeded)
+- `500` - Internal Server Error
+
+## Rate Limiting
+
+The API implements rate limiting to prevent abuse:
+- **Default**: 100 requests per 15 minutes per IP
+- **Configurable** via environment variables
+
+## Security Features
+
+- **Helmet.js** - Security headers
+- **CORS** - Cross-origin resource sharing configuration
+- **Rate Limiting** - Request rate limiting
+- **Input Validation** - Request validation using express-validator
+- **Password Hashing** - bcrypt for secure password storage
+- **JWT Authentication** - JSON Web Tokens for stateless auth
+
+## Development
+
+### Project Structure
+```
+app/backend/
+├── models/          # MongoDB models
+├── routes/          # API route handlers
+├── middleware/      # Custom middleware
+├── scripts/         # Utility scripts
+├── server.js        # Main server file
+└── README.md        # This file
+```
+
+### Scripts
+- `npm run dev` - Development mode with nodemon
+- `npm start` - Production mode
+- `npm run seed` - Seed database with sample data
+- `npm test` - Run tests
+- `npm run lint` - Run ESLint
+
+## Deployment
+
+### Environment Variables
+Ensure these environment variables are set in production:
+
+```bash
+NODE_ENV=production
+MONGODB_URI=mongodb://your-mongo-host:27017/
+DATABASE_NAME=dindin
+PORT=3001
+CORS_ORIGIN=https://your-frontend-domain.com
+JWT_SECRET=your-super-secure-secret-key
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+```
+
+### MongoDB Indexes
+The application automatically creates these indexes for performance:
+- Recipe title and description text search
+- Recipe filtering by difficulty, cuisine, tags
+- Swipe history by user and timestamp
+- User lookup by email
+
+### Health Check
+Monitor application health via:
+```http
+GET /health
+```
+
+Returns server status, database connectivity, and uptime information.
+
+
+================================================
+FILE: app/backend/eslint.config.mjs
+================================================
+import js from "@eslint/js";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+
+export default [
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+      ecmaVersion: 2022,
+      sourceType: "module",
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "no-console": "off",
+      "prefer-const": "error",
+      "no-var": "error",
+    },
+  },
+  {
+    files: ["**/*.js", "**/*.mjs"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
+  {
+    ignores: ["node_modules/**", "dist/**"],
+  },
+];
+
+
+
+================================================
+FILE: app/backend/package.json
+================================================
+{
+  "name": "dindin-backend",
+  "version": "1.0.0",
+  "description": "DinDin Recipe Matching App Backend API",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "npm run build && node dist/server.js",
+    "dev:watch": "nodemon --watch '**/*.ts' --exec 'npm run build && node dist/server.js'",
+    "seed": "npm run build && node dist/scripts/seedDatabase.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean && npm run lint && npm run type-check"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/express-rate-limit": "^5.1.3",
+    "@types/express-validator": "^2.20.33",
+    "@types/helmet": "^0.0.48",
+    "@types/joi": "^17.2.2",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/mongoose": "^5.11.96",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.2.0",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^6.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0"
+  },
+  "keywords": [
+    "recipe",
+    "matching",
+    "api",
+    "mongodb",
+    "express"
+  ],
+  "author": "DinDin Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
+
+
+
+================================================
+FILE: app/backend/server.ts
+================================================
+// DinDin Backend Server - TypeScript version
+// Main entry point for the Express API server
+
+import express, { json, urlencoded, Request, Response } from "express";
+import mongoose from "mongoose";
+const { connect, connection } = mongoose;
+import cors from "cors";
+import helmet from "helmet";
+import compression from "compression";
+import rateLimit from "express-rate-limit";
+import morgan from "morgan";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+// Import routes
+import recipeRoutes from "./routes/recipes.js";
+import swipeRoutes from "./routes/swipes.js";
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
+
+// Import middleware
+import errorHandler from "./middleware/errorHandler.js";
+import notFound from "./middleware/notFound.js";
+
+// Initialize Express app
+const app = express();
+
+// Environment variables with type safety
+const PORT = parseInt(process.env.PORT || "3001", 10);
+const NODE_ENV = process.env.NODE_ENV || "development";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/";
+const DATABASE_NAME = process.env.DATABASE_NAME || "dindin";
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:8081";
+
+// Security middleware
+app.use(
+  helmet({
+    crossOriginEmbedderPolicy: false,
+  })
+);
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || "900000", 10), // 15 minutes
+  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "100", 10), // limit each IP to 100 requests per windowMs
+  message: {
+    error: "Too many requests from this IP, please try again later.",
+    statusCode: 429,
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use(limiter);
+
+// CORS configuration
+app.use(
+  cors({
+    origin: CORS_ORIGIN.split(",").map((origin) => origin.trim()),
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+// Compression middleware
+app.use(compression());
+
+// Body parsing middleware
+app.use(json({ limit: "10mb" }));
+app.use(urlencoded({ extended: true, limit: "10mb" }));
+
+// Logging middleware
+if (NODE_ENV === "development") {
+  app.use(morgan("dev"));
+} else {
+  app.use(morgan("combined"));
+}
+
+// MongoDB connection
+connect(`${MONGODB_URI}${DATABASE_NAME}`)
+  .then(() => {
+    console.log(`✅ Connected to MongoDB database: ${DATABASE_NAME}`);
+  })
+  .catch((error: Error) => {
+    console.error("❌ MongoDB connection error:", error);
+    process.exit(1);
+  });
+
+// Health check endpoint
+app.get("/health", (_req: Request, res: Response) => {
+  res.json({
+    status: "OK",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: NODE_ENV,
+    database: connection.readyState === 1 ? "connected" : "disconnected",
+  });
+});
+
+// API routes
+app.use("/api/recipes", recipeRoutes);
+app.use("/api/swipes", swipeRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+
+// API documentation endpoint
+app.get("/api", (_req: Request, res: Response) => {
+  res.json({
+    name: "DinDin API",
+    version: "1.0.0",
+    description: "Recipe matching and swipe tracking API",
+    endpoints: {
+      recipes: {
+        "GET /api/recipes": "Get all recipes with optional filtering",
+        "GET /api/recipes/personalized": "Get personalized recipes",
+        "GET /api/recipes/search": "Search recipes by text",
+        "GET /api/recipes/:id": "Get recipe by ID",
+        "POST /api/recipes": "Create new recipe (admin)",
+        "PUT /api/recipes/:id": "Update recipe (admin)",
+        "DELETE /api/recipes/:id": "Delete recipe (admin)",
+      },
+      swipes: {
+        "POST /api/swipes": "Record a swipe action",
+        "GET /api/swipes/history/:userId": "Get user swipe history",
+      },
+      users: {
+        "GET /api/users/:id": "Get user profile",
+        "PUT /api/users/:id": "Update user profile",
+      },
+      auth: {
+        "POST /api/auth/register": "Register new user",
+        "POST /api/auth/login": "User login",
+        "POST /api/auth/logout": "User logout",
+        "POST /api/auth/refresh": "Refresh auth token",
+      },
+    },
+    documentation: "/api/docs",
+  });
+});
+
+// 404 handler
+app.use(notFound);
+
+// Global error handler
+app.use(errorHandler);
+
+// Start server
+const server = app.listen(PORT, () => {
+  console.log(`🚀 DinDin API server running on port ${PORT}`);
+  console.log(`📱 Frontend CORS origin: ${CORS_ORIGIN}`);
+  console.log(`🌍 Environment: ${NODE_ENV}`);
+  console.log(`📚 API Documentation: http://localhost:${PORT}/api`);
+});
+
+// Graceful shutdown
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received. Shutting down gracefully...");
+  server.close(() => {
+    connection.close().then(() => {
+      console.log("MongoDB connection closed.");
+      process.exit(0);
+    });
+  });
+});
+
+process.on("SIGINT", () => {
+  console.log("SIGINT received. Shutting down gracefully...");
+  server.close(() => {
+    connection.close().then(() => {
+      console.log("MongoDB connection closed.");
+      process.exit(0);
+    });
+  });
+});
+
+export default app;
+
+
+
+================================================
+FILE: app/backend/tsconfig.json
+================================================
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": false,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}
+
+
+
+================================================
+FILE: app/backend/middleware/errorHandler.ts
+================================================
+// Global Error Handler Middleware
+// Handles all errors and provides consistent error responses
+
+import type { Request, Response, NextFunction } from "express";
+import type { ValidationError } from "../types/index.js";
+
+interface ErrorWithStatusCode extends Error {
+  statusCode?: number;
+  code?: number;
+  keyValue?: Record<string, unknown>;
+  errors?: Record<string, { path: string; message: string }>;
+}
+
+const errorHandler = (
+  err: ErrorWithStatusCode,
+  req: Request,
+  res: Response,
+  _next: NextFunction
+): void => {
+  const error = { ...err };
+  error.message = err.message;
+
+  // Log error
+  console.error("Error:", {
+    message: error.message,
+    stack: process.env.NODE_ENV === "development" ? err.stack : undefined,
+    url: req.originalUrl,
+    method: req.method,
+    ip: req.ip,
+    timestamp: new Date().toISOString(),
+  });
+
+  // Mongoose bad ObjectId
+  if (err.name === "CastError") {
+    const message = "Resource not found";
+    res.status(404).json({
+      success: false,
+      message,
+      error: "Invalid ID format",
+    });
+    return;
+  }
+
+  // Mongoose duplicate key
+  if (err.code === 11000) {
+    const field = Object.keys(err.keyValue || {})[0] || 'unknown';
+    const message = `Duplicate field value for ${field}`;
+    res.status(409).json({
+      success: false,
+      message,
+      error: `${field} already exists`,
+    });
+    return;
+  }
+
+  // Mongoose validation error
+  if (err.name === "ValidationError" && err.errors) {
+    const message = "Validation Error";
+    const errors: ValidationError[] = Object.values(err.errors).map((val) => ({
+      field: val.path,
+      message: val.message,
+    }));
+
+    res.status(400).json({
+      success: false,
+      message,
+      errors,
+    });
+    return;
+  }
+
+  // JWT errors
+  if (err.name === "JsonWebTokenError") {
+    res.status(401).json({
+      success: false,
+      message: "Invalid token",
+    });
+    return;
+  }
+
+  if (err.name === "TokenExpiredError") {
+    res.status(401).json({
+      success: false,
+      message: "Token expired",
+    });
+    return;
+  }
+
+  // Default error
+  res.status(error.statusCode || 500).json({
+    success: false,
+    message: error.message || "Server Error",
+    error: process.env.NODE_ENV === "development" ? error.stack : undefined,
+  });
+};
+
+export default errorHandler;
+
+
+
+================================================
+FILE: app/backend/middleware/notFound.ts
+================================================
+// 404 Not Found Middleware
+// Handles requests to non-existent endpoints
+
+import type { Request, Response, NextFunction } from "express";
+
+const notFound = (req: Request, res: Response, _next: NextFunction): void => {
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.originalUrl} not found`,
+    availableEndpoints: {
+      recipes: {
+        "GET /api/recipes": "Get all recipes",
+        "GET /api/recipes/personalized": "Get personalized recipes",
+        "GET /api/recipes/search": "Search recipes",
+        "GET /api/recipes/:id": "Get recipe by ID",
+      },
+      swipes: {
+        "POST /api/swipes": "Record swipe",
+        "GET /api/swipes/history/:userId": "Get swipe history",
+      },
+      auth: {
+        "POST /api/auth/login": "Login",
+        "POST /api/auth/register": "Register",
+        "POST /api/auth/logout": "Logout",
+      },
+      documentation: "GET /api",
+    },
+  });
+};
+
+export default notFound;
+
+
+
+================================================
+FILE: app/backend/models/Recipe.ts
+================================================
+// Recipe Model for MongoDB
+// Based on schema-dindin-recipes-standardJSON.json
+
+import { Schema, model, Model } from "mongoose";
+import type { IRecipe, IRecipeStatics, IIngredient, IInstruction, INutrition, IImportMetadata } from "../types/index.js";
+
+type RecipeModel = Model<IRecipe> & IRecipeStatics;
+
+// Ingredient subdocument schema
+const IngredientSchema = new Schema<IIngredient>({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  amount: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  unit: {
+    type: String,
+    default: null,
+    trim: true,
+  },
+});
+
+// Instruction subdocument schema
+const InstructionSchema = new Schema<IInstruction>({
+  step: {
+    type: Number,
+    required: true,
+    min: 1,
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  duration: {
+    type: Number,
+    default: null,
+    min: 0,
+  },
+});
+
+// Nutrition subdocument schema
+const NutritionSchema = new Schema<INutrition>({
+  calories: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  protein: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  carbs: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  fat: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  fiber: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  sugar: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+});
+
+// Import metadata subdocument schema
+const ImportMetadataSchema = new Schema<IImportMetadata>({
+  source_url: {
+    type: String,
+    required: true,
+  },
+  scraper_name: {
+    type: String,
+    required: true,
+  },
+  scraper_version: {
+    type: String,
+    required: true,
+  },
+  confidence_score: {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 1,
+  },
+  extracted_at: {
+    type: String,
+    required: true,
+  },
+  notes: {
+    type: String,
+    required: true,
+  },
+});
+
+// Main Recipe schema
+const RecipeSchema = new Schema<IRecipe, RecipeModel>(
+  {
+    title: {
+      type: String,
+      required: true,
+      trim: true,
+      maxlength: 200,
+    },
+    description: {
+      type: String,
+      required: true,
+      trim: true,
+      maxlength: 1000,
+    },
+    difficulty: {
+      type: String,
+      required: true,
+      enum: ["easy", "medium", "hard"],
+      lowercase: true,
+    },
+    ingredients: {
+      type: [IngredientSchema],
+      required: true,
+      validate: {
+        validator: function (v: IIngredient[]): boolean {
+          return Array.isArray(v) && v.length > 0;
+        },
+        message: "Recipe must have at least one ingredient",
+      },
+    },
+    instructions: {
+      type: [InstructionSchema],
+      required: true,
+      validate: {
+        validator: function (v: IInstruction[]): boolean {
+          return Array.isArray(v) && v.length > 0;
+        },
+        message: "Recipe must have at least one instruction",
+      },
+    },
+
+    // Timing fields
+    cook_time: {
+      type: Number,
+      min: 0,
+    },
+    cookTime: {
+      type: Number,
+      min: 0,
+    },
+    prep_time: {
+      type: Number,
+      min: 0,
+    },
+    prepTime: {
+      type: Number,
+      min: 0,
+    },
+
+    // Media
+    image: {
+      type: String,
+      trim: true,
+    },
+    image_url: {
+      type: String,
+      trim: true,
+    },
+
+    // Categories and tags
+    cuisine: [
+      {
+        type: String,
+        trim: true,
+        lowercase: true,
+      },
+    ],
+    cuisine_type: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    dietary: [
+      {
+        type: String,
+        trim: true,
+        lowercase: true,
+      },
+    ],
+    dietary_tags: [
+      {
+        type: String,
+        trim: true,
+        lowercase: true,
+      },
+    ],
+    tags: [
+      {
+        type: String,
+        trim: true,
+        lowercase: true,
+      },
+    ],
+
+    // Metrics
+    likes: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    dislikes: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    servings: {
+      type: Number,
+      min: 1,
+      default: 4,
+    },
+
+    // Optional nutrition info
+    nutrition: NutritionSchema,
+
+    // Import metadata
+    import_metadata: ImportMetadataSchema,
+
+    // Status
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  {
+    timestamps: true, // Adds createdAt and updatedAt
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
+
+// Indexes for performance
+RecipeSchema.index({ title: "text", description: "text" }); // Text search
+RecipeSchema.index({ difficulty: 1 });
+RecipeSchema.index({ cuisine_type: 1 });
+RecipeSchema.index({ dietary_tags: 1 });
+RecipeSchema.index({ tags: 1 });
+RecipeSchema.index({ isActive: 1 });
+RecipeSchema.index({ likes: -1 }); // Sort by popularity
+RecipeSchema.index({ createdAt: -1 }); // Sort by newest
+
+// Virtual for total time
+RecipeSchema.virtual("totalTime").get(function (this: IRecipe): number {
+  const cookTime = this.cook_time || this.cookTime || 0;
+  const prepTime = this.prep_time || this.prepTime || 0;
+  return cookTime + prepTime;
+});
+
+// Virtual for rating calculation
+RecipeSchema.virtual("rating").get(function (this: IRecipe): number {
+  const total = this.likes + this.dislikes;
+  if (total === 0) return 0;
+  return (this.likes / total) * 5;
+});
+
+// Static method to get random recipes
+RecipeSchema.statics.getRandomRecipes = function (
+  this: RecipeModel,
+  limit = 50,
+  filters: Record<string, unknown> = {}
+): Promise<IRecipe[]> {
+  const matchStage = { isActive: true, ...filters };
+
+  return this.aggregate([{ $match: matchStage }, { $sample: { size: limit } }]);
+};
+
+// Static method for text search
+RecipeSchema.statics.searchRecipes = function (
+  this: RecipeModel,
+  searchText: string,
+  filters: Record<string, unknown> = {},
+  limit = 20
+): Promise<IRecipe[]> {
+  const matchStage = {
+    isActive: true,
+    $text: { $search: searchText },
+    ...filters,
+  };
+
+  return this.find(matchStage, { score: { $meta: "textScore" } })
+    .sort({ score: { $meta: "textScore" } })
+    .limit(limit);
+};
+
+// Instance method to increment likes
+RecipeSchema.methods.like = function (this: IRecipe): Promise<IRecipe> {
+  this.likes = (this.likes || 0) + 1;
+  return this.save();
+};
+
+// Instance method to increment dislikes
+RecipeSchema.methods.dislike = function (this: IRecipe): Promise<IRecipe> {
+  this.dislikes = (this.dislikes || 0) + 1;
+  return this.save();
+};
+
+// Pre-save middleware to ensure instruction steps are sequential
+RecipeSchema.pre<IRecipe>("save", function (next) {
+  if (this.isModified("instructions")) {
+    this.instructions.sort((a, b) => a.step - b.step);
+
+    // Ensure steps are sequential starting from 1
+    this.instructions.forEach((instruction, index) => {
+      instruction.step = index + 1;
+    });
+  }
+  next();
+});
+
+export default model<IRecipe, RecipeModel>("Recipe", RecipeSchema);
+
+
+
+================================================
+FILE: app/backend/models/Swipe.ts
+================================================
+// Swipe Model for tracking user swipe actions
+
+import { Schema, model, Model, Types } from "mongoose";
+import type { ISwipe, ISwipeStatics, ISwipeStats } from "../types/index.js";
+
+type SwipeModel = Model<ISwipe> & ISwipeStatics;
+
+const SwipeSchema = new Schema<ISwipe, SwipeModel>(
+  {
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    recipeId: {
+      type: Schema.Types.ObjectId,
+      ref: "Recipe",
+      required: true,
+    },
+    direction: {
+      type: String,
+      required: true,
+      enum: ["left", "right", "up", "down"],
+      lowercase: true,
+    },
+    timestamp: {
+      type: Date,
+      default: Date.now,
+      required: true,
+    },
+    sessionId: {
+      type: String,
+      trim: true,
+    },
+    deviceInfo: {
+      platform: String,
+      version: String,
+      model: String,
+      userAgent: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+// Indexes for performance
+SwipeSchema.index({ userId: 1, timestamp: -1 }); // User's swipe history
+SwipeSchema.index({ recipeId: 1 }); // Recipe popularity tracking
+SwipeSchema.index({ userId: 1, recipeId: 1 }, { unique: true }); // Prevent duplicate swipes
+SwipeSchema.index({ timestamp: -1 }); // Recent swipes
+
+// Static method to get user's swipe history
+SwipeSchema.statics.getSwipeHistory = function (
+  this: SwipeModel,
+  userId: Types.ObjectId,
+  limit = 100,
+  skip = 0
+): Promise<ISwipe[]> {
+  return this.find({ userId })
+    .populate("recipeId", "title image_url")
+    .populate("user", "name email")
+    .sort({ timestamp: -1 })
+    .skip(skip)
+    .limit(limit);
+};
+
+// Static method to get swipe statistics for a user
+SwipeSchema.statics.getSwipeStats = function (
+  this: SwipeModel,
+  userId: Types.ObjectId
+): Promise<ISwipeStats> {
+  return this.aggregate([
+    { $match: { userId } },
+    {
+      $group: {
+        _id: "$direction",
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        totalSwipes: { $sum: "$count" },
+        directions: {
+          $push: {
+            direction: "$_id",
+            count: "$count",
+          },
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        totalSwipes: 1,
+        rightSwipes: {
+          $sum: {
+            $map: {
+              input: {
+                $filter: {
+                  input: "$directions",
+                  cond: { $eq: ["$$this.direction", "right"] },
+                },
+              },
+              as: "item",
+              in: "$$item.count",
+            },
+          },
+        },
+        leftSwipes: {
+          $sum: {
+            $map: {
+              input: {
+                $filter: {
+                  input: "$directions",
+                  cond: { $eq: ["$$this.direction", "left"] },
+                },
+              },
+              as: "item",
+              in: "$$item.count",
+            },
+          },
+        },
+        upSwipes: {
+          $sum: {
+            $map: {
+              input: {
+                $filter: {
+                  input: "$directions",
+                  cond: { $eq: ["$$this.direction", "up"] },
+                },
+              },
+              as: "item",
+              in: "$$item.count",
+            },
+          },
+        },
+        downSwipes: {
+          $sum: {
+            $map: {
+              input: {
+                $filter: {
+                  input: "$directions",
+                  cond: { $eq: ["$$this.direction", "down"] },
+                },
+              },
+              as: "item",
+              in: "$$item.count",
+            },
+          },
+        },
+      },
+    },
+    {
+      $addFields: {
+        swipeRate: {
+          $cond: {
+            if: { $eq: ["$totalSwipes", 0] },
+            then: 0,
+            else: { $divide: ["$rightSwipes", "$totalSwipes"] },
+          },
+        },
+      },
+    },
+  ]).then((result) => {
+    if (result.length === 0) {
+      return {
+        totalSwipes: 0,
+        rightSwipes: 0,
+        leftSwipes: 0,
+        upSwipes: 0,
+        downSwipes: 0,
+        swipeRate: 0,
+      };
+    }
+    return result[0] as ISwipeStats;
+  });
+};
+
+// Static method to find potential matches
+SwipeSchema.statics.findMatches = function (
+  this: SwipeModel,
+  userId: Types.ObjectId,
+  recipeId: Types.ObjectId
+): Promise<ISwipe[]> {
+  return this.find({
+    recipeId,
+    direction: "right",
+    userId: { $ne: userId },
+  })
+    .populate("userId", "name email preferences")
+    .populate("recipeId", "title image_url difficulty cuisine_type")
+    .limit(10);
+};
+
+// Instance method to check if this swipe creates a match
+SwipeSchema.methods.checkForMatch = async function (
+  this: ISwipe
+): Promise<{ recipeId: Types.ObjectId; matchedUserId: Types.ObjectId; matchedAt: Date; confidence: number } | null> {
+  if (this.direction !== "right") return null;
+
+  // Simple match simulation - 30% chance for demo purposes
+  const shouldMatch = Math.random() < 0.3;
+
+  if (shouldMatch) {
+    // In a real app, you'd look for mutual right swipes
+    const SwipeModel = this.constructor as SwipeModel;
+    const potentialMatches = await SwipeModel.findMatches(
+      this.userId,
+      this.recipeId
+    );
+
+    if (potentialMatches.length > 0) {
+      const randomMatch =
+        potentialMatches[Math.floor(Math.random() * potentialMatches.length)];
+
+      return {
+        recipeId: this.recipeId,
+        matchedUserId: randomMatch.userId,
+        matchedAt: new Date(),
+        confidence: Math.random() * 0.3 + 0.7, // 70-100% confidence
+      };
+    }
+  }
+
+  return null;
+};
+
+// Instance method to check if this swipe creates a match
+SwipeSchema.methods.checkForMatch = async function (
+  this: ISwipe
+): Promise<{ recipeId: Types.ObjectId; matchedUserId: Types.ObjectId; matchedAt: Date; confidence: number } | null> {
+  if (this.direction !== "right") return null;
+
+  // Simple match simulation - 30% chance for demo purposes
+  const shouldMatch = Math.random() < 0.3;
+
+  if (shouldMatch) {
+    // In a real app, you'd look for mutual right swipes
+    const SwipeModel = this.constructor as SwipeModel;
+    const potentialMatches = await SwipeModel.findMatches(
+      this.userId,
+      this.recipeId
+    );
+
+    if (potentialMatches.length > 0) {
+      const randomMatch =
+        potentialMatches[Math.floor(Math.random() * potentialMatches.length)];
+
+      return {
+        recipeId: this.recipeId,
+        matchedUserId: randomMatch.userId,
+        matchedAt: new Date(),
+        confidence: Math.random() * 0.3 + 0.7, // 70-100% confidence
+      };
+    }
+  }
+
+  return null;
+};
+
+export default model<ISwipe, SwipeModel>("Swipe", SwipeSchema);
+
+
+
+================================================
+FILE: app/backend/models/User.ts
+================================================
+// User Model for user profiles and preferences
+
+import { Schema, model, Model, Types } from "mongoose";
+import bcrypt from "bcryptjs";
+import type { IUser, IUserStatics, SwipeDirection } from "../types/index.js";
+
+type UserModel = Model<IUser> & IUserStatics;
+
+const UserSchema = new Schema<IUser, UserModel>(
+  {
+    // Basic user info
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+      match: [
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+        "Please enter a valid email",
+      ],
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 6,
+    },
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+      maxlength: 100,
+    },
+    profilePicture: {
+      type: String,
+      trim: true,
+    },
+
+    // User preferences for recipe matching
+    preferences: {
+      dietary_restrictions: [
+        {
+          type: String,
+          enum: [
+            "vegetarian",
+            "vegan",
+            "gluten-free",
+            "dairy-free",
+            "nut-free",
+            "keto",
+            "paleo",
+            "pescatarian",
+          ],
+          lowercase: true,
+        },
+      ],
+      cuisine_preferences: [
+        {
+          type: String,
+          lowercase: true,
+          trim: true,
+        },
+      ],
+      difficulty_preference: {
+        type: String,
+        enum: ["easy", "medium", "hard", "any"],
+        default: "any",
+        lowercase: true,
+      },
+      max_cook_time: {
+        type: Number,
+        min: 5,
+        max: 300,
+        default: 60,
+      },
+      spice_tolerance: {
+        type: String,
+        enum: ["none", "mild", "medium", "hot", "very-hot"],
+        default: "medium",
+        lowercase: true,
+      },
+    },
+
+    // User activity stats
+    stats: {
+      total_swipes: {
+        type: Number,
+        default: 0,
+        min: 0,
+      },
+      right_swipes: {
+        type: Number,
+        default: 0,
+        min: 0,
+      },
+      matches: {
+        type: Number,
+        default: 0,
+        min: 0,
+      },
+      recipes_cooked: {
+        type: Number,
+        default: 0,
+        min: 0,
+      },
+      last_active: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+
+    // Account status
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
+    emailVerified: {
+      type: Boolean,
+      default: false,
+    },
+
+    // Authentication tokens
+    refreshTokens: [
+      {
+        token: String,
+        createdAt: {
+          type: Date,
+          default: Date.now,
+          expires: "7d",
+        },
+      },
+    ],
+  },
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      transform: function (_doc: unknown, ret: Record<string, unknown>) {
+        delete ret.password;
+        delete ret.refreshTokens;
+        return ret;
+      },
+    },
+    toObject: { virtuals: true },
+  }
+);
+
+// Indexes
+UserSchema.index({ email: 1 }, { unique: true });
+UserSchema.index({ "stats.last_active": -1 });
+UserSchema.index({ isActive: 1 });
+
+// Virtual for match rate
+UserSchema.virtual("matchRate").get(function (this: IUser): number {
+  if (this.stats.right_swipes === 0) return 0;
+  return (this.stats.matches / this.stats.right_swipes) * 100;
+});
+
+// Hash password before saving
+UserSchema.pre<IUser>("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    next(error as Error);
+  }
+});
+
+// Instance method to check password
+UserSchema.methods.comparePassword = async function (
+  this: IUser,
+  candidatePassword: string
+): Promise<boolean> {
+  return bcrypt.compare(candidatePassword, this.password);
+};
+
+// Instance method to update activity
+UserSchema.methods.updateActivity = function (this: IUser): Promise<IUser> {
+  this.stats.last_active = new Date();
+  return this.save();
+};
+
+// Instance method to record swipe
+UserSchema.methods.recordSwipe = function (
+  this: IUser,
+  direction: SwipeDirection
+): Promise<IUser> {
+  this.stats.total_swipes += 1;
+  if (direction === "right") {
+    this.stats.right_swipes += 1;
+  }
+  this.updateActivity();
+  return this.save();
+};
+
+// Instance method to record match
+UserSchema.methods.recordMatch = function (this: IUser): Promise<IUser> {
+  this.stats.matches += 1;
+  this.updateActivity();
+  return this.save();
+};
+
+// Static method to find users for matching
+UserSchema.statics.findActiveUsers = function (
+  this: UserModel,
+  excludeUserId: Types.ObjectId,
+  limit = 50
+): Promise<IUser[]> {
+  return this.find({
+    _id: { $ne: excludeUserId },
+    isActive: true,
+    "stats.last_active": {
+      $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
+    }, // Active in last 30 days
+  }).limit(limit);
+};
+
+export default model<IUser, UserModel>("User", UserSchema);
+
+
+
+================================================
+FILE: app/backend/routes/auth.ts
+================================================
+// Authentication API Routes
+// Handles user registration, login, and token management
+
+import { Router, Request, Response, NextFunction } from "express";
+import { body, validationResult } from "express-validator";
+import jwt, { JwtPayload } from "jsonwebtoken";
+const { sign, verify } = jwt;
+// Types import removed as we don't need it - Mongoose handles ObjectId conversion
+import User from "../models/User.js";
+import type {
+  ApiResponse,
+  LoginRequest,
+  RegisterRequest,
+  RefreshTokenRequest,
+  AuthResponse,
+  AuthTokens,
+  UserProfile,
+} from "../types/index.js";
+
+const router = Router();
+
+// Validation middleware
+const handleValidationErrors = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(400).json({
+      success: false,
+      message: "Validation error",
+      errors: errors.array().map((error) => {
+        if (error.type === "field") {
+          return {
+            field: error.path,
+            message: error.msg,
+            value: error.value,
+            location: error.location,
+          };
+        }
+        return {
+          field: "unknown",
+          message: error.msg,
+        };
+      }),
+    } as ApiResponse);
+    return;
+  }
+  next();
+};
+
+// Generate JWT tokens
+const generateTokens = (userId: string): AuthTokens => {
+  const secret = process.env.JWT_SECRET || "your-secret-key";
+
+  // Note: Using type assertion to work around @types/jsonwebtoken compatibility issue
+  const accessToken = (sign as any)({ userId }, secret, {
+    expiresIn: process.env.JWT_EXPIRES_IN || "1h",
+  });
+  const refreshToken = (sign as any)({ userId }, secret, {
+    expiresIn: "7d",
+  });
+
+  return { accessToken, refreshToken };
+};
+
+// POST /api/auth/register - Register new user
+router.post(
+  "/register",
+  [
+    body("name")
+      .notEmpty()
+      .trim()
+      .isLength({ max: 100 })
+      .withMessage("Name is required and must be less than 100 characters"),
+    body("email")
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("Valid email is required"),
+    body("password")
+      .isLength({ min: 6 })
+      .withMessage("Password must be at least 6 characters long"),
+  ],
+  handleValidationErrors,
+  async (
+    req: Request<object, ApiResponse<AuthResponse>, RegisterRequest>,
+    res: Response<ApiResponse<AuthResponse>>
+  ) => {
+    try {
+      const { name, email, password } = req.body;
+
+      // Check if user already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        res.status(409).json({
+          success: false,
+          message: "User with this email already exists",
+        });
+        return;
+      }
+
+      // Create new user
+      const user = new User({
+        name,
+        email,
+        password, // Will be hashed by pre-save middleware
+        preferences: {
+          dietary_restrictions: [],
+          cuisine_preferences: [],
+          difficulty_preference: "any",
+          max_cook_time: 60,
+          spice_tolerance: "medium",
+        },
+      });
+
+      await user.save();
+
+      // Generate tokens
+      const { accessToken, refreshToken } = generateTokens(user._id.toString());
+
+      // Save refresh token
+      user.refreshTokens = user.refreshTokens || [];
+      user.refreshTokens.push({ token: refreshToken, createdAt: new Date() });
+      await user.save();
+
+      const userProfile: UserProfile = {
+        id: user._id.toString(),
+        name: user.name,
+        email: user.email,
+        preferences: user.preferences,
+      };
+
+      res.status(201).json({
+        success: true,
+        data: {
+          user: userProfile,
+          tokens: {
+            accessToken,
+            refreshToken,
+          },
+        },
+        message: "User registered successfully",
+      });
+    } catch (error) {
+      console.error("Error registering user:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : undefined,
+      });
+    }
+  }
+);
+
+// POST /api/auth/login - User login
+router.post(
+  "/login",
+  [
+    body("email")
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("Valid email is required"),
+    body("password").notEmpty().withMessage("Password is required"),
+  ],
+  handleValidationErrors,
+  async (
+    req: Request<object, ApiResponse<AuthResponse>, LoginRequest>,
+    res: Response<ApiResponse<AuthResponse>>
+  ) => {
+    try {
+      const { email, password } = req.body;
+
+      // Find user
+      const user = await User.findOne({ email, isActive: true });
+      if (!user) {
+        res.status(401).json({
+          success: false,
+          message: "Invalid email or password",
+        });
+        return;
+      }
+
+      // Check password
+      const isMatch = await user.comparePassword(password);
+      if (!isMatch) {
+        res.status(401).json({
+          success: false,
+          message: "Invalid email or password",
+        });
+        return;
+      }
+
+      // Generate tokens
+      const { accessToken, refreshToken } = generateTokens(user._id.toString());
+
+      // Save refresh token
+      user.refreshTokens = user.refreshTokens || [];
+      user.refreshTokens.push({ token: refreshToken, createdAt: new Date() });
+      await user.updateActivity();
+
+      const userProfile: UserProfile = {
+        id: user._id.toString(),
+        name: user.name,
+        email: user.email,
+        preferences: user.preferences,
+        stats: user.stats,
+      };
+
+      res.json({
+        success: true,
+        data: {
+          user: userProfile,
+          tokens: {
+            accessToken,
+            refreshToken,
+          },
+        },
+        message: "Login successful",
+      });
+    } catch (error) {
+      console.error("Error during login:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : undefined,
+      });
+    }
+  }
+);
+
+// POST /api/auth/refresh - Refresh access token
+router.post(
+  "/refresh",
+  [body("refreshToken").notEmpty().withMessage("Refresh token is required")],
+  handleValidationErrors,
+  async (
+    req: Request<
+      object,
+      ApiResponse<{ tokens: AuthTokens }>,
+      RefreshTokenRequest
+    >,
+    res: Response<ApiResponse<{ tokens: AuthTokens }>>
+  ) => {
+    try {
+      const { refreshToken } = req.body;
+
+      // Verify refresh token
+      let decoded: string | JwtPayload;
+      try {
+        decoded = verify(
+          refreshToken,
+          process.env.JWT_SECRET || "your-secret-key"
+        );
+      } catch {
+        res.status(401).json({
+          success: false,
+          message: "Invalid refresh token",
+        });
+        return;
+      }
+
+      const userId = typeof decoded === "object" && decoded.userId;
+      if (!userId) {
+        res.status(401).json({
+          success: false,
+          message: "Invalid refresh token",
+        });
+        return;
+      }
+
+      // Find user and check if refresh token exists
+      const user = await User.findOne({
+        _id: userId,
+        "refreshTokens.token": refreshToken,
+        isActive: true,
+      });
+
+      if (!user) {
+        res.status(401).json({
+          success: false,
+          message: "Invalid refresh token",
+        });
+        return;
+      }
+
+      // Generate new tokens
+      const tokens = generateTokens(user._id.toString());
+
+      // Remove old refresh token and add new one
+      user.refreshTokens = user.refreshTokens.filter(
+        (t) => t.token !== refreshToken
+      );
+      user.refreshTokens.push({
+        token: tokens.refreshToken,
+        createdAt: new Date(),
+      });
+      await user.save();
+
+      res.json({
+        success: true,
+        data: {
+          tokens,
+        },
+        message: "Tokens refreshed successfully",
+      });
+    } catch (error) {
+      console.error("Error refreshing token:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : undefined,
+      });
+    }
+  }
+);
+
+// POST /api/auth/logout - User logout
+router.post(
+  "/logout",
+  [body("refreshToken").optional().isString()],
+  async (
+    req: Request<object, ApiResponse, { refreshToken?: string }>,
+    res: Response<ApiResponse>
+  ) => {
+    try {
+      const { refreshToken } = req.body;
+
+      if (refreshToken) {
+        // Remove specific refresh token
+        await User.updateOne(
+          { "refreshTokens.token": refreshToken },
+          { $pull: { refreshTokens: { token: refreshToken } } }
+        );
+      }
+
+      res.json({
+        success: true,
+        message: "Logout successful",
+      });
+    } catch (error) {
+      console.error("Error during logout:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : undefined,
+      });
+    }
+  }
+);
+
+export default router;
+
+
+
+================================================
+FILE: app/backend/routes/recipes.ts
+================================================
+// Recipe API Routes - TypeScript version with basic endpoints
+
+import { Router, Request, Response, NextFunction } from "express";
+import { param, validationResult } from "express-validator";
+import Recipe from "../models/Recipe.js";
+import type { ApiResponse, IRecipe } from "../types/index.js";
+
+const router = Router();
+
+// Validation middleware
+const handleValidationErrors = (req: Request, res: Response, next: NextFunction): void => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(400).json({
+      success: false,
+      message: "Validation error",
+      errors: errors.array().map(error => {
+        if (error.type === 'field') {
+          return {
+            field: error.path,
+            message: error.msg,
+            value: error.value,
+            location: error.location
+          };
+        }
+        return {
+          field: 'unknown',
+          message: error.msg,
+        };
+      }),
+    } as ApiResponse);
+    return;
+  }
+  next();
+};
+
+// GET /api/recipes - Get recipes with basic filtering
+router.get("/", async (_req: Request, res: Response<ApiResponse<IRecipe[]>>) => {
+  try {
+    const recipes = await Recipe.getRandomRecipes(50);
+    res.json({
+      success: true,
+      data: recipes,
+      message: `Found ${recipes.length} recipes`,
+    });
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: process.env.NODE_ENV === "development" && error instanceof Error ? error.message : undefined,
+    });
+  }
+});
+
+// GET /api/recipes/personalized - Get personalized recipes (must come before /:id route)
+router.get("/personalized", async (_req: Request, res: Response<ApiResponse<IRecipe[]>>) => {
+  try {
+    // For now, return random recipes - can be enhanced with user preferences later
+    const recipes = await Recipe.getRandomRecipes(50);
+    res.json({
+      success: true,
+      data: recipes,
+      message: `Found ${recipes.length} personalized recipes`,
+    });
+  } catch (error) {
+    console.error("Error fetching personalized recipes:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: process.env.NODE_ENV === "development" && error instanceof Error ? error.message : undefined,
+    });
+  }
+});
+
+// GET /api/recipes/personalized/:userId - Get personalized recipes for specific user
+router.get("/personalized/:userId",
+  [param("userId").notEmpty().withMessage("User ID is required")],
+  handleValidationErrors,
+  async (req: Request<{ userId: string }>, res: Response<ApiResponse<IRecipe[]>>) => {
+    try {
+      // For now, return random recipes - can be enhanced with user preferences later
+      const recipes = await Recipe.getRandomRecipes(50);
+      res.json({
+        success: true,
+        data: recipes,
+        message: `Found ${recipes.length} personalized recipes for user ${req.params.userId}`,
+      });
+    } catch (error) {
+      console.error("Error fetching personalized recipes:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error: process.env.NODE_ENV === "development" && error instanceof Error ? error.message : undefined,
+      });
+    }
+  }
+);
+
+// GET /api/recipes/:id - Get recipe by ID
+router.get(
+  "/:id",
+  [param("id").notEmpty().withMessage("Recipe ID is required")],
+  handleValidationErrors,
+  async (req: Request<{ id: string }>, res: Response<ApiResponse<IRecipe>>) => {
+    try {
+      const recipe = await Recipe.findById(req.params.id);
+      if (!recipe) {
+        res.status(404).json({
+          success: false,
+          message: "Recipe not found",
+        });
+        return;
+      }
+      res.json({
+        success: true,
+        data: recipe,
+        message: "Recipe retrieved successfully",
+      });
+    } catch (error) {
+      console.error("Error fetching recipe:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error: process.env.NODE_ENV === "development" && error instanceof Error ? error.message : undefined,
+      });
+    }
+  }
+);
+
+export default router;
+
+
+
+================================================
+FILE: app/backend/routes/swipes.ts
+================================================
+// Swipe API Routes - TypeScript version
+
+import { Router, Request, Response, NextFunction } from "express";
+import { body, param, validationResult } from "express-validator";
+import { Types } from "mongoose";
+import Swipe from "../models/Swipe.js";
+import User from "../models/User.js";
+import type {
+  ApiResponse,
+  ISwipe,
+  SwipeDirection,
+  DatabaseError,
+} from "../types/index.js";
+
+const router = Router();
+
+// Validation middleware
+const handleValidationErrors = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(400).json({
+      success: false,
+      message: "Validation error",
+      errors: errors.array().map((error) => {
+        if (error.type === "field") {
+          return {
+            field: error.path,
+            message: error.msg,
+            value: error.value,
+            location: error.location,
+          };
+        }
+        return {
+          field: "unknown",
+          message: error.msg,
+        };
+      }),
+    } as ApiResponse);
+    return;
+  }
+  next();
+};
+
+// Request body for recording swipes
+interface RecordSwipeRequest {
+  userId: string;
+  recipeId: string;
+  direction: SwipeDirection;
+  sessionId?: string;
+  deviceInfo?: {
+    platform?: string;
+    version?: string;
+    model?: string;
+    userAgent?: string;
+  };
+}
+
+// POST /api/swipes - Record a swipe action
+router.post(
+  "/",
+  [
+    body("userId").notEmpty().withMessage("User ID is required"),
+    body("recipeId").notEmpty().withMessage("Recipe ID is required"),
+    body("direction")
+      .isIn(["left", "right", "up", "down"])
+      .withMessage("Direction must be left, right, up, or down"),
+  ],
+  handleValidationErrors,
+  async (
+    req: Request<
+      object,
+      ApiResponse<{ swipe: ISwipe; match?: unknown }>,
+      RecordSwipeRequest
+    >,
+    res: Response<ApiResponse<{ swipe: ISwipe; match?: unknown }>>
+  ) => {
+    try {
+      const { userId, recipeId, direction, sessionId, deviceInfo } = req.body;
+
+      // Convert string IDs to ObjectIds if they're valid format
+      let userObjectId: Types.ObjectId | string = userId;
+      let recipeObjectId: Types.ObjectId | string = recipeId;
+
+      try {
+        // Attempt to convert to ObjectId if it's a valid 24-char hex string
+        if (Types.ObjectId.isValid(userId)) {
+          userObjectId = new Types.ObjectId(userId);
+        } else {
+          // For invalid format, generate a consistent ObjectId from the string
+          // This is for backwards compatibility with simple IDs
+          console.warn(`Invalid userId format: ${userId}, generating ObjectId`);
+          // Create a deterministic ObjectId from the simple ID
+          const hash = userId
+            .split("")
+            .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+          const paddedId = hash.toString(16).padStart(24, "0").substring(0, 24);
+          userObjectId = new Types.ObjectId(paddedId);
+        }
+
+        if (Types.ObjectId.isValid(recipeId)) {
+          recipeObjectId = new Types.ObjectId(recipeId);
+        } else {
+          console.warn(
+            `Invalid recipeId format: ${recipeId}, generating ObjectId`
+          );
+          const hash = recipeId
+            .split("")
+            .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+          const paddedId = hash.toString(16).padStart(24, "0").substring(0, 24);
+          recipeObjectId = new Types.ObjectId(paddedId);
+        }
+      } catch (conversionError) {
+        console.error("Error converting IDs to ObjectId:", conversionError);
+        // If conversion fails, let the original error happen below
+      }
+
+      // Create new swipe record with converted IDs
+      const swipe = new Swipe({
+        userId: userObjectId,
+        recipeId: recipeObjectId,
+        direction,
+        sessionId,
+        deviceInfo,
+        timestamp: new Date(),
+      });
+
+      await swipe.save();
+
+      // Update user statistics
+      const user = await User.findById(userObjectId);
+      if (user) {
+        await user.recordSwipe(direction);
+      }
+
+      // Check for potential matches
+      const match = await swipe.checkForMatch();
+
+      if (match && user) {
+        await user.recordMatch();
+      }
+
+      res.status(201).json({
+        success: true,
+        data: {
+          swipe,
+          ...(match && { match }),
+        },
+        message: match
+          ? "Swipe recorded and match found!"
+          : "Swipe recorded successfully",
+      });
+    } catch (error) {
+      // Handle duplicate swipe error
+      if (
+        error instanceof Error &&
+        "code" in error &&
+        (error as DatabaseError).code === 11000
+      ) {
+        res.status(409).json({
+          success: false,
+          message: "You have already swiped on this recipe",
+        });
+        return;
+      }
+
+      console.error("Error recording swipe:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : undefined,
+      });
+    }
+  }
+);
+
+// GET /api/swipes/history/:userId - Get user's swipe history
+router.get(
+  "/history/:userId",
+  [param("userId").notEmpty().withMessage("User ID is required")],
+  handleValidationErrors,
+  async (
+    req: Request<{ userId: string }>,
+    res: Response<ApiResponse<ISwipe[]>>
+  ) => {
+    try {
+      const { userId } = req.params;
+      const limit = parseInt(req.query.limit as string) || 50;
+      const skip = parseInt(req.query.skip as string) || 0;
+
+      const swipes = await Swipe.getSwipeHistory(
+        new Types.ObjectId(userId),
+        limit,
+        skip
+      );
+
+      res.json({
+        success: true,
+        data: swipes,
+        message: `Retrieved ${swipes.length} swipe records`,
+      });
+    } catch (error) {
+      console.error("Error fetching swipe history:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : undefined,
+      });
+    }
+  }
+);
+
+export default router;
+
+
+
+================================================
+FILE: app/backend/routes/users.ts
+================================================
+// User API Routes
+// Handles user profile management
+
+import { Router, Request, Response, NextFunction } from "express";
+import { body, param, validationResult } from "express-validator";
+import User from "../models/User.js";
+import type { ApiResponse, IUser } from "../types/index.js";
+
+const router = Router();
+
+// Validation middleware
+const handleValidationErrors = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(400).json({
+      success: false,
+      message: "Validation error",
+      errors: errors.array().map(error => {
+        if (error.type === 'field') {
+          return {
+            field: error.path,
+            message: error.msg,
+            value: error.value,
+            location: error.location
+          };
+        }
+        return {
+          field: 'unknown',
+          message: error.msg,
+        };
+      }),
+    } as ApiResponse);
+    return;
+  }
+  next();
+};
+
+// GET /api/users/:id - Get user profile
+router.get(
+  "/:id",
+  [param("id").notEmpty().withMessage("User ID is required")],
+  handleValidationErrors,
+  async (req: Request<{ id: string }>, res: Response<ApiResponse<IUser>>) => {
+    try {
+      const user = await User.findById(req.params.id).select(
+        "-password -refreshTokens"
+      );
+
+      if (!user) {
+        res.status(404).json({
+          success: false,
+          message: "User not found",
+        });
+        return;
+      }
+
+      res.json({
+        success: true,
+        data: user,
+        message: "User profile retrieved successfully",
+      });
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error ? error.message : undefined,
+      });
+    }
+  }
+);
+
+// Define the update request body type
+interface UpdateUserRequest {
+  name?: string;
+  profilePicture?: string;
+  preferences?: Partial<IUser['preferences']>;
+}
+
+// PUT /api/users/:id - Update user profile
+router.put(
+  "/:id",
+  [
+    param("id").notEmpty().withMessage("User ID is required"),
+    body("name").optional().trim().isLength({ max: 100 }),
+    body("profilePicture").optional().isURL(),
+    body("preferences.dietary_restrictions").optional().isArray(),
+    body("preferences.cuisine_preferences").optional().isArray(),
+    body("preferences.difficulty_preference")
+      .optional()
+      .isIn(["easy", "medium", "hard", "any"]),
+    body("preferences.max_cook_time").optional().isInt({ min: 5, max: 300 }),
+    body("preferences.spice_tolerance")
+      .optional()
+      .isIn(["none", "mild", "medium", "hot", "very-hot"]),
+  ],
+  handleValidationErrors,
+  async (req: Request<{ id: string }, ApiResponse<IUser>, UpdateUserRequest>, res: Response<ApiResponse<IUser>>) => {
+    try {
+      const updates = { ...req.body };
+
+      // Remove sensitive fields that shouldn't be updated via this endpoint
+      const sensitiveFields = ['password', 'email', 'refreshTokens', 'stats'] as const;
+      sensitiveFields.forEach(field => {
+        delete updates[field as keyof typeof updates];
+      });
+
+      const user = await User.findByIdAndUpdate(req.params.id, updates, {
+        new: true,
+        runValidators: true,
+      }).select("-password -refreshTokens");
+
+      if (!user) {
+        res.status(404).json({
+          success: false,
+          message: "User not found",
+        });
+        return;
+      }
+
+      res.json({
+        success: true,
+        data: user,
+        message: "Profile updated successfully",
+      });
+    } catch (error) {
+      console.error("Error updating user:", error);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        error:
+          process.env.NODE_ENV === "development" && error instanceof Error ? error.message : undefined,
+      });
+    }
+  }
+);
+
+export default router;
+
+
+
+================================================
+FILE: app/backend/scripts/seedDatabase.ts
+================================================
+// Database Seeding Script - TypeScript version
+// Seeds the database with sample data for development
+
+import { connect, connection } from "mongoose";
+import dotenv from "dotenv";
+import User from "../models/User.js";
+import Recipe from "../models/Recipe.js";
+import Swipe from "../models/Swipe.js";
+
+dotenv.config();
+
+// Environment variables
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/";
+const DATABASE_NAME = process.env.DATABASE_NAME || "dindin";
+
+// Sample data
+const sampleUsers = [
+  {
+    name: "John Doe",
+    email: "john@example.com",
+    password: "password123",
+    preferences: {
+      dietary_restrictions: ["vegetarian"],
+      cuisine_preferences: ["italian", "mediterranean"],
+      difficulty_preference: "medium" as const,
+      max_cook_time: 45,
+      spice_tolerance: "mild" as const,
+    },
+  },
+  {
+    name: "Jane Smith",
+    email: "jane@example.com",
+    password: "password123",
+    preferences: {
+      dietary_restrictions: [],
+      cuisine_preferences: ["asian", "mexican"],
+      difficulty_preference: "easy" as const,
+      max_cook_time: 30,
+      spice_tolerance: "hot" as const,
+    },
+  },
+];
+
+const sampleRecipes = [
+  {
+    title: "Classic Spaghetti Carbonara",
+    description: "A traditional Italian pasta dish with eggs, cheese, and pancetta",
+    difficulty: "medium" as const,
+    ingredients: [
+      { name: "spaghetti", amount: "400g", unit: "g" },
+      { name: "pancetta", amount: "200g", unit: "g" },
+      { name: "eggs", amount: "4", unit: "pieces" },
+      { name: "parmesan cheese", amount: "100g", unit: "g" },
+    ],
+    instructions: [
+      { step: 1, description: "Cook spaghetti according to package directions" },
+      { step: 2, description: "Fry pancetta until crispy" },
+      { step: 3, description: "Mix eggs and cheese in a bowl" },
+      { step: 4, description: "Combine all ingredients and serve hot" },
+    ],
+    cook_time: 20,
+    prep_time: 10,
+    cuisine: ["italian"],
+    cuisine_type: "italian",
+    dietary_tags: [],
+    tags: ["pasta", "classic", "comfort-food"],
+    servings: 4,
+    isActive: true,
+  },
+  {
+    title: "Vegetable Stir Fry",
+    description: "Quick and healthy mixed vegetable stir fry",
+    difficulty: "easy" as const,
+    ingredients: [
+      { name: "mixed vegetables", amount: "500g", unit: "g" },
+      { name: "soy sauce", amount: "3", unit: "tbsp" },
+      { name: "garlic", amount: "2", unit: "cloves" },
+      { name: "ginger", amount: "1", unit: "tbsp" },
+    ],
+    instructions: [
+      { step: 1, description: "Heat oil in a large pan" },
+      { step: 2, description: "Add garlic and ginger, stir for 30 seconds" },
+      { step: 3, description: "Add vegetables and stir fry for 5-7 minutes" },
+      { step: 4, description: "Add soy sauce and serve" },
+    ],
+    cook_time: 10,
+    prep_time: 5,
+    cuisine: ["asian"],
+    cuisine_type: "asian",
+    dietary_tags: ["vegetarian", "vegan"],
+    tags: ["healthy", "quick", "vegetables"],
+    servings: 2,
+    isActive: true,
+  },
+];
+
+async function seedDatabase(): Promise<void> {
+  try {
+    // Connect to MongoDB
+    await connect(`${MONGODB_URI}${DATABASE_NAME}`);
+    console.log("✅ Connected to MongoDB");
+
+    // Clear existing data
+    console.log("🧹 Clearing existing data...");
+    await Promise.all([
+      User.deleteMany({}),
+      Recipe.deleteMany({}),
+      Swipe.deleteMany({}),
+    ]);
+
+    // Seed users
+    console.log("👥 Seeding users...");
+    const createdUsers = await User.insertMany(sampleUsers);
+    console.log(`Created ${createdUsers.length} users`);
+
+    // Seed recipes
+    console.log("🍳 Seeding recipes...");
+    const createdRecipes = await Recipe.insertMany(sampleRecipes);
+    console.log(`Created ${createdRecipes.length} recipes`);
+
+    // Create some sample swipes
+    console.log("👆 Creating sample swipes...");
+    const sampleSwipes = [
+      {
+        userId: createdUsers[0]._id,
+        recipeId: createdRecipes[0]._id,
+        direction: "right" as const,
+      },
+      {
+        userId: createdUsers[0]._id,
+        recipeId: createdRecipes[1]._id,
+        direction: "left" as const,
+      },
+      {
+        userId: createdUsers[1]._id,
+        recipeId: createdRecipes[0]._id,
+        direction: "right" as const,
+      },
+    ];
+
+    const createdSwipes = await Swipe.insertMany(sampleSwipes);
+    console.log(`Created ${createdSwipes.length} swipes`);
+
+    console.log("🎉 Database seeding completed successfully!");
+    console.log("\nSample login credentials:");
+    console.log("- john@example.com / password123");
+    console.log("- jane@example.com / password123");
+
+  } catch (error) {
+    console.error("❌ Error seeding database:", error);
+    throw error;
+  } finally {
+    await connection.close();
+    console.log("📡 MongoDB connection closed");
+  }
+}
+
+// Run the seeding function if this script is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  seedDatabase()
+    .then(() => {
+      console.log("✅ Seeding process completed");
+      process.exit(0);
+    })
+    .catch((error) => {
+      console.error("❌ Seeding process failed:", error);
+      process.exit(1);
+    });
+}
+
+export default seedDatabase;
+
+
+
+================================================
+FILE: app/backend/types/index.ts
+================================================
+// Type definitions for the DinDin backend API
+
+import { Document, Types } from 'mongoose';
+import { Request } from 'express';
+
+// === User Types ===
+export interface IUser extends Document {
+  _id: Types.ObjectId;
+  email: string;
+  password: string;
+  name: string;
+  profilePicture?: string;
+  preferences: {
+    dietary_restrictions: DietaryRestriction[];
+    cuisine_preferences: string[];
+    difficulty_preference: DifficultyPreference;
+    max_cook_time: number;
+    spice_tolerance: SpiceTolerance;
+  };
+  stats: {
+    total_swipes: number;
+    right_swipes: number;
+    matches: number;
+    recipes_cooked: number;
+    last_active: Date;
+  };
+  isActive: boolean;
+  emailVerified: boolean;
+  refreshTokens: RefreshToken[];
+  createdAt: Date;
+  updatedAt: Date;
+  matchRate: number; // virtual
+
+  // Instance methods
+  comparePassword(candidatePassword: string): Promise<boolean>;
+  updateActivity(): Promise<IUser>;
+  recordSwipe(direction: SwipeDirection): Promise<IUser>;
+  recordMatch(): Promise<IUser>;
+}
+
+export interface IUserStatics {
+  findActiveUsers(excludeUserId: Types.ObjectId, limit?: number): Promise<IUser[]>;
+}
+
+type DietaryRestriction = 'vegetarian' | 'vegan' | 'gluten-free' | 'dairy-free' | 'nut-free' | 'keto' | 'paleo' | 'pescatarian';
+type DifficultyPreference = 'easy' | 'medium' | 'hard' | 'any';
+type SpiceTolerance = 'none' | 'mild' | 'medium' | 'hot' | 'very-hot';
+
+export interface RefreshToken {
+  token: string;
+  createdAt: Date;
+}
+
+// === Recipe Types ===
+export interface IRecipe extends Document {
+  title: string;
+  description: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  ingredients: IIngredient[];
+  instructions: IInstruction[];
+  cook_time?: number;
+  cookTime?: number;
+  prep_time?: number;
+  prepTime?: number;
+  image?: string;
+  image_url?: string;
+  cuisine: string[];
+  cuisine_type?: string;
+  dietary: string[];
+  dietary_tags: string[];
+  tags: string[];
+  likes: number;
+  dislikes: number;
+  servings: number;
+  nutrition?: INutrition;
+  import_metadata?: IImportMetadata;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  totalTime: number; // virtual
+  rating: number; // virtual
+
+  // Instance methods
+  like(): Promise<IRecipe>;
+  dislike(): Promise<IRecipe>;
+}
+
+export interface IRecipeStatics {
+  getRandomRecipes(limit?: number, filters?: Record<string, unknown>): Promise<IRecipe[]>;
+  searchRecipes(searchText: string, filters?: Record<string, unknown>, limit?: number): Promise<IRecipe[]>;
+}
+
+export interface IIngredient {
+  name: string;
+  amount: string;
+  unit?: string | null;
+}
+
+export interface IInstruction {
+  step: number;
+  description: string;
+  duration?: number | null;
+}
+
+export interface INutrition {
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  fiber: number;
+  sugar: number;
+}
+
+export interface IImportMetadata {
+  source_url: string;
+  scraper_name: string;
+  scraper_version: string;
+  confidence_score: number;
+  extracted_at: string;
+  notes: string;
+}
+
+// === Swipe Types ===
+export interface ISwipe extends Document {
+  userId: Types.ObjectId;
+  recipeId: Types.ObjectId;
+  direction: SwipeDirection;
+  timestamp: Date;
+  deviceInfo?: IDeviceInfo;
+  sessionId?: string;
+  user?: IUser; // populated
+  recipe?: IRecipe; // populated
+
+  // Instance method
+  checkForMatch(): Promise<{ recipeId: Types.ObjectId; matchedUserId: Types.ObjectId; matchedAt: Date; confidence: number } | null>;
+}
+
+export interface ISwipeStatics {
+  getSwipeHistory(userId: Types.ObjectId, limit?: number, skip?: number): Promise<ISwipe[]>;
+  getSwipeStats(userId: Types.ObjectId): Promise<ISwipeStats>;
+  findMatches(userId: Types.ObjectId, recipeId: Types.ObjectId): Promise<ISwipe[]>;
+}
+
+export type SwipeDirection = 'left' | 'right' | 'up' | 'down';
+
+export interface IDeviceInfo {
+  platform?: string;
+  version?: string;
+  model?: string;
+  userAgent?: string;
+}
+
+export interface ISwipeStats {
+  totalSwipes: number;
+  rightSwipes: number;
+  leftSwipes: number;
+  upSwipes: number;
+  downSwipes: number;
+  swipeRate: number;
+}
+
+// === Request Types ===
+export interface AuthenticatedRequest extends Request {
+  user?: {
+    userId: string;
+    [key: string]: unknown;
+  };
+}
+
+// === API Response Types ===
+export interface ApiResponse<T = unknown> {
+  success: boolean;
+  data?: T;
+  message: string;
+  error?: string;
+  errors?: ValidationError[];
+}
+
+export interface ValidationError {
+  field: string;
+  message: string;
+  value?: unknown;
+  location?: string;
+}
+
+// === Auth Types ===
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface RegisterRequest {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface RefreshTokenRequest {
+  refreshToken: string;
+}
+
+export interface AuthTokens {
+  accessToken: string;
+  refreshToken: string;
+}
+
+export interface UserProfile {
+  id: string;
+  name: string;
+  email: string;
+  preferences: IUser['preferences'];
+  stats?: IUser['stats'];
+}
+
+export interface AuthResponse {
+  user: UserProfile;
+  tokens: AuthTokens;
+}
+
+// === Environment Variables ===
+export interface EnvironmentConfig {
+  PORT: number;
+  NODE_ENV: string;
+  MONGODB_URI: string;
+  DATABASE_NAME: string;
+  CORS_ORIGIN: string;
+  JWT_SECRET: string;
+  JWT_EXPIRES_IN: string;
+  RATE_LIMIT_WINDOW_MS: number;
+  RATE_LIMIT_MAX_REQUESTS: number;
+}
+
+// === Error Types ===
+export class AppError extends Error {
+  statusCode: number;
+  isOperational: boolean;
+
+  constructor(message: string, statusCode: number) {
+    super(message);
+    this.statusCode = statusCode;
+    this.isOperational = true;
+
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
+export interface DatabaseError extends Error {
+  code?: number;
+  keyValue?: Record<string, unknown>;
+}
+
+
+
+================================================
+FILE: app/frontend/README.md
+================================================
+# Welcome to your Expo app 👋
+
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+## Get started
+
+1. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+2. Start the app
+
+   ```bash
+   npx expo start
+   ```
+
+In the output, you'll find options to open the app in a
+
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Get a fresh project
+
+When you're ready, run:
+
+```bash
+npm run reset-project
+```
+
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+
+## Learn more
+
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+
+================================================
+FILE: app/frontend/app.json
+================================================
+{
+  "expo": {
+    "name": "frontend",
+    "slug": "frontend",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "frontend",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
+
+
+
+================================================
+FILE: app/frontend/babel.config.js
+================================================
+export default function (api) {
+  api.cache(true);
+  return {
+    presets: ["babel-preset-expo"],
+    plugins: ["react-native-reanimated/plugin"],
+  };
+}
+
+
+
+================================================
+FILE: app/frontend/CLAUDE.md
+================================================
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+This is a React Native food tracking and recipe matching app called "DinDin" built with Expo. The app features a Tinder-style swipe interface for discovering recipes and matching with other users based on shared food preferences.
+
+## Development Commands
+
+### Running the App
+- `npm start` - Start the Expo development server
+- `npm run ios` - Start the app on iOS simulator
+- `npm run android` - Start the app on Android emulator
+- `npm run web` - Start the app for web
+
+### Code Quality
+- `npm run lint` - Run ESLint to check code quality
+
+### Troubleshooting
+- `npm run reset-project` - Reset the project to a clean state (moves current code to app-example)
+
+## Architecture
+
+### Navigation Structure
+- **Expo Router** file-based routing with TypeScript
+- Root layout at `app/_layout.tsx` manages theme and font loading
+- Authentication flow: `app/auth/` (login, signup screens)
+- Tab navigation: `app/(tabs)/` with 3 main screens:
+  - `index.tsx` - Recipe discovery with swipe cards
+  - `matches.tsx` - Matched recipes list
+  - `profile.tsx` - User profile and preferences
+
+### State Management
+- **Zustand** for global state management
+- `stores/authStore.ts` - Authentication state and user management
+- `stores/recipeStore.ts` - Recipe data, swipe history, and matches
+
+### Key Technical Patterns
+- **Gesture Handling**: Uses react-native-gesture-handler and react-native-reanimated for swipe animations
+- **Authentication Flow**: Mock authentication with Zustand store (ready for API integration)
+- **Responsive Design**: Uses Dimensions API for screen-aware layouts
+- **Theme Support**: Automatic dark/light mode with React Navigation themes
+
+### Styling Approach
+- Inline StyleSheet objects in each component
+- Color palette based on Tailwind CSS colors (orange-500, gray-800, etc.)
+- Consistent spacing and typography patterns
+
+## Project Dependencies
+
+### Core Dependencies
+- React Native 0.79.5 with React 19
+- Expo SDK 53
+- TypeScript with strict mode enabled
+
+### Navigation & UI
+- expo-router for file-based routing
+- @react-navigation for theme support
+- lucide-react-native for icons
+- react-native-gesture-handler for swipe interactions
+- react-native-reanimated for animations
+
+### Path Aliases
+- `@/*` maps to the project root for cleaner imports
+
+## Current Implementation Status
+
+### Completed Features
+- User authentication flow (login/signup)
+- Recipe card swipe interface with animations
+- Match detection and notifications
+- Tab navigation structure
+- Responsive layouts
+
+### Mock Data & Pending Integration
+- Authentication currently uses mock data
+- Recipe data is hardcoded in `stores/recipeStore.ts`
+- API endpoints need to be connected when backend is ready
+- Real-time matching logic needs WebSocket integration
+
+## Notes for Future Development
+
+When implementing new features:
+1. Follow the existing pattern of using Zustand stores for state management
+2. Keep components in their respective route folders for Expo Router
+3. Use the established color scheme and styling patterns
+4. Ensure gesture handlers are properly configured within GestureHandlerRootView
+5. Test on both iOS and Android simulators as platform-specific code exists (e.g., IconSymbol, TabBarBackground)
+
+
+================================================
+FILE: app/frontend/eslint.config.js
+================================================
+import js from "@eslint/js";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
+import { defineConfig } from "eslint/config";
+
+export default defineConfig([
+  { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: {...globals.browser, ...globals.node} } },
+  tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+]);
+
+
+
+================================================
+FILE: app/frontend/package.json
+================================================
+{
+  "name": "frontend",
+  "main": "expo-router/entry",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "expo start",
+    "reset-project": "node ./scripts/reset-project.js",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "expo lint"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
+    "@react-navigation/bottom-tabs": "^7.3.10",
+    "@react-navigation/elements": "^2.3.8",
+    "@react-navigation/native": "^7.1.6",
+    "better-auth": "^1.3.4",
+    "expo": "~53.0.20",
+    "expo-blur": "~14.1.5",
+    "expo-constants": "~17.1.7",
+    "expo-font": "~13.3.2",
+    "expo-haptics": "~14.1.4",
+    "expo-image": "~2.4.0",
+    "expo-linking": "~7.1.7",
+    "expo-router": "~5.1.4",
+    "expo-splash-screen": "~0.30.10",
+    "expo-status-bar": "~2.2.3",
+    "expo-symbols": "~0.4.5",
+    "expo-system-ui": "~5.0.10",
+    "expo-web-browser": "~14.2.0",
+    "lucide-react-native": "^0.536.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.5",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-reanimated": "~3.17.4",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.11.1",
+    "react-native-web": "~0.20.0",
+    "react-native-webview": "13.13.5",
+    "zustand": "^5.0.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@eslint/js": "^9.32.0",
+    "@types/react": "~19.0.10",
+    "eslint": "^9.32.0",
+    "eslint-config-expo": "~9.2.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.0"
+  },
+  "private": true
+}
+
+
+
+================================================
+FILE: app/frontend/tsconfig.json
+================================================
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+}
+
+
+
+================================================
+FILE: app/frontend/app/_layout.tsx
+================================================
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { useColorScheme } from 'react-native';
+import 'react-native-reanimated';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+export default function RootLayout() {
+  const colorScheme = useColorScheme();
+  const [loaded] = useFonts({
+    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  });
+
+  if (!loaded) {
+    // Async font loading only occurs in development.
+    return null;
+  }
+
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="auth" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    </GestureHandlerRootView>
+  );
+}
+
+
+
+================================================
+FILE: app/frontend/app/index.tsx
+================================================
+import { Redirect } from 'expo-router';
+
+export default function Index() {
+  // Redirect to auth login initially
+  // In a real app, you'd check if user is authenticated here
+  return <Redirect href="/auth/login" />;
+}
+
+
+
+================================================
+FILE: app/frontend/app/(tabs)/_layout.tsx
+================================================
+import { Tabs } from "expo-router";
+import { Heart, User, Flame } from "lucide-react-native";
+
+export default function TabLayout() {
+  return (
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "#f97316",
+        tabBarInactiveTintColor: "#9ca3af",
+        tabBarStyle: {
+          backgroundColor: 'white',
+          borderTopWidth: 1,
+          borderTopColor: '#e5e7eb',
+          paddingBottom: 8,
+          paddingTop: 8,
+          height: 80,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Discover",
+          tabBarIcon: ({ color, size }) => <Flame color={color} size={size} />,
+        }}
+      />
+      <Tabs.Screen
+        name="matches"
+        options={{
+          title: "Matches",
+          tabBarIcon: ({ color, size }) => <Heart color={color} size={size} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => <User color={color} size={size} />,
+        }}
+      />
+    </Tabs>
+  );
+}
+
+
+
+================================================
+FILE: app/frontend/app/(tabs)/index.tsx
+================================================
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, Text, Image, TouchableOpacity, Dimensions, StyleSheet, Alert, ActivityIndicator, ScrollView } from 'react-native';
+import { Heart, X, User, Search, Flame, Star, Clock, Users, ArrowLeft, ChefHat, List, Info, Zap } from 'lucide-react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  runOnJS,
+  interpolate,
+  Extrapolate,
+  cancelAnimation,
+  Easing,
+} from 'react-native-reanimated';
+import { router } from 'expo-router';
+import { useRecipeStore } from '../../stores/recipeStore';
+import { useAuthStore } from '../../stores/authStore';
+import PlaceholderImage from '../../components/PlaceholderImage';
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
+// Configuration constants
+const SWIPE_THRESHOLD_X = screenWidth * 0.25; // 25% of screen width
+const SWIPE_VELOCITY_THRESHOLD = 400; // Reduced for better sensitivity
+const MAX_ROTATION = 20; // degrees
+
+// Description layout constants
+const DESCRIPTION_LINE_HEIGHT = 20;
+const DESCRIPTION_MAX_LINES = 3.5;
+const DESCRIPTION_MAX_HEIGHT = DESCRIPTION_LINE_HEIGHT * DESCRIPTION_MAX_LINES; // 70
+
+interface RecipeCardProps {
+  recipe: any;
+  isTopCard: boolean;
+  onSwipeLeft: () => void;
+  onSwipeRight: () => void;
+  onShowMore: (recipe: any) => void;
+  onFlipChange?: (isFlipped: boolean) => void;
+}
+
+const RecipeCard: React.FC<RecipeCardProps> = ({
+  recipe,
+  isTopCard,
+  onSwipeLeft,
+  onSwipeRight,
+  onShowMore,
+  onFlipChange
+}) => {
+  // Animated values
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+  const scale = useSharedValue(isTopCard ? 1 : 0.95);
+  const opacity = useSharedValue(1);
+  const flipRotation = useSharedValue(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  // Description truncation state
+  const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
+
+  // Reset flip state when card changes or is no longer the top card
+  useEffect(() => {
+    if (!isTopCard && isFlipped) {
+      setIsFlipped(false);
+      flipRotation.value = 0;
+    }
+  }, [isTopCard, isFlipped, flipRotation]);
+
+  // Logging helper that works in both worklet and JS contexts
+  const log = useCallback((message: string, data?: any) => {
+    console.log(`[RecipeCard ${recipe.id}] ${message}`, data || '');
+  }, [recipe.id]);
+
+  // Handle swipe completion
+  const onSwipeComplete = useCallback((direction: 'left' | 'right') => {
+    log(`Swipe completed: ${direction}`);
+
+    // Call the appropriate callback
+    if (direction === 'right') {
+      onSwipeRight();
+    } else {
+      onSwipeLeft();
+    }
+  }, [onSwipeLeft, onSwipeRight, log]);
+
+  // Animate the card off screen
+  const animateCardOut = useCallback((velocityX: number) => {
+    'worklet';
+    const direction = velocityX > 0 ? 'right' : 'left';
+    const finalX = direction === 'right' ? screenWidth + 200 : -screenWidth - 200;
+
+    // Calculate duration based on velocity for natural feel
+    const duration = Math.max(150, Math.min(300, Math.abs((finalX - translateX.value) / velocityX) * 1000));
+
+    translateX.value = withTiming(finalX, { duration }, (finished) => {
+      'worklet';
+      if (finished) {
+        runOnJS(onSwipeComplete)(direction);
+      }
+    });
+
+    opacity.value = withTiming(0, { duration: duration * 0.8 });
+    scale.value = withTiming(0.8, { duration });
+  }, [onSwipeComplete]);
+
+  // Reset card position
+  const resetCard = useCallback(() => {
+    'worklet';
+    translateX.value = withSpring(0, {
+      damping: 15,
+      stiffness: 100,
+      mass: 1,
+    });
+    translateY.value = withSpring(0, {
+      damping: 15,
+      stiffness: 100,
+      mass: 1,
+    });
+  }, []);
+
+  // Handle flip animation
+  const handleFlip = useCallback(() => {
+    const newRotation = isFlipped ? 0 : 180;
+    const newFlippedState = !isFlipped;
+
+    flipRotation.value = withTiming(newRotation, {
+      duration: 600,
+      easing: Easing.inOut(Easing.ease),
+    });
+
+    // Delay the state change to sync with the animation midpoint
+    setTimeout(() => {
+      setIsFlipped(newFlippedState);
+      onFlipChange?.(newFlippedState);
+    }, 300);
+  }, [isFlipped, flipRotation, onFlipChange]);
+
+  // Handle description text layout to detect truncation
+  const onDescriptionTextLayout = useCallback((event: any) => {
+    const { lines } = event.nativeEvent;
+    const totalTextHeight = lines.length * DESCRIPTION_LINE_HEIGHT;
+    const isTruncated = totalTextHeight > DESCRIPTION_MAX_HEIGHT + 0.5; // Small tolerance
+
+    setIsDescriptionTruncated(isTruncated);
+    log('Description truncation check', {
+      linesCount: lines.length,
+      totalHeight: totalTextHeight,
+      maxHeight: DESCRIPTION_MAX_HEIGHT,
+      isTruncated
+    });
+  }, [log]);
+
+  // Create pan gesture
+  const gesture = Gesture.Pan()
+    .enabled(isTopCard && !isFlipped) // Disable swipe when card is flipped
+    .onBegin(() => {
+      'worklet';
+      // Cancel any ongoing animations
+      cancelAnimation(translateX);
+      cancelAnimation(translateY);
+    })
+    .onUpdate((event) => {
+      'worklet';
+      translateX.value = event.translationX;
+      translateY.value = event.translationY * 0.5; // Reduce vertical movement
+    })
+    .onEnd((event) => {
+      'worklet';
+      const { translationX, velocityX } = event;
+
+      // Check swipe threshold
+      const shouldSwipe =
+        Math.abs(translationX) > SWIPE_THRESHOLD_X ||
+        Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD;
+
+      if (shouldSwipe) {
+        // Use velocity to determine direction if ambiguous
+        const effectiveVelocity = Math.abs(velocityX) > 100 ? velocityX :
+          (translationX > 0 ? 500 : -500);
+        animateCardOut(effectiveVelocity);
+      } else {
+        resetCard();
+      }
+    });
+
+  // Card style
+  const cardStyle = useAnimatedStyle(() => {
+    const rotate = interpolate(
+      translateX.value,
+      [-screenWidth / 2, 0, screenWidth / 2],
+      [-MAX_ROTATION, 0, MAX_ROTATION],
+      Extrapolate.CLAMP
+    );
+
+    return {
+      transform: [
+        { translateX: translateX.value },
+        { translateY: translateY.value },
+        { rotate: `${rotate}deg` },
+        { scale: scale.value },
+      ],
+      opacity: opacity.value,
+    };
+  });
+
+  // Front side style
+  const frontStyle = useAnimatedStyle(() => {
+    const rotateY = flipRotation.value;
+    return {
+      backfaceVisibility: 'hidden',
+      transform: [
+        { rotateY: `${rotateY}deg` },
+      ],
+      opacity: rotateY > 90 ? 0 : 1,
+    };
+  });
+
+  // Back side style
+  const backStyle = useAnimatedStyle(() => {
+    const rotateY = flipRotation.value;
+    return {
+      backfaceVisibility: 'hidden',
+      transform: [
+        { rotateY: `${rotateY - 180}deg` },
+      ],
+      opacity: rotateY > 90 ? 1 : 0,
+    };
+  });
+
+  // Like overlay style
+  const likeOverlayStyle = useAnimatedStyle(() => {
+    const opacity = interpolate(
+      translateX.value,
+      [0, SWIPE_THRESHOLD_X],
+      [0, 1],
+      Extrapolate.CLAMP
+    );
+    return { opacity };
+  });
+
+  // Nope overlay style
+  const nopeOverlayStyle = useAnimatedStyle(() => {
+    const opacity = interpolate(
+      translateX.value,
+      [-SWIPE_THRESHOLD_X, 0],
+      [1, 0],
+      Extrapolate.CLAMP
+    );
+    return { opacity };
+  });
+
+  if (!isTopCard) {
+    // Background card - no gestures, just display
+    return (
+      <Animated.View style={[styles.recipeCard, cardStyle]}>
+        <PlaceholderImage
+          source={{ uri: recipe.image }}
+          style={styles.recipeImage}
+          resizeMode="cover"
+        />
+        <View style={styles.recipeInfo}>
+          <Text style={styles.recipeTitle}>{recipe.title}</Text>
+        </View>
+      </Animated.View>
+    );
+  }
+
+  return (
+    <GestureDetector gesture={gesture}>
+      <Animated.View style={[styles.recipeCard, cardStyle]}>
+        {/* Front of card */}
+        <Animated.View style={[styles.cardSide, styles.cardFront, frontStyle]}>
+          {/* Image container with info icon overlay */}
+          <View style={styles.imageContainer}>
+            <PlaceholderImage
+              source={{ uri: recipe.image }}
+              style={styles.recipeImage}
+              resizeMode="cover"
+            />
+
+            {/* Info Icon - always visible for recipe details access */}
+            <TouchableOpacity
+              style={styles.infoIconButton}
+              onPress={handleFlip}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+              accessibilityRole="button"
+              accessibilityLabel="Show recipe details"
+            >
+              <Info color="#ffffff" size={24} />
+            </TouchableOpacity>
+
+            {/* Protein Star - show when protein > 20g */}
+            {recipe.nutrition && recipe.nutrition.protein > 20 && (
+              <View style={styles.proteinStarBadge}>
+                <Star color="#FFD700" fill="#FFD700" size={20} />
+                <Text style={styles.proteinStarText}>PROTEIN!</Text>
+              </View>
+            )}
+
+            {/* Like Overlay */}
+            <Animated.View style={[styles.overlay, styles.likeOverlay, likeOverlayStyle]}>
+              <Text style={styles.overlayText}>LIKE</Text>
+            </Animated.View>
+
+            {/* Nope Overlay */}
+            <Animated.View style={[styles.overlay, styles.nopeOverlay, nopeOverlayStyle]}>
+              <Text style={styles.overlayText}>NOPE</Text>
+            </Animated.View>
+          </View>
+
+          <View style={styles.recipeInfo}>
+            <View style={styles.recipeHeader}>
+              <Text style={styles.recipeTitle}>{recipe.title}</Text>
+              <View style={styles.ratingContainer}>
+                <Star color="#f59e0b" fill="#f59e0b" size={16} />
+                <Text style={styles.ratingText}>{recipe.rating}</Text>
+              </View>
+            </View>
+
+            {/* Bounded Description - Fixed max height */}
+            <View style={styles.descriptionContainer}>
+              <Text
+                style={styles.recipeDescription}
+                ellipsizeMode="tail"
+                onTextLayout={onDescriptionTextLayout}
+              >
+                {recipe.description}
+              </Text>
+            </View>
+
+            <View style={styles.recipeMeta}>
+              <View style={styles.metaItem}>
+                <Clock color="#6b7280" size={14} />
+                <Text style={styles.metaText}>{recipe.cookTime}</Text>
+              </View>
+              <Text style={styles.metaSeparator}>•</Text>
+              <Text style={styles.metaText}>{recipe.difficulty}</Text>
+              <Text style={styles.metaSeparator}>•</Text>
+              <View style={styles.metaItem}>
+                <Users color="#6b7280" size={14} />
+                <Text style={styles.metaText}>{recipe.matches} matches</Text>
+              </View>
+            </View>
+
+            {/* Nutrition Info - Always visible, replacing tags */}
+            {recipe.nutrition && (
+              <View style={styles.nutritionContainer}>
+                <View style={styles.nutritionRow}>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.calories}</Text>
+                    <Text style={styles.nutritionLabel}>cal</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.protein}g</Text>
+                    <Text style={styles.nutritionLabel}>protein</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.carbs}g</Text>
+                    <Text style={styles.nutritionLabel}>carbs</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.fat}g</Text>
+                    <Text style={styles.nutritionLabel}>fat</Text>
+                  </View>
+                </View>
+                <View style={styles.nutritionRow}>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.fiber}g</Text>
+                    <Text style={styles.nutritionLabel}>fiber</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.sugar}g</Text>
+                    <Text style={styles.nutritionLabel}>sugar</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    {/* Empty space for balance */}
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    {/* Empty space for balance */}
+                  </View>
+                </View>
+              </View>
+            )}
+
+            {/* Show More button removed - functionality moved to info icon */}
+          </View>
+        </Animated.View>
+
+        {/* Back of card */}
+        <Animated.View style={[styles.cardSide, styles.cardBack, backStyle]}>
+          <View style={styles.cardBackHeader}>
+            <TouchableOpacity style={styles.goBackButton} onPress={handleFlip}>
+              <ArrowLeft color="#f97316" size={20} />
+              <Text style={styles.goBackText}>Go Back</Text>
+            </TouchableOpacity>
+            <Text style={styles.cardBackTitle}>{recipe.title}</Text>
+          </View>
+
+          <ScrollView style={styles.cardBackContent} showsVerticalScrollIndicator={false}>
+            {/* Ingredients Section */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <List color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Ingredients</Text>
+              </View>
+              <View style={styles.ingredientsList}>
+                {recipe.ingredients.map((ingredient: string, index: number) => (
+                  <View key={index} style={styles.ingredientItem}>
+                    <View style={styles.ingredientBullet} />
+                    <Text style={styles.ingredientText}>{ingredient}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+
+            {/* Instructions Section */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <ChefHat color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Instructions</Text>
+              </View>
+              <View style={styles.instructionsList}>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>1</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    Prep all ingredients according to the list above. Make sure everything is measured and ready.
+                  </Text>
+                </View>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>2</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    {recipe.description} Heat your cooking surface to the appropriate temperature.
+                  </Text>
+                </View>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>3</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    Cook according to the recipe timing, stirring or flipping as needed for even cooking.
+                  </Text>
+                </View>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>4</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    Season to taste and serve immediately while hot. Enjoy your delicious meal!
+                  </Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Additional Info */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <Clock color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Cooking Info</Text>
+              </View>
+              <View style={styles.cookingInfo}>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Prep Time</Text>
+                  <Text style={styles.infoValue}>10 mins</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Cook Time</Text>
+                  <Text style={styles.infoValue}>{recipe.cookTime}</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Difficulty</Text>
+                  <Text style={styles.infoValue}>{recipe.difficulty}</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Servings</Text>
+                  <Text style={styles.infoValue}>2-4 people</Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Tags Section - moved from front */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <Star color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Tags</Text>
+              </View>
+              <View style={styles.tagsContainer}>
+                {recipe.tags.map((tag: string, index: number) => (
+                  <View key={`${recipe.id}-tag-${index}`} style={styles.tag}>
+                    <Text style={styles.tagText}>{tag}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </ScrollView>
+
+          {/* Action Buttons for Card Back */}
+          <View style={styles.cardBackActions}>
+            <TouchableOpacity
+              style={[styles.cardBackActionButton, styles.rejectButton]}
+              onPress={onSwipeLeft}
+            >
+              <X color="#ef4444" size={24} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.cardBackActionButton, styles.likeButton]}
+              onPress={onSwipeRight}
+            >
+              <Heart color="#10b981" fill="#10b981" size={24} />
+            </TouchableOpacity>
+          </View>
+        </Animated.View>
+      </Animated.View>
+    </GestureDetector>
+  );
+};
+
+export default function Home() {
+  const { isAuthenticated } = useAuthStore();
+  const {
+    recipes,
+    isLoading,
+    isSwipeLoading,
+    currentIndex,
+    matches,
+    lastMatch,
+    loadRecipes,
+    swipeRecipe,
+    resetSwipes,
+    setCurrentIndex
+  } = useRecipeStore();
+
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [isCardFlipped, setIsCardFlipped] = useState(false);
+
+  // Load recipes on mount
+  useEffect(() => {
+    loadRecipes(isAuthenticated);
+  }, [isAuthenticated]);
+
+  // Reset flip state when current card changes
+  useEffect(() => {
+    setIsCardFlipped(false);
+  }, [currentIndex]);
+
+  // Show match notifications
+  useEffect(() => {
+    if (lastMatch) {
+      Alert.alert(
+        '🎉 It\'s a Match!',
+        `You and ${lastMatch.partnerName} both love this recipe!`,
+        [{ text: 'OK' }]
+      );
+    }
+  }, [lastMatch]);
+
+  const handleSwipeLeft = useCallback(async () => {
+    if (isProcessing) return;
+
+    const recipe = recipes[currentIndex];
+    console.log('Swiped left on recipe:', recipe.id);
+
+    if (!isAuthenticated) {
+      Alert.alert('Sign In Required', 'Please sign in to record your preferences.');
+      return;
+    }
+
+    setIsProcessing(true);
+    const success = await swipeRecipe(recipe.id, 'left');
+    if (success) {
+      setCurrentIndex(currentIndex + 1);
+    }
+    setIsProcessing(false);
+  }, [currentIndex, recipes, isAuthenticated, swipeRecipe, setCurrentIndex, isProcessing]);
+
+  const handleSwipeRight = useCallback(async () => {
+    if (isProcessing) return;
+
+    const recipe = recipes[currentIndex];
+    console.log('Swiped right on recipe:', recipe.id);
+
+    if (!isAuthenticated) {
+      Alert.alert('Sign In Required', 'Please sign in to match with others.');
+      return;
+    }
+
+    setIsProcessing(true);
+    const success = await swipeRecipe(recipe.id, 'right');
+    if (success) {
+      setCurrentIndex(currentIndex + 1);
+    }
+    setIsProcessing(false);
+  }, [currentIndex, recipes, isAuthenticated, swipeRecipe, setCurrentIndex, isProcessing]);
+
+  const handleShowMore = useCallback((recipe: any) => {
+    // This is now handled by the flip animation
+    console.log('Show more for recipe:', recipe.id);
+  }, []);
+
+  const handleFlipChange = useCallback((isFlipped: boolean) => {
+    setIsCardFlipped(isFlipped);
+  }, []);
+
+  const handleResetSwipes = useCallback(() => {
+    resetSwipes();
+  }, [resetSwipes]);
+
+  const handleNavigateToProfile = useCallback(() => {
+    router.push('/profile');
+  }, []);
+
+  const currentRecipe = recipes[currentIndex];
+  const nextRecipe = recipes[currentIndex + 1];
+
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.headerContent}>
+            <TouchableOpacity style={styles.headerButton} onPress={handleNavigateToProfile}>
+              <User color="white" size={24} />
+            </TouchableOpacity>
+
+            <View style={styles.logoContainer}>
+              <Flame color="white" size={24} />
+              <Text style={styles.logoText}>DinDin</Text>
+            </View>
+
+            <TouchableOpacity style={styles.headerButton}>
+              <Search color="white" size={24} />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#f97316" />
+          <Text style={styles.loadingText}>Loading recipes...</Text>
+        </View>
+      </View>
+    );
+  }
+
+  if (currentIndex >= recipes.length) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.headerContent}>
+            <TouchableOpacity style={styles.headerButton} onPress={handleNavigateToProfile}>
+              <User color="white" size={24} />
+            </TouchableOpacity>
+
+            <View style={styles.logoContainer}>
+              <Flame color="white" size={24} />
+              <Text style={styles.logoText}>DinDin</Text>
+            </View>
+
+            <TouchableOpacity style={styles.headerButton}>
+              <Search color="white" size={24} />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* Match Summary Screen */}
+        <View style={styles.summaryContainer}>
+          <View style={styles.summaryCard}>
+            <Flame color="#f97316" size={48} />
+            <Text style={styles.summaryTitle}>Your Matches</Text>
+            <Text style={styles.summarySubtitle}>
+              You've matched with {matches.length} delicious recipes!
+            </Text>
+
+            <View style={styles.matchesList}>
+              {matches.map((id) => {
+                const recipe = recipes.find(r => r.id === id);
+                return recipe ? (
+                  <View key={id} style={styles.matchItem}>
+                    <PlaceholderImage
+                      source={{ uri: recipe.image }}
+                      style={styles.matchImage}
+                    />
+                    <Text style={styles.matchTitle}>{recipe.title}</Text>
+                  </View>
+                ) : null;
+              })}
+            </View>
+
+            <TouchableOpacity
+              style={styles.resetButton}
+              onPress={handleResetSwipes}
+            >
+              <Text style={styles.resetButtonText}>Swipe Again</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <View style={styles.headerContent}>
+          <TouchableOpacity style={styles.headerButton} onPress={handleNavigateToProfile}>
+            <User color="white" size={24} />
+          </TouchableOpacity>
+
+          <View style={styles.logoContainer}>
+            <Flame color="white" size={24} />
+            <Text style={styles.logoText}>DinDin</Text>
+          </View>
+
+          <TouchableOpacity style={styles.headerButton}>
+            <Search color="white" size={24} />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Main Content */}
+      <View style={styles.mainContent}>
+        <View style={styles.recipeContainer}>
+          {/* Recipe Card Stack - render next card behind current */}
+          {nextRecipe && (
+            <RecipeCard
+              key={nextRecipe.id}
+              recipe={nextRecipe}
+              isTopCard={false}
+              onSwipeLeft={handleSwipeLeft}
+              onSwipeRight={handleSwipeRight}
+              onShowMore={handleShowMore}
+            />
+          )}
+          {currentRecipe && (
+            <RecipeCard
+              key={currentRecipe.id}
+              recipe={currentRecipe}
+              isTopCard={true}
+              onSwipeLeft={handleSwipeLeft}
+              onSwipeRight={handleSwipeRight}
+              onShowMore={handleShowMore}
+              onFlipChange={handleFlipChange}
+            />
+          )}
+
+          {/* Action Buttons - only show when card is not flipped */}
+          {currentRecipe && !isCardFlipped && (
+            <View style={styles.actionButtons}>
+              <TouchableOpacity
+                style={[styles.actionButton, (isSwipeLoading || isProcessing) && styles.actionButtonDisabled]}
+                onPress={handleSwipeLeft}
+                disabled={isSwipeLoading || isProcessing}
+              >
+                <X color="#ef4444" size={32} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.actionButton, (isSwipeLoading || isProcessing) && styles.actionButtonDisabled]}
+                onPress={handleSwipeRight}
+                disabled={isSwipeLoading || isProcessing}
+              >
+                <Heart color="#10b981" fill="#10b981" size={32} />
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fef3c7',
+  },
+  header: {
+    backgroundColor: '#f97316',
+    paddingTop: 48,
+    paddingBottom: 24,
+    paddingHorizontal: 16,
+  },
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerButton: {
+    padding: 8,
+  },
+  logoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logoText: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginLeft: 8,
+  },
+  mainContent: {
+    flex: 1,
+    backgroundColor: '#fef3c7',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fef3c7',
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: '#6b7280',
+  },
+  recipeContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+    backgroundColor: '#fef3c7',
+  },
+  recipeCard: {
+    position: 'absolute',
+    width: screenWidth - 32,
+    height: screenHeight - 250,
+    borderRadius: 24,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  cardSide: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  cardFront: {
+    backgroundColor: 'transparent',
+  },
+  cardBack: {
+    backgroundColor: 'white',
+  },
+  // Image container with relative positioning for icon overlay
+  imageContainer: {
+    position: 'relative',
+    width: '100%',
+    height: '60%',
+  },
+  recipeImage: {
+    width: '100%',
+    height: '100%',
+  },
+  // Info icon positioned absolutely over image
+  infoIconButton: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    minWidth: 44,
+    minHeight: 44,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: 22,
+  },
+  overlay: {
+    position: 'absolute',
+    top: 50,
+    padding: 10,
+    borderRadius: 10,
+    borderWidth: 3,
+    transform: [{ rotate: '-15deg' }],
+  },
+  likeOverlay: {
+    right: 20,
+    backgroundColor: '#10b981',
+    borderColor: '#10b981',
+  },
+  nopeOverlay: {
+    left: 20,
+    backgroundColor: '#ef4444',
+    borderColor: '#ef4444',
+  },
+  overlayText: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+  recipeInfo: {
+    padding: 16,
+    height: '40%',
+  },
+  recipeHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 8,
+  },
+  recipeTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    flex: 1,
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  ratingText: {
+    color: '#374151',
+    marginLeft: 4,
+  },
+  // Bounded description container - KEY FIX
+  descriptionContainer: {
+    position: 'relative',
+    maxHeight: DESCRIPTION_MAX_HEIGHT, // 70px = 3.5 lines
+    overflow: 'hidden',
+    marginBottom: 12,
+  },
+  recipeDescription: {
+    color: '#4b5563',
+    fontSize: 14,
+    lineHeight: DESCRIPTION_LINE_HEIGHT, // 20px
+  },
+  recipeMeta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  metaItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  metaText: {
+    color: '#6b7280',
+    fontSize: 14,
+    marginLeft: 4,
+  },
+  metaSeparator: {
+    color: '#9ca3af',
+    marginHorizontal: 8,
+  },
+  // Nutrition info styles
+  nutritionContainer: {
+    marginBottom: 12,
+  },
+  nutritionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 6,
+  },
+  nutritionItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  nutritionValue: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#1f2937',
+  },
+  nutritionLabel: {
+    fontSize: 11,
+    color: '#6b7280',
+    textTransform: 'uppercase',
+    marginTop: 2,
+  },
+  // Protein star badge styles
+  proteinStarBadge: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  proteinStarText: {
+    color: '#FFD700',
+    fontSize: 12,
+    fontWeight: 'bold',
+    marginLeft: 4,
+  },
+  // Keep tags styles for backwards compatibility
+  tagsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginBottom: 12,
+  },
+  tag: {
+    backgroundColor: '#fef3c7',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+    marginRight: 6,
+    marginBottom: 4,
+  },
+  tagText: {
+    color: '#f97316',
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  // Card back styles
+  cardBackHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f3f4f6',
+  },
+  goBackButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+  },
+  goBackText: {
+    color: '#f97316',
+    fontSize: 14,
+    fontWeight: '600',
+    marginLeft: 4,
+  },
+  cardBackTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    flex: 1,
+    textAlign: 'center',
+    marginRight: 40, // Compensate for go back button
+  },
+  cardBackContent: {
+    flex: 1,
+    padding: 16,
+  },
+  section: {
+    marginBottom: 24,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginLeft: 8,
+  },
+  ingredientsList: {
+    gap: 8,
+  },
+  ingredientItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  ingredientBullet: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#f97316',
+    marginTop: 6,
+    marginRight: 12,
+  },
+  ingredientText: {
+    color: '#374151',
+    fontSize: 14,
+    flex: 1,
+    lineHeight: 20,
+  },
+  instructionsList: {
+    gap: 16,
+  },
+  instructionStep: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  stepNumber: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#f97316',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+    marginTop: 2,
+  },
+  stepNumberText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  instructionText: {
+    color: '#374151',
+    fontSize: 14,
+    lineHeight: 20,
+    flex: 1,
+  },
+  cookingInfo: {
+    gap: 8,
+  },
+  infoItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 4,
+  },
+  infoLabel: {
+    color: '#6b7280',
+    fontSize: 14,
+  },
+  infoValue: {
+    color: '#1f2937',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  actionButtons: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 32,
+    gap: 32,
+  },
+  actionButton: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  actionButtonDisabled: {
+    opacity: 0.5,
+  },
+  cardBackActions: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#f3f4f6',
+    backgroundColor: 'white',
+    gap: 24,
+  },
+  cardBackActionButton: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 3,
+  },
+  rejectButton: {
+    backgroundColor: '#fef2f2',
+    borderWidth: 1,
+    borderColor: '#fecaca',
+  },
+  likeButton: {
+    backgroundColor: '#f0fdf4',
+    borderWidth: 1,
+    borderColor: '#bbf7d0',
+  },
+  summaryContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 32,
+    backgroundColor: '#fef3c7',
+  },
+  summaryCard: {
+    backgroundColor: 'white',
+    borderRadius: 24,
+    padding: 32,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    width: '100%',
+  },
+  summaryTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginTop: 16,
+  },
+  summarySubtitle: {
+    color: '#4b5563',
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  matchesList: {
+    marginTop: 24,
+    width: '100%',
+  },
+  matchItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f3f4f6',
+  },
+  matchImage: {
+    width: 48,
+    height: 48,
+    borderRadius: 8,
+  },
+  matchTitle: {
+    marginLeft: 12,
+    fontWeight: '500',
+    color: '#1f2937',
+  },
+  resetButton: {
+    marginTop: 32,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    backgroundColor: '#f97316',
+    borderRadius: 24,
+  },
+  resetButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+});
+
+
+
+================================================
+FILE: app/frontend/app/(tabs)/matches.tsx
+================================================
+import React from 'react';
+import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { Heart, Clock, Star, Flame } from 'lucide-react-native';
+
+// Mock matched recipes data
+const matchedRecipes = [
+  {
+    id: 1,
+    title: "Creamy Mushroom Pasta",
+    cookTime: "25 mins",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1515516970627-3f00c6f75f5a?w=800&h=600&fit=crop",
+    description: "Rich and creamy pasta with wild mushrooms and parmesan cheese",
+    rating: 4.8,
+    matchedAt: "2 hours ago"
+  },
+  {
+    id: 2,
+    title: "Spicy Tuna Poke Bowl",
+    cookTime: "15 mins",
+    difficulty: "Medium",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=600&fit=crop",
+    description: "Fresh ahi tuna with spicy mayo, avocado, and cucumber",
+    rating: 4.9,
+    matchedAt: "1 day ago"
+  },
+  {
+    id: 3,
+    title: "BBQ Chicken Pizza",
+    cookTime: "30 mins",
+    difficulty: "Medium",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=600&fit=crop",
+    description: "Homemade pizza with smoky BBQ chicken and melted cheese",
+    rating: 4.7,
+    matchedAt: "3 days ago"
+  },
+  {
+    id: 4,
+    title: "Vegetable Stir Fry",
+    cookTime: "20 mins",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop",
+    description: "Colorful vegetables in a savory sauce served over rice",
+    rating: 4.6,
+    matchedAt: "1 week ago"
+  }
+];
+
+export default function MatchesScreen() {
+  const handleRecipePress = (recipeId: number) => {
+    console.log('Recipe pressed:', recipeId);
+    // Navigate to recipe details
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.mainContainer}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerContent}>
+            <View style={styles.logoContainer}>
+              <Flame color="white" size={24} />
+              <Text style={styles.logoText}>DinDin</Text>
+            </View>
+            <Text style={styles.headerTitle}>My Matches</Text>
+            <View style={styles.placeholder} />
+          </View>
+        </View>
+
+        {/* Content */}
+        <ScrollView style={styles.content}>
+          {matchedRecipes.length > 0 ? (
+            <View style={styles.recipesList}>
+              {matchedRecipes.map((recipe) => (
+                <TouchableOpacity
+                  key={recipe.id}
+                  style={styles.recipeCard}
+                  onPress={() => handleRecipePress(recipe.id)}
+                >
+                  <Image
+                    source={{ uri: recipe.image }}
+                    style={styles.recipeImage}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.recipeInfo}>
+                    <View style={styles.recipeHeader}>
+                      <Text style={styles.recipeTitle}>{recipe.title}</Text>
+                      <View style={styles.ratingContainer}>
+                        <Star color="#f59e0b" fill="#f59e0b" size={16} />
+                        <Text style={styles.ratingText}>{recipe.rating}</Text>
+                      </View>
+                    </View>
+
+                    <Text style={styles.recipeDescription}>{recipe.description}</Text>
+
+                    <View style={styles.recipeMeta}>
+                      <View style={styles.metaItem}>
+                        <Clock color="#6b7280" size={14} />
+                        <Text style={styles.metaText}>{recipe.cookTime}</Text>
+                      </View>
+                      <Text style={styles.metaSeparator}>•</Text>
+                      <Text style={styles.metaText}>{recipe.difficulty}</Text>
+                    </View>
+
+                    <View style={styles.matchInfo}>
+                      <Heart color="#f97316" size={14} />
+                      <Text style={styles.matchText}>Matched {recipe.matchedAt}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              ))}
+            </View>
+          ) : (
+            <View style={styles.emptyState}>
+              <Heart color="#9ca3af" size={48} />
+              <Text style={styles.emptyTitle}>No Matches Yet</Text>
+              <Text style={styles.emptySubtitle}>
+                Start swiping to discover delicious recipes!
+              </Text>
+            </View>
+          )}
+        </ScrollView>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#25292e',
+  },
+  mainContainer: {
+    flex: 1,
+    backgroundColor: '#fef3c7', // orange-50 equivalent
+  },
+  header: {
+    backgroundColor: '#f97316', // orange-500
+    paddingTop: 48,
+    paddingBottom: 24,
+    paddingHorizontal: 16,
+  },
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  logoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logoText: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginLeft: 8,
+  },
+  headerTitle: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  placeholder: {
+    width: 32,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  recipesList: {
+    paddingVertical: 16,
+  },
+  recipeCard: {
+    backgroundColor: 'white',
+    borderRadius: 16,
+    marginBottom: 16,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 3,
+  },
+  recipeImage: {
+    width: '100%',
+    height: 200,
+  },
+  recipeInfo: {
+    padding: 16,
+  },
+  recipeHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 8,
+  },
+  recipeTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1f2937', // gray-800
+    flex: 1,
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  ratingText: {
+    color: '#374151', // gray-700
+    marginLeft: 4,
+    fontSize: 14,
+  },
+  recipeDescription: {
+    color: '#4b5563', // gray-600
+    fontSize: 14,
+    marginBottom: 12,
+  },
+  recipeMeta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  metaItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  metaText: {
+    color: '#6b7280', // gray-500
+    fontSize: 14,
+    marginLeft: 4,
+  },
+  metaSeparator: {
+    color: '#9ca3af', // gray-400
+    marginHorizontal: 8,
+  },
+  matchInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  matchText: {
+    color: '#f97316', // orange-500
+    fontSize: 12,
+    marginLeft: 4,
+  },
+  emptyState: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 32,
+    paddingTop: 80,
+  },
+  emptyTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1f2937', // gray-800
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  emptySubtitle: {
+    color: '#6b7280', // gray-500
+    textAlign: 'center',
+    fontSize: 16,
+  },
+});
+
+
+
+================================================
+FILE: app/frontend/app/(tabs)/profile.tsx
+================================================
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, Switch, StyleSheet } from 'react-native';
+import {
+  User,
+  Bell,
+  LogOut,
+  Trash2,
+  Edit3,
+  Leaf,
+  Wheat,
+  Milk,
+  AlertCircle,
+  Heart,
+  Clock,
+  Star,
+  TrendingUp
+} from 'lucide-react-native';
+import { router } from 'expo-router';
+import { useAuthStore } from '../../stores/authStore';
+
+export default function ProfileScreen() {
+  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+  const [dietaryPreferences, setDietaryPreferences] = useState({
+    vegetarian: false,
+    vegan: false,
+    glutenFree: false,
+    dairyFree: false,
+    nutFree: false,
+  });
+
+  const { user, logout } = useAuthStore();
+
+  const toggleDietaryPreference = (preference: keyof typeof dietaryPreferences) => {
+    setDietaryPreferences(prev => ({
+      ...prev,
+      [preference]: !prev[preference]
+    }));
+  };
+
+  const handleLogout = () => {
+    console.log('Logout pressed');
+    logout();
+    router.replace('/auth/login');
+  };
+
+  const handleDeleteAccount = () => {
+    console.log('Delete account pressed');
+    logout();
+    router.replace('/auth/login');
+  };
+
+  // Mock user data
+  const userStats = {
+    matches: 42,
+    favorites: 18,
+    preferences: 5,
+  };
+
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>My Profile</Text>
+
+          {/* User Info */}
+          <View style={styles.userInfo}>
+            <View style={styles.avatarContainer}>
+              <User size={48} color="#f97316" />
+            </View>
+            <Text style={styles.userName}>{user?.name || "Alex Morgan"}</Text>
+            <Text style={styles.userSubtitle}>Food Explorer</Text>
+          </View>
+
+          {/* Stats */}
+          <View style={styles.statsContainer}>
+            <View style={styles.statItem}>
+              <Text style={styles.statNumber}>{userStats.matches}</Text>
+              <Text style={styles.statLabel}>Matches</Text>
+            </View>
+            <View style={styles.statItem}>
+              <Text style={styles.statNumber}>{userStats.favorites}</Text>
+              <Text style={styles.statLabel}>Favorites</Text>
+            </View>
+            <View style={styles.statItem}>
+              <Text style={styles.statNumber}>{userStats.preferences}</Text>
+              <Text style={styles.statLabel}>Prefs</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* 2x2 Grid Layout */}
+        <View style={styles.gridContainer}>
+          {/* Dietary Preferences - Top Left */}
+          <View style={styles.gridCard}>
+            <View style={styles.cardHeader}>
+              <Leaf size={20} color="#10b981" />
+              <Text style={styles.cardTitle}>Dietary</Text>
+            </View>
+            <View style={styles.preferencesGrid}>
+              {Object.entries(dietaryPreferences).slice(0, 4).map(([key, value], index) => (
+                <TouchableOpacity
+                  key={key}
+                  style={styles.preferenceItem}
+                  onPress={() => toggleDietaryPreference(key as keyof typeof dietaryPreferences)}
+                >
+                  <View style={styles.preferenceContent}>
+                    {key === 'vegetarian' && <Leaf size={16} color="#10b981" />}
+                    {key === 'vegan' && <Leaf size={16} color="#10b981" />}
+                    {key === 'glutenFree' && <Wheat size={16} color="#f97316" />}
+                    {key === 'dairyFree' && <Milk size={16} color="#3b82f6" />}
+                    <Text style={styles.preferenceText}>
+                      {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                    </Text>
+                  </View>
+                  <Switch
+                    trackColor={{ false: "#d1d5db", true: "#f97316" }}
+                    thumbColor={value ? "#ffffff" : "#f4f4f5"}
+                    ios_backgroundColor="#d1d5db"
+                    onValueChange={() => toggleDietaryPreference(key as keyof typeof dietaryPreferences)}
+                    value={value}
+                  />
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+
+          {/* Quick Stats - Top Right */}
+          <View style={styles.gridCard}>
+            <View style={styles.cardHeader}>
+              <TrendingUp size={20} color="#f97316" />
+              <Text style={styles.cardTitle}>Quick Stats</Text>
+            </View>
+            <View style={styles.quickStats}>
+              <View style={styles.quickStatItem}>
+                <Text style={styles.quickStatLabel}>Top Cuisine</Text>
+                <Text style={styles.quickStatValue}>Italian</Text>
+              </View>
+              <View style={styles.quickStatItem}>
+                <Text style={styles.quickStatLabel}>Match Rate</Text>
+                <Text style={styles.quickStatValue}>72%</Text>
+              </View>
+              <View style={styles.quickStatItem}>
+                <Text style={styles.quickStatLabel}>Favorite Time</Text>
+                <Text style={styles.quickStatValue}>Evening</Text>
+              </View>
+              <View style={styles.quickStatItem}>
+                <Text style={styles.quickStatLabel}>Discovery Streak</Text>
+                <Text style={styles.quickStatValue}>12 days</Text>
+              </View>
+            </View>
+          </View>
+
+          {/* Notifications - Bottom Left */}
+          <View style={styles.gridCard}>
+            <View style={styles.cardHeader}>
+              <Bell size={20} color="#f97316" />
+              <Text style={styles.cardTitle}>Notifications</Text>
+            </View>
+            <View style={styles.notificationSettings}>
+              <View style={styles.settingItem}>
+                <View style={styles.settingContent}>
+                  <Bell size={16} color="#f97316" style={styles.settingIcon} />
+                  <Text style={styles.settingText}>Match Alerts</Text>
+                </View>
+                <Switch
+                  trackColor={{ false: "#d1d5db", true: "#f97316" }}
+                  thumbColor={notificationsEnabled ? "#ffffff" : "#f4f4f5"}
+                  ios_backgroundColor="#d1d5db"
+                  onValueChange={setNotificationsEnabled}
+                  value={notificationsEnabled}
+                />
+              </View>
+              <View style={styles.settingItem}>
+                <View style={styles.settingContent}>
+                  <Heart size={16} color="#10b981" style={styles.settingIcon} />
+                  <Text style={styles.settingText}>Like Notifications</Text>
+                </View>
+                <Switch
+                  trackColor={{ false: "#d1d5db", true: "#f97316" }}
+                  thumbColor={notificationsEnabled ? "#ffffff" : "#f4f4f5"}
+                  ios_backgroundColor="#d1d5db"
+                  value={true}
+                />
+              </View>
+            </View>
+          </View>
+
+          {/* Account Actions - Bottom Right */}
+          <View style={styles.gridCard}>
+            <View style={styles.cardHeader}>
+              <User size={20} color="#6b7280" />
+              <Text style={styles.cardTitle}>Account</Text>
+            </View>
+            <View style={styles.accountActions}>
+              <TouchableOpacity style={styles.actionItem}>
+                <View style={styles.actionContent}>
+                  <Edit3 size={16} color="#6b7280" style={styles.actionIcon} />
+                  <Text style={styles.actionText}>Edit Profile</Text>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.actionItem}
+                onPress={handleLogout}
+              >
+                <View style={styles.actionContent}>
+                  <LogOut size={16} color="#10b981" style={styles.actionIcon} />
+                  <Text style={styles.actionText}>Logout</Text>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.actionItem}
+                onPress={handleDeleteAccount}
+              >
+                <View style={styles.actionContent}>
+                  <Trash2 size={16} color="#ef4444" style={styles.actionIcon} />
+                  <Text style={styles.actionText}>Delete Account</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+
+        {/* Additional Dietary Preferences (if more than 4) */}
+        {Object.entries(dietaryPreferences).length > 4 && (
+          <View style={styles.additionalSection}>
+            <Text style={styles.sectionTitle}>Additional Preferences</Text>
+            <View style={styles.card}>
+              {Object.entries(dietaryPreferences).slice(4).map(([key, value], index) => (
+                <TouchableOpacity
+                  key={key}
+                  style={[
+                    styles.preferenceItem,
+                    index < Object.entries(dietaryPreferences).slice(4).length - 1 && styles.preferenceItemBorder
+                  ]}
+                  onPress={() => toggleDietaryPreference(key as keyof typeof dietaryPreferences)}
+                >
+                  <View style={styles.preferenceContent}>
+                    {key === 'nutFree' && <AlertCircle size={20} color="#ef4444" style={styles.preferenceIcon} />}
+                    <Text style={styles.preferenceText}>
+                      {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                    </Text>
+                  </View>
+                  <Switch
+                    trackColor={{ false: "#d1d5db", true: "#f97316" }}
+                    thumbColor={value ? "#ffffff" : "#f4f4f5"}
+                    ios_backgroundColor="#d1d5db"
+                    onValueChange={() => toggleDietaryPreference(key as keyof typeof dietaryPreferences)}
+                    value={value}
+                  />
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        )}
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fef3c7',
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: '#fef3c7',
+  },
+  header: {
+    backgroundColor: 'white',
+    paddingTop: 48,
+    paddingBottom: 24,
+    paddingHorizontal: 24,
+    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 24,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 3.84,
+    elevation: 2,
+  },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    textAlign: 'center',
+    marginBottom: 24,
+  },
+  userInfo: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  avatarContainer: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: '#fed7aa',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  userName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1f2937',
+  },
+  userSubtitle: {
+    color: '#6b7280',
+    marginTop: 4,
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#fed7aa',
+    borderRadius: 16,
+    paddingVertical: 16,
+    marginBottom: 24,
+  },
+  statItem: {
+    alignItems: 'center',
+  },
+  statNumber: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#ea580c',
+  },
+  statLabel: {
+    color: '#4b5563',
+  },
+  gridContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    gap: 12,
+  },
+  gridCard: {
+    width: '48%',
+    backgroundColor: 'white',
+    borderRadius: 16,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 3.84,
+    elevation: 2,
+    minHeight: 200,
+  },
+  cardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginLeft: 8,
+  },
+  preferencesGrid: {
+    gap: 8,
+  },
+  preferenceItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 6,
+  },
+  preferenceContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  preferenceText: {
+    color: '#374151',
+    fontSize: 12,
+    marginLeft: 6,
+    textTransform: 'capitalize',
+  },
+  preferenceIcon: {
+    marginRight: 6,
+  },
+  quickStats: {
+    gap: 8,
+  },
+  quickStatItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 4,
+  },
+  quickStatLabel: {
+    color: '#6b7280',
+    fontSize: 12,
+  },
+  quickStatValue: {
+    fontWeight: '600',
+    color: '#ea580c',
+    fontSize: 12,
+  },
+  notificationSettings: {
+    gap: 8,
+  },
+  settingItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 6,
+  },
+  settingContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  settingIcon: {
+    marginRight: 6,
+  },
+  settingText: {
+    color: '#374151',
+    fontSize: 12,
+  },
+  accountActions: {
+    gap: 8,
+  },
+  actionItem: {
+    paddingVertical: 6,
+  },
+  actionContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  actionIcon: {
+    marginRight: 6,
+  },
+  actionText: {
+    color: '#374151',
+    fontSize: 12,
+  },
+  additionalSection: {
+    paddingHorizontal: 16,
+    marginTop: 16,
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginBottom: 12,
+  },
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 16,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 3.84,
+    elevation: 2,
+  },
+  preferenceItemBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#f3f4f6',
+  },
+});
+
+
+
+================================================
+FILE: app/frontend/app/auth/_layout.tsx
+================================================
+import { Stack } from "expo-router";
+
+export default function AuthLayout() {
+  return (
+    <Stack>
+      <Stack.Screen name="login" options={{ headerShown: false }} />
+      <Stack.Screen name="signup" options={{ headerShown: false }} />
+    </Stack>
+  );
+}
+
+
+
+================================================
+FILE: app/frontend/app/auth/login.tsx
+================================================
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, ActivityIndicator } from 'react-native';
+import { Mail, Lock, Eye, EyeOff, ArrowRight, UserPlus } from 'lucide-react-native';
+import { Link, router } from 'expo-router';
+import { useAuthStore } from '../../stores/authStore';
+
+export default function LoginScreen() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const { login, isLoading, error, clearError } = useAuthStore();
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      return;
+    }
+
+    const success = await login(email, password);
+    if (success) {
+      router.replace('/(tabs)');
+    }
+  };
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.content}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.logoContainer}>
+            <Text style={styles.logoText}>D</Text>
+          </View>
+          <Text style={styles.title}>Welcome Back</Text>
+          <Text style={styles.subtitle}>Sign in to continue your food journey</Text>
+        </View>
+
+        {/* Error Message */}
+        {error && (
+          <View style={styles.errorContainer}>
+            <Text style={styles.errorText}>{error}</Text>
+            <TouchableOpacity onPress={clearError}>
+              <Text style={styles.errorDismiss}>✕</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
+        {/* Login Form */}
+        <View style={styles.form}>
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Email</Text>
+            <View style={styles.inputContainer}>
+              <Mail color="#9ca3af" size={20} />
+              <TextInput
+                style={styles.input}
+                placeholder="your@email.com"
+                placeholderTextColor="#9ca3af"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                editable={!isLoading}
+              />
+            </View>
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Password</Text>
+            <View style={styles.inputContainer}>
+              <Lock color="#9ca3af" size={20} />
+              <TextInput
+                style={styles.input}
+                placeholder="••••••••"
+                placeholderTextColor="#9ca3af"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry={!showPassword}
+                editable={!isLoading}
+              />
+              <TouchableOpacity onPress={() => setShowPassword(!showPassword)} disabled={isLoading}>
+                {showPassword ? (
+                  <EyeOff color="#9ca3af" size={20} />
+                ) : (
+                  <Eye color="#9ca3af" size={20} />
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <TouchableOpacity
+            style={[styles.loginButton, isLoading && styles.loginButtonDisabled]}
+            onPress={handleLogin}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator color="white" size="small" />
+            ) : (
+              <Text style={styles.loginButtonText}>Sign In</Text>
+            )}
+          </TouchableOpacity>
+
+          <View style={styles.divider}>
+            <View style={styles.dividerLine} />
+            <Text style={styles.dividerText}>OR</Text>
+            <View style={styles.dividerLine} />
+          </View>
+
+          <TouchableOpacity style={styles.googleButton} disabled={isLoading}>
+            <Image
+              source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg' }}
+              style={styles.googleIcon}
+            />
+            <Text style={styles.googleButtonText}>Continue with Google</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Footer */}
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Don't have an account? </Text>
+          <Link href="/auth/signup" asChild>
+            <TouchableOpacity disabled={isLoading}>
+              <Text style={styles.footerLink}>Sign Up</Text>
+            </TouchableOpacity>
+          </Link>
+        </View>
+      </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fef7f2',
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 48,
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 48,
+  },
+  logoContainer: {
+    width: 96,
+    height: 96,
+    backgroundColor: '#f97316',
+    borderRadius: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 24,
+  },
+  logoText: {
+    color: 'white',
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginBottom: 8,
+  },
+  subtitle: {
+    color: '#9ca3af',
+    fontSize: 16,
+  },
+  errorContainer: {
+    backgroundColor: '#fef2f2',
+    borderColor: '#fecaca',
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 24,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: '#dc2626',
+    fontSize: 14,
+    flex: 1,
+  },
+  errorDismiss: {
+    color: '#dc2626',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  form: {
+    marginBottom: 32,
+  },
+  inputGroup: {
+    marginBottom: 24,
+  },
+  label: {
+    color: '#1f2937',
+    fontSize: 18,
+    fontWeight: '500',
+    marginBottom: 8,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: '#e5e7eb',
+  },
+  input: {
+    flex: 1,
+    marginLeft: 12,
+    color: '#1f2937',
+    fontSize: 16,
+  },
+  loginButton: {
+    backgroundColor: '#f97316',
+    borderRadius: 12,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  loginButtonDisabled: {
+    opacity: 0.6,
+  },
+  loginButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 32,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#e5e7eb',
+  },
+  dividerText: {
+    color: '#9ca3af',
+    marginHorizontal: 16,
+  },
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 12,
+    paddingVertical: 16,
+    borderWidth: 1,
+    borderColor: '#e5e7eb',
+    marginBottom: 32,
+  },
+  googleIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 12,
+  },
+  googleButtonText: {
+    color: '#1f2937',
+    fontSize: 18,
+    fontWeight: '500',
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  footerText: {
+    color: '#9ca3af',
+    fontSize: 16,
+  },
+  footerLink: {
+    color: '#f97316',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
+
+
+
+================================================
+FILE: app/frontend/app/auth/signup.tsx
+================================================
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, ActivityIndicator } from 'react-native';
+import { Mail, Lock, Eye, EyeOff, User, ArrowRight } from 'lucide-react-native';
+import { Link, router } from 'expo-router';
+import { useAuthStore } from '../../stores/authStore';
+
+export default function SignupScreen() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const { signup, isLoading, error, clearError } = useAuthStore();
+
+  const handleSignup = async () => {
+    if (!name || !email || !password || !confirmPassword) {
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      return;
+    }
+
+    const success = await signup(name, email, password);
+    if (success) {
+      router.replace('/(tabs)');
+    }
+  };
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.content}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.logoContainer}>
+            <Text style={styles.logoText}>D</Text>
+          </View>
+          <Text style={styles.title}>Join DinDin</Text>
+          <Text style={styles.subtitle}>Create an account to start your food journey</Text>
+        </View>
+
+        {/* Error Message */}
+        {error && (
+          <View style={styles.errorContainer}>
+            <Text style={styles.errorText}>{error}</Text>
+            <TouchableOpacity onPress={clearError}>
+              <Text style={styles.errorDismiss}>✕</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
+        {/* Signup Form */}
+        <View style={styles.form}>
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Full Name</Text>
+            <View style={styles.inputContainer}>
+              <User color="#9ca3af" size={20} />
+              <TextInput
+                style={styles.input}
+                placeholder="Enter your name"
+                placeholderTextColor="#9ca3af"
+                value={name}
+                onChangeText={setName}
+                editable={!isLoading}
+              />
+            </View>
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Email</Text>
+            <View style={styles.inputContainer}>
+              <Mail color="#9ca3af" size={20} />
+              <TextInput
+                style={styles.input}
+                placeholder="your@email.com"
+                placeholderTextColor="#9ca3af"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                editable={!isLoading}
+              />
+            </View>
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Password</Text>
+            <View style={styles.inputContainer}>
+              <Lock color="#9ca3af" size={20} />
+              <TextInput
+                style={styles.input}
+                placeholder="••••••••"
+                placeholderTextColor="#9ca3af"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry={!showPassword}
+                editable={!isLoading}
+              />
+              <TouchableOpacity onPress={() => setShowPassword(!showPassword)} disabled={isLoading}>
+                {showPassword ? (
+                  <EyeOff color="#9ca3af" size={20} />
+                ) : (
+                  <Eye color="#9ca3af" size={20} />
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Confirm Password</Text>
+            <View style={styles.inputContainer}>
+              <Lock color="#9ca3af" size={20} />
+              <TextInput
+                style={styles.input}
+                placeholder="••••••••"
+                placeholderTextColor="#9ca3af"
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+                secureTextEntry={!showConfirmPassword}
+                editable={!isLoading}
+              />
+              <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)} disabled={isLoading}>
+                {showConfirmPassword ? (
+                  <EyeOff color="#9ca3af" size={20} />
+                ) : (
+                  <Eye color="#9ca3af" size={20} />
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <TouchableOpacity
+            style={[styles.signupButton, isLoading && styles.signupButtonDisabled]}
+            onPress={handleSignup}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator color="white" size="small" />
+            ) : (
+              <Text style={styles.signupButtonText}>Create Account</Text>
+            )}
+          </TouchableOpacity>
+
+          <View style={styles.divider}>
+            <View style={styles.dividerLine} />
+            <Text style={styles.dividerText}>OR</Text>
+            <View style={styles.dividerLine} />
+          </View>
+
+          <TouchableOpacity style={styles.googleButton} disabled={isLoading}>
+            <Image
+              source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg' }}
+              style={styles.googleIcon}
+            />
+            <Text style={styles.googleButtonText}>Sign up with Google</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Footer */}
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Already have an account? </Text>
+          <Link href="/auth/login" asChild>
+            <TouchableOpacity disabled={isLoading}>
+              <Text style={styles.footerLink}>Sign In</Text>
+            </TouchableOpacity>
+          </Link>
+        </View>
+      </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fef7f2',
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 32,
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 32,
+  },
+  logoContainer: {
+    width: 96,
+    height: 96,
+    backgroundColor: '#f97316',
+    borderRadius: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 24,
+  },
+  logoText: {
+    color: 'white',
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginBottom: 8,
+  },
+  subtitle: {
+    color: '#9ca3af',
+    fontSize: 16,
+  },
+  errorContainer: {
+    backgroundColor: '#fef2f2',
+    borderColor: '#fecaca',
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 24,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: '#dc2626',
+    fontSize: 14,
+    flex: 1,
+  },
+  errorDismiss: {
+    color: '#dc2626',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  form: {
+    marginBottom: 32,
+  },
+  inputGroup: {
+    marginBottom: 24,
+  },
+  label: {
+    color: '#1f2937',
+    fontSize: 18,
+    fontWeight: '500',
+    marginBottom: 8,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: '#e5e7eb',
+  },
+  input: {
+    flex: 1,
+    marginLeft: 12,
+    color: '#1f2937',
+    fontSize: 16,
+  },
+  signupButton: {
+    backgroundColor: '#f97316',
+    borderRadius: 12,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  signupButtonDisabled: {
+    opacity: 0.6,
+  },
+  signupButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 32,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#e5e7eb',
+  },
+  dividerText: {
+    color: '#9ca3af',
+    marginHorizontal: 16,
+  },
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 12,
+    paddingVertical: 16,
+    borderWidth: 1,
+    borderColor: '#e5e7eb',
+    marginBottom: 32,
+  },
+  googleIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 12,
+  },
+  googleButtonText: {
+    color: '#1f2937',
+    fontSize: 18,
+    fontWeight: '500',
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  footerText: {
+    color: '#9ca3af',
+    fontSize: 16,
+  },
+  footerLink: {
+    color: '#f97316',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
+
+
+
+================================================
+FILE: app/frontend/assets/fonts/SpaceMono-Regular.ttf
+================================================
+[Non-text file]
+
+
+================================================
+FILE: app/frontend/components/Card.tsx
+================================================
+import React from 'react';
+import { View, Text, Image, StyleSheet, ViewStyle, Dimensions } from 'react-native';
+import { Clock, Star, Users } from 'lucide-react-native';
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
+export interface CardItem {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  cookTime: string;
+  difficulty: string;
+  rating: number;
+  matches: number;
+  tags: string[];
+}
+
+interface CardProps {
+  item: CardItem;
+  style?: ViewStyle;
+  testID?: string;
+}
+
+// Pure presentational component - no state, no animations
+// This prevents unnecessary re-renders and keeps cards stable
+export const Card = React.memo<CardProps>(({ item, style, testID }) => {
+  return (
+    <View style={[styles.card, style]} testID={testID}>
+      <Image source={{ uri: item.image }} style={styles.image} resizeMode="cover" />
+
+      <View style={styles.content}>
+        <View style={styles.header}>
+          <Text style={styles.title} numberOfLines={1}>{item.title}</Text>
+          <View style={styles.rating}>
+            <Star color="#f59e0b" fill="#f59e0b" size={16} />
+            <Text style={styles.ratingText}>{item.rating}</Text>
+          </View>
+        </View>
+
+        <Text style={styles.description} numberOfLines={2}>{item.description}</Text>
+
+        <View style={styles.meta}>
+          <View style={styles.metaItem}>
+            <Clock color="#6b7280" size={14} />
+            <Text style={styles.metaText}>{item.cookTime}</Text>
+          </View>
+          <Text style={styles.separator}>•</Text>
+          <Text style={styles.metaText}>{item.difficulty}</Text>
+          <Text style={styles.separator}>•</Text>
+          <View style={styles.metaItem}>
+            <Users color="#6b7280" size={14} />
+            <Text style={styles.metaText}>{item.matches} matches</Text>
+          </View>
+        </View>
+
+        <View style={styles.tags}>
+          {item.tags.slice(0, 3).map((tag, index) => (
+            <View key={`${item.id}-tag-${index}`} style={styles.tag}>
+              <Text style={styles.tagText}>{tag}</Text>
+            </View>
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+}, (prevProps, nextProps) => {
+  // Custom comparison to prevent unnecessary re-renders
+  // Only re-render if the item ID changes
+  return prevProps.item.id === nextProps.item.id;
+});
+
+Card.displayName = 'Card';
+
+const styles = StyleSheet.create({
+  card: {
+    width: screenWidth - 32,
+    height: screenHeight - 250,
+    borderRadius: 24,
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    overflow: 'hidden',
+  },
+  image: {
+    width: '100%',
+    height: '60%',
+  },
+  content: {
+    flex: 1,
+    padding: 16,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    flex: 1,
+    marginRight: 8,
+  },
+  rating: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  ratingText: {
+    marginLeft: 4,
+    color: '#374151',
+    fontSize: 14,
+  },
+  description: {
+    color: '#4b5563',
+    marginBottom: 12,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  meta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  metaItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  metaText: {
+    color: '#6b7280',
+    fontSize: 14,
+    marginLeft: 4,
+  },
+  separator: {
+    color: '#9ca3af',
+    marginHorizontal: 8,
+  },
+  tags: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  tag: {
+    backgroundColor: '#fef3c7',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 12,
+  },
+  tagText: {
+    color: '#f97316',
+    fontSize: 12,
+    fontWeight: '500',
+  },
+});
+
+
+
+================================================
+FILE: app/frontend/components/ExampleUsage.tsx
+================================================
+import React, { useState } from 'react';
+import { View, Button, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { TinderStack } from './TinderStack';
+import { CardItem } from './Card';
+import { SwipeDirection } from '../hooks/useCardStack';
+
+// Example data with stable IDs - NEVER use Math.random() for IDs!
+const EXAMPLE_DATA: CardItem[] = [
+  {
+    id: 'recipe-001', // Stable, unique ID
+    title: 'Spaghetti Carbonara',
+    image: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=800',
+    description: 'Classic Italian pasta with eggs, cheese, and pancetta',
+    cookTime: '20 mins',
+    difficulty: 'Medium',
+    rating: 4.8,
+    matches: 1523,
+    tags: ['Italian', 'Pasta', 'Quick'],
+  },
+  {
+    id: 'recipe-002',
+    title: 'Chicken Tikka Masala',
+    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800',
+    description: 'Creamy tomato curry with tender chicken pieces',
+    cookTime: '45 mins',
+    difficulty: 'Medium',
+    rating: 4.9,
+    matches: 2341,
+    tags: ['Indian', 'Curry', 'Spicy'],
+  },
+  {
+    id: 'recipe-003',
+    title: 'Caesar Salad',
+    image: 'https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=800',
+    description: 'Crisp romaine lettuce with parmesan and croutons',
+    cookTime: '15 mins',
+    difficulty: 'Easy',
+    rating: 4.5,
+    matches: 892,
+    tags: ['Salad', 'Healthy', 'Quick'],
+  },
+  {
+    id: 'recipe-004',
+    title: 'Beef Tacos',
+    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800',
+    description: 'Seasoned ground beef in soft tortillas with fresh toppings',
+    cookTime: '25 mins',
+    difficulty: 'Easy',
+    rating: 4.7,
+    matches: 1876,
+    tags: ['Mexican', 'Quick', 'Family'],
+  },
+  {
+    id: 'recipe-005',
+    title: 'Pad Thai',
+    image: 'https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800',
+    description: 'Thai stir-fried noodles with shrimp and peanuts',
+    cookTime: '30 mins',
+    difficulty: 'Medium',
+    rating: 4.6,
+    matches: 1234,
+    tags: ['Thai', 'Noodles', 'Seafood'],
+  },
+];
+
+export const ExampleUsage: React.FC = () => {
+  const [swipeHistory, setSwipeHistory] = useState<Array<{ id: string; direction: SwipeDirection }>>([]);
+  const [key, setKey] = useState(0); // For resetting the stack
+
+  // Handle swipe events
+  const handleSwipe = (item: CardItem, direction: SwipeDirection) => {
+    console.log(`[ExampleUsage] Swiped ${direction} on:`, item.title);
+
+    // Add to history - this is separate from the stack management
+    setSwipeHistory(prev => [...prev, { id: item.id, direction }]);
+
+    // Here you would typically:
+    // 1. Send swipe to backend API
+    // 2. Update user preferences
+    // 3. Check for matches
+    // 4. Analytics tracking
+  };
+
+  // Handle when stack is empty
+  const handleStackEmpty = () => {
+    console.log('[ExampleUsage] Stack is empty!');
+    // You could:
+    // 1. Load more cards from API
+    // 2. Show results screen
+    // 3. Reset and start over
+  };
+
+  // Reset everything
+  const handleReset = () => {
+    setSwipeHistory([]);
+    setKey(prev => prev + 1); // Force remount with new key
+  };
+
+  // Verify swipe history for debugging
+  const verifySequence = () => {
+    console.log('=== Swipe History Verification ===');
+    swipeHistory.forEach((swipe, index) => {
+      const expectedItem = EXAMPLE_DATA[index];
+      const isCorrect = expectedItem && expectedItem.id === swipe.id;
+      console.log(
+        `${index + 1}. ${isCorrect ? '✅' : '❌'} Swiped ${swipe.direction} on ${swipe.id}`,
+        isCorrect ? '' : `(Expected: ${expectedItem?.id || 'none'})`
+      );
+    });
+    console.log('==================================');
+  };
+
+  return (
+    <GestureHandlerRootView style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Tinder Stack Demo</Text>
+          <Text style={styles.subtitle}>
+            Swipes: {swipeHistory.length} / {EXAMPLE_DATA.length}
+          </Text>
+        </View>
+
+        <View style={styles.stackContainer}>
+          <TinderStack
+            key={key} // Use key to force full reset
+            data={EXAMPLE_DATA}
+            onSwipe={handleSwipe}
+            onStackEmpty={handleStackEmpty}
+          />
+        </View>
+
+        <View style={styles.controls}>
+          <Button title="Reset Stack" onPress={handleReset} />
+          <Button title="Verify Sequence" onPress={verifySequence} />
+        </View>
+
+        {/* Debug info */}
+        <View style={styles.debug}>
+          <Text style={styles.debugTitle}>Recent Swipes:</Text>
+          {swipeHistory.slice(-3).reverse().map((swipe, index) => (
+            <Text key={index} style={styles.debugText}>
+              {swipe.direction === 'right' ? '👍' : '👎'} {swipe.id}
+            </Text>
+          ))}
+        </View>
+      </SafeAreaView>
+    </GestureHandlerRootView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f3f4f6',
+  },
+  header: {
+    padding: 20,
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1f2937',
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#6b7280',
+    marginTop: 4,
+  },
+  stackContainer: {
+    flex: 1,
+  },
+  controls: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 20,
+  },
+  debug: {
+    padding: 20,
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#e5e7eb',
+  },
+  debugTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#6b7280',
+    marginBottom: 8,
+  },
+  debugText: {
+    fontSize: 12,
+    color: '#9ca3af',
+    marginTop: 4,
+  },
+});
+
+
+================================================
+FILE: app/frontend/components/GradientMask.tsx
+================================================
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+
+// Optional: Install expo-linear-gradient for gradient effects
+// npm install expo-linear-gradient
+// For now, using a simple View with backgroundColor
+
+interface GradientMaskProps {
+  height?: number;
+  colors?: string[];
+  style?: any;
+}
+
+/**
+ * Optional gradient mask component to hint at text truncation
+ * Creates a subtle fade effect at the bottom of truncated text
+ */
+export const GradientMask: React.FC<GradientMaskProps> = ({
+  height = 10,
+  colors,
+  style,
+}) => {
+  return (
+    <View
+      style={[
+        styles.gradientMask,
+        {
+          height,
+          backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fallback color
+        },
+        style,
+      ]}
+      pointerEvents="none"
+    />
+  );
+};
+
+const styles = StyleSheet.create({
+  gradientMask: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+});
+
+export default GradientMask;
+
+
+================================================
+FILE: app/frontend/components/ImprovedRecipeCard.tsx
+================================================
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, Text, TouchableOpacity, Dimensions, StyleSheet, Alert, ScrollView, Pressable } from 'react-native';
+import { Heart, X, User, Search, Flame, Star, Clock, Users, ArrowLeft, ChefHat, List, Info } from 'lucide-react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  runOnJS,
+  interpolate,
+  Extrapolate,
+  cancelAnimation,
+  Easing,
+} from 'react-native-reanimated';
+import PlaceholderImage from './PlaceholderImage';
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
+// Configuration constants
+const SWIPE_THRESHOLD_X = screenWidth * 0.25; // 25% of screen width
+const SWIPE_VELOCITY_THRESHOLD = 400;
+const MAX_ROTATION = 20; // degrees
+
+// Description layout constants
+const DESCRIPTION_LINE_HEIGHT = 20;
+const DESCRIPTION_MAX_LINES = 3.5;
+const DESCRIPTION_MAX_HEIGHT = DESCRIPTION_LINE_HEIGHT * DESCRIPTION_MAX_LINES; // 70
+
+interface Recipe {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  cookTime: string;
+  difficulty: string;
+  rating: number;
+  matches: number;
+  tags: string[];
+  ingredients: string[];
+  nutrition?: {
+    calories: number;
+    protein: number;
+    carbs: number;
+    fat: number;
+    fiber: number;
+    sugar: number;
+  };
+}
+
+interface ImprovedRecipeCardProps {
+  recipe: Recipe;
+  isTopCard: boolean;
+  onSwipeLeft: () => void;
+  onSwipeRight: () => void;
+  onShowMore?: (recipe: Recipe) => void;
+  onFlipChange?: (isFlipped: boolean) => void;
+}
+
+const ImprovedRecipeCard: React.FC<ImprovedRecipeCardProps> = ({
+  recipe,
+  isTopCard,
+  onSwipeLeft,
+  onSwipeRight,
+  onShowMore,
+  onFlipChange
+}) => {
+  // Animated values
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+  const scale = useSharedValue(isTopCard ? 1 : 0.95);
+  const opacity = useSharedValue(1);
+  const flipRotation = useSharedValue(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  // Description truncation state (kept for potential gradient overlay)
+  const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
+
+  // Reset flip state when card changes or is no longer the top card
+  useEffect(() => {
+    if (!isTopCard && isFlipped) {
+      setIsFlipped(false);
+      flipRotation.value = 0;
+    }
+  }, [isTopCard, isFlipped, flipRotation]);
+
+  // Logging helper that works in both worklet and JS contexts
+  const log = useCallback((message: string, data?: any) => {
+    console.log(`[ImprovedRecipeCard ${recipe.id}] ${message}`, data || '');
+  }, [recipe.id]);
+
+  // Handle flip animation
+  const handleFlip = useCallback(() => {
+    const newRotation = isFlipped ? 0 : 180;
+    const newFlippedState = !isFlipped;
+
+    flipRotation.value = withTiming(newRotation, {
+      duration: 600,
+      easing: Easing.inOut(Easing.ease),
+    });
+
+    // Delay the state change to sync with the animation midpoint
+    setTimeout(() => {
+      setIsFlipped(newFlippedState);
+      onFlipChange?.(newFlippedState);
+    }, 300);
+  }, [isFlipped, flipRotation, onFlipChange]);
+
+  // Handle swipe completion
+  const onSwipeComplete = useCallback((direction: 'left' | 'right') => {
+    log(`Swipe completed: ${direction}`);
+
+    // Call the appropriate callback
+    if (direction === 'right') {
+      onSwipeRight();
+    } else {
+      onSwipeLeft();
+    }
+  }, [onSwipeLeft, onSwipeRight, log]);
+
+  // Animate the card off screen
+  const animateCardOut = useCallback((velocityX: number) => {
+    'worklet';
+    const direction = velocityX > 0 ? 'right' : 'left';
+    const finalX = direction === 'right' ? screenWidth + 200 : -screenWidth - 200;
+
+    // Calculate duration based on velocity for natural feel
+    const duration = Math.max(150, Math.min(300, Math.abs((finalX - translateX.value) / velocityX) * 1000));
+
+    translateX.value = withTiming(finalX, { duration }, (finished) => {
+      'worklet';
+      if (finished) {
+        runOnJS(onSwipeComplete)(direction);
+      }
+    });
+
+    opacity.value = withTiming(0, { duration: duration * 0.8 });
+    scale.value = withTiming(0.8, { duration });
+  }, [onSwipeComplete]);
+
+  // Reset card position
+  const resetCard = useCallback(() => {
+    'worklet';
+    translateX.value = withSpring(0, {
+      damping: 15,
+      stiffness: 100,
+      mass: 1,
+    });
+    translateY.value = withSpring(0, {
+      damping: 15,
+      stiffness: 100,
+      mass: 1,
+    });
+  }, []);
+
+  // Handle description text layout to detect truncation
+  const onDescriptionTextLayout = useCallback((event: any) => {
+    const { lines } = event.nativeEvent;
+    const totalTextHeight = lines.length * DESCRIPTION_LINE_HEIGHT;
+    const isTruncated = totalTextHeight > DESCRIPTION_MAX_HEIGHT + 0.5; // Small tolerance
+
+    setIsDescriptionTruncated(isTruncated);
+    log('Description truncation check', {
+      linesCount: lines.length,
+      totalHeight: totalTextHeight,
+      maxHeight: DESCRIPTION_MAX_HEIGHT,
+      isTruncated
+    });
+  }, [log]);
+
+  // Info icon is always visible for access to recipe details
+
+  // Create pan gesture
+  const gesture = Gesture.Pan()
+    .enabled(isTopCard && !isFlipped) // Disable swipe when card is flipped
+    .onBegin(() => {
+      'worklet';
+      // Cancel any ongoing animations
+      cancelAnimation(translateX);
+      cancelAnimation(translateY);
+    })
+    .onUpdate((event) => {
+      'worklet';
+      translateX.value = event.translationX;
+      translateY.value = event.translationY * 0.5; // Reduce vertical movement
+    })
+    .onEnd((event) => {
+      'worklet';
+      const { translationX, velocityX } = event;
+
+      // Check swipe threshold
+      const shouldSwipe =
+        Math.abs(translationX) > SWIPE_THRESHOLD_X ||
+        Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD;
+
+      if (shouldSwipe) {
+        // Use velocity to determine direction if ambiguous
+        const effectiveVelocity = Math.abs(velocityX) > 100 ? velocityX :
+          (translationX > 0 ? 500 : -500);
+        animateCardOut(effectiveVelocity);
+      } else {
+        resetCard();
+      }
+    });
+
+  // Card style
+  const cardStyle = useAnimatedStyle(() => {
+    const rotate = interpolate(
+      translateX.value,
+      [-screenWidth / 2, 0, screenWidth / 2],
+      [-MAX_ROTATION, 0, MAX_ROTATION],
+      Extrapolate.CLAMP
+    );
+
+    return {
+      transform: [
+        { translateX: translateX.value },
+        { translateY: translateY.value },
+        { rotate: `${rotate}deg` },
+        { scale: scale.value },
+      ],
+      opacity: opacity.value,
+    };
+  });
+
+  // Front side style
+  const frontStyle = useAnimatedStyle(() => {
+    const rotateY = flipRotation.value;
+    return {
+      backfaceVisibility: 'hidden',
+      transform: [
+        { rotateY: `${rotateY}deg` },
+      ],
+      opacity: rotateY > 90 ? 0 : 1,
+    };
+  });
+
+  // Back side style
+  const backStyle = useAnimatedStyle(() => {
+    const rotateY = flipRotation.value;
+    return {
+      backfaceVisibility: 'hidden',
+      transform: [
+        { rotateY: `${rotateY - 180}deg` },
+      ],
+      opacity: rotateY > 90 ? 1 : 0,
+    };
+  });
+
+  // Like overlay style
+  const likeOverlayStyle = useAnimatedStyle(() => {
+    const opacity = interpolate(
+      translateX.value,
+      [0, SWIPE_THRESHOLD_X],
+      [0, 1],
+      Extrapolate.CLAMP
+    );
+    return { opacity };
+  });
+
+  // Nope overlay style
+  const nopeOverlayStyle = useAnimatedStyle(() => {
+    const opacity = interpolate(
+      translateX.value,
+      [-SWIPE_THRESHOLD_X, 0],
+      [1, 0],
+      Extrapolate.CLAMP
+    );
+    return { opacity };
+  });
+
+  if (!isTopCard) {
+    // Background card - no gestures, just display
+    return (
+      <Animated.View style={[styles.recipeCard, cardStyle]}>
+        <View style={styles.imageContainer}>
+          <PlaceholderImage
+            source={{ uri: recipe.image }}
+            style={styles.recipeImage}
+            resizeMode="cover"
+          />
+        </View>
+        <View style={styles.recipeInfo}>
+          <Text style={styles.recipeTitle}>{recipe.title}</Text>
+        </View>
+      </Animated.View>
+    );
+  }
+
+  return (
+    <GestureDetector gesture={gesture}>
+      <Animated.View style={[styles.recipeCard, cardStyle]}>
+        {/* Front of card */}
+        <Animated.View style={[styles.cardSide, styles.cardFront, frontStyle]}>
+          {/* Image container with info icon overlay */}
+          <View style={styles.imageContainer}>
+            <PlaceholderImage
+              source={{ uri: recipe.image }}
+              style={styles.recipeImage}
+              resizeMode="cover"
+            />
+
+            {/* Info Icon - always visible for recipe details access */}
+            <Pressable
+              style={styles.infoIconButton}
+              onPress={handleFlip}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+              accessibilityRole="button"
+              accessibilityLabel="Show recipe details"
+            >
+              <Info color="#ffffff" size={24} />
+            </Pressable>
+
+            {/* Protein Star - show when protein > 20g */}
+            {recipe.nutrition && recipe.nutrition.protein > 20 && (
+              <View style={styles.proteinStarBadge}>
+                <Star color="#FFD700" fill="#FFD700" size={20} />
+                <Text style={styles.proteinStarText}>PROTEIN!</Text>
+              </View>
+            )}
+
+            {/* Like Overlay */}
+            <Animated.View style={[styles.overlay, styles.likeOverlay, likeOverlayStyle]}>
+              <Text style={styles.overlayText}>LIKE</Text>
+            </Animated.View>
+
+            {/* Nope Overlay */}
+            <Animated.View style={[styles.overlay, styles.nopeOverlay, nopeOverlayStyle]}>
+              <Text style={styles.overlayText}>NOPE</Text>
+            </Animated.View>
+          </View>
+
+          <View style={styles.recipeInfo}>
+            {/* Header with title and rating */}
+            <View style={styles.recipeHeader}>
+              <Text style={styles.recipeTitle}>{recipe.title}</Text>
+              <View style={styles.ratingContainer}>
+                <Star color="#f59e0b" fill="#f59e0b" size={16} />
+                <Text style={styles.ratingText}>{recipe.rating}</Text>
+              </View>
+            </View>
+
+            {/* Bounded Description - Fixed max height */}
+            <View style={styles.descriptionContainer}>
+              <Text
+                style={styles.recipeDescription}
+                ellipsizeMode="tail"
+                onTextLayout={onDescriptionTextLayout}
+              >
+                {recipe.description}
+              </Text>
+              {/* Optional: Gradient fade overlay for truncated text */}
+              {isDescriptionTruncated && (
+                <View style={styles.descriptionFade} pointerEvents="none" />
+              )}
+            </View>
+
+            {/* Meta information */}
+            <View style={styles.recipeMeta}>
+              <View style={styles.metaItem}>
+                <Clock color="#6b7280" size={14} />
+                <Text style={styles.metaText}>{recipe.cookTime}</Text>
+              </View>
+              <Text style={styles.metaSeparator}>•</Text>
+              <Text style={styles.metaText}>{recipe.difficulty}</Text>
+              <Text style={styles.metaSeparator}>•</Text>
+              <View style={styles.metaItem}>
+                <Users color="#6b7280" size={14} />
+                <Text style={styles.metaText}>{recipe.matches} matches</Text>
+              </View>
+            </View>
+
+            {/* Nutrition Info - Always visible, replacing tags */}
+            {recipe.nutrition && (
+              <View style={styles.nutritionContainer}>
+                <View style={styles.nutritionRow}>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.calories}</Text>
+                    <Text style={styles.nutritionLabel}>cal</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.protein}g</Text>
+                    <Text style={styles.nutritionLabel}>protein</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.carbs}g</Text>
+                    <Text style={styles.nutritionLabel}>carbs</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.fat}g</Text>
+                    <Text style={styles.nutritionLabel}>fat</Text>
+                  </View>
+                </View>
+                <View style={styles.nutritionRow}>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.fiber}g</Text>
+                    <Text style={styles.nutritionLabel}>fiber</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    <Text style={styles.nutritionValue}>{recipe.nutrition.sugar}g</Text>
+                    <Text style={styles.nutritionLabel}>sugar</Text>
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    {/* Empty space for balance */}
+                  </View>
+                  <View style={styles.nutritionItem}>
+                    {/* Empty space for balance */}
+                  </View>
+                </View>
+              </View>
+            )}
+
+            {/* Show More button removed - functionality moved to info icon */}
+          </View>
+        </Animated.View>
+
+        {/* Back of card - Unchanged */}
+        <Animated.View style={[styles.cardSide, styles.cardBack, backStyle]}>
+          <View style={styles.cardBackHeader}>
+            <TouchableOpacity style={styles.goBackButton} onPress={handleFlip}>
+              <ArrowLeft color="#f97316" size={20} />
+              <Text style={styles.goBackText}>Go Back</Text>
+            </TouchableOpacity>
+            <Text style={styles.cardBackTitle}>{recipe.title}</Text>
+          </View>
+
+          <ScrollView style={styles.cardBackContent} showsVerticalScrollIndicator={false}>
+            {/* Ingredients Section */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <List color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Ingredients</Text>
+              </View>
+              <View style={styles.ingredientsList}>
+                {recipe.ingredients.map((ingredient: string, index: number) => (
+                  <View key={index} style={styles.ingredientItem}>
+                    <View style={styles.ingredientBullet} />
+                    <Text style={styles.ingredientText}>{ingredient}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+
+            {/* Instructions Section */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <ChefHat color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Instructions</Text>
+              </View>
+              <View style={styles.instructionsList}>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>1</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    Prep all ingredients according to the list above. Make sure everything is measured and ready.
+                  </Text>
+                </View>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>2</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    {recipe.description} Heat your cooking surface to the appropriate temperature.
+                  </Text>
+                </View>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>3</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    Cook according to the recipe timing, stirring or flipping as needed for even cooking.
+                  </Text>
+                </View>
+                <View style={styles.instructionStep}>
+                  <View style={styles.stepNumber}>
+                    <Text style={styles.stepNumberText}>4</Text>
+                  </View>
+                  <Text style={styles.instructionText}>
+                    Season to taste and serve immediately while hot. Enjoy your delicious meal!
+                  </Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Additional Info */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <Clock color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Cooking Info</Text>
+              </View>
+              <View style={styles.cookingInfo}>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Prep Time</Text>
+                  <Text style={styles.infoValue}>10 mins</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Cook Time</Text>
+                  <Text style={styles.infoValue}>{recipe.cookTime}</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Difficulty</Text>
+                  <Text style={styles.infoValue}>{recipe.difficulty}</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Servings</Text>
+                  <Text style={styles.infoValue}>2-4 people</Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Tags Section - moved from front */}
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <Star color="#f97316" size={20} />
+                <Text style={styles.sectionTitle}>Tags</Text>
+              </View>
+              <View style={styles.tagsContainer}>
+                {recipe.tags.map((tag: string, index: number) => (
+                  <View key={`${recipe.id}-tag-${index}`} style={styles.tag}>
+                    <Text style={styles.tagText}>{tag}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </ScrollView>
+
+          {/* Action Buttons for Card Back */}
+          <View style={styles.cardBackActions}>
+            <TouchableOpacity
+              style={[styles.cardBackActionButton, styles.rejectButton]}
+              onPress={onSwipeLeft}
+            >
+              <X color="#ef4444" size={24} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.cardBackActionButton, styles.likeButton]}
+              onPress={onSwipeRight}
+            >
+              <Heart color="#10b981" fill="#10b981" size={24} />
+            </TouchableOpacity>
+          </View>
+        </Animated.View>
+      </Animated.View>
+    </GestureDetector>
+  );
+};
+
+const styles = StyleSheet.create({
+  recipeCard: {
+    position: 'absolute',
+    width: screenWidth - 32,
+    height: screenHeight - 250,
+    borderRadius: 24,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  cardSide: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  cardFront: {
+    backgroundColor: 'transparent',
+  },
+  cardBack: {
+    backgroundColor: 'white',
+  },
+  // Image container with relative positioning for icon overlay
+  imageContainer: {
+    position: 'relative',
+    width: '100%',
+    height: '60%',
+  },
+  recipeImage: {
+    width: '100%',
+    height: '100%',
+  },
+  // Info icon positioned absolutely over image
+  infoIconButton: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    minWidth: 44,
+    minHeight: 44,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: 22,
+  },
+  overlay: {
+    position: 'absolute',
+    top: 50,
+    padding: 10,
+    borderRadius: 10,
+    borderWidth: 3,
+    transform: [{ rotate: '-15deg' }],
+  },
+  likeOverlay: {
+    right: 20,
+    backgroundColor: '#10b981',
+    borderColor: '#10b981',
+  },
+  nopeOverlay: {
+    left: 20,
+    backgroundColor: '#ef4444',
+    borderColor: '#ef4444',
+  },
+  overlayText: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+  recipeInfo: {
+    padding: 16,
+    height: '40%',
+    justifyContent: 'space-between', // Distribute space evenly
+  },
+  recipeHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 8,
+  },
+  recipeTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    flex: 1,
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  ratingText: {
+    color: '#374151',
+    marginLeft: 4,
+  },
+  // Bounded description container - KEY FIX
+  descriptionContainer: {
+    position: 'relative',
+    maxHeight: DESCRIPTION_MAX_HEIGHT, // 70px = 3.5 lines
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  recipeDescription: {
+    color: '#4b5563',
+    fontSize: 14,
+    lineHeight: DESCRIPTION_LINE_HEIGHT, // 20px
+  },
+  // Optional gradient fade for truncated text
+  descriptionFade: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 10,
+    backgroundColor: 'transparent',
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    // Add gradient via backgroundColor or use LinearGradient component
+  },
+  recipeMeta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  metaItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  metaText: {
+    color: '#6b7280',
+    fontSize: 14,
+    marginLeft: 4,
+  },
+  metaSeparator: {
+    color: '#9ca3af',
+    marginHorizontal: 8,
+  },
+  // Nutrition info styles
+  nutritionContainer: {
+    marginBottom: 12,
+  },
+  nutritionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 6,
+  },
+  nutritionItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  nutritionValue: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#1f2937',
+  },
+  nutritionLabel: {
+    fontSize: 11,
+    color: '#6b7280',
+    textTransform: 'uppercase',
+    marginTop: 2,
+  },
+  // Protein star badge styles
+  proteinStarBadge: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  proteinStarText: {
+    color: '#FFD700',
+    fontSize: 12,
+    fontWeight: 'bold',
+    marginLeft: 4,
+  },
+  // Tags container - moved to detail view
+  tagsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    // Removed marginBottom since this is the last element
+  },
+  tag: {
+    backgroundColor: '#fef3c7',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  tagText: {
+    color: '#f97316',
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  // Card back styles (unchanged)
+  cardBackHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f3f4f6',
+  },
+  goBackButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+  },
+  goBackText: {
+    color: '#f97316',
+    fontSize: 14,
+    fontWeight: '600',
+    marginLeft: 4,
+  },
+  cardBackTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    flex: 1,
+    textAlign: 'center',
+    marginRight: 40,
+  },
+  cardBackContent: {
+    flex: 1,
+    padding: 16,
+  },
+  section: {
+    marginBottom: 24,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginLeft: 8,
+  },
+  ingredientsList: {
+    gap: 8,
+  },
+  ingredientItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  ingredientBullet: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#f97316',
+    marginTop: 6,
+    marginRight: 12,
+  },
+  ingredientText: {
+    color: '#374151',
+    fontSize: 14,
+    flex: 1,
+    lineHeight: 20,
+  },
+  instructionsList: {
+    gap: 16,
+  },
+  instructionStep: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  stepNumber: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#f97316',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+    marginTop: 2,
+  },
+  stepNumberText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  instructionText: {
+    color: '#374151',
+    fontSize: 14,
+    lineHeight: 20,
+    flex: 1,
+  },
+  cookingInfo: {
+    gap: 8,
+  },
+  infoItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 4,
+  },
+  infoLabel: {
+    color: '#6b7280',
+    fontSize: 14,
+  },
+  infoValue: {
+    color: '#1f2937',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  cardBackActions: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#f3f4f6',
+    backgroundColor: 'white',
+    gap: 24,
+  },
+  cardBackActionButton: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 3,
+  },
+  rejectButton: {
+    backgroundColor: '#fef2f2',
+    borderWidth: 1,
+    borderColor: '#fecaca',
+  },
+  likeButton: {
+    backgroundColor: '#f0fdf4',
+    borderWidth: 1,
+    borderColor: '#bbf7d0',
+  },
+});
+
+export default ImprovedRecipeCard;
+
+
+================================================
+FILE: app/frontend/components/PlaceholderImage.tsx
+================================================
+import React, { useState } from 'react';
+import { View, Image, StyleSheet, ImageStyle, ViewStyle, Text } from 'react-native';
+import { ChefHat } from 'lucide-react-native';
+
+interface PlaceholderImageProps {
+  source: { uri: string };
+  style: ImageStyle;
+  resizeMode?: 'cover' | 'contain' | 'stretch' | 'repeat' | 'center';
+  placeholderStyle?: ViewStyle;
+}
+
+const PlaceholderImage: React.FC<PlaceholderImageProps> = ({
+  source,
+  style,
+  resizeMode = 'cover',
+  placeholderStyle
+}) => {
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleError = () => {
+    setHasError(true);
+    setIsLoading(false);
+  };
+
+  const handleLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  if (hasError || !source?.uri) {
+    return (
+      <View style={[styles.placeholder, style, placeholderStyle]}>
+        <ChefHat color="#f97316" size={48} />
+        <Text style={styles.placeholderText}>Recipe Image</Text>
+        <Text style={styles.placeholderSubtext}>Image not available</Text>
+      </View>
+    );
+  }
+
+  return (
+    <>
+      <Image
+        source={source}
+        style={style}
+        resizeMode={resizeMode}
+        onError={handleError}
+        onLoad={handleLoad}
+      />
+      {isLoading && (
+        <View style={[styles.placeholder, style, placeholderStyle, styles.loadingOverlay]}>
+          <ChefHat color="#f97316" size={32} />
+          <Text style={styles.loadingText}>Loading...</Text>
+        </View>
+      )}
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  placeholder: {
+    backgroundColor: '#fef3c7',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#fed7aa',
+    borderStyle: 'dashed',
+  },
+  placeholderText: {
+    marginTop: 12,
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#f97316',
+    textAlign: 'center',
+  },
+  placeholderSubtext: {
+    marginTop: 4,
+    fontSize: 12,
+    color: '#9ca3af',
+    textAlign: 'center',
+  },
+  loadingOverlay: {
+    position: 'absolute',
+    backgroundColor: 'rgba(254, 243, 199, 0.9)',
+  },
+  loadingText: {
+    marginTop: 8,
+    fontSize: 12,
+    color: '#f97316',
+    textAlign: 'center',
+  },
+});
+
+export default PlaceholderImage;
+
+
+================================================
+FILE: app/frontend/components/RecipeCardTest.tsx
+================================================
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import ImprovedRecipeCard from './ImprovedRecipeCard';
+
+// Test data with different description lengths
+const TEST_RECIPES = [
+  {
+    id: 'test-short',
+    title: 'Short Description Recipe',
+    image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800',
+    description: 'Quick and easy dish.',
+    cookTime: '15 mins',
+    difficulty: 'Easy',
+    rating: 4.5,
+    matches: 1200,
+    tags: ['Quick', 'Easy', 'Beginner'],
+    ingredients: ['Salt', 'Pepper', 'Oil'],
+  },
+  {
+    id: 'test-medium',
+    title: 'Medium Description Recipe',
+    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800',
+    description: 'A delicious recipe that takes some time to prepare but is worth every minute of cooking.',
+    cookTime: '30 mins',
+    difficulty: 'Medium',
+    rating: 4.7,
+    matches: 890,
+    tags: ['Italian', 'Comfort Food', 'Family'],
+    ingredients: ['Pasta', 'Tomatoes', 'Basil', 'Cheese'],
+  },
+  {
+    id: 'test-long',
+    title: 'Long Description Recipe',
+    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800',
+    description: 'This is an incredibly detailed and comprehensive recipe that will take you through every single step of the cooking process, from the initial preparation of ingredients all the way through to the final plating and presentation. The description is intentionally long to test the 3.5 line truncation feature and ensure that the tags remain visible regardless of description length.',
+    cookTime: '45 mins',
+    difficulty: 'Hard',
+    rating: 4.9,
+    matches: 2340,
+    tags: ['Gourmet', 'Advanced', 'Special Occasion', 'Time Intensive'],
+    ingredients: ['Multiple', 'Complex', 'Ingredients', 'Listed', 'Here'],
+  },
+  {
+    id: 'test-extra-long',
+    title: 'Extra Long Description',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800',
+    description: 'This recipe has an extremely long description that is designed to test the absolute limits of our 3.5 line truncation system. It includes multiple sentences with detailed explanations of cooking techniques, ingredient selection tips, and background information about the dish\'s origins. The text continues on and on to ensure that our layout system properly handles edge cases where descriptions are exceptionally verbose and would normally push content off-screen. We want to make sure that no matter how long the description gets, the tags section always remains visible and the user interface stays clean and organized.',
+    cookTime: '60 mins',
+    difficulty: 'Expert',
+    rating: 5.0,
+    matches: 567,
+    tags: ['Expert', 'Restaurant Quality', 'Traditional', 'Authentic', 'Premium'],
+    ingredients: ['Premium ingredient 1', 'Premium ingredient 2', 'Premium ingredient 3'],
+  },
+];
+
+export const RecipeCardTest: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showAllTests, setShowAllTests] = useState(false);
+
+  const handleSwipeLeft = () => {
+    console.log('Swiped left on:', TEST_RECIPES[currentIndex].title);
+    nextCard();
+  };
+
+  const handleSwipeRight = () => {
+    console.log('Swiped right on:', TEST_RECIPES[currentIndex].title);
+    nextCard();
+  };
+
+  const nextCard = () => {
+    setCurrentIndex((prev) => (prev + 1) % TEST_RECIPES.length);
+  };
+
+  const prevCard = () => {
+    setCurrentIndex((prev) => (prev - 1 + TEST_RECIPES.length) % TEST_RECIPES.length);
+  };
+
+  const handleFlipChange = (isFlipped: boolean) => {
+    console.log('Card flipped:', isFlipped);
+  };
+
+  if (showAllTests) {
+    return (
+      <GestureHandlerRootView style={styles.container}>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.header}>
+            <Text style={styles.title}>Recipe Card Layout Tests</Text>
+            <TouchableOpacity onPress={() => setShowAllTests(false)} style={styles.button}>
+              <Text style={styles.buttonText}>Single Card Mode</Text>
+            </TouchableOpacity>
+          </View>
+
+          <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+            {TEST_RECIPES.map((recipe, index) => (
+              <View key={recipe.id} style={styles.testCardContainer}>
+                <Text style={styles.testLabel}>
+                  Test {index + 1}: {recipe.title}
+                </Text>
+                <Text style={styles.descriptionPreview}>
+                  Description length: {recipe.description.length} characters
+                </Text>
+
+                <View style={styles.cardWrapper}>
+                  <ImprovedRecipeCard
+                    recipe={recipe}
+                    isTopCard={true}
+                    onSwipeLeft={() => console.log('Test swipe left:', recipe.title)}
+                    onSwipeRight={() => console.log('Test swipe right:', recipe.title)}
+                    onFlipChange={(flipped) => console.log('Test flip:', recipe.title, flipped)}
+                  />
+                </View>
+              </View>
+            ))}
+          </ScrollView>
+        </SafeAreaView>
+      </GestureHandlerRootView>
+    );
+  }
+
+  return (
+    <GestureHandlerRootView style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Recipe Card Test</Text>
+          <View style={styles.headerButtons}>
+            <TouchableOpacity onPress={() => setShowAllTests(true)} style={styles.button}>
+              <Text style={styles.buttonText}>All Tests</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.info}>
+          <Text style={styles.infoText}>
+            Card {currentIndex + 1} of {TEST_RECIPES.length}
+          </Text>
+          <Text style={styles.recipeInfo}>
+            {TEST_RECIPES[currentIndex].title}
+          </Text>
+          <Text style={styles.descriptionInfo}>
+            Description: {TEST_RECIPES[currentIndex].description.length} chars
+          </Text>
+        </View>
+
+        <View style={styles.cardContainer}>
+          <ImprovedRecipeCard
+            recipe={TEST_RECIPES[currentIndex]}
+            isTopCard={true}
+            onSwipeLeft={handleSwipeLeft}
+            onSwipeRight={handleSwipeRight}
+            onFlipChange={handleFlipChange}
+          />
+        </View>
+
+        <View style={styles.controls}>
+          <TouchableOpacity onPress={prevCard} style={styles.controlButton}>
+            <Text style={styles.controlButtonText}>← Previous</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={nextCard} style={styles.controlButton}>
+            <Text style={styles.controlButtonText}>Next →</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.validation}>
+          <Text style={styles.validationTitle}>Validation Checklist:</Text>
+          <Text style={styles.validationItem}>
+            ✓ Description bounded to 3.5 lines max
+          </Text>
+          <Text style={styles.validationItem}>
+            ✓ Tags always visible at bottom
+          </Text>
+          <Text style={styles.validationItem}>
+            ✓ Info icon always visible for recipe details
+          </Text>
+          <Text style={styles.validationItem}>
+            ✓ Info icon triggers flip animation
+          </Text>
+          <Text style={styles.validationItem}>
+            ✓ Show More button removed
+          </Text>
+        </View>
+      </SafeAreaView>
+    </GestureHandlerRootView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f3f4f6',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e7eb',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#1f2937',
+  },
+  headerButtons: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  button: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: '#f97316',
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 14,
+  },
+  info: {
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e7eb',
+  },
+  infoText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#374151',
+  },
+  recipeInfo: {
+    fontSize: 14,
+    color: '#6b7280',
+    marginTop: 2,
+  },
+  descriptionInfo: {
+    fontSize: 12,
+    color: '#9ca3af',
+    marginTop: 2,
+  },
+  cardContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  controls: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#e5e7eb',
+  },
+  controlButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: '#6b7280',
+    borderRadius: 8,
+  },
+  controlButtonText: {
+    color: 'white',
+    fontWeight: '600',
+  },
+  validation: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: '#f9fafb',
+  },
+  validationTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#374151',
+    marginBottom: 8,
+  },
+  validationItem: {
+    fontSize: 12,
+    color: '#059669',
+    marginBottom: 4,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  testCardContainer: {
+    marginVertical: 20,
+    marginHorizontal: 16,
+  },
+  testLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginBottom: 4,
+  },
+  descriptionPreview: {
+    fontSize: 12,
+    color: '#6b7280',
+    marginBottom: 12,
+  },
+  cardWrapper: {
+    height: 500,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default RecipeCardTest;
+
+
+================================================
+FILE: app/frontend/components/TinderStack.tsx
+================================================
+import React, { useCallback } from 'react';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  runOnJS,
+  interpolate,
+  Extrapolate,
+  cancelAnimation,
+} from 'react-native-reanimated';
+import { Card, CardItem } from './Card';
+import { useCardStack, SwipeDirection } from '../hooks/useCardStack';
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
+// Configuration constants
+const SWIPE_THRESHOLD_X = screenWidth * 0.25; // 25% of screen width
+const SWIPE_VELOCITY_THRESHOLD = 400;
+const MAX_ROTATION = 20; // degrees
+const ANIMATION_DURATION = 200; // ms for swipe out
+
+interface TinderStackProps {
+  data: CardItem[];
+  onSwipe?: (item: CardItem, direction: SwipeDirection) => void;
+  onStackEmpty?: () => void;
+}
+
+export const TinderStack: React.FC<TinderStackProps> = ({
+  data,
+  onSwipe,
+  onStackEmpty,
+}) => {
+  // Use the card stack hook for state management
+  const {
+    visibleCards,
+    headIndex,
+    isAnimating,
+    onSwipeComplete,
+    canSwipe,
+    currentCard,
+    hasMore,
+  } = useCardStack({
+    data,
+    onSwipe,
+    maxVisibleCards: 3,
+  });
+
+  // Shared values for the top card animation
+  // Only the top card is animated; others are static
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+  const rotation = useSharedValue(0);
+  const scale = useSharedValue(1);
+  const opacity = useSharedValue(1);
+
+  // Handle empty stack
+  React.useEffect(() => {
+    if (!hasMore && onStackEmpty) {
+      onStackEmpty();
+    }
+  }, [hasMore, onStackEmpty]);
+
+  // Reset animation values when head index changes
+  // This ensures clean state for the new top card
+  React.useEffect(() => {
+    'worklet';
+    translateX.value = 0;
+    translateY.value = 0;
+    rotation.value = 0;
+    scale.value = 1;
+    opacity.value = 1;
+  }, [headIndex]);
+
+  // Complete swipe animation and notify JS thread
+  const completeSwipe = useCallback((direction: SwipeDirection) => {
+    'worklet';
+    console.log('[TinderStack] Animation complete, calling onSwipeComplete');
+    runOnJS(onSwipeComplete)(direction);
+  }, [onSwipeComplete]);
+
+  // Animate card off screen
+  const animateOut = useCallback((velocityX: number) => {
+    'worklet';
+    const direction: SwipeDirection = velocityX > 0 ? 'right' : 'left';
+    const finalX = direction === 'right' ? screenWidth * 1.5 : -screenWidth * 1.5;
+
+    // Animate with proper completion callback
+    translateX.value = withTiming(
+      finalX,
+      { duration: ANIMATION_DURATION },
+      (finished) => {
+        'worklet';
+        if (finished) {
+          // Critical: Call JS thread update AFTER animation completes
+          completeSwipe(direction);
+        }
+      }
+    );
+
+    // Fade and scale for visual polish
+    opacity.value = withTiming(0, { duration: ANIMATION_DURATION * 0.8 });
+    scale.value = withTiming(0.8, { duration: ANIMATION_DURATION });
+  }, [completeSwipe]);
+
+  // Reset card to center
+  const resetPosition = useCallback(() => {
+    'worklet';
+    translateX.value = withSpring(0, { damping: 15, stiffness: 100 });
+    translateY.value = withSpring(0, { damping: 15, stiffness: 100 });
+    rotation.value = withSpring(0, { damping: 15, stiffness: 100 });
+  }, []);
+
+  // Create pan gesture for swiping
+  const panGesture = Gesture.Pan()
+    .enabled(canSwipe()) // Disable when animating or no cards
+    .onBegin(() => {
+      'worklet';
+      // Cancel any ongoing animations
+      cancelAnimation(translateX);
+      cancelAnimation(translateY);
+      cancelAnimation(rotation);
+    })
+    .onUpdate((event) => {
+      'worklet';
+      // Update position and rotation based on drag
+      translateX.value = event.translationX;
+      translateY.value = event.translationY * 0.5; // Reduce vertical movement
+
+      // Calculate rotation based on horizontal position
+      rotation.value = interpolate(
+        event.translationX,
+        [-screenWidth / 2, 0, screenWidth / 2],
+        [-MAX_ROTATION, 0, MAX_ROTATION],
+        Extrapolate.CLAMP
+      );
+    })
+    .onEnd((event) => {
+      'worklet';
+      const { translationX, velocityX } = event;
+
+      // Check if swipe threshold is met
+      const shouldSwipe =
+        Math.abs(translationX) > SWIPE_THRESHOLD_X ||
+        Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD;
+
+      if (shouldSwipe) {
+        // Determine direction from velocity or position
+        const effectiveVelocity =
+          Math.abs(velocityX) > 100 ? velocityX :
+          (translationX > 0 ? 500 : -500);
+        animateOut(effectiveVelocity);
+      } else {
+        // Snap back to center
+        resetPosition();
+      }
+    });
+
+  // Animated style for the top card
+  const topCardStyle = useAnimatedStyle(() => ({
+    transform: [
+      { translateX: translateX.value },
+      { translateY: translateY.value },
+      { rotate: `${rotation.value}deg` },
+      { scale: scale.value },
+    ],
+    opacity: opacity.value,
+  }));
+
+  // Like overlay style
+  const likeOverlayStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(
+      translateX.value,
+      [0, SWIPE_THRESHOLD_X],
+      [0, 1],
+      Extrapolate.CLAMP
+    ),
+  }));
+
+  // Nope overlay style
+  const nopeOverlayStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(
+      translateX.value,
+      [-SWIPE_THRESHOLD_X, 0],
+      [1, 0],
+      Extrapolate.CLAMP
+    ),
+  }));
+
+  if (!hasMore) {
+    return (
+      <View style={styles.emptyContainer}>
+        <Text style={styles.emptyText}>No more cards!</Text>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      {/* Render cards in reverse order so top card is last (highest z-index) */}
+      {visibleCards.slice().reverse().map((item, reverseIndex) => {
+        const actualIndex = visibleCards.length - 1 - reverseIndex;
+        const isTop = actualIndex === 0;
+
+        // Calculate scale and vertical offset for stacked appearance
+        const cardScale = 1 - (actualIndex * 0.05);
+        const cardTranslateY = actualIndex * 8;
+
+        if (isTop && currentCard) {
+          // Top card with gestures and animations
+          return (
+            <GestureDetector key={`card-${item.id}-${headIndex}`} gesture={panGesture}>
+              <Animated.View
+                style={[
+                  styles.cardContainer,
+                  topCardStyle,
+                  { zIndex: 1000 - actualIndex },
+                ]}
+              >
+                <Card
+                  item={item}
+                  testID={`card-top-${item.id}`}
+                />
+
+                {/* Like Overlay */}
+                <Animated.View style={[styles.overlay, styles.likeOverlay, likeOverlayStyle]}>
+                  <Text style={styles.overlayText}>LIKE</Text>
+                </Animated.View>
+
+                {/* Nope Overlay */}
+                <Animated.View style={[styles.overlay, styles.nopeOverlay, nopeOverlayStyle]}>
+                  <Text style={styles.overlayText}>NOPE</Text>
+                </Animated.View>
+              </Animated.View>
+            </GestureDetector>
+          );
+        } else {
+          // Background cards - static, no gestures
+          return (
+            <Animated.View
+              key={`card-${item.id}-${headIndex}`}
+              style={[
+                styles.cardContainer,
+                {
+                  zIndex: 1000 - actualIndex,
+                  transform: [
+                    { scale: cardScale },
+                    { translateY: cardTranslateY },
+                  ],
+                  opacity: 0.95,
+                },
+              ]}
+            >
+              <Card
+                item={item}
+                testID={`card-bg-${actualIndex}-${item.id}`}
+              />
+            </Animated.View>
+          );
+        }
+      })}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyText: {
+    fontSize: 18,
+    color: '#6b7280',
+  },
+  cardContainer: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  overlay: {
+    position: 'absolute',
+    top: 50,
+    padding: 10,
+    borderRadius: 10,
+    borderWidth: 3,
+    transform: [{ rotate: '-15deg' }],
+  },
+  likeOverlay: {
+    right: 40,
+    backgroundColor: '#10b981',
+    borderColor: '#10b981',
+  },
+  nopeOverlay: {
+    left: 40,
+    backgroundColor: '#ef4444',
+    borderColor: '#ef4444',
+  },
+  overlayText: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+});
+
+
+================================================
+FILE: app/frontend/config/api.ts
+================================================
+// API Configuration for DinDin Frontend
+
+import { useAuthStore } from '../stores/authStore';
+
+// Environment-specific API base URLs
+export const API_CONFIG = {
+  development: {
+    baseUrl: 'http://localhost:3001/api',
+    timeout: 10000,
+  },
+  production: {
+    baseUrl: process.env.REACT_NATIVE_API_URL || 'https://your-production-api.com/api',
+    timeout: 5000,
+  },
+  test: {
+    baseUrl: 'http://localhost:3001/api',
+    timeout: 5000,
+  }
+};
+
+// Get current environment
+const getCurrentEnvironment = (): keyof typeof API_CONFIG => {
+  if (__DEV__) return 'development';
+  return process.env.NODE_ENV === 'production' ? 'production' : 'development';
+};
+
+// Export current configuration
+export const currentApiConfig = API_CONFIG[getCurrentEnvironment()];
+
+// API endpoints
+export const ENDPOINTS = {
+  // Recipe endpoints
+  recipes: '/recipes',
+  recipesPersonalized: '/recipes/personalized',
+  recipesSearch: '/recipes/search',
+  recipeById: (id: string) => `/recipes/${id}`,
+
+  // Swipe endpoints
+  swipes: '/swipes',
+  swipeHistory: (userId: string) => `/swipes/history/${userId}`,
+
+  // Match endpoints
+  matches: (userId: string) => `/matches/${userId}`,
+
+  // User endpoints
+  users: '/users',
+  userProfile: (userId: string) => `/users/${userId}`,
+
+  // Auth endpoints
+  login: '/auth/login',
+  register: '/auth/register',
+  logout: '/auth/logout',
+  refreshToken: '/auth/refresh',
+};
+export const getHeaders = (includeAuth = true) => {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  };
+
+  // Add auth token if available and required
+  if (includeAuth) {
+    try {
+      // Get token from auth store
+      const user = useAuthStore.getState().user;
+      if (user?.id) {
+        headers['X-User-ID'] = user.id;
+      }
+    } catch (error) {
+      console.warn('Could not get user from auth store:', error);
+    }
+  }
+
+return headers;
+};
+
+// HTTP request wrapper with error handling
+export const apiRequest = async (
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<any> => {
+  const url = `${currentApiConfig.baseUrl}${endpoint}`;
+
+  const config: RequestInit = {
+    ...options,
+    headers: {
+      ...getHeaders(),
+      ...options.headers,
+    },
+  };
+
+  try {
+    const response = await fetch(url, config);
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      return await response.json();
+    }
+
+    return await response.text();
+  } catch (error) {
+    console.error(`API request failed for ${endpoint}:`, error);
+    throw error;
+  }
+};
+
+export default currentApiConfig;
+
+
+
+================================================
+FILE: app/frontend/config/database
+================================================
+
+
+
+================================================
+FILE: app/frontend/hooks/useCardStack.ts
+================================================
+import { useState, useCallback, useMemo, useRef } from 'react';
+import { runOnJS, runOnUI } from 'react-native-reanimated';
+
+export interface StackItem {
+  id: string;
+  [key: string]: any;
+}
+
+export type SwipeDirection = 'left' | 'right';
+
+interface UseCardStackProps<T extends StackItem> {
+  data: T[];
+  onSwipe?: (item: T, direction: SwipeDirection) => void;
+  maxVisibleCards?: number;
+}
+
+interface UseCardStackReturn<T extends StackItem> {
+  visibleCards: T[];
+  headIndex: number;
+  isAnimating: boolean;
+  onSwipeComplete: (direction: SwipeDirection) => void;
+  canSwipe: () => boolean;
+  reset: () => void;
+  currentCard: T | null;
+  nextCard: T | null;
+  hasMore: boolean;
+}
+
+// Hook manages indices WITHOUT mutating the data array
+// This ensures stable, predictable card sequencing
+export function useCardStack<T extends StackItem>({
+  data,
+  onSwipe,
+  maxVisibleCards = 3,
+}: UseCardStackProps<T>): UseCardStackReturn<T> {
+  // Track the index of the top card in the ORIGINAL data array
+  // Never mutate or filter the data array itself
+  const [headIndex, setHeadIndex] = useState(0);
+
+  // Prevent overlapping swipes during animation
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Use ref to avoid stale closures in callbacks
+  const headIndexRef = useRef(headIndex);
+  headIndexRef.current = headIndex;
+
+  // Calculate visible cards based on current head index
+  // This creates a stable window into the data array
+  const visibleCards = useMemo(() => {
+    const cards: T[] = [];
+    for (let i = 0; i < maxVisibleCards; i++) {
+      const index = headIndex + i;
+      if (index < data.length) {
+        cards.push(data[index]);
+      }
+    }
+    return cards;
+  }, [data, headIndex, maxVisibleCards]);
+
+  // Current and next cards for easy access
+  const currentCard = headIndex < data.length ? data[headIndex] : null;
+  const nextCard = headIndex + 1 < data.length ? data[headIndex + 1] : null;
+  const hasMore = headIndex < data.length;
+
+  // Advance head index after swipe animation completes
+  // This is called from the UI thread via runOnJS
+  const advanceHeadIndex = useCallback(() => {
+    console.log('[useCardStack] Advancing head index from', headIndexRef.current);
+
+    // Update both state and ref atomically
+    const newIndex = headIndexRef.current + 1;
+    setHeadIndex(newIndex);
+    headIndexRef.current = newIndex;
+
+    // Clear animation lock
+    setIsAnimating(false);
+
+    console.log('[useCardStack] New head index:', newIndex);
+  }, []);
+
+  // Handle swipe completion with proper synchronization
+  const onSwipeComplete = useCallback((direction: SwipeDirection) => {
+    console.log('[useCardStack] Swipe complete:', direction, 'Current index:', headIndexRef.current);
+
+    // Prevent duplicate processing
+    if (isAnimating) {
+      console.warn('[useCardStack] Swipe already in progress, ignoring');
+      return;
+    }
+
+    // Get current card before advancing
+    const swipedCard = data[headIndexRef.current];
+    if (!swipedCard) {
+      console.error('[useCardStack] No card at index:', headIndexRef.current);
+      return;
+    }
+
+    // Lock animations
+    setIsAnimating(true);
+
+    // Call user's swipe handler if provided
+    if (onSwipe) {
+      onSwipe(swipedCard, direction);
+    }
+
+    // Advance index after a small delay to ensure animation completes
+    // This prevents the flash of the wrong card
+    setTimeout(() => {
+      advanceHeadIndex();
+    }, 50);
+  }, [data, onSwipe, advanceHeadIndex, isAnimating]);
+
+  // Check if swipe is allowed
+  const canSwipe = useCallback(() => {
+    return !isAnimating && hasMore;
+  }, [isAnimating, hasMore]);
+
+  // Reset the stack to the beginning
+  const reset = useCallback(() => {
+    console.log('[useCardStack] Resetting stack');
+    setHeadIndex(0);
+    headIndexRef.current = 0;
+    setIsAnimating(false);
+  }, []);
+
+  return {
+    visibleCards,
+    headIndex,
+    isAnimating,
+    onSwipeComplete,
+    canSwipe,
+    reset,
+    currentCard,
+    nextCard,
+    hasMore,
+  };
+}
+
+
+================================================
+FILE: app/frontend/hooks/useFlip.ts
+================================================
+import { useCallback, useState } from 'react';
+import { useSharedValue, withTiming, Easing } from 'react-native-reanimated';
+
+interface UseFlipOptions {
+  duration?: number;
+  onFlipChange?: (isFlipped: boolean) => void;
+  initialFlipped?: boolean;
+}
+
+interface UseFlipReturn {
+  isFlipped: boolean;
+  flipRotation: any; // Shared value from reanimated
+  flipToBack: () => void;
+  flipToFront: () => void;
+  toggleFlip: () => void;
+  resetFlip: () => void;
+}
+
+/**
+ * Hook for managing card flip animations and state
+ * Provides clean interface for flipping cards to show details
+ */
+export const useFlip = ({
+  duration = 600,
+  onFlipChange,
+  initialFlipped = false,
+}: UseFlipOptions = {}): UseFlipReturn => {
+  const [isFlipped, setIsFlipped] = useState(initialFlipped);
+  const flipRotation = useSharedValue(initialFlipped ? 180 : 0);
+
+  const executeFlip = useCallback((targetRotation: number, targetFlipped: boolean) => {
+    flipRotation.value = withTiming(targetRotation, {
+      duration,
+      easing: Easing.inOut(Easing.ease),
+    });
+
+    // Delay the state change to sync with the animation midpoint
+    // This ensures smooth transition between front and back
+    setTimeout(() => {
+      setIsFlipped(targetFlipped);
+      onFlipChange?.(targetFlipped);
+    }, duration / 2);
+  }, [flipRotation, duration, onFlipChange]);
+
+  const flipToBack = useCallback(() => {
+    if (!isFlipped) {
+      executeFlip(180, true);
+    }
+  }, [isFlipped, executeFlip]);
+
+  const flipToFront = useCallback(() => {
+    if (isFlipped) {
+      executeFlip(0, false);
+    }
+  }, [isFlipped, executeFlip]);
+
+  const toggleFlip = useCallback(() => {
+    const targetRotation = isFlipped ? 0 : 180;
+    const targetFlipped = !isFlipped;
+    executeFlip(targetRotation, targetFlipped);
+  }, [isFlipped, executeFlip]);
+
+  const resetFlip = useCallback(() => {
+    flipRotation.value = 0;
+    setIsFlipped(false);
+    onFlipChange?.(false);
+  }, [flipRotation, onFlipChange]);
+
+  return {
+    isFlipped,
+    flipRotation,
+    flipToBack,
+    flipToFront,
+    toggleFlip,
+    resetFlip,
+  };
+};
+
+
+================================================
+FILE: app/frontend/models/recipeSchema.ts
+================================================
+// MongoDB Recipe Schema for DinDin App
+// Based on schema-dindin-recipes-standardJSON.json
+
+export interface Recipe {
+  _id?: string;
+  __v?: number;
+  title: string;
+  description: string;
+  difficulty: string;
+  ingredients: Ingredient[];
+  instructions: Instruction[];
+
+  // Timing fields
+  cook_time?: number;
+  cookTime?: number;
+  prep_time?: number;
+  prepTime?: number;
+
+  // Media
+  image?: string;
+  image_url?: string;
+
+  // Categories and tags
+  cuisine?: string[];
+  cuisine_type?: string;
+  dietary?: string[];
+  dietary_tags?: string[];
+  tags?: string[];
+
+  // Metrics
+  likes?: number;
+  dislikes?: number;
+  servings?: number;
+
+  // Optional nutrition info
+  nutrition?: Nutrition;
+
+  // Import metadata
+  import_metadata?: ImportMetadata;
+
+  // Status
+  isActive?: boolean;
+
+  // Timestamps
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export interface Ingredient {
+  _id?: string;
+  name: string;
+  amount: string;
+  unit: string | null;
+}
+
+export interface Instruction {
+  _id?: string;
+  step: number;
+  description: string;
+  duration?: number;
+}
+
+export interface Nutrition {
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  fiber: number;
+  sugar: number;
+}
+
+export interface ImportMetadata {
+  source_url: string;
+  scraper_name: string;
+  scraper_version: string;
+  confidence_score: number;
+  extracted_at: string;
+  notes: string;
+}
+
+// Frontend-specific interface for the recipe store
+// Maps MongoDB fields to UI-friendly format
+export interface RecipeUI {
+  id: string; // maps from _id
+  title: string;
+  cookTime: string; // formatted string like "25 mins"
+  difficulty: string;
+  image: string; // maps from image_url or image
+  description: string;
+  rating: number; // calculated from likes/dislikes
+  matches: number; // simulated for now
+  ingredients: string[]; // simplified for UI display
+  tags: string[];
+  nutrition?: Nutrition; // Include nutrition data for UI display
+}
+
+// Utility class for converting between MongoDB and UI formats
+export class RecipeConverter {
+  public static toUI(mongoRecipe: Recipe): RecipeUI {
+    const totalTime = (mongoRecipe.cook_time || mongoRecipe.cookTime || 0) +
+                     (mongoRecipe.prep_time || mongoRecipe.prepTime || 0);
+
+    // Calculate rating from likes/dislikes (default to random for now)
+    const likes = mongoRecipe.likes || 0;
+    const dislikes = mongoRecipe.dislikes || 0;
+    const total = likes + dislikes;
+    const rating = total > 0 ? (likes / total) * 5 : Math.random() * 2 + 3.5;
+
+    return {
+      id: mongoRecipe._id || '',
+      title: mongoRecipe.title,
+      cookTime: totalTime > 0 ? `${totalTime} mins` : '30 mins',
+      difficulty: mongoRecipe.difficulty,
+      image: mongoRecipe.image_url || mongoRecipe.image || '',
+      description: mongoRecipe.description,
+      rating: Math.round(rating * 10) / 10,
+      matches: Math.floor(Math.random() * 2000 + 500), // simulated for now
+      ingredients: mongoRecipe.ingredients.map(ing =>
+        `${ing.amount}${ing.unit ? ' ' + ing.unit : ''} ${ing.name}`
+      ),
+      tags: mongoRecipe.tags || mongoRecipe.dietary_tags || [],
+      nutrition: mongoRecipe.nutrition
+    };
+  }
+
+  public static fromUI(uiRecipe: RecipeUI): Partial<Recipe> {
+    return {
+      title: uiRecipe.title,
+      description: uiRecipe.description,
+      difficulty: uiRecipe.difficulty,
+      image_url: uiRecipe.image,
+      tags: uiRecipe.tags,
+      // Note: ingredients and instructions would need more complex parsing
+      // from simplified UI format back to structured format
+    };
+  }
+}
+
+// JSON conversion utilities
+export class Convert {
+  public static toRecipes(json: string): Recipe[] {
+    return JSON.parse(json);
+  }
+
+  public static recipesToJson(value: Recipe[]): string {
+    return JSON.stringify(value);
+  }
+}
+
+
+
+================================================
+FILE: app/frontend/services/recipeService.ts
+================================================
+// Recipe Service for MongoDB Integration
+import { Recipe, RecipeUI, RecipeConverter } from '../models/recipeSchema';
+import { apiRequest, ENDPOINTS } from '../config/api';
+
+export interface RecipeQuery {
+  difficulty?: string;
+  cuisine_type?: string;
+  dietary_tags?: string[];
+  tags?: string[];
+  isActive?: boolean;
+  limit?: number;
+  skip?: number;
+}
+
+export interface SwipeRecord {
+  userId?: string;
+  recipeId: string;
+  direction: 'left' | 'right';
+  timestamp: Date;
+}
+
+class RecipeService {
+  constructor() {
+    // Service configuration is now handled by the API config
+  }
+
+  // Get recipes with optional filtering
+  async getRecipes(query: RecipeQuery = {}): Promise<RecipeUI[]> {
+    try {
+      const queryParams = new URLSearchParams();
+
+      if (query.difficulty) queryParams.append('difficulty', query.difficulty);
+      if (query.cuisine_type) queryParams.append('cuisine_type', query.cuisine_type);
+      if (query.dietary_tags?.length) {
+        query.dietary_tags.forEach(tag => queryParams.append('dietary_tags', tag));
+      }
+      if (query.tags?.length) {
+        query.tags.forEach(tag => queryParams.append('tags', tag));
+      }
+      if (query.isActive !== undefined) queryParams.append('isActive', query.isActive.toString());
+      if (query.limit) queryParams.append('limit', query.limit.toString());
+      if (query.skip) queryParams.append('skip', query.skip.toString());
+
+      const endpoint = `${ENDPOINTS.recipes}?${queryParams}`;
+      const response = await apiRequest(endpoint);
+
+      if (response.success && response.data) {
+        const mongoRecipes: Recipe[] = response.data;
+        return mongoRecipes.map(recipe => RecipeConverter.toUI(recipe));
+      }
+      return [];
+    } catch (error) {
+      console.error('Error fetching recipes:', error);
+      throw error;
+    }
+  }
+
+  // Get personalized recipes for a user
+  async getPersonalizedRecipes(userId?: string): Promise<RecipeUI[]> {
+    try {
+      const endpoint = userId
+        ? `${ENDPOINTS.recipesPersonalized}/${userId}`
+        : ENDPOINTS.recipesPersonalized;
+
+      const response = await apiRequest(endpoint);
+
+      if (response.success && response.data) {
+        const mongoRecipes: Recipe[] = response.data;
+        return mongoRecipes.map(recipe => RecipeConverter.toUI(recipe));
+      }
+      return [];
+    } catch (error) {
+      console.error('Error fetching personalized recipes:', error);
+      throw error;
+    }
+  }
+
+  // Get a single recipe by ID
+  async getRecipeById(recipeId: string): Promise<RecipeUI | null> {
+    try {
+      const response = await apiRequest(ENDPOINTS.recipeById(recipeId));
+
+      if (response.success && response.data) {
+        return RecipeConverter.toUI(response.data);
+      }
+      return null;
+    } catch (error) {
+      console.error('Error fetching recipe by ID:', error);
+      if (error instanceof Error && error.message.includes('404')) {
+        return null;
+      }
+      throw error;
+    }
+  }
+
+  // Record a swipe action
+  async recordSwipe(swipeData: SwipeRecord): Promise<{ success: boolean; isMatch?: boolean; match?: any }> {
+    try {
+      // Validate required fields
+      if (!swipeData.recipeId || !swipeData.direction) {
+        throw new Error('Missing required fields: recipeId and direction are required');
+      }
+
+      // Ensure userId is present
+      if (!swipeData.userId) {
+        console.warn('userId missing in swipe data, using anonymous');
+        swipeData.userId = 'anonymous';
+      }
+
+      const result = await apiRequest(ENDPOINTS.swipes, {
+        method: 'POST',
+        body: JSON.stringify(swipeData),
+      });
+
+      return result;
+    } catch (error) {
+      console.error('Error recording swipe:', error);
+
+      // Return mock success for development when backend is unavailable
+      const isMockMatch = Math.random() < 0.3; // 30% match rate
+      return {
+        success: true, // Return true so UI continues working
+        isMatch: swipeData.direction === 'right' && isMockMatch,
+        match: isMockMatch ? { partnerName: 'Alex' } : undefined
+      };
+    }
+  }
+
+  // Get user's swipe history
+  async getSwipeHistory(userId: string): Promise<SwipeRecord[]> {
+    try {
+      const response = await apiRequest(ENDPOINTS.swipeHistory(userId));
+      return response.data || [];
+    } catch (error) {
+      console.error('Error fetching swipe history:', error);
+      return [];
+    }
+  }
+
+  // Get user's matches
+  async getMatches(userId: string): Promise<RecipeUI[]> {
+    try {
+      const response = await apiRequest(ENDPOINTS.matches(userId));
+
+      if (response.success && response.data) {
+        const mongoRecipes: Recipe[] = response.data;
+        return mongoRecipes.map(recipe => RecipeConverter.toUI(recipe));
+      }
+      return [];
+    } catch (error) {
+      console.error('Error fetching matches:', error);
+      return [];
+    }
+  }
+
+  // Search recipes by text
+  async searchRecipes(searchText: string, filters: RecipeQuery = {}): Promise<RecipeUI[]> {
+    try {
+      const queryParams = new URLSearchParams();
+      queryParams.append('search', searchText);
+
+      // Add filters
+      Object.entries(filters).forEach(([key, value]) => {
+        if (value !== undefined) {
+          if (Array.isArray(value)) {
+            value.forEach(v => queryParams.append(key, v));
+          } else {
+            queryParams.append(key, value.toString());
+          }
+        }
+      });
+
+      const endpoint = `${ENDPOINTS.recipesSearch}?${queryParams}`;
+      const response = await apiRequest(endpoint);
+
+      if (response.success && response.data) {
+        const mongoRecipes: Recipe[] = response.data;
+        return mongoRecipes.map(recipe => RecipeConverter.toUI(recipe));
+      }
+      return [];
+    } catch (error) {
+      console.error('Error searching recipes:', error);
+      return [];
+    }
+  }
+
+  // Update recipe (admin function)
+  async updateRecipe(recipeId: string, updates: Partial<Recipe>): Promise<boolean> {
+    try {
+      const response = await apiRequest(ENDPOINTS.recipeById(recipeId), {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+
+      return response.success;
+    } catch (error) {
+      console.error('Error updating recipe:', error);
+      return false;
+    }
+  }
+
+  // Create new recipe (admin function)
+  async createRecipe(recipe: Omit<Recipe, '_id' | 'createdAt' | 'updatedAt'>): Promise<string | null> {
+    try {
+      const response = await apiRequest(ENDPOINTS.recipes, {
+        method: 'POST',
+        body: JSON.stringify(recipe),
+      });
+
+      if (response.success && response.data?._id) {
+        return response.data._id;
+      }
+      return null;
+    } catch (error) {
+      console.error('Error creating recipe:', error);
+      return null;
+    }
+  }
+
+  // Delete recipe (admin function)
+  async deleteRecipe(recipeId: string): Promise<boolean> {
+    try {
+      const response = await apiRequest(ENDPOINTS.recipeById(recipeId), {
+        method: 'DELETE',
+      });
+
+      return response.success;
+    } catch (error) {
+      console.error('Error deleting recipe:', error);
+      return false;
+    }
+  }
+}
+
+// Export singleton instance
+export const recipeService = new RecipeService();
+export default recipeService;
+
+
+================================================
+FILE: app/frontend/stores/authStore.ts
+================================================
+import { create } from "zustand";
+import { generateMockObjectId } from "../utils/objectId";
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  preferences: string[];
+}
+
+interface AuthState {
+  user: User | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  error: string | null;
+
+  // Actions
+  login: (email: string, password: string) => Promise<boolean>;
+  signup: (name: string, email: string, password: string) => Promise<boolean>;
+  logout: () => void;
+  clearError: () => void;
+}
+
+export const useAuthStore = create<AuthState>((set) => ({
+  user: null,
+  isAuthenticated: false,
+  isLoading: false,
+  error: null,
+
+  login: async (email: string, password: string) => {
+    set({ isLoading: true, error: null });
+
+    try {
+      // Simulate API call delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Mock authentication - in real app this would be an API call
+      if (email && password) {
+        // Generate a valid MongoDB ObjectId for the user
+        const userId = generateMockObjectId(`user-${email}`);
+
+        const mockUser: User = {
+          id: userId,
+          name: "Alex Morgan",
+          email: email,
+          preferences: ["Italian", "Healthy", "Quick"],
+        };
+
+        set({
+          user: mockUser,
+          isAuthenticated: true,
+          isLoading: false,
+        });
+
+        return true;
+      } else {
+        throw new Error("Invalid credentials");
+      }
+    } catch (error) {
+      set({
+        error: error instanceof Error ? error.message : "Login failed",
+        isLoading: false,
+      });
+      return false;
+    }
+  },
+
+  signup: async (name: string, email: string, password: string) => {
+    set({ isLoading: true, error: null });
+
+    try {
+      // Simulate API call delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Mock registration - in real app this would be an API call
+      if (name && email && password) {
+        // Generate a valid MongoDB ObjectId for the new user
+        const userId = generateMockObjectId(`user-${email}`);
+
+        const mockUser: User = {
+          id: userId,
+          name: name,
+          email: email,
+          preferences: [],
+        };
+
+        set({
+          user: mockUser,
+          isAuthenticated: true,
+          isLoading: false,
+        });
+
+        return true;
+      } else {
+        throw new Error("Invalid registration data");
+      }
+    } catch (error) {
+      set({
+        error: error instanceof Error ? error.message : "Signup failed",
+        isLoading: false,
+      });
+      return false;
+    }
+  },
+
+  logout: () => {
+    set({
+      user: null,
+      isAuthenticated: false,
+      error: null,
+    });
+  },
+
+  clearError: () => {
+    set({ error: null });
+  },
+}));
+
+
+
+================================================
+FILE: app/frontend/stores/recipeStore.ts
+================================================
+import { create } from "zustand";
+import { recipeService } from "../services/recipeService";
+import { RecipeUI } from "../models/recipeSchema";
+import { generateMockObjectId } from "../utils/objectId";
+
+// Use RecipeUI interface from the schema
+export type Recipe = RecipeUI
+
+export interface SwipeResult {
+  success: boolean;
+  isMatch?: boolean;
+  match?: any;
+  message?: string;
+}
+
+interface RecipeState {
+  recipes: Recipe[];
+  isLoading: boolean;
+  isSwipeLoading: boolean;
+  swipeHistory: any[];
+  lastMatch: any;
+  currentIndex: number;
+  matches: string[]; // Changed from number[] to string[] to match MongoDB ObjectIds
+
+  // Actions
+  loadRecipes: (isPersonalized?: boolean) => Promise<void>;
+  swipeRecipe: (
+    recipeId: string, // Changed from number to string for MongoDB ObjectIds
+    direction: "left" | "right"
+  ) => Promise<boolean>;
+  removeRecipeFromDeck: (recipeId: string) => void; // Changed from number to string
+  resetSwipes: () => void;
+  setCurrentIndex: (index: number) => void;
+  addMatch: (recipeId: string) => void; // Changed from number to string
+  setLastMatch: (match: any) => void;
+  searchRecipes: (searchText: string) => Promise<void>;
+}
+
+// Fallback recipes in case of database issues
+// Use valid MongoDB ObjectIds for recipes
+const fallbackRecipes: Recipe[] = [
+  {
+    id: generateMockObjectId("recipe-pasta"),
+    title: "Creamy Mushroom Pasta",
+    cookTime: "25 mins",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1515516970627-3f00c6f75f5a?w=800&h=600&fit=crop",
+    description: "Rich and creamy pasta with wild mushrooms and parmesan cheese",
+    rating: 4.8,
+    matches: 1240,
+    ingredients: ["Pasta", "Mushrooms", "Cream", "Parmesan"],
+    tags: ["Italian", "Vegetarian", "Quick"],
+    nutrition: {
+      calories: 420,
+      carbs: 45,
+      fat: 18,
+      fiber: 3,
+      protein: 14,
+      sugar: 8
+    }
+  },
+  {
+    id: generateMockObjectId("recipe-poke"),
+    title: "Spicy Tuna Poke Bowl",
+    cookTime: "15 mins",
+    difficulty: "Medium",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=600&fit=crop",
+    description: "Fresh ahi tuna with spicy mayo, avocado, and cucumber",
+    rating: 4.9,
+    matches: 980,
+    ingredients: ["Tuna", "Rice", "Avocado", "Cucumber"],
+    tags: ["Japanese", "Healthy", "Fresh"],
+    nutrition: {
+      calories: 350,
+      carbs: 35,
+      fat: 12,
+      fiber: 6,
+      protein: 25,
+      sugar: 4
+    }
+  },
+  {
+    id: generateMockObjectId("recipe-salmon"),
+    title: "Grilled Salmon with Quinoa",
+    cookTime: "20 mins",
+    difficulty: "Easy",
+    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&h=600&fit=crop",
+    description: "Perfectly grilled salmon served with fluffy quinoa and vegetables",
+    rating: 4.7,
+    matches: 1150,
+    ingredients: ["Salmon", "Quinoa", "Broccoli", "Lemon"],
+    tags: ["Healthy", "High Protein", "Gluten Free"],
+    nutrition: {
+      calories: 380,
+      carbs: 22,
+      fat: 16,
+      fiber: 4,
+      protein: 32,
+      sugar: 3
+    }
+  },
+  {
+    id: generateMockObjectId("recipe-chicken"),
+    title: "Mediterranean Chicken Bowl",
+    cookTime: "30 mins",
+    difficulty: "Medium",
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=600&fit=crop",
+    description: "Herb-crusted chicken with chickpeas, feta, and fresh vegetables",
+    rating: 4.6,
+    matches: 890,
+    ingredients: ["Chicken", "Chickpeas", "Feta", "Cucumber", "Tomatoes"],
+    tags: ["Mediterranean", "High Protein", "Balanced"],
+    nutrition: {
+      calories: 450,
+      carbs: 28,
+      fat: 19,
+      fiber: 8,
+      protein: 38,
+      sugar: 12
+    }
+  }
+];
+
+export const useRecipeStore = create<RecipeState>((set, get) => ({
+  recipes: [],
+  isLoading: false,
+  isSwipeLoading: false,
+  swipeHistory: [],
+  lastMatch: null,
+  currentIndex: 0,
+  matches: [],
+
+  loadRecipes: async (isPersonalized = true) => {
+    set({ isLoading: true });
+
+    try {
+      let recipes: Recipe[];
+
+      if (isPersonalized) {
+        recipes = await recipeService.getPersonalizedRecipes();
+      } else {
+        recipes = await recipeService.getRecipes({
+          isActive: true,
+          limit: 50
+        });
+      }
+
+      // If no recipes found or error occurred, use fallback
+      if (!recipes || recipes.length === 0) {
+        console.warn("No recipes found from database, using fallback recipes");
+        recipes = fallbackRecipes;
+      }
+
+      set({
+        recipes,
+        isLoading: false,
+      });
+    } catch (error) {
+      console.error("Failed to load recipes:", error);
+      // Use fallback recipes on error
+      set({
+        recipes: fallbackRecipes,
+        isLoading: false
+      });
+    }
+  },
+
+  swipeRecipe: async (recipeId: string, direction: "left" | "right") => {
+    set({ isSwipeLoading: true });
+
+    try {
+      // Get userId from auth store or use fallback
+      let userId = 'anonymous';
+      try {
+        const { useAuthStore } = await import('./authStore');
+        userId = useAuthStore.getState().user?.id || 'anonymous';
+      } catch (error) {
+        console.warn('Could not get userId from auth store:', error);
+      }
+
+      // Record swipe using the service
+      const swipeResult = await recipeService.recordSwipe({
+        userId,
+        recipeId,
+        direction,
+        timestamp: new Date(),
+      });
+
+      // Record swipe in local history
+      const swipeRecord = {
+        recipeId,
+        direction,
+        timestamp: new Date().toISOString(),
+      };
+
+      set((state) => ({
+        swipeHistory: [...state.swipeHistory, swipeRecord],
+        isSwipeLoading: false,
+      }));
+
+      // Remove from deck
+      get().removeRecipeFromDeck(recipeId);
+
+      // Handle matches
+      if (swipeResult.isMatch) {
+        const match = {
+          recipeId,
+          matchedAt: new Date().toISOString(),
+          partnerName: "Alex", // This would come from actual match data
+        };
+
+        set({
+          lastMatch: match,
+          matches: [...get().matches, recipeId],
+        });
+      }
+
+      return swipeResult.success;
+    } catch (error) {
+      console.error("Failed to record swipe:", error);
+      set({ isSwipeLoading: false });
+      return false;
+    }
+  },
+
+  removeRecipeFromDeck: (recipeId: string) => {
+    set((state) => ({
+      recipes: state.recipes.filter((recipe) => recipe.id !== recipeId),
+    }));
+  },
+
+  resetSwipes: async () => {
+    try {
+      // Reload fresh recipes from database
+      const recipes = await recipeService.getRecipes({
+        isActive: true,
+        limit: 50
+      });
+
+      set({
+        recipes: recipes.length > 0 ? recipes : fallbackRecipes,
+        currentIndex: 0,
+        matches: [],
+        swipeHistory: [],
+        lastMatch: null,
+      });
+    } catch (error) {
+      console.error("Failed to reset swipes:", error);
+      // Use fallback recipes on error
+      set({
+        recipes: fallbackRecipes,
+        currentIndex: 0,
+        matches: [],
+        swipeHistory: [],
+        lastMatch: null,
+      });
+    }
+  },
+
+  setCurrentIndex: (index: number) => {
+    set({ currentIndex: index });
+  },
+
+  addMatch: (recipeId: string) => {
+    set((state) => ({
+      matches: [...state.matches, recipeId],
+    }));
+  },
+
+  setLastMatch: (match: any) => {
+    set({ lastMatch: match });
+  },
+
+  searchRecipes: async (searchText: string) => {
+    set({ isLoading: true });
+
+    try {
+      const recipes = await recipeService.searchRecipes(searchText, {
+        isActive: true
+      });
+
+      set({
+        recipes: recipes.length > 0 ? recipes : fallbackRecipes,
+        isLoading: false,
+        currentIndex: 0, // Reset to start
+      });
+    } catch (error) {
+      console.error("Failed to search recipes:", error);
+      set({
+        recipes: fallbackRecipes,
+        isLoading: false
+      });
+    }
+  },
+}));
+
+
+
+================================================
+FILE: app/frontend/utils/database.js
+================================================
+import { Pool } from "pg";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+// Database configuration
+const dbConfig = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+
+  // Connection pool settings
+  min: 2, // minimum number of connections in pool
+  max: 20, // maximum number of connections in pool
+  idleTimeoutMillis: 30000, // close connections after 30 seconds of inactivity
+  connectionTimeoutMillis: 10000, // return error after 10 seconds if connection could not be established
+
+  // SSL configuration for production
+  ssl:
+    process.env.NODE_ENV === "production"
+      ? { rejectUnauthorized: false }
+      : false,
+};
+
+// Create connection pool
+const pool = new Pool(dbConfig);
+
+// Error handling for pool
+pool.on("error", (err) => {
+  console.error("Unexpected error on idle client", err);
+  process.exit(-1);
+});
+
+// Test database connection
+const testConnection = async () => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query("SELECT NOW()");
+    console.log("✅ Database connected successfully at:", result.rows[0].now);
+    client.release();
+    return true;
+  } catch (err) {
+    console.error("❌ Database connection failed:", err.message);
+    return false;
+  }
+};
+
+// Query helper function with error handling
+const query = async (text, params) => {
+  const start = Date.now();
+  try {
+    const result = await pool.query(text, params);
+    const duration = Date.now() - start;
+
+    // Log slow queries (>100ms)
+    if (duration > 100) {
+      console.warn(`Slow query detected (${duration}ms):`, text);
+    }
+
+    return result;
+  } catch (error) {
+    console.error("Database query error:", error);
+    throw error;
+  }
+};
+
+// Transaction helper
+const transaction = async (callback) => {
+  const client = await pool.connect();
+
+  try {
+    await client.query("BEGIN");
+    const result = await callback(client);
+    await client.query("COMMIT");
+    return result;
+  } catch (error) {
+    await client.query("ROLLBACK");
+    throw error;
+  } finally {
+    client.release();
+  }
+};
+
+// Graceful shutdown
+const shutdown = async () => {
+  console.log("Closing database connections...");
+  await pool.end();
+  console.log("Database connections closed.");
+};
+
+export { pool, query, transaction, testConnection, shutdown };
+
+
+
+================================================
+FILE: app/frontend/utils/logger.js
+================================================
+import winston from "winston";
+import path from "path";
+
+// Create logs directory if it doesn't exist
+import fs from "fs";
+const logDir = path.join("./", "../logs");
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
+
+// Define log format
+const logFormat = winston.format.combine(
+  winston.format.timestamp({
+    format: "YYYY-MM-DD HH:mm:ss",
+  }),
+  winston.format.errors({ stack: true }),
+  winston.format.json(),
+  winston.format.prettyPrint()
+);
+
+// Create logger instance
+const logger = winston.createLogger({
+  level: process.env.LOG_LEVEL,
+  format: logFormat,
+  defaultMeta: { service: "dindin-backend" },
+  transports: [
+    // Write all logs with level 'error' and below to error.log
+    new winston.transports.File({
+      filename: path.join(logDir, "error.log"),
+      level: "error",
+      maxsize: 5242880, // 5MB
+      maxFiles: 5,
+    }),
+
+    // Write all logs with level 'info' and below to combined.log
+    new winston.transports.File({
+      filename: path.join(logDir, "combined.log"),
+      maxsize: 5242880, // 5MB
+      maxFiles: 5,
+    }),
+  ],
+});
+
+// Add console logging for development
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.simple()
+      ),
+    })
+  );
+}
+
+// Helper functions for common logging patterns
+const logError = (error, context = {}) => {
+  logger.error({
+    message: error.message,
+    stack: error.stack,
+    ...context,
+  });
+};
+
+const logRequest = (req, res, duration) => {
+  logger.info({
+    method: req.method,
+    url: req.originalUrl,
+    status: res.statusCode,
+    duration: `${duration}ms`,
+    userAgent: req.get("User-Agent"),
+    ip: req.ip,
+    userId: req.user?.userId,
+  });
+};
+
+const logDatabaseError = (error, query, params) => {
+  logger.error({
+    message: "Database query failed",
+    error: error.message,
+    query: query?.substring(0, 200), // Limit query length in logs
+    params,
+    stack: error.stack,
+  });
+};
+
+const logSecurityEvent = (event, req, details = {}) => {
+  logger.warn({
+    event: "security",
+    type: event,
+    ip: req.ip,
+    userAgent: req.get("User-Agent"),
+    url: req.originalUrl,
+    userId: req.user?.userId,
+    ...details,
+  });
+};
+
+export {
+  logger as default,
+  logger,
+  logError,
+  logRequest,
+  logDatabaseError,
+  logSecurityEvent,
+};
+
+
+
+================================================
+FILE: app/frontend/utils/objectId.ts
+================================================
+/**
+ * MongoDB ObjectId Generator for Frontend
+ *
+ * This generates valid MongoDB ObjectIds without requiring the MongoDB driver.
+ * ObjectIds are 24-character hexadecimal strings with the following structure:
+ * - 4 bytes: Unix timestamp
+ * - 5 bytes: Random value unique to machine and process
+ * - 3 bytes: Incrementing counter
+ */
+
+// Counter for ObjectId generation
+let objectIdCounter = Math.floor(Math.random() * 0xffffff);
+
+/**
+ * Generate a valid MongoDB ObjectId string
+ * @returns A 24-character hexadecimal string
+ */
+export function generateObjectId(): string {
+  const timestamp = Math.floor(Date.now() / 1000);
+  const machineId = Math.floor(Math.random() * 0xffffff);
+  const processId = Math.floor(Math.random() * 0xffff);
+  const counter = objectIdCounter++ & 0xffffff;
+
+  // Convert to hex string
+  const timestampHex = timestamp.toString(16).padStart(8, '0');
+  const machineHex = machineId.toString(16).padStart(6, '0');
+  const counterHex = counter.toString(16).padStart(6, '0');
+
+  return timestampHex + machineHex + counterHex;
+}
+
+/**
+ * Validate if a string is a valid MongoDB ObjectId
+ * @param id The string to validate
+ * @returns True if valid ObjectId format
+ */
+export function isValidObjectId(id: string): boolean {
+  return /^[0-9a-fA-F]{24}$/.test(id);
+}
+
+/**
+ * Generate a mock ObjectId for development/testing
+ * Uses a predictable pattern for easier debugging
+ * @param prefix Optional prefix for identification (will be hashed)
+ * @returns A valid 24-character hex string
+ */
+export function generateMockObjectId(prefix: string = 'user'): string {
+  // For mock/development, create a more predictable ID
+  const timestamp = Math.floor(Date.now() / 1000);
+  const timestampHex = timestamp.toString(16).padStart(8, '0');
+
+  // Hash the prefix to get consistent but valid hex
+  let hash = 0;
+  for (let i = 0; i < prefix.length; i++) {
+    hash = ((hash << 5) - hash) + prefix.charCodeAt(i);
+    hash = hash & 0xffffff; // Keep it within bounds
+  }
+
+  const prefixHex = hash.toString(16).padStart(6, '0');
+  const randomHex = Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0');
+  const counterHex = (objectIdCounter++).toString(16).padStart(4, '0');
+
+  return timestampHex + prefixHex + randomHex + counterHex;
+}
+
+/**
+ * Convert a simple ID to a valid ObjectId format
+ * Useful for migrating from simple IDs to ObjectIds
+ * @param simpleId Simple ID like "1", "2", etc.
+ * @returns A valid ObjectId that's consistent for the same input
+ */
+export function simpleIdToObjectId(simpleId: string): string {
+  // Create a consistent ObjectId from a simple ID
+  const baseTimestamp = 0x65000000; // Fixed timestamp for consistency
+  const timestampHex = baseTimestamp.toString(16);
+
+  // Pad the simple ID and repeat to fill space
+  const paddedId = simpleId.padEnd(16, '0');
+  const idHex = paddedId.split('').map(c =>
+    c.charCodeAt(0).toString(16).padStart(2, '0')
+  ).join('').substring(0, 16);
+
+  return timestampHex + idHex;
+}
+
+// Export a default mock user ID for development
+export const MOCK_USER_ID = generateMockObjectId('mockuser');
+export const MOCK_RECIPE_IDS = [
+  generateMockObjectId('recipe1'),
+  generateMockObjectId('recipe2'),
+  generateMockObjectId('recipe3'),
+  generateMockObjectId('recipe4'),
+  generateMockObjectId('recipe5'),
+];
+
+
+================================================
+FILE: app/frontend/utils/seedDB.js
+================================================
+#!/usr/bin/env node
+
+/**
+ * Recipe Seed Data Script
+ * Populates the recipes table with sample data for testing
+ */
+
+import { testConnection, query } from "./database.js";
+
+const sampleRecipes = [
+  {
+    title: "Marry Me Beef Stroganoff",
+    ingredients: [
+      {
+        name: "ribeye steak",
+        amount: "1.5",
+        unit: "lbs",
+      },
+      {
+        name: "egg noodles",
+        amount: "12",
+        unit: "oz",
+      },
+      {
+        name: "cremini mushrooms",
+        amount: "8",
+        unit: "oz",
+      },
+      {
+        name: "yellow onion",
+        amount: "1",
+        unit: "medium",
+      },
+      {
+        name: "beef broth",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "sour cream",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "heavy cream",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "dijon mustard",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "worcestershire sauce",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "3",
+        unit: "cloves",
+      },
+      {
+        name: "flour",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "butter",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "fresh parsley",
+        amount: "2",
+        unit: "tbsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Cut ribeye steak into thin strips and season with salt and pepper",
+        duration: 5,
+      },
+      {
+        step: 2,
+        description:
+          "Heat olive oil in large skillet over medium-high heat, sear beef strips until golden brown, about 3-4 minutes",
+        duration: 4,
+      },
+      {
+        step: 3,
+        description: "Remove beef and set aside, add butter to same pan",
+        duration: 1,
+      },
+      {
+        step: 4,
+        description:
+          "Saut sliced mushrooms and onions until golden, about 5 minutes",
+        duration: 5,
+      },
+      {
+        step: 5,
+        description: "Add minced garlic and flour, cook for 1 minute",
+        duration: 1,
+      },
+      {
+        step: 6,
+        description: "Gradually whisk in beef broth, bring to simmer",
+        duration: 3,
+      },
+      {
+        step: 7,
+        description: "Add heavy cream, dijon mustard, and worcestershire sauce",
+        duration: 2,
+      },
+      {
+        step: 8,
+        description:
+          "Return beef to pan, simmer until sauce thickens, about 5 minutes",
+        duration: 5,
+      },
+      {
+        step: 9,
+        description:
+          "Meanwhile, cook egg noodles according to package directions",
+        duration: 8,
+      },
+      {
+        step: 10,
+        description: "Remove from heat, stir in sour cream and fresh parsley",
+        duration: 1,
+      },
+      {
+        step: 11,
+        description: "Serve over egg noodles immediately",
+        duration: 2,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "A rich and creamy beef stroganoff with tender ribeye steak, mushrooms, and a luscious sour cream sauce served over egg noodles.",
+    image_url:
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 25,
+    cuisine_type: "American",
+    dietary_tags: ["gluten-free option"],
+    nutrition: {
+      calories: 485,
+      protein: 32,
+      carbs: 38,
+      fat: 22,
+      fiber: 3,
+      sugar: 6,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-1",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Perfect Pot Roast with Vegetables",
+    ingredients: [
+      {
+        name: "chuck roast",
+        amount: "4",
+        unit: "lbs",
+      },
+      {
+        name: "baby potatoes",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "carrots",
+        amount: "1",
+        unit: "lb",
+      },
+      {
+        name: "yellow onions",
+        amount: "2",
+        unit: "large",
+      },
+      {
+        name: "celery stalks",
+        amount: "3",
+        unit: "stalks",
+      },
+      {
+        name: "beef broth",
+        amount: "3",
+        unit: "cups",
+      },
+      {
+        name: "red wine",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "tomato paste",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh thyme",
+        amount: "4",
+        unit: "sprigs",
+      },
+      {
+        name: "fresh rosemary",
+        amount: "2",
+        unit: "sprigs",
+      },
+      {
+        name: "bay leaves",
+        amount: "2",
+        unit: "leaves",
+      },
+      {
+        name: "garlic",
+        amount: "6",
+        unit: "cloves",
+      },
+      {
+        name: "flour",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "olive oil",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "salt",
+        amount: "2",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Preheat oven to 325F and season chuck roast generously with salt and pepper",
+        duration: 5,
+      },
+      {
+        step: 2,
+        description:
+          "Heat oil in Dutch oven, sear roast on all sides until golden brown, about 10 minutes total",
+        duration: 10,
+      },
+      {
+        step: 3,
+        description:
+          "Remove roast and saut onions until caramelized, about 8 minutes",
+        duration: 8,
+      },
+      {
+        step: 4,
+        description: "Add garlic and tomato paste, cook for 1 minute",
+        duration: 1,
+      },
+      {
+        step: 5,
+        description:
+          "Add flour and cook for 1 minute, then deglaze with red wine",
+        duration: 3,
+      },
+      {
+        step: 6,
+        description: "Add beef broth, herbs, and return roast to pot",
+        duration: 3,
+      },
+      {
+        step: 7,
+        description: "Cover and braise in oven for 2 hours",
+        duration: 120,
+      },
+      {
+        step: 8,
+        description: "Add potatoes, carrots, and celery around roast",
+        duration: 5,
+      },
+      {
+        step: 9,
+        description: "Continue cooking for 1 hour until vegetables are tender",
+        duration: 60,
+      },
+      {
+        step: 10,
+        description: "Remove herbs and let rest 10 minutes before slicing",
+        duration: 10,
+      },
+    ],
+    difficulty: "easy",
+    description:
+      "A classic Sunday pot roast with tender chuck roast and vegetables slow-braised in a rich wine and herb broth.",
+    image_url:
+      "https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 20,
+    cook_time: 200,
+    cuisine_type: "American",
+    dietary_tags: ["gluten-free option"],
+    nutrition: {
+      calories: 420,
+      protein: 45,
+      carbs: 28,
+      fat: 15,
+      fiber: 4,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-2",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Texas-Style Beef Chili",
+    ingredients: [
+      {
+        name: "ground beef",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "beef chuck",
+        amount: "1",
+        unit: "lb",
+      },
+      {
+        name: "yellow onions",
+        amount: "2",
+        unit: "large",
+      },
+      {
+        name: "bell peppers",
+        amount: "2",
+        unit: "peppers",
+      },
+      {
+        name: "jalapeo peppers",
+        amount: "2",
+        unit: "peppers",
+      },
+      {
+        name: "garlic",
+        amount: "6",
+        unit: "cloves",
+      },
+      {
+        name: "diced tomatoes",
+        amount: "28",
+        unit: "oz can",
+      },
+      {
+        name: "tomato paste",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "beef broth",
+        amount: "2",
+        unit: "cups",
+      },
+      {
+        name: "dark beer",
+        amount: "12",
+        unit: "oz",
+      },
+      {
+        name: "chili powder",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "cumin",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "smoked paprika",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "oregano",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "cayenne pepper",
+        amount: "1/4",
+        unit: "tsp",
+      },
+      {
+        name: "cocoa powder",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "salt",
+        amount: "2",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Cut chuck roast into 1/2-inch cubes and season with salt and pepper",
+        duration: 10,
+      },
+      {
+        step: 2,
+        description:
+          "Heat oil in large Dutch oven, brown beef cubes in batches, about 8 minutes per batch",
+        duration: 16,
+      },
+      {
+        step: 3,
+        description:
+          "Remove beef, add ground beef and cook until browned, breaking up with spoon",
+        duration: 8,
+      },
+      {
+        step: 4,
+        description:
+          "Add onions, bell peppers, and jalapeos, cook until softened, about 6 minutes",
+        duration: 6,
+      },
+      {
+        step: 5,
+        description:
+          "Add garlic, chili powder, cumin, paprika, oregano, and cayenne, cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 6,
+        description: "Stir in tomato paste and cocoa powder, cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 7,
+        description:
+          "Add diced tomatoes, beef broth, beer, and browned beef cubes",
+        duration: 3,
+      },
+      {
+        step: 8,
+        description:
+          "Bring to boil, then reduce heat and simmer covered for 1.5 hours",
+        duration: 90,
+      },
+      {
+        step: 9,
+        description: "Remove lid and simmer 30 minutes more until thick",
+        duration: 30,
+      },
+      {
+        step: 10,
+        description: "Adjust seasoning with salt and pepper before serving",
+        duration: 2,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "An authentic Texas-style chili with no beans, featuring chunks of beef chuck and ground beef in a rich, spicy sauce.",
+    image_url:
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 25,
+    cook_time: 165,
+    cuisine_type: "Tex-Mex",
+    dietary_tags: ["gluten-free", "dairy-free", "keto-friendly"],
+    nutrition: {
+      calories: 380,
+      protein: 35,
+      carbs: 12,
+      fat: 20,
+      fiber: 4,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-3",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Indian Butter Chickpeas (Chole Makhani)",
+    ingredients: [
+      {
+        name: "chickpeas",
+        amount: "2",
+        unit: "15-oz cans",
+      },
+      {
+        name: "crushed tomatoes",
+        amount: "14",
+        unit: "oz can",
+      },
+      {
+        name: "coconut milk",
+        amount: "1",
+        unit: "13.5-oz can",
+      },
+      {
+        name: "yellow onion",
+        amount: "1",
+        unit: "large",
+      },
+      {
+        name: "ginger",
+        amount: "2",
+        unit: "inches",
+      },
+      {
+        name: "garlic",
+        amount: "6",
+        unit: "cloves",
+      },
+      {
+        name: "tomato paste",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "garam masala",
+        amount: "2",
+        unit: "tsp",
+      },
+      {
+        name: "ground cumin",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "turmeric",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "smoked paprika",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "cayenne pepper",
+        amount: "1/4",
+        unit: "tsp",
+      },
+      {
+        name: "coconut oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh cilantro",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "lime juice",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "brown sugar",
+        amount: "1",
+        unit: "tbsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Drain and rinse chickpeas, set aside",
+        duration: 2,
+      },
+      {
+        step: 2,
+        description: "Heat coconut oil in large skillet over medium heat",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description: "Saut diced onion until golden, about 6 minutes",
+        duration: 6,
+      },
+      {
+        step: 4,
+        description:
+          "Add minced ginger and garlic, cook until fragrant, 1 minute",
+        duration: 1,
+      },
+      {
+        step: 5,
+        description: "Stir in tomato paste and all spices, cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 6,
+        description: "Add crushed tomatoes and bring to simmer, cook 5 minutes",
+        duration: 5,
+      },
+      {
+        step: 7,
+        description: "Add chickpeas and coconut milk, bring to gentle boil",
+        duration: 3,
+      },
+      {
+        step: 8,
+        description: "Reduce heat and simmer 15 minutes until thickened",
+        duration: 15,
+      },
+      {
+        step: 9,
+        description: "Stir in brown sugar, lime juice, and half the cilantro",
+        duration: 2,
+      },
+      {
+        step: 10,
+        description: "Season with salt and garnish with remaining cilantro",
+        duration: 1,
+      },
+    ],
+    difficulty: "easy",
+    description:
+      "A rich and creamy Indian-inspired chickpea curry with warming spices, perfect served over basmati rice or with naan bread.",
+    image_url:
+      "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 29,
+    cuisine_type: "Indian",
+    dietary_tags: ["vegan", "gluten-free", "dairy-free"],
+    nutrition: {
+      calories: 320,
+      protein: 12,
+      carbs: 42,
+      fat: 14,
+      fiber: 12,
+      sugar: 15,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-4",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Mediterranean White Bean Spinach Skillet",
+    ingredients: [
+      {
+        name: "cannellini beans",
+        amount: "2",
+        unit: "15-oz cans",
+      },
+      {
+        name: "baby spinach",
+        amount: "5",
+        unit: "oz",
+      },
+      {
+        name: "cherry tomatoes",
+        amount: "1",
+        unit: "pint",
+      },
+      {
+        name: "red onion",
+        amount: "1",
+        unit: "medium",
+      },
+      {
+        name: "garlic",
+        amount: "4",
+        unit: "cloves",
+      },
+      {
+        name: "vegetable broth",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "white wine",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "lemon juice",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "lemon zest",
+        amount: "1",
+        unit: "lemon",
+      },
+      {
+        name: "feta cheese",
+        amount: "4",
+        unit: "oz",
+      },
+      {
+        name: "kalamata olives",
+        amount: "1/3",
+        unit: "cup",
+      },
+      {
+        name: "fresh oregano",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh parsley",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "olive oil",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "red pepper flakes",
+        amount: "1/4",
+        unit: "tsp",
+      },
+      {
+        name: "salt",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/4",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Drain and rinse beans, halve cherry tomatoes",
+        duration: 3,
+      },
+      {
+        step: 2,
+        description: "Heat olive oil in large skillet over medium heat",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description: "Saut sliced red onion until softened, about 4 minutes",
+        duration: 4,
+      },
+      {
+        step: 4,
+        description: "Add garlic and red pepper flakes, cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 5,
+        description:
+          "Add cherry tomatoes, cook until they start to break down, 3 minutes",
+        duration: 3,
+      },
+      {
+        step: 6,
+        description:
+          "Add white wine and let it reduce by half, about 2 minutes",
+        duration: 2,
+      },
+      {
+        step: 7,
+        description:
+          "Add beans, broth, oregano, salt and pepper, simmer 5 minutes",
+        duration: 5,
+      },
+      {
+        step: 8,
+        description: "Add spinach in batches, stirring until wilted",
+        duration: 3,
+      },
+      {
+        step: 9,
+        description: "Remove from heat, stir in lemon juice and zest",
+        duration: 1,
+      },
+      {
+        step: 10,
+        description: "Top with crumbled feta, olives, and fresh parsley",
+        duration: 2,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "A vibrant Mediterranean one-pan meal with creamy white beans, fresh spinach, cherry tomatoes, and tangy feta cheese.",
+    image_url:
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 10,
+    cook_time: 36,
+    cuisine_type: "Mediterranean",
+    dietary_tags: ["vegetarian", "gluten-free"],
+    nutrition: {
+      calories: 285,
+      protein: 15,
+      carbs: 35,
+      fat: 12,
+      fiber: 10,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-5",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Marry Me Chickpeas with Sun-Dried Tomatoes",
+    ingredients: [
+      {
+        name: "chickpeas",
+        amount: "2",
+        unit: "15-oz cans",
+      },
+      {
+        name: "heavy cream",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "vegetable broth",
+        amount: "3/4",
+        unit: "cup",
+      },
+      {
+        name: "sun-dried tomatoes",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "yellow onion",
+        amount: "1",
+        unit: "medium",
+      },
+      {
+        name: "garlic",
+        amount: "4",
+        unit: "cloves",
+      },
+      {
+        name: "parmesan cheese",
+        amount: "1/3",
+        unit: "cup",
+      },
+      {
+        name: "fresh thyme",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh basil",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "baby spinach",
+        amount: "2",
+        unit: "cups",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "red pepper flakes",
+        amount: "1/4",
+        unit: "tsp",
+      },
+      {
+        name: "salt",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/4",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Drain and rinse chickpeas, chop sun-dried tomatoes",
+        duration: 3,
+      },
+      {
+        step: 2,
+        description: "Heat olive oil in large skillet over medium heat",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description: "Saut diced onion until translucent, about 5 minutes",
+        duration: 5,
+      },
+      {
+        step: 4,
+        description: "Add garlic, thyme, and red pepper flakes, cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 5,
+        description:
+          "Add vegetable broth and sun-dried tomatoes, bring to simmer",
+        duration: 3,
+      },
+      {
+        step: 6,
+        description: "Add chickpeas and simmer 5 minutes",
+        duration: 5,
+      },
+      {
+        step: 7,
+        description:
+          "Stir in heavy cream and parmesan, cook until creamy, 3 minutes",
+        duration: 3,
+      },
+      {
+        step: 8,
+        description: "Add spinach and cook until wilted, 2 minutes",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Season with salt and pepper",
+        duration: 1,
+      },
+      {
+        step: 10,
+        description: "Garnish with fresh basil before serving",
+        duration: 1,
+      },
+    ],
+    difficulty: "easy",
+    description:
+      "A vegetarian twist on the viral Marry Me Chicken, featuring chickpeas in a creamy sun-dried tomato and parmesan sauce.",
+    image_url:
+      "https://images.unsplash.com/photo-1544378730-6ad9dc8d8da0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 8,
+    cook_time: 26,
+    cuisine_type: "Mediterranean",
+    dietary_tags: ["vegetarian", "gluten-free"],
+    nutrition: {
+      calories: 295,
+      protein: 13,
+      carbs: 32,
+      fat: 14,
+      fiber: 9,
+      sugar: 12,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-6",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Original Marry Me Chicken",
+    ingredients: [
+      {
+        name: "chicken breasts",
+        amount: "4",
+        unit: "8-oz pieces",
+      },
+      {
+        name: "heavy cream",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "chicken broth",
+        amount: "3/4",
+        unit: "cup",
+      },
+      {
+        name: "sun-dried tomatoes",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "garlic",
+        amount: "3",
+        unit: "cloves",
+      },
+      {
+        name: "parmesan cheese",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "fresh thyme",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh basil",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "olive oil",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "red pepper flakes",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Preheat oven to 375F and season chicken with salt and pepper",
+        duration: 3,
+      },
+      {
+        step: 2,
+        description:
+          "Heat 1 tbsp oil in large oven-safe skillet over medium-high heat",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description: "Sear chicken until golden brown, 5 minutes per side",
+        duration: 10,
+      },
+      {
+        step: 4,
+        description: "Remove chicken and set aside",
+        duration: 1,
+      },
+      {
+        step: 5,
+        description:
+          "Add remaining oil, saut garlic, thyme, and red pepper flakes, 1 minute",
+        duration: 1,
+      },
+      {
+        step: 6,
+        description: "Add broth, sun-dried tomatoes, cream, and parmesan",
+        duration: 2,
+      },
+      {
+        step: 7,
+        description: "Bring to simmer and season with salt",
+        duration: 2,
+      },
+      {
+        step: 8,
+        description: "Return chicken to skillet with any juices",
+        duration: 1,
+      },
+      {
+        step: 9,
+        description:
+          "Transfer to oven and bake 10-12 minutes until chicken is cooked through",
+        duration: 12,
+      },
+      {
+        step: 10,
+        description: "Garnish with fresh basil and serve",
+        duration: 2,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "The viral TikTok sensation featuring golden chicken in a creamy sun-dried tomato and parmesan sauce that's so good, it might just inspire a proposal!",
+    image_url:
+      "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 10,
+    cook_time: 36,
+    cuisine_type: "Italian-American",
+    dietary_tags: ["gluten-free", "keto-friendly"],
+    nutrition: {
+      calories: 420,
+      protein: 48,
+      carbs: 8,
+      fat: 22,
+      fiber: 2,
+      sugar: 6,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-7",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Honey Soy Glazed Chicken Thighs",
+    ingredients: [
+      {
+        name: "chicken thighs",
+        amount: "8",
+        unit: "bone-in",
+      },
+      {
+        name: "soy sauce",
+        amount: "1/3",
+        unit: "cup",
+      },
+      {
+        name: "honey",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "rice vinegar",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "sesame oil",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "4",
+        unit: "cloves",
+      },
+      {
+        name: "fresh ginger",
+        amount: "1",
+        unit: "inch piece",
+      },
+      {
+        name: "green onions",
+        amount: "4",
+        unit: "stalks",
+      },
+      {
+        name: "sesame seeds",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "vegetable oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "red pepper flakes",
+        amount: "1/4",
+        unit: "tsp",
+      },
+      {
+        name: "cornstarch",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "water",
+        amount: "2",
+        unit: "tbsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Preheat oven to 425F and pat chicken thighs dry",
+        duration: 3,
+      },
+      {
+        step: 2,
+        description: "Season chicken with salt and pepper",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description:
+          "Heat vegetable oil in large oven-safe skillet over medium-high heat",
+        duration: 2,
+      },
+      {
+        step: 4,
+        description:
+          "Sear chicken skin-side down until crispy, about 6 minutes",
+        duration: 6,
+      },
+      {
+        step: 5,
+        description: "Flip chicken and cook 3 minutes more",
+        duration: 3,
+      },
+      {
+        step: 6,
+        description:
+          "Meanwhile, whisk together soy sauce, honey, vinegar, sesame oil, minced garlic, and ginger",
+        duration: 3,
+      },
+      {
+        step: 7,
+        description: "Pour glaze over chicken and transfer to oven",
+        duration: 2,
+      },
+      {
+        step: 8,
+        description: "Bake 20-25 minutes until chicken reaches 165F",
+        duration: 25,
+      },
+      {
+        step: 9,
+        description:
+          "Mix cornstarch and water, stir into pan juices to thicken",
+        duration: 2,
+      },
+      {
+        step: 10,
+        description: "Garnish with sliced green onions and sesame seeds",
+        duration: 2,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "Crispy-skinned chicken thighs glazed with a sweet and savory honey soy sauce, perfect served over rice with steamed vegetables.",
+    image_url:
+      "https://images.unsplash.com/photo-1598514982901-ae62764ae7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 8,
+    cook_time: 36,
+    cuisine_type: "Asian Fusion",
+    dietary_tags: ["gluten-free option", "dairy-free"],
+    nutrition: {
+      calories: 385,
+      protein: 32,
+      carbs: 18,
+      fat: 22,
+      fiber: 0,
+      sugar: 16,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-8",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Crispy Chicken Parmesan",
+    ingredients: [
+      {
+        name: "chicken breasts",
+        amount: "4",
+        unit: "6-oz pieces",
+      },
+      {
+        name: "panko breadcrumbs",
+        amount: "1.5",
+        unit: "cups",
+      },
+      {
+        name: "parmesan cheese",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "mozzarella cheese",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "marinara sauce",
+        amount: "2",
+        unit: "cups",
+      },
+      {
+        name: "eggs",
+        amount: "2",
+        unit: "large",
+      },
+      {
+        name: "flour",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "garlic powder",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "Italian seasoning",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "fresh basil",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "olive oil",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Preheat oven to 425F and pound chicken to 1/2-inch thickness",
+        duration: 5,
+      },
+      {
+        step: 2,
+        description:
+          "Set up breading station: flour in one dish, beaten eggs in another",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description:
+          "Mix panko, half the parmesan, garlic powder, Italian seasoning, salt and pepper",
+        duration: 3,
+      },
+      {
+        step: 4,
+        description:
+          "Dredge chicken in flour, then egg, then breadcrumb mixture",
+        duration: 8,
+      },
+      {
+        step: 5,
+        description:
+          "Heat olive oil in large oven-safe skillet over medium heat",
+        duration: 2,
+      },
+      {
+        step: 6,
+        description:
+          "Cook chicken until golden and crispy, 3-4 minutes per side",
+        duration: 8,
+      },
+      {
+        step: 7,
+        description: "Spread marinara sauce over chicken",
+        duration: 2,
+      },
+      {
+        step: 8,
+        description: "Top with mozzarella and remaining parmesan",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description:
+          "Bake 15-20 minutes until cheese is bubbly and chicken reaches 165F",
+        duration: 20,
+      },
+      {
+        step: 10,
+        description: "Garnish with fresh basil and let rest 5 minutes",
+        duration: 5,
+      },
+    ],
+    difficulty: "hard",
+    description:
+      "Restaurant-quality chicken parmesan with crispy breaded cutlets topped with marinara and melted cheese, baked to perfection.",
+    image_url:
+      "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 29,
+    cuisine_type: "Italian-American",
+    dietary_tags: [],
+    nutrition: {
+      calories: 495,
+      protein: 52,
+      carbs: 28,
+      fat: 21,
+      fiber: 3,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-9",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Pan-Seared Salmon with Lemon Garlic Butter",
+    ingredients: [
+      {
+        name: "salmon fillets",
+        amount: "4",
+        unit: "6-oz pieces",
+      },
+      {
+        name: "butter",
+        amount: "4",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "4",
+        unit: "cloves",
+      },
+      {
+        name: "lemon juice",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "lemon zest",
+        amount: "1",
+        unit: "lemon",
+      },
+      {
+        name: "fresh dill",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "capers",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "white wine",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "paprika",
+        amount: "1/2",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Pat salmon dry and season with salt, pepper, and paprika",
+        duration: 3,
+      },
+      {
+        step: 2,
+        description: "Heat olive oil in large skillet over medium-high heat",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description: "Cook salmon skin-side up for 4-5 minutes until golden",
+        duration: 5,
+      },
+      {
+        step: 4,
+        description: "Flip salmon and cook 3-4 minutes more",
+        duration: 4,
+      },
+      {
+        step: 5,
+        description: "Remove salmon and keep warm",
+        duration: 1,
+      },
+      {
+        step: 6,
+        description: "Reduce heat to medium, add butter to same pan",
+        duration: 1,
+      },
+      {
+        step: 7,
+        description: "Add garlic and cook until fragrant, 30 seconds",
+        duration: 1,
+      },
+      {
+        step: 8,
+        description: "Add white wine and let reduce by half, 2 minutes",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Stir in lemon juice, zest, capers, and dill",
+        duration: 1,
+      },
+      {
+        step: 10,
+        description: "Return salmon to pan and spoon sauce over top",
+        duration: 2,
+      },
+    ],
+    difficulty: "easy",
+    description:
+      "Perfectly seared salmon with crispy skin and a bright lemon garlic butter sauce with capers and fresh dill.",
+    image_url:
+      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 5,
+    cook_time: 41,
+    cuisine_type: "Mediterranean",
+    dietary_tags: ["gluten-free", "keto-friendly"],
+    nutrition: {
+      calories: 385,
+      protein: 42,
+      carbs: 3,
+      fat: 22,
+      fiber: 0,
+      sugar: 1,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-10",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Garlic Butter Shrimp Scampi",
+    ingredients: [
+      {
+        name: "large shrimp",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "linguine pasta",
+        amount: "1",
+        unit: "lb",
+      },
+      {
+        name: "butter",
+        amount: "6",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "8",
+        unit: "cloves",
+      },
+      {
+        name: "white wine",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "lemon juice",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "lemon zest",
+        amount: "2",
+        unit: "lemons",
+      },
+      {
+        name: "fresh parsley",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "parmesan cheese",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "olive oil",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "red pepper flakes",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Cook linguine according to package directions, reserve 1 cup pasta water",
+        duration: 12,
+      },
+      {
+        step: 2,
+        description: "Pat shrimp dry and season with salt and pepper",
+        duration: 3,
+      },
+      {
+        step: 3,
+        description: "Heat olive oil in large skillet over medium-high heat",
+        duration: 2,
+      },
+      {
+        step: 4,
+        description:
+          "Cook shrimp 2 minutes per side until pink, remove and set aside",
+        duration: 4,
+      },
+      {
+        step: 5,
+        description: "Reduce heat to medium, add butter to same pan",
+        duration: 1,
+      },
+      {
+        step: 6,
+        description: "Add garlic and red pepper flakes, cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 7,
+        description: "Add white wine and cook until reduced by half, 3 minutes",
+        duration: 3,
+      },
+      {
+        step: 8,
+        description:
+          "Add cooked pasta, lemon juice, zest, and 1/2 cup pasta water",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Return shrimp to pan and toss with parsley",
+        duration: 2,
+      },
+      {
+        step: 10,
+        description: "Serve immediately with parmesan cheese",
+        duration: 1,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "Classic Italian-American shrimp scampi with tender shrimp, garlic, white wine, and lemon served over linguine pasta.",
+    image_url:
+      "https://images.unsplash.com/photo-1563379091339-03246963d14d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 10,
+    cook_time: 36,
+    cuisine_type: "Italian-American",
+    dietary_tags: [],
+    nutrition: {
+      calories: 445,
+      protein: 28,
+      carbs: 42,
+      fat: 16,
+      fiber: 2,
+      sugar: 3,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-11",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Crispy Pan-Seared Scallops with Cauliflower Pure",
+    ingredients: [
+      {
+        name: "sea scallops",
+        amount: "1.5",
+        unit: "lbs",
+      },
+      {
+        name: "cauliflower",
+        amount: "1",
+        unit: "large head",
+      },
+      {
+        name: "heavy cream",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "butter",
+        amount: "4",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "3",
+        unit: "cloves",
+      },
+      {
+        name: "vegetable broth",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "lemon juice",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh chives",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "white pepper",
+        amount: "1/4",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Cut cauliflower into florets and boil until tender, 15 minutes",
+        duration: 15,
+      },
+      {
+        step: 2,
+        description:
+          "Drain cauliflower and pure with cream, butter, garlic, salt and pepper",
+        duration: 5,
+      },
+      {
+        step: 3,
+        description: "Pass through fine mesh strainer for smooth texture",
+        duration: 3,
+      },
+      {
+        step: 4,
+        description: "Remove side muscles from scallops and pat completely dry",
+        duration: 5,
+      },
+      {
+        step: 5,
+        description: "Season scallops with salt and pepper",
+        duration: 2,
+      },
+      {
+        step: 6,
+        description: "Heat olive oil in large skillet over high heat",
+        duration: 2,
+      },
+      {
+        step: 7,
+        description:
+          "Sear scallops without moving for 2-3 minutes until golden crust forms",
+        duration: 3,
+      },
+      {
+        step: 8,
+        description: "Flip scallops and cook 1-2 minutes more",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Add butter to pan and baste scallops",
+        duration: 1,
+      },
+      {
+        step: 10,
+        description:
+          "Serve scallops over warm cauliflower pure, garnish with chives",
+        duration: 2,
+      },
+    ],
+    difficulty: "hard",
+    description:
+      "Restaurant-quality seared scallops with perfect golden crust served over silky cauliflower pure with fresh herbs.",
+    image_url:
+      "https://images.unsplash.com/photo-1559847844-d721426d6edc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 29,
+    cuisine_type: "French",
+    dietary_tags: ["gluten-free", "keto-friendly"],
+    nutrition: {
+      calories: 285,
+      protein: 24,
+      carbs: 12,
+      fat: 16,
+      fiber: 4,
+      sugar: 6,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-12",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "30-Minute Pork Piccata",
+    ingredients: [
+      {
+        name: "pork tenderloin",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "flour",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "butter",
+        amount: "4",
+        unit: "tbsp",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "3",
+        unit: "cloves",
+      },
+      {
+        name: "white wine",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "chicken broth",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "lemon juice",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "capers",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh parsley",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Slice pork tenderloin into 1/2-inch medallions",
+        duration: 3,
+      },
+      {
+        step: 2,
+        description: "Pound pork to 1/4-inch thickness between plastic wrap",
+        duration: 5,
+      },
+      {
+        step: 3,
+        description: "Season pork with salt and pepper, dredge in flour",
+        duration: 3,
+      },
+      {
+        step: 4,
+        description:
+          "Heat oil and 1 tbsp butter in large skillet over medium-high heat",
+        duration: 2,
+      },
+      {
+        step: 5,
+        description: "Cook pork 2-3 minutes per side until golden",
+        duration: 6,
+      },
+      {
+        step: 6,
+        description: "Remove pork and set aside",
+        duration: 1,
+      },
+      {
+        step: 7,
+        description: "Add garlic to pan and cook 30 seconds",
+        duration: 1,
+      },
+      {
+        step: 8,
+        description: "Add wine and broth, scraping up browned bits",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Stir in lemon juice, capers, and remaining butter",
+        duration: 2,
+      },
+      {
+        step: 10,
+        description: "Return pork to pan, garnish with parsley and serve",
+        duration: 2,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "Tender pork medallions in a bright lemon-caper sauce that comes together in just 30 minutes for an elegant weeknight dinner.",
+    image_url:
+      "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 8,
+    cook_time: 38,
+    cuisine_type: "Italian",
+    dietary_tags: ["gluten-free option"],
+    nutrition: {
+      calories: 365,
+      protein: 42,
+      carbs: 8,
+      fat: 16,
+      fiber: 1,
+      sugar: 2,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-13",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Maple Glazed Pork Chops with Sweet Potatoes",
+    ingredients: [
+      {
+        name: "bone-in pork chops",
+        amount: "4",
+        unit: "1-inch thick",
+      },
+      {
+        name: "sweet potatoes",
+        amount: "2",
+        unit: "large",
+      },
+      {
+        name: "maple syrup",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "dijon mustard",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "apple cider vinegar",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh rosemary",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "3",
+        unit: "cloves",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "red pepper flakes",
+        amount: "1/4",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Preheat oven to 425F",
+        duration: 2,
+      },
+      {
+        step: 2,
+        description: "Cut sweet potatoes into 1-inch cubes",
+        duration: 5,
+      },
+      {
+        step: 3,
+        description: "Toss sweet potatoes with oil, salt, and pepper",
+        duration: 2,
+      },
+      {
+        step: 4,
+        description: "Roast sweet potatoes for 20 minutes",
+        duration: 20,
+      },
+      {
+        step: 5,
+        description: "Season pork chops with salt and pepper",
+        duration: 2,
+      },
+      {
+        step: 6,
+        description:
+          "Mix maple syrup, mustard, vinegar, garlic, and rosemary for glaze",
+        duration: 3,
+      },
+      {
+        step: 7,
+        description: "Sear pork chops in oven-safe skillet, 3 minutes per side",
+        duration: 6,
+      },
+      {
+        step: 8,
+        description:
+          "Brush pork with glaze and add to oven with sweet potatoes",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Roast 12-15 minutes until pork reaches 145F",
+        duration: 15,
+      },
+      {
+        step: 10,
+        description: "Let rest 5 minutes, brush with remaining glaze",
+        duration: 5,
+      },
+    ],
+    difficulty: "easy",
+    description:
+      "Juicy pork chops with a sweet maple glaze served alongside roasted sweet potatoes for a complete fall-inspired meal.",
+    image_url:
+      "https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 12,
+    cook_time: 62,
+    cuisine_type: "American",
+    dietary_tags: ["gluten-free", "dairy-free"],
+    nutrition: {
+      calories: 425,
+      protein: 38,
+      carbs: 35,
+      fat: 15,
+      fiber: 4,
+      sugar: 28,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-14",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Asian-Style Pork Lettuce Wraps",
+    ingredients: [
+      {
+        name: "ground pork",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "butter lettuce",
+        amount: "2",
+        unit: "heads",
+      },
+      {
+        name: "water chestnuts",
+        amount: "8",
+        unit: "oz can",
+      },
+      {
+        name: "shiitake mushrooms",
+        amount: "8",
+        unit: "oz",
+      },
+      {
+        name: "green onions",
+        amount: "6",
+        unit: "stalks",
+      },
+      {
+        name: "garlic",
+        amount: "4",
+        unit: "cloves",
+      },
+      {
+        name: "fresh ginger",
+        amount: "2",
+        unit: "inches",
+      },
+      {
+        name: "soy sauce",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "hoisin sauce",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "rice vinegar",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "sesame oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "vegetable oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "red pepper flakes",
+        amount: "1/4",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Separate lettuce leaves and rinse, set aside",
+        duration: 5,
+      },
+      {
+        step: 2,
+        description: "Dice water chestnuts and mushrooms",
+        duration: 5,
+      },
+      {
+        step: 3,
+        description:
+          "Heat vegetable oil in large skillet over medium-high heat",
+        duration: 2,
+      },
+      {
+        step: 4,
+        description:
+          "Cook ground pork, breaking up with spoon, until browned, 6 minutes",
+        duration: 6,
+      },
+      {
+        step: 5,
+        description: "Add mushrooms and cook until softened, 4 minutes",
+        duration: 4,
+      },
+      {
+        step: 6,
+        description: "Add garlic, ginger, and red pepper flakes, cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 7,
+        description: "Stir in soy sauce, hoisin sauce, and rice vinegar",
+        duration: 2,
+      },
+      {
+        step: 8,
+        description: "Add water chestnuts and cook 2 minutes",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Remove from heat, stir in sesame oil and green onions",
+        duration: 1,
+      },
+      {
+        step: 10,
+        description: "Serve warm pork mixture in lettuce cups",
+        duration: 2,
+      },
+    ],
+    difficulty: "hard",
+    description:
+      "Fresh and flavorful Asian-inspired pork lettuce wraps with crispy water chestnuts and savory hoisin glaze.",
+    image_url:
+      "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 31,
+    cuisine_type: "Asian Fusion",
+    dietary_tags: ["gluten-free option", "dairy-free", "keto-friendly"],
+    nutrition: {
+      calories: 285,
+      protein: 26,
+      carbs: 12,
+      fat: 16,
+      fiber: 3,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-15",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Korean BBQ Tacos with Kimchi Slaw",
+    ingredients: [
+      {
+        name: "flank steak",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "corn tortillas",
+        amount: "12",
+        unit: "tortillas",
+      },
+      {
+        name: "kimchi",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "cabbage",
+        amount: "2",
+        unit: "cups",
+      },
+      {
+        name: "soy sauce",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "brown sugar",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "sesame oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "rice vinegar",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "gochujang",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "4",
+        unit: "cloves",
+      },
+      {
+        name: "fresh ginger",
+        amount: "1",
+        unit: "inch",
+      },
+      {
+        name: "green onions",
+        amount: "4",
+        unit: "stalks",
+      },
+      {
+        name: "cilantro",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "lime",
+        amount: "2",
+        unit: "limes",
+      },
+      {
+        name: "vegetable oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Marinate sliced flank steak in soy sauce, brown sugar, sesame oil, garlic, and ginger for 30 minutes",
+        duration: 30,
+      },
+      {
+        step: 2,
+        description:
+          "Make kimchi slaw by mixing chopped kimchi, cabbage, rice vinegar, and lime juice",
+        duration: 5,
+      },
+      {
+        step: 3,
+        description: "Heat vegetable oil in large skillet over high heat",
+        duration: 2,
+      },
+      {
+        step: 4,
+        description: "Cook marinated steak in batches, 2-3 minutes per side",
+        duration: 6,
+      },
+      {
+        step: 5,
+        description: "Remove steak and let rest, then slice against grain",
+        duration: 3,
+      },
+      {
+        step: 6,
+        description: "Warm tortillas in dry skillet or microwave",
+        duration: 2,
+      },
+      {
+        step: 7,
+        description: "Mix gochujang with lime juice for spicy sauce",
+        duration: 2,
+      },
+      {
+        step: 8,
+        description:
+          "Assemble tacos with steak, kimchi slaw, and gochujang sauce",
+        duration: 5,
+      },
+      {
+        step: 9,
+        description: "Garnish with sliced green onions and cilantro",
+        duration: 2,
+      },
+      {
+        step: 10,
+        description: "Serve immediately with lime wedges",
+        duration: 1,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "A delicious fusion of Korean flavors and Mexican street food with marinated beef, tangy kimchi slaw, and spicy gochujang sauce.",
+    image_url:
+      "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 40,
+    cook_time: 18,
+    cuisine_type: "Korean-Mexican Fusion",
+    dietary_tags: ["dairy-free", "gluten-free option"],
+    nutrition: {
+      calories: 345,
+      protein: 28,
+      carbs: 22,
+      fat: 18,
+      fiber: 3,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-16",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Moroccan Spiced Lamb Burgers with Tzatziki",
+    ingredients: [
+      {
+        name: "ground lamb",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "brioche buns",
+        amount: "6",
+        unit: "buns",
+      },
+      {
+        name: "greek yogurt",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "cucumber",
+        amount: "1",
+        unit: "large",
+      },
+      {
+        name: "red onion",
+        amount: "1/2",
+        unit: "onion",
+      },
+      {
+        name: "fresh mint",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "fresh parsley",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "garlic",
+        amount: "3",
+        unit: "cloves",
+      },
+      {
+        name: "cumin",
+        amount: "2",
+        unit: "tsp",
+      },
+      {
+        name: "coriander",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "cinnamon",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "paprika",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "lemon juice",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "feta cheese",
+        amount: "4",
+        unit: "oz",
+      },
+      {
+        name: "arugula",
+        amount: "2",
+        unit: "cups",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Grate cucumber and drain in colander for 10 minutes",
+        duration: 10,
+      },
+      {
+        step: 2,
+        description:
+          "Mix drained cucumber with yogurt, minced garlic, and lemon juice for tzatziki",
+        duration: 3,
+      },
+      {
+        step: 3,
+        description:
+          "Combine ground lamb with cumin, coriander, cinnamon, paprika, salt, and pepper",
+        duration: 3,
+      },
+      {
+        step: 4,
+        description: "Add minced onion, mint, and parsley to lamb mixture",
+        duration: 2,
+      },
+      {
+        step: 5,
+        description: "Form into 6 patties and chill 15 minutes",
+        duration: 15,
+      },
+      {
+        step: 6,
+        description: "Heat olive oil in large skillet over medium-high heat",
+        duration: 2,
+      },
+      {
+        step: 7,
+        description: "Cook lamb burgers 4-5 minutes per side for medium",
+        duration: 10,
+      },
+      {
+        step: 8,
+        description: "Toast brioche buns lightly",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description:
+          "Assemble burgers with tzatziki, arugula, and crumbled feta",
+        duration: 3,
+      },
+      {
+        step: 10,
+        description: "Serve immediately with extra tzatziki on side",
+        duration: 1,
+      },
+    ],
+    difficulty: "hard",
+    description:
+      "Juicy lamb burgers seasoned with warm Moroccan spices, topped with cool tzatziki and fresh Mediterranean flavors.",
+    image_url:
+      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 25,
+    cook_time: 19,
+    cuisine_type: "Moroccan-Greek Fusion",
+    dietary_tags: ["gluten-free option"],
+    nutrition: {
+      calories: 485,
+      protein: 35,
+      carbs: 28,
+      fat: 26,
+      fiber: 2,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-17",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Classic Beef Stroganoff over Egg Noodles",
+    ingredients: [
+      {
+        name: "beef sirloin",
+        amount: "2",
+        unit: "lbs",
+      },
+      {
+        name: "egg noodles",
+        amount: "12",
+        unit: "oz",
+      },
+      {
+        name: "cremini mushrooms",
+        amount: "1",
+        unit: "lb",
+      },
+      {
+        name: "yellow onion",
+        amount: "1",
+        unit: "large",
+      },
+      {
+        name: "sour cream",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "beef broth",
+        amount: "2",
+        unit: "cups",
+      },
+      {
+        name: "flour",
+        amount: "3",
+        unit: "tbsp",
+      },
+      {
+        name: "dijon mustard",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "worcestershire sauce",
+        amount: "1",
+        unit: "tbsp",
+      },
+      {
+        name: "garlic",
+        amount: "4",
+        unit: "cloves",
+      },
+      {
+        name: "butter",
+        amount: "4",
+        unit: "tbsp",
+      },
+      {
+        name: "olive oil",
+        amount: "2",
+        unit: "tbsp",
+      },
+      {
+        name: "fresh parsley",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "salt",
+        amount: "1.5",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "3/4",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Cut beef into strips and season with salt and pepper",
+        duration: 5,
+      },
+      {
+        step: 2,
+        description: "Cook egg noodles according to package directions",
+        duration: 10,
+      },
+      {
+        step: 3,
+        description:
+          "Heat oil in large skillet, sear beef in batches until browned",
+        duration: 8,
+      },
+      {
+        step: 4,
+        description:
+          "Remove beef, add butter and saut sliced mushrooms and onion",
+        duration: 6,
+      },
+      {
+        step: 5,
+        description: "Add garlic and cook 1 minute",
+        duration: 1,
+      },
+      {
+        step: 6,
+        description: "Sprinkle flour over vegetables and cook 2 minutes",
+        duration: 2,
+      },
+      {
+        step: 7,
+        description: "Gradually whisk in beef broth until smooth",
+        duration: 3,
+      },
+      {
+        step: 8,
+        description: "Add worcestershire and dijon, bring to simmer",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Return beef to pan and simmer until tender, 5 minutes",
+        duration: 5,
+      },
+      {
+        step: 10,
+        description: "Remove from heat, stir in sour cream and parsley",
+        duration: 2,
+      },
+    ],
+    difficulty: "medium",
+    description:
+      "The ultimate comfort food classic with tender beef strips, mushrooms, and a rich sour cream sauce served over buttery egg noodles.",
+    image_url:
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 29,
+    cuisine_type: "Russian-American",
+    dietary_tags: [],
+    nutrition: {
+      calories: 475,
+      protein: 38,
+      carbs: 35,
+      fat: 22,
+      fiber: 3,
+      sugar: 6,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-18",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Ultimate Mac and Cheese with Crispy Breadcrumbs",
+    ingredients: [
+      {
+        name: "elbow macaroni",
+        amount: "1",
+        unit: "lb",
+      },
+      {
+        name: "sharp cheddar",
+        amount: "8",
+        unit: "oz",
+      },
+      {
+        name: "gruyere cheese",
+        amount: "4",
+        unit: "oz",
+      },
+      {
+        name: "cream cheese",
+        amount: "4",
+        unit: "oz",
+      },
+      {
+        name: "heavy cream",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "milk",
+        amount: "2",
+        unit: "cups",
+      },
+      {
+        name: "butter",
+        amount: "6",
+        unit: "tbsp",
+      },
+      {
+        name: "flour",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "panko breadcrumbs",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "parmesan cheese",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "garlic powder",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "mustard powder",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "paprika",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "white pepper",
+        amount: "1/4",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description:
+          "Preheat oven to 375F and cook pasta until just shy of al dente",
+        duration: 8,
+      },
+      {
+        step: 2,
+        description: "Melt 4 tbsp butter in large saucepan over medium heat",
+        duration: 2,
+      },
+      {
+        step: 3,
+        description: "Whisk in flour and cook for 2 minutes",
+        duration: 2,
+      },
+      {
+        step: 4,
+        description: "Gradually whisk in milk and cream, cook until thickened",
+        duration: 5,
+      },
+      {
+        step: 5,
+        description:
+          "Add cream cheese, mustard powder, garlic powder, salt, and pepper",
+        duration: 2,
+      },
+      {
+        step: 6,
+        description:
+          "Remove from heat, stir in cheddar and gruyere until melted",
+        duration: 3,
+      },
+      {
+        step: 7,
+        description:
+          "Combine pasta and cheese sauce, transfer to buttered baking dish",
+        duration: 3,
+      },
+      {
+        step: 8,
+        description: "Mix breadcrumbs with remaining butter and parmesan",
+        duration: 2,
+      },
+      {
+        step: 9,
+        description: "Top pasta with breadcrumb mixture and bake 25 minutes",
+        duration: 25,
+      },
+      {
+        step: 10,
+        description: "Let rest 5 minutes before serving",
+        duration: 5,
+      },
+    ],
+    difficulty: "easy",
+    description:
+      "The ultimate comfort food with creamy three-cheese sauce, perfectly cooked pasta, and golden crispy breadcrumb topping.",
+    image_url:
+      "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 57,
+    cuisine_type: "American",
+    dietary_tags: ["vegetarian"],
+    nutrition: {
+      calories: 520,
+      protein: 22,
+      carbs: 48,
+      fat: 28,
+      fiber: 2,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-19",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+  {
+    title: "Loaded Baked Potato Soup",
+    ingredients: [
+      {
+        name: "russet potatoes",
+        amount: "6",
+        unit: "large",
+      },
+      {
+        name: "bacon",
+        amount: "8",
+        unit: "strips",
+      },
+      {
+        name: "butter",
+        amount: "4",
+        unit: "tbsp",
+      },
+      {
+        name: "flour",
+        amount: "1/4",
+        unit: "cup",
+      },
+      {
+        name: "chicken broth",
+        amount: "4",
+        unit: "cups",
+      },
+      {
+        name: "heavy cream",
+        amount: "1",
+        unit: "cup",
+      },
+      {
+        name: "sour cream",
+        amount: "1/2",
+        unit: "cup",
+      },
+      {
+        name: "sharp cheddar",
+        amount: "2",
+        unit: "cups",
+      },
+      {
+        name: "green onions",
+        amount: "4",
+        unit: "stalks",
+      },
+      {
+        name: "garlic",
+        amount: "3",
+        unit: "cloves",
+      },
+      {
+        name: "yellow onion",
+        amount: "1",
+        unit: "medium",
+      },
+      {
+        name: "salt",
+        amount: "1",
+        unit: "tsp",
+      },
+      {
+        name: "black pepper",
+        amount: "1/2",
+        unit: "tsp",
+      },
+      {
+        name: "paprika",
+        amount: "1/2",
+        unit: "tsp",
+      },
+    ],
+    instructions: [
+      {
+        step: 1,
+        description: "Bake potatoes at 425F for 45 minutes until tender",
+        duration: 45,
+      },
+      {
+        step: 2,
+        description: "Cook bacon until crispy, reserve drippings",
+        duration: 8,
+      },
+      {
+        step: 3,
+        description: "Cool potatoes, scoop out flesh, and roughly mash",
+        duration: 10,
+      },
+      {
+        step: 4,
+        description:
+          "Saut diced onion and garlic in bacon drippings until soft",
+        duration: 5,
+      },
+      {
+        step: 5,
+        description: "Add butter and flour, cook for 2 minutes",
+        duration: 2,
+      },
+      {
+        step: 6,
+        description: "Gradually whisk in chicken broth until smooth",
+        duration: 3,
+      },
+      {
+        step: 7,
+        description: "Add mashed potatoes and simmer 10 minutes",
+        duration: 10,
+      },
+      {
+        step: 8,
+        description: "Stir in heavy cream and heat through",
+        duration: 3,
+      },
+      {
+        step: 9,
+        description: "Remove from heat, add sour cream and most of the cheese",
+        duration: 2,
+      },
+      {
+        step: 10,
+        description: "Serve topped with bacon, cheese, and green onions",
+        duration: 2,
+      },
+    ],
+    difficulty: "easy",
+    description:
+      "Rich and creamy potato soup loaded with bacon, cheese, and green onions - like a baked potato in soup form!",
+    image_url:
+      "https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    prep_time: 15,
+    cook_time: 90,
+    cuisine_type: "American",
+    dietary_tags: ["gluten-free option"],
+    nutrition: {
+      calories: 445,
+      protein: 18,
+      carbs: 35,
+      fat: 28,
+      fiber: 4,
+      sugar: 8,
+    },
+    import_metadata: {
+      source_url: "https://trending-recipes.com/recipe-20",
+      scraper_name: "manual_curation",
+      scraper_version: "1.0.0",
+      confidence_score: 0.9,
+      extracted_at: "2024-08-05T07:00:00Z",
+      notes:
+        "Curated popular recipe based on trending social media and food blog analysis",
+    },
+  },
+];
+
+async function seedRecipes() {
+  try {
+    // Test database connection
+    const connected = await testConnection();
+    if (!connected) {
+      throw new Error("Database connection failed");
+    }
+
+    console.log("Starting recipe seeding...");
+
+    // Check if recipes already exist
+    const existingRecipes = await query(
+      "SELECT COUNT(*) as count FROM recipes"
+    );
+    const recipeCount = parseInt(existingRecipes.rows[0].count);
+
+    if (recipeCount > 0) {
+      console.log(
+        `Database already contains ${recipeCount} recipes. Skipping seed.`
+      );
+      return;
+    }
+
+    // Create a default user for recipes if needed
+    let defaultUserId = 1;
+    const userResult = await query("SELECT id FROM users LIMIT 1");
+    if (userResult.rows.length > 0) {
+      defaultUserId = userResult.rows[0].id;
+    } else {
+      // Create a system user for seeded recipes
+      const systemUser = await query(`
+        INSERT INTO users (google_id, name, email, avatar)
+        VALUES ('system', 'Recipe System', 'system@dindin.app', null)
+        RETURNING id
+      `);
+      defaultUserId = systemUser.rows[0].id;
+      console.log("Created system user for recipe seeding");
+    }
+
+    // Insert recipes
+    let insertedCount = 0;
+
+    for (const recipe of sampleRecipes) {
+      try {
+        const totalTime = recipe.prep_time + recipe.cook_time;
+
+        await query(
+          `
+          INSERT INTO recipes (
+            title, description, image_url, prep_time, cook_time, total_time,
+            servings, difficulty, cuisine_type, ingredients, instructions,
+            nutritional_info, dietary_info, created_by, is_active
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+        `,
+          [
+            recipe.title,
+            recipe.description,
+            recipe.image_url,
+            recipe.prep_time,
+            recipe.cook_time,
+            totalTime,
+            recipe.servings,
+            recipe.difficulty,
+            recipe.cuisine_type,
+            JSON.stringify(recipe.ingredients),
+            JSON.stringify(recipe.instructions),
+            JSON.stringify(recipe.nutritional_info),
+            JSON.stringify(recipe.dietary_info),
+            defaultUserId,
+            true,
+          ]
+        );
+
+        insertedCount++;
+        console.log(`Inserted recipe: ${recipe.title}`);
+      } catch (error) {
+        console.error(
+          `Failed to insert recipe ${recipe.title}:`,
+          error.message
+        );
+      }
+    }
+
+    console.log(`Recipe seeding completed. Inserted ${insertedCount} recipes.`);
+
+    // Display summary
+    const finalCount = await query(
+      "SELECT COUNT(*) as count FROM recipes WHERE is_active = true"
+    );
+    const cuisineStats = await query(`
+      SELECT cuisine_type, COUNT(*) as count
+      FROM recipes
+      WHERE is_active = true
+      GROUP BY cuisine_type
+      ORDER BY count DESC
+    `);
+
+    console.log("\n📊 Recipe Database Summary:");
+    console.log(`Total active recipes: ${finalCount.rows[0].count}`);
+    console.log("\nCuisine distribution:");
+    cuisineStats.rows.forEach((row) => {
+      console.log(`  ${row.cuisine_type}: ${row.count} recipes`);
+    });
+  } catch (error) {
+    console.error("Recipe seeding failed:", error);
+    throw error;
+  }
+}
+
+seedRecipes()
+  .then(() => {
+    console.log("✅ Recipe seeding completed successfully!");
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error("❌ Recipe seeding failed:", error.message);
+    process.exit(1);
+  });
+
+export default { seedRecipes, sampleRecipes };
+
+
+
+================================================
+FILE: app/frontend/utils/testDbConnection.js
+================================================
+// import dotenv from "dotenv";
+// import seedRecipes from "./seedDB.js";
+
+// dotenv.config();
+
+// // console.log("\n2. Testing database connection...");
+
+// // const pool = new Pool({
+// //   host: "0",
+// //   port: ,
+// //   database: "", // Connect to default postgres database
+// //   user: "",
+// //   password: "",
+// // });
+
+// // try {
+// //   const client = await pool.connect();
+// //   const result = await client.query("SELECT version()");
+// //   console.log("   ✅ Database connection successful");
+// //   console.log(
+// //     `   📊 PostgreSQL version: ${result.rows[0].version.split(" ")[1]}`
+// //   );
+// //   client.release();
+// // } catch (error) {
+// //   console.log("   ❌ Database connection failed:", error.message);
+// //   console.log("\n   Please ensure:");
+// //   console.log("   - PostgreSQL is running");
+// //   console.log("   - Database credentials in .env are correct");
+// //   console.log("   - Database user has necessary permissions");
+// //   process.exit(1);
+// // }
+
+// // await pool.end();
+
+// // // 3. Check/Create database
+// // console.log("\n3. Checking target database...");
+
+// // const dbPool = new Pool({
+// //   host: process.env.DB_HOST || "10.10.38.110",
+// //   port: process.env.DB_PORT || 5432,
+// //   database: "dindin_db", // Connect to default postgres database
+// //   user: process.env.DB_USER || "postgres",
+// //   password: process.env.DB_PASSWORD || "dindin",
+// //   ssl:
+// //     process.env.NODE_ENV === "production"
+// //       ? { rejectUnauthorized: false }
+// //       : false,
+// // });
+
+// // try {
+// //   const dbName = process.env.DB_NAME || "dindin_db";
+
+// //   // Check if database exists
+// //   const dbCheck = await dbPool.query(
+// //     "SELECT 1 FROM pg_database WHERE datname = $1",
+// //     [dbName]
+// //   );
+
+// //   if (dbCheck.rows.length === 0) {
+// //     console.log(`   Creating database '${dbName}'...`);
+// //     await dbPool.query(`CREATE DATABASE "${dbName}"`);
+// //     console.log("   ✅ Database created successfully");
+// //   } else {
+// //     console.log(`   ✅ Database '${dbName}' already exists`);
+// //   }
+// // } catch (error) {
+// //   console.log("   ❌ Failed to create database:", error.message);
+// //   process.exit(1);
+// // } finally {
+// //   await dbPool.end();
+// // }
+
+// seedRecipes()
+//   .then(() => {
+//     console.log("\n4. Database seeding completed successfully");
+//     console.log("   ✅ Your Dindin database is ready to use!");
+//   })
+//   .catch((error) => {
+//     console.error("   ❌ Database seeding failed:", error.message);
+//     process.exit(1);
+//   });
+
+
+
+================================================
+FILE: app/scraper/discover_and_extract.py
+================================================
+# discover_and_extract.py
+import logging
+import json
+import os
+import re
+
+from typing import Any, Dict, List, Optional
+from urllib.parse import urlparse
+
+import requests
+import typer
+import extruct
+from w3lib.html import get_base_url
+from lxml import html as lxml_html
+
+app = typer.Typer()
+logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s")
+logger = logging.getLogger("discover_extract")
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; RecipeScraper/1.0; +https://example.com/bot)"
+}
+
+ISO8601_DUR_RE = re.compile(
+    r"^P(?:(?P<days>\d+)D)?(?:T(?:(?P<hours>\d+)H)?(?:(?P<minutes>\d+)M)?(?:(?P<seconds>\d+)S)?)?$",
+    re.IGNORECASE
+)
+
+
+def parse_duration_to_minutes(value: Optional[str]) -> Optional[int]:
+    if not value or not isinstance(value, str):
+        return None
+    m = ISO8601_DUR_RE.match(value.strip())
+    if not m:
+        return None
+    days = int(m.group("days") or 0)
+    hours = int(m.group("hours") or 0)
+    minutes = int(m.group("minutes") or 0)
+    seconds = int(m.group("seconds") or 0)
+    total = days * 24 * 60 + hours * 60 + minutes + (1 if seconds and seconds > 0 else 0)
+    return total if total > 0 else minutes  # fall back
+
+
+def to_list(x):
+    if x is None:
+        return []
+    if isinstance(x, list):
+        return x
+    return [x]
+
+
+def first_str(x) -> Optional[str]:
+    if isinstance(x, str):
+        return x
+    if isinstance(x, list) and x and isinstance(x[0], str):
+        return x[0]
+    return None
+
+
+def normalize_instructions(instr: Any) -> List[Dict[str, Any]]:
+    steps = []
+    seq = to_list(instr)
+    step_no = 1
+    for it in seq:
+        if isinstance(it, str):
+            txt = it.strip()
+        elif isinstance(it, dict):
+            # JSON-LD HowToStep / HowToSection
+            txt = it.get("text") or it.get("name") or it.get("description") or ""
+        else:
+            txt = ""
+        txt = (txt or "").strip()
+        if txt:
+            steps.append({"step": step_no, "instruction": txt})
+            step_no += 1
+    return steps
+
+
+def normalize_ingredients(ings: Any) -> List[Dict[str, Any]]:
+    out = []
+    for s in to_list(ings):
+        if not isinstance(s, str):
+            continue
+        out.append({"name": s.strip()})
+    return out
+
+
+def pick_image(image_field: Any) -> Optional[str]:
+    # could be str | list[str] | dict with url
+    if isinstance(image_field, str):
+        return image_field
+    if isinstance(image_field, list):
+        for v in image_field:
+            if isinstance(v, str):
+                return v
+            if isinstance(v, dict) and isinstance(v.get("url"), str):
+                return v["url"]
+    if isinstance(image_field, dict):
+        if isinstance(image_field.get("url"), str):
+            return image_field["url"]
+    return None
+
+
+def find_recipe_jsonld(data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    # @type could be "Recipe" or ["Thing","Recipe"] etc.
+    t = data.get("@type")
+    types = to_list(t)
+    types = [x.lower() for x in types if isinstance(x, str)]
+    return data if "recipe" in types else None
+
+
+def extract_one(url: str, timeout: int = 25) -> Optional[Dict[str, Any]]:
+    logger.info(f"Fetching: {url}")
+    r = requests.get(url, headers=HEADERS, timeout=timeout)
+    r.raise_for_status()
+    html = r.text
+    base_url = get_base_url(html, r.url)
+    tree = lxml_html.fromstring(html)
+
+    # Try extruct for JSON-LD + microdata
+    data = extruct.extract(html, base_url=base_url, syntaxes=["json-ld", "microdata"], errors="ignore")
+
+    # Prefer JSON-LD Recipe
+    candidates = []
+    for item in to_list(data.get("json-ld")):
+        if not isinstance(item, dict):
+            continue
+        # JSON-LD can wrap a list under "@graph"
+        if "@graph" in item and isinstance(item["@graph"], list):
+            for n in item["@graph"]:
+                if isinstance(n, dict) and find_recipe_jsonld(n):
+                    candidates.append(n)
+        else:
+            if find_recipe_jsonld(item):
+                candidates.append(item)
+
+    recipe = None
+    if candidates:
+        recipe = candidates[0]
+    else:
+        # Fallback: look into microdata items with type includes Recipe
+        for md in to_list(data.get("microdata")):
+            if not isinstance(md, dict):
+                continue
+            t = to_list(md.get("type"))
+            if any(isinstance(x, str) and "schema.org/Recipe" in x for x in t):
+                recipe = md.get("properties")
+
+    if not recipe:
+        logger.warning(f"No recipe schema found at {url}")
+        return None
+
+    title = recipe.get("name") or recipe.get("headline")
+    description = recipe.get("description")
+    image_url = pick_image(recipe.get("image"))
+    servings_raw = recipe.get("recipeYield")
+    servings = None
+    if isinstance(servings_raw, (int, float)):
+        servings = int(servings_raw)
+    elif isinstance(servings_raw, str):
+        # try to pull first integer from the text (e.g., "Serves 4")
+        m = re.search(r"(\\d+)", servings_raw)
+        if m:
+            servings = int(m.group(1))
+
+    prep = parse_duration_to_minutes(recipe.get("prepTime"))
+    cook = parse_duration_to_minutes(recipe.get("cookTime"))
+    total = parse_duration_to_minutes(recipe.get("totalTime"))
+
+    ingredients = normalize_ingredients(recipe.get("recipeIngredient"))
+    instructions = normalize_instructions(recipe.get("recipeInstructions"))
+
+    cuisine = to_list(recipe.get("recipeCuisine"))
+    keywords = recipe.get("keywords")
+    tags = []
+    if isinstance(keywords, str):
+        tags = [t.strip() for t in keywords.split(",") if t.strip()]
+    elif isinstance(keywords, list):
+        tags = [str(x).strip() for x in keywords if str(x).strip()]
+
+    source = url
+    source_site = urlparse(url).hostname or ""
+
+    raw_obj = {
+        "title": title or "",
+        "description": description or "",
+        "image_url": image_url or "",
+        "source_url": source,
+        "source_site": source_site,
+        "servings": servings,
+        "prep_time": prep if prep is not None else None,
+        "cook_time": cook if cook is not None else None,
+        "total_time": total if total is not None else None,
+        "cuisine": cuisine,
+        "tags": tags,
+        "ingredients": ingredients,          # list of {name: "..."} strings mapped to objects
+        "instructions": instructions,        # list of {step, instruction}
+    }
+    return raw_obj
+
+
+@app.command()
+def run(
+    urls_file: str = typer.Option("urls.txt", help="File with one recipe URL per line"),
+    out: str = typer.Option("raw_scraped_recipes.json", help="Path to write extracted raw JSON"),
+    limit: Optional[int] = typer.Option(None, help="Only process first N URLs"),
+    verbose: bool = typer.Option(False, "--verbose/--no-verbose", help="Enable DEBUG logs"),
+):
+    if verbose:
+        logger.setLevel(logging.DEBUG)
+    if not os.path.exists(urls_file):
+        logger.error(f"URLs file not found: {urls_file}")
+        raise typer.Exit(code=1)
+
+    with open(urls_file, "r") as f:
+        urls = [ln.strip() for ln in f if ln.strip() and not ln.strip().startswith("#")]
+
+    if limit:
+        urls = urls[:limit]
+
+    results: List[Dict[str, Any]] = []
+    for i, u in enumerate(urls, 1):
+        logger.info(f"[{i}/{len(urls)}] {u}")
+        try:
+            obj = extract_one(u)
+            if obj:
+                results.append(obj)
+        except Exception as e:
+            logger.error(f"Failed to extract {u}: {e}")
+
+    payload = {
+        "metadata": {
+            "title": "Scraped Recipes",
+            "total_recipes": len(results)
+        },
+        "recipes": results
+    }
+    with open(out, "w") as f:
+        json.dump(payload, f, indent=2)
+    logger.info(f"Saved {len(results)} recipe(s) to {out}")
+
+
+if __name__ == "__main__":
+    app()
+
+
+
+================================================
+FILE: app/scraper/docker-compose.yml
+================================================
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: dindin-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  recipe-transformer:
+    build: .
+    container_name: recipe-transformer
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      MONGODB_URI: mongodb://mongo:27017/
+      DATABASE_NAME: dindin
+      RECIPES_COLLECTION: recipes
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
+
+
+
+================================================
+FILE: app/scraper/dockerfile
+================================================
+FROM python:3-alpine
+
+# Set workdir
+WORKDIR /app
+
+# Copy all source files
+COPY . .
+
+# Install dependencies
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
+
+# Default command (can be overridden via CLI)
+ENTRYPOINT ["python"]
+CMD ["recipe_transformer.py"]
+
+
+
+================================================
+FILE: app/scraper/pipeline.py
+================================================
+# pipeline.py
+import os
+import sys
+import shlex
+import logging
+import subprocess
+from typing import Optional
+import typer
+
+try:
+    # optional scheduling
+    from apscheduler.schedulers.blocking import BlockingScheduler
+    from apscheduler.triggers.cron import CronTrigger
+    APSCHED_AVAILABLE = True
+except Exception:
+    APSCHED_AVAILABLE = False
+
+app = typer.Typer(add_completion=False)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
+logger = logging.getLogger("pipeline")
+
+def run_cmd(cmd: str) -> int:
+    """Run a shell command, stream output live, return exit code."""
+    logger.info(f"▶ {cmd}")
+    proc = subprocess.Popen(
+        shlex.split(cmd),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        env=os.environ.copy(),
+    )
+    assert proc.stdout
+    for line in proc.stdout:
+        print(line, end="")
+    return proc.wait()
+
+def run_once(
+    urls_file: str,
+    out: str,
+    extract_limit: Optional[int],
+    transform_limit: Optional[int],
+    dry_run: bool,
+    model: str,
+    verbose: bool,
+) -> int:
+    # Build extract command
+    extract = [
+        sys.executable, "discover_and_extract.py",
+        "--urls-file", urls_file,
+        "--out", out,
+    ]
+    if extract_limit:
+        extract += ["--limit", str(extract_limit)]
+    if verbose:
+        extract += ["--verbose"]
+    code = run_cmd(" ".join(shlex.quote(x) for x in extract))
+    if code != 0:
+        logger.error(f"Extractor failed with exit {code}")
+        return code
+
+    # Build transform command
+    transform = [
+        sys.executable, "recipe_transformer.py",
+    ]
+    if transform_limit:
+        transform += ["--limit", str(transform_limit)]
+    if verbose:
+        transform += ["--verbose"]
+    if dry_run:
+        transform += ["--dry-run"]
+    transform += ["--output-file", "preview.json"]
+    transform += ["--model", model]
+    code = run_cmd(" ".join(shlex.quote(x) for x in transform))
+    if code != 0:
+        logger.error(f"Transformer failed with exit {code}")
+    return code
+
+@app.command()
+def run(
+    urls_file: str = typer.Option("urls.txt", help="One URL per line"),
+    out: str = typer.Option("raw_scraped_recipes.json", help="Output raw JSON for transformer"),
+    extract_limit: Optional[int] = typer.Option(None, help="Limit number of URLs to extract"),
+    transform_limit: Optional[int] = typer.Option(None, help="Limit number of recipes to transform"),
+    dry_run: bool = typer.Option(False, help="Validate only; do not insert into MongoDB"),
+    model: str = typer.Option("gpt-4o-mini", help="OpenAI model name for transformer"),
+    verbose: bool = typer.Option(False, "--verbose/--no-verbose", help="Enable DEBUG logs"),
+):
+    """Run the pipeline once: Extract -> Transform/Validate -> Insert."""
+    raise typer.Exit(code=run_once(urls_file, out, extract_limit, transform_limit, dry_run, model, verbose))
+
+@app.command()
+def schedule(
+    time: str = typer.Option(..., help="Daily time in 24h format HH:MM (e.g., 02:15)"),
+    urls_file: str = typer.Option("urls.txt"),
+    out: str = typer.Option("raw_scraped_recipes.json"),
+    extract_limit: Optional[int] = typer.Option(None),
+    transform_limit: Optional[int] = typer.Option(None),
+    dry_run: bool = typer.Option(False),
+    model: str = typer.Option("gpt-4o-mini"),
+    verbose: bool = typer.Option(False, "--verbose/--no-verbose"),
+):
+    """Run the pipeline every day at a specific time (inside container) using APScheduler."""
+    if not APSCHED_AVAILABLE:
+        logger.error("APScheduler is not installed. Add 'apscheduler' to requirements.txt")
+        raise typer.Exit(code=1)
+
+    hh, mm = time.split(":")
+    hh, mm = int(hh), int(mm)
+
+    sched = BlockingScheduler(timezone=os.environ.get("TZ", "UTC"))
+
+    def job():
+        logger.info("⏰ Scheduled run fired.")
+        run_once(urls_file, out, extract_limit, transform_limit, dry_run, model, verbose)
+
+    sched.add_job(job, CronTrigger(hour=hh, minute=mm))
+    logger.info(f"📅 Scheduled daily job at {hh:02d}:{mm:02d} (TZ={os.environ.get('TZ','UTC')}). Press Ctrl+C to stop.")
+    try:
+        sched.start()
+    except (KeyboardInterrupt, SystemExit):
+        logger.info("Scheduler stopped.")
+
+if __name__ == "__main__":
+    app()
+
+
+
+================================================
+FILE: app/scraper/preview.json
+================================================
+[
+  {
+    "_id": {
+      "$oid": "68a0ca3e4ffed6f853202099"
+    },
+    "__v": 0,
+    "cook_time": 10,
+    "cuisine": [
+      "Arabic",
+      "Middle Eastern",
+      "Moroccan"
+    ],
+    "cuisine_type": "Middle Eastern",
+    "description": "Recipe video above. The smell when this is cooking is outrageous! The marinade is very quick to prepare and the chicken can be frozen in the marinade, then defrosted prior to cooking. Best cooked on the outdoor grill / BBQ, but I usually make it on the stove. Serve with Yogurt Sauce (provided) or the Tahini sauce in this recipe. Add a simple salad and flatbread laid out on a large platter, then let everyone make their own wraps!",
+    "dietary_tags": [
+      "Gluten-Free",
+      "Dairy-Free"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.recipetineats.com/tachyon/2022/02/Chicken-Shawarma-Wrap_2-SQ.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Scraped from recipe site.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.recipetineats.com/chicken-sharwama-middle-eastern/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "chicken thigh fillets",
+        "unit": "kg"
+      },
+      {
+        "amount": "1",
+        "name": "large garlic clove",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "ground coriander",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "ground cumin",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "ground cardamon",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "ground cayenne pepper",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "smoked paprika",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "salt",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "lemon juice",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "3",
+        "name": "olive oil",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "Greek yoghurt",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "garlic clove",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "cumin",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "lemon juice",
+        "unit": "squeeze"
+      },
+      {
+        "amount": "1",
+        "name": "salt and pepper",
+        "unit": ""
+      },
+      {
+        "amount": "4",
+        "name": "flatbreads",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "sliced lettuce",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "tomato slices",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "red onion",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "shredded cheese",
+        "unit": "(optional)"
+      },
+      {
+        "amount": "1",
+        "name": "hot sauce",
+        "unit": "(optional)"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Marinade chicken - Combine the marinade ingredients in a large ziplock bag. Add the chicken, seal, the massage from the outside with your hands to make sure each piece is coated. Marinate 24 hours (minimum 3 hours)."
+      },
+      {
+        "step": 2,
+        "description": "Yogurt Sauce - Combine the Yogurt Sauce ingredients in a bowl and mix. Cover and put in the fridge until required (it will last for 3 days in the fridge)."
+      },
+      {
+        "step": 3,
+        "description": "Preheat stove or BBQ - Heat a large non-stick skillet with 1 tablespoon over medium high heat, or lightly brush a BBQ hotplate/grills with oil and heat to medium high. (See notes for baking)"
+      },
+      {
+        "step": 4,
+        "description": "Cook chicken - Place chicken in the skillet or on the grill and cook the first side for 4 to 5 minutes until nicely charred. Turn and cook the other side for 3 to 4 minutes (the 2nd side takes less time)."
+      },
+      {
+        "step": 5,
+        "description": "Rest - Remove chicken from the grill and cover loosely with foil. Set aside to rest for 5 minutes."
+      },
+      {
+        "step": 6,
+        "description": "To Serve"
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 500,
+      "carbs": 30,
+      "fat": 20,
+      "fiber": 5,
+      "protein": 40,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "Chicken Shawarma",
+      "shawarma"
+    ],
+    "title": "Chicken Shawarma (Middle Eastern)"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca474ffed6f85320209a"
+    },
+    "__v": 0,
+    "cook_time": 10,
+    "cuisine": [
+      "Vietnamese"
+    ],
+    "cuisine_type": "Asian",
+    "description": "Recipe video above. An exciting way to use ground meat (mince) to make a quick stir fry that taste unbelievable! This is great made with chicken, turkey or pork. It also works with beef though it is better made with \"white meats\". Serve it over rice or vermicelli noodles to make rice bowls with shredded lettuce, carrots and cucumbers on the side (very classic Vietnamese meal!).**NOTE: If you reduce sugar then the pork will not caramelise as well and it will take longer to get colour on it!**",
+    "dietary_tags": [
+      "Gluten-free",
+      "High-protein"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.recipetineats.com/tachyon/2015/11/Vietnamese-Ground-Pork-Bowls_7.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from a popular cooking website.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.recipetineats.com/vietnamese-caramelised-pork-bowls/"
+    },
+    "ingredients": [
+      {
+        "amount": "1 1/2",
+        "name": "cooking oil",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1/2",
+        "name": "onion",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "ginger",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "garlic cloves",
+        "unit": "cloves"
+      },
+      {
+        "amount": "1",
+        "name": "birds eye or Thai chili",
+        "unit": "piece"
+      },
+      {
+        "amount": "500",
+        "name": "pork mince",
+        "unit": "g"
+      },
+      {
+        "amount": "5",
+        "name": "brown sugar",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "2",
+        "name": "fish sauce",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "green onion stem",
+        "unit": "piece"
+      },
+      {
+        "amount": "1",
+        "name": "Jasmine rice",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "Sliced red chilli, tomato, cucumber",
+        "unit": "optional"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Heat the oil in a large skillet over high heat."
+      },
+      {
+        "step": 2,
+        "description": "Saut\u00e9 - Add the onion, ginger, garlic and chili and cook for 2 minutes."
+      },
+      {
+        "step": 3,
+        "description": "Cook pork - Add the pork mince and cook for 2 minutes or so until white all over, breaking up the meat with a wooden spoon."
+      },
+      {
+        "step": 4,
+        "description": "Add sauce & caramelise - Add the sugar and fish sauce. Stir, then leave it to cook without touching until all the juices cook out and the pork starts caramelised - about 2 minutes. Then stir it and leave it again, without stirring, for around 30 seconds to get more caramelisation. Repeat twice more until caramelised to your taste."
+      },
+      {
+        "step": 5,
+        "description": "Serve over jasmine or other rice, or vermicelli noodles, garnished with sliced green onion. For a low carb, low cal option, try Cauliflower Rice! I like to have chunks of plain cucumber and carrots on the side which is a classic way of making Vietnamese bowls."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 450,
+      "carbs": 30,
+      "fat": 20,
+      "fiber": 5,
+      "protein": 35,
+      "sugar": 15
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "Ground pork recipe",
+      "ground pork stir fry",
+      "Pork mince recipe",
+      "pork mince stir fry"
+    ],
+    "title": "Vietnamese Caramelised Pork Bowls"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca5c4ffed6f85320209b"
+    },
+    "__v": 0,
+    "cook_time": 45,
+    "cuisine": [
+      "Latin American"
+    ],
+    "cuisine_type": "Latin American",
+    "description": "Our tender Peruvian-style grilled chicken is slow-cooked with a vinegar and spice rub. But it's the sauce that everyone loves, and it's easy to make with cilantro, jalape\u00f1os, and aj\u00ed amarillo peppers.",
+    "dietary_tags": [
+      "low carb"
+    ],
+    "difficulty": "medium",
+    "image_url": "https://www.seriouseats.com/thmb/C3krJOJUOnhLCXe3KqnxtjbeUCk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210629-peruvian-style-grilled-chicken-melissa-hom-seriouseats-hero-4fce2b49df81448aa16437362819162f.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Serious Eats.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.seriouseats.com/peruvian-style-grilled-chicken-with-green-sauce-recipe"
+    },
+    "ingredients": [
+      {
+        "amount": "3",
+        "name": "jalape\u00f1o chiles, roughly chopped",
+        "unit": "whole"
+      },
+      {
+        "amount": "1",
+        "name": "aj\u00ed amarillo pepper paste",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "1",
+        "name": "fresh cilantro leaves",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "medium cloves garlic",
+        "unit": "clove"
+      },
+      {
+        "amount": "1/2",
+        "name": "mayonnaise",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/4",
+        "name": "sour cream",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "fresh juice from 1 lime",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "distilled white vinegar",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2",
+        "name": "extra-virgin olive oil",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "to taste",
+        "name": "Kosher salt and freshly ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "whole chicken",
+        "unit": "whole"
+      },
+      {
+        "amount": "4",
+        "name": "kosher salt",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "2",
+        "name": "ground cumin",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "paprika",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "freshly ground black pepper",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "3",
+        "name": "medium cloves garlic, minced",
+        "unit": "clove"
+      },
+      {
+        "amount": "2",
+        "name": "white vinegar",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "vegetable or canola oil",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "For the Sauce: Combine jalape\u00f1os, aj\u00ed amarillo (if using), cilantro, garlic, mayonnaise, sour cream, lime juice, and vinegar in the jar of a blender. Blend on high speed, scraping down sides as necessary, until smooth. With blender running, slowly drizzle in olive oil. Season to taste with salt and pepper. Sauce will be quite loose at this point, but will thicken as it sits. Transfer to a sealed container and refrigerate until ready to use."
+      },
+      {
+        "step": 2,
+        "description": "For the Chicken: Pat chicken dry with paper towels and place on a large cutting board, breast side down. Using sharp kitchen shears, remove backbone by cutting along either side of it. Turn chicken over and lay out flat. Press firmly on breast to flatten chicken. For added stability, run a metal or wooden skewer horizontally through chicken, entering through one thigh, going through both breast halves, and exiting through other thigh. Tuck wing tips behind back."
+      },
+      {
+        "step": 3,
+        "description": "Combine salt, cumin, paprika, pepper, garlic, vinegar, and oil in a small bowl and massage with fingertips until homogeneous. Spread mixture evenly over all surfaces of chicken."
+      },
+      {
+        "step": 4,
+        "description": "Light a chimney full of charcoal. When all charcoal is lit and covered with gray ash, pour out and spread coals evenly over half of coal grate. Alternatively, set half the burners of a gas grill to high heat. Set cooking grate in place, cover grill, and allow to preheat for 5 minutes. Clean and oil grilling grate."
+      },
+      {
+        "step": 5,
+        "description": "Place chicken, skin side up, on cooler side of grill, with legs facing toward hotter side. Cover grill, with vents on lid open and aligned over chicken. Open bottom vents of grill. Cook until an instant-read thermometer inserted into thickest part of breast registers 110\u00b0F (43\u00b0C). Carefully flip chicken and place, skin side down, on hotter side of grill, with breasts pointed toward cooler side. Press down firmly with a wide, stiff spatula to ensure good contact between bird and grill grates. Cover and cook until skin is crisp and an instant-read thermometer inserted into thickest part of breast registers 145 to 150\u00b0F (63 to 66\u00b0C), about 10 minutes longer. If chicken threatens to burn before temperature is achieved, carefully slide to cooler side of grill, cover, and continue to cook until done. Do not leave the lid off for longer than it takes to check temperature, or chicken will burn."
+      },
+      {
+        "step": 6,
+        "description": "Transfer chicken to a cutting board and allow to rest for 5 to 10 minutes. Carve and serve with sauce."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 600,
+      "carbs": 10,
+      "fat": 40,
+      "fiber": 2,
+      "protein": 50,
+      "sugar": 1
+    },
+    "prep_time": 30,
+    "servings": 4,
+    "tags": [
+      "barbecue chicken",
+      "chicken",
+      "condiments",
+      "grilled chicken",
+      "Latin American cuisine",
+      "latin cuisine",
+      "low carb",
+      "Peruvian",
+      "sauces",
+      "The Food Lab"
+    ],
+    "title": "Peruvian-Style Grilled Chicken With Green Sauce Recipe"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca694ffed6f85320209c"
+    },
+    "__v": 0,
+    "cook_time": 20,
+    "cuisine": [
+      "Mexican"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "This esquites recipe offers all the delights of Mexican street corn (elotes) in salad form, and you don't even have to fire up the grill to make it.",
+    "dietary_tags": [
+      "vegetarian"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.seriouseats.com/thmb/Ua6AQAB90reXko4lseEKNzxk_mI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/esquites-mexican-street-corn-salad-recipe-10-9586c88e47084597ac6d34d1e71d4583.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Serious Eats.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.seriouseats.com/esquites-mexican-street-corn-salad-recipe"
+    },
+    "ingredients": [
+      {
+        "amount": "2",
+        "name": "tablespoons vegetable oil",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "4",
+        "name": "ears fresh corn, shucked, kernels removed",
+        "unit": "ears"
+      },
+      {
+        "amount": "to taste",
+        "name": "Kosher salt",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "ounces feta or Cotija cheese, finely crumbled",
+        "unit": "ounces"
+      },
+      {
+        "amount": "1/2",
+        "name": "cup finely sliced scallions, green parts only",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/2",
+        "name": "cup fresh cilantro leaves, finely chopped",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "jalape\u00f1o pepper, seeded and stemmed, finely chopped",
+        "unit": "pepper"
+      },
+      {
+        "amount": "1 to 2",
+        "name": "medium cloves garlic, pressed or minced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "2",
+        "name": "tablespoons mayonnaise",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "tablespoon fresh juice from 1 lime",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "to taste",
+        "name": "Chili powder or hot chili flakes",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Heat oil in a large nonstick skillet or wok over high heat until shimmering. Add corn kernels, season to taste with salt, toss once or twice, and cook without moving until charred on one side, about 2 minutes. Toss corn, stir, and repeat until charred on second side, about 2 minutes longer. Continue tossing and charring until corn is well charred all over, about 10 minutes total. Transfer to a large bowl."
+      },
+      {
+        "step": 2,
+        "description": "Add cheese, scallions, cilantro, jalape\u00f1o, garlic, mayonnaise, lime juice, and chile powder and toss to combine. Taste and adjust seasoning with salt and more chile powder to taste. Serve immediately."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 250,
+      "carbs": 30,
+      "fat": 10,
+      "fiber": 5,
+      "protein": 8,
+      "sugar": 3
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "corn",
+      "esquites",
+      "mexican street corn",
+      "side"
+    ],
+    "title": "Mexican Street Corn Salad (Esquites)"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca7f4ffed6f85320209d"
+    },
+    "__v": 0,
+    "cook_time": 35,
+    "cuisine": [
+      "Moroccan/North African"
+    ],
+    "cuisine_type": "North African",
+    "description": "Shakshuka is a versatile and vegetarian one-pan egg and tomato dish that's perfect for breakfast, lunch, or dinner.",
+    "dietary_tags": [
+      "vegetarian",
+      "low carb"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.seriouseats.com/thmb/GGe7ElpAahWNo9W6c6mAx0utvFg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__09__20160926-shakshuka-17-a2b1d35f5ce146d1b8f5e2851e73b487.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Serious Eats.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.seriouseats.com/shakshuka-north-african-shirred-eggs-tomato-pepper-recipe"
+    },
+    "ingredients": [
+      {
+        "amount": "3",
+        "name": "tablespoons extra-virgin olive oil, plus more for drizzling",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "medium onion, thinly sliced",
+        "unit": "medium"
+      },
+      {
+        "amount": "1",
+        "name": "large red pepper, thinly sliced",
+        "unit": "large"
+      },
+      {
+        "amount": "1",
+        "name": "fresh small hot chile, thinly sliced",
+        "unit": "small"
+      },
+      {
+        "amount": "2",
+        "name": "to 3 cloves garlic, thinly sliced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "1.5",
+        "name": "tablespoons sweet Hungarian or smoked Spanish paprika",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "teaspoons whole or ground cumin seed",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "can whole peeled tomatoes, crushed",
+        "unit": "28-ounce"
+      },
+      {
+        "amount": "to taste",
+        "name": "Kosher salt and freshly ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "large handful",
+        "name": "minced cilantro, parsley, or a mix",
+        "unit": "handful"
+      },
+      {
+        "amount": "6",
+        "name": "eggs",
+        "unit": "eggs"
+      },
+      {
+        "amount": "to serve",
+        "name": "Sliced oil-cured black olives, feta cheese, and/or artichoke hearts",
+        "unit": ""
+      },
+      {
+        "amount": "to serve",
+        "name": "Crusty bread",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Heat olive oil in a large, deep skillet or straight-sided saut\u00e9 pan over high heat until shimmering. Add onion, red pepper, and chile and spread into an even layer. Cook, without moving, until vegetables on the bottom are deeply browned and beginning to char in spots, about 6 minutes. Stir and repeat. Continue to cook until vegetables are fully softened and spottily charred, about another 4 minutes. Add garlic and cook, stirring, until softened and fragrant, about 30 seconds. Add paprika and cumin and cook, stirring, until fragrant, about 30 seconds. Immediately add tomatoes and stir to combine (see notes). Reduce heat to a bare simmer and simmer for 10 minutes, then season to taste with salt and pepper and stir in half of cilantro or parsley."
+      },
+      {
+        "step": 2,
+        "description": "Using a large spoon, make a well near the perimeter of the pan and break an egg directly into it. Spoon a little sauce over edges of egg white to partially submerge and contain it, leaving yolk exposed. Repeat with remaining 5 eggs, working around pan as you go. Season eggs with a little salt, cover, reduce heat to lowest setting, and cook until egg whites are barely set and yolks are still runny, 5 to 8 minutes."
+      },
+      {
+        "step": 3,
+        "description": "Sprinkle with remaining cilantro or parsley, along with any of the optional toppings. Serve immediately with crusty bread."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 300,
+      "carbs": 20,
+      "fat": 20,
+      "fiber": 5,
+      "protein": 15,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "breakfast",
+      "brunch",
+      "easy",
+      "egg",
+      "israeli",
+      "low carb",
+      "quick",
+      "shakshuka",
+      "tomato",
+      "tunisian",
+      "turkish"
+    ],
+    "title": "Shakshuka (North African\u2013Style Poached Eggs in Spicy Tomato Sauce)"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca924ffed6f85320209e"
+    },
+    "__v": 0,
+    "cook_time": 15,
+    "cuisine": [
+      "Italian"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "All the ingredients for this Tomato Spinach One Pot Pasta cook together to make an incredibly fast, flavorful, and easy weeknight meal.",
+    "dietary_tags": [
+      "Vegetarian"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.budgetbytes.com/wp-content/uploads/2013/05/Italian-Wonderpot-close-1.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Budget Bytes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.budgetbytes.com/italian-wonderpot/"
+    },
+    "ingredients": [
+      {
+        "amount": "4",
+        "name": "vegetable broth",
+        "unit": "cups"
+      },
+      {
+        "amount": "2",
+        "name": "olive oil",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "12",
+        "name": "fettuccine",
+        "unit": "oz."
+      },
+      {
+        "amount": "8",
+        "name": "frozen chopped spinach",
+        "unit": "oz."
+      },
+      {
+        "amount": "1",
+        "name": "diced tomatoes",
+        "unit": "28oz. can"
+      },
+      {
+        "amount": "1",
+        "name": "yellow onion, sliced",
+        "unit": ""
+      },
+      {
+        "amount": "4",
+        "name": "garlic, sliced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "0.5",
+        "name": "dried basil",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "0.5",
+        "name": "dried oregano",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "0.25",
+        "name": "crushed red pepper",
+        "unit": "tsp"
+      },
+      {
+        "amount": "to taste",
+        "name": "freshly cracked black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "shaved Parmesan",
+        "unit": "oz."
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Add four cups of vegetable broth to a large pot. Break the fettuccine in half and add it to the pot along with the canned tomatoes (with juices), olive oil, frozen spinach, onion, garlic, basil, oregano, red pepper, and some freshly cracked black pepper."
+      },
+      {
+        "step": 2,
+        "description": "Make sure the ingredients are submerged under the liquid, place a lid on top of the pot, and then turn the heat on to high. Allow the pot to come up to a full boil over high heat, then remove the lid and turn the heat down to medium."
+      },
+      {
+        "step": 3,
+        "description": "Allow the pot to continue to boil over medium heat, without a lid, for 10-15 minutes, or until the pasta is cooked and most of the liquid has been absorbed. Stir the pot every few minutes as it cooks to prevent the pasta from sticking to the bottom, but avoid over stirring which can cause the pasta to become sticky."
+      },
+      {
+        "step": 4,
+        "description": "Sprinkle with shaved Parmesan just before serving."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 60,
+      "fat": 10,
+      "fiber": 5,
+      "protein": 15,
+      "sugar": 8
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "pasta",
+      "one pot",
+      "quick meal"
+    ],
+    "title": "Tomato Spinach One Pot Pasta"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca9e4ffed6f85320209f"
+    },
+    "__v": 0,
+    "cook_time": 10,
+    "cuisine": [
+      "Asian",
+      "American"
+    ],
+    "cuisine_type": "Fusion",
+    "description": "These sweet, tangy, and spicy sriracha noodles take only a few minutes to make and are an inexpensive alternative to take out.",
+    "dietary_tags": [
+      "Vegetarian"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.budgetbytes.com/wp-content/uploads/2012/08/Spicy-Noodles-skillet.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Budget Bytes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.budgetbytes.com/dragon-noodles/"
+    },
+    "ingredients": [
+      {
+        "amount": "4",
+        "name": "lo mein noodles",
+        "unit": "oz."
+      },
+      {
+        "amount": "2",
+        "name": "butter",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "1/4",
+        "name": "crushed red pepper",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "large eggs",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "brown sugar",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "soy sauce",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "2",
+        "name": "sriracha",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "fresh cilantro",
+        "unit": "handful"
+      },
+      {
+        "amount": "1",
+        "name": "green onion, sliced",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Prepare the sauce for the noodles. In a small bowl, stir together the brown sugar, soy sauce, and sriracha. Set the sauce aside."
+      },
+      {
+        "step": 2,
+        "description": "Bring a pot of water to a boil for the noodles. Once boiling, add the noodles and boil until tender. Drain the noodles in a colander."
+      },
+      {
+        "step": 3,
+        "description": "While waiting for the water to boil, crack two eggs into a bowl then whisk lightly."
+      },
+      {
+        "step": 4,
+        "description": "Heat the butter in a skillet over medium heat, then add the eggs and crushed pepper and lightly scramble the eggs. Avoid over cooking the eggs."
+      },
+      {
+        "step": 5,
+        "description": "Once the noodles have drained, add them to the skillet with the eggs, then drizzle the sauce over top. Toss the noodles and eggs to coat in the sauce."
+      },
+      {
+        "step": 6,
+        "description": "Top the noodles with fresh cilantro and sliced green onion, then serve."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 60,
+      "fat": 15,
+      "fiber": 2,
+      "protein": 12,
+      "sugar": 5
+    },
+    "prep_time": 5,
+    "servings": 2,
+    "tags": [
+      "easy",
+      "Noodles",
+      "Spicy",
+      "Take Out",
+      "Vegetarian"
+    ],
+    "title": "Spicy Sriracha Noodles"
+  },
+  {
+    "_id": {
+      "$oid": "68a0caaa4ffed6f8532020a0"
+    },
+    "__v": 0,
+    "cook_time": 24,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "These crispy Air Fryer Chicken Thighs have become a weeknight staple in my house. An easy recipe that you can whip up super fast!",
+    "dietary_tags": [
+      "Gluten-Free",
+      "High-Protein"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.skinnytaste.com/wp-content/uploads/2022/11/Air-Fryer-Chicken-Thighs-4.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Skinnytaste.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.skinnytaste.com/air-fryer-chicken-thighs/"
+    },
+    "ingredients": [
+      {
+        "amount": "6",
+        "name": "chicken thighs (with bone and skin)",
+        "unit": "pieces"
+      },
+      {
+        "amount": "1",
+        "name": "lemon",
+        "unit": "piece"
+      },
+      {
+        "amount": "1",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/4",
+        "name": "black pepper",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "garlic powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "onion powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/2",
+        "name": "sweet paprika",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/2",
+        "name": "dried herbs (such as herbs de provence or dried oregano)",
+        "unit": "teaspoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Season the chicken with the juice of 1/2 of the lemon, then season with remaining spices on both sides."
+      },
+      {
+        "step": 2,
+        "description": "Rub the seasoning well all over the chicken then transfer to the air fryer, skin side down."
+      },
+      {
+        "step": 3,
+        "description": "Air fry 400F 12 minutes on each side, until golden and crispy and cooked through in the center."
+      }
+    ],
+    "isActive": true,
+    "likes": 100,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 5,
+      "fat": 20,
+      "fiber": 1,
+      "protein": 30,
+      "sugar": 1
+    },
+    "prep_time": 5,
+    "servings": 4,
+    "tags": [
+      "Air Fryer Chicken",
+      "Air Fryer Chicken Thighs",
+      "bone in chicken thigh recipe",
+      "weeknight dinner ideas"
+    ],
+    "title": "Air Fryer Chicken Thighs"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cac34ffed6f8532020a1"
+    },
+    "__v": 0,
+    "cook_time": 20,
+    "cuisine": [
+      "American-Italian",
+      "Italian-American"
+    ],
+    "cuisine_type": "Italian",
+    "description": "This Chicken Scampi recipe is a light, family-friendly weeknight dinner that's high in protein and ready in under 30 minutes.",
+    "dietary_tags": [
+      "high protein",
+      "Kid Friendly"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.skinnytaste.com/wp-content/uploads/2025/05/Chicken-Scampi-8.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Skinnytaste.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.skinnytaste.com/chicken-scampi/"
+    },
+    "ingredients": [
+      {
+        "amount": "8",
+        "name": "whole wheat angel hair pasta",
+        "unit": "ounces"
+      },
+      {
+        "amount": "24",
+        "name": "chicken breasts",
+        "unit": "ounces"
+      },
+      {
+        "amount": "1",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "to taste",
+        "name": "freshly ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "olive oil spray",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "butter",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "4",
+        "name": "garlic cloves",
+        "unit": ""
+      },
+      {
+        "amount": "0.75",
+        "name": "dry white wine",
+        "unit": "cup"
+      },
+      {
+        "amount": "0.125",
+        "name": "crushed red pepper flakes",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "cherry tomatoes",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "freshly squeezed lemon juice",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "baby spinach",
+        "unit": "cups"
+      },
+      {
+        "amount": "3",
+        "name": "chopped parsley",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Bring a large pot of salted water to a boil."
+      },
+      {
+        "step": 2,
+        "description": "Cut chicken breasts into small \u00bd inch cubes. Season the chicken on both sides with 1 teaspoon of kosher salt, and \u00bc teaspoon black pepper to taste."
+      },
+      {
+        "step": 3,
+        "description": "Heat a very large skillet over high heat. When the pan is hot, spray the skillet with oil and add half the chicken and cook until browned on all sides and no longer pink inside, 2 minutes. Transfer to a plate and repeat with remaining chicken. Set aside and reduce heat."
+      },
+      {
+        "step": 4,
+        "description": "Add \u00bd tablespoon of the butter to the skillet and melt, add the garlic and saute until fragrant, about 1 minute. Add the white wine or broth, crushed red pepper flakes and remaining \u00bc teaspoon of salt. Cook, scraping the bottom of the pan, until reduced by half, about 2 minutes. Add the tomatoes and let them cook 1 minute, to soften."
+      },
+      {
+        "step": 5,
+        "description": "Add the remaining 1 \u00bd tablespoons butter and melt, add the lemon juice, remove from the heat."
+      },
+      {
+        "step": 6,
+        "description": "Add the pasta to the boiling water and cook according to package directions for al dente, reserve \u00bd cup water. Drain the pasta and toss with the chicken, add the spinach and cook 1 minute tossing with the sauce adding some of the reserved pasta water if needed. Finish with fresh parsley and serve with plenty of grated Parmesan cheese."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 450,
+      "carbs": 60,
+      "fat": 15,
+      "fiber": 5,
+      "protein": 30,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "chicken breast",
+      "easy",
+      "high protein",
+      "Kid Friendly",
+      "quick"
+    ],
+    "title": "Chicken Scampi"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cad64ffed6f8532020a2"
+    },
+    "__v": 0,
+    "cook_time": 8,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "main course",
+    "description": "The BEST juicy air fryer chicken breast. Golden outside, moist and tender inside and seasoned to perfection. Enjoy on its own or use for meal prep.",
+    "dietary_tags": [
+      "gluten-free",
+      "high-protein"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.wellplated.com/wp-content/uploads/2021/04/Air-Fryer-Chicken-Breast-No-Breading-1.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from wellplated.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.wellplated.com/air-fryer-chicken-breast/"
+    },
+    "ingredients": [
+      {
+        "amount": "2",
+        "name": "boneless, skinless chicken breasts",
+        "unit": "pieces"
+      },
+      {
+        "amount": "0.5",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2",
+        "name": "extra-virgin olive oil",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "paprika",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.5",
+        "name": "garlic powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.5",
+        "name": "onion powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.25",
+        "name": "ground black pepper",
+        "unit": "teaspoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Place the chicken breasts on a cutting board and cover with a large sheet of plastic wrap. With a rolling pin, meat mallet, or your palm, lightly pound into an even thickness."
+      },
+      {
+        "step": 2,
+        "description": "To Dry Brine*: Place the chicken on a plate and sprinkle all over with the kosher salt. Place in the refrigerator uncovered for at least 30 minutes or up to 1 day\u2014if you will not be dry brining, skip this step."
+      },
+      {
+        "step": 3,
+        "description": "When ready to air fry: remove the chicken from the refrigerator and let stand at room temperature for 15 minutes."
+      },
+      {
+        "step": 4,
+        "description": "In a small bowl, stir together the paprika, garlic powder, onion powder, and black pepper (if you did not dry brine the chicken, add the salt now)."
+      },
+      {
+        "step": 5,
+        "description": "Place the chicken in a large bowl and drizzle with the olive oil. Sprinkle the spice mixture over the top. Toss to coat the chicken, ensuring you rub the spices evenly over both sides."
+      },
+      {
+        "step": 6,
+        "description": "Preheat the air fryer to 375 degrees F (my model takes 3 minutes to heat). Place the chicken presentation side (smooth side) down in the air fryer and let cook 6 minutes."
+      },
+      {
+        "step": 7,
+        "description": "Remove the air fryer basket, then with tongs, carefully flip the chicken over. Continue cooking until the chicken registers between 155 and 160 degrees F, 2 to 8 minutes more. Chicken is considered safe to eat at 165 degrees F, but I like to remove mine a few degrees early, then let the carryover cooking finish the job. The total cook time will vary based on your model and the size of your chicken. Smaller breasts (about 6 ounces each) will need only around 8 minutes total; larger ones may need 14 or more. Check the chicken often towards the end to monitor its progress. DO NOT overcook or it will be dry."
+      },
+      {
+        "step": 8,
+        "description": "Remove the chicken to a plate. Cover and let rest 5 to 10 minutes. Slice and enjoy!"
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 300,
+      "carbs": 0,
+      "fat": 15,
+      "fiber": 0,
+      "protein": 50,
+      "sugar": 0
+    },
+    "prep_time": 35,
+    "servings": 2,
+    "tags": [
+      "air fryer chicken breast",
+      "air fryer chicken breast frozen",
+      "air fryer chicken breast no breading",
+      "air fryer chicken breast pieces",
+      "easy air fryer chicken"
+    ],
+    "title": "Air Fryer Chicken Breast"
+  },
+  {
+    "_id": {
+      "$oid": "68a0caec4ffed6f8532020a3"
+    },
+    "__v": 0,
+    "cook_time": 15,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "Easy Baked Salmon with Garlic, Lemon, and Herbs. One of the best simple, healthy recipes. Turns out perfectly every time!",
+    "dietary_tags": [
+      "Gluten-Free",
+      "Paleo",
+      "Low-Carb"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.wellplated.com/wp-content/uploads/2018/06/Baked-Salmon-in-Foil-at-400.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from wellplated.com.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.wellplated.com/baked-salmon/"
+    },
+    "ingredients": [
+      {
+        "amount": "2",
+        "name": "pound side of salmon (boneless, skin on or off, depending upon your preference, wild caught if possible)",
+        "unit": "pounds"
+      },
+      {
+        "amount": "5",
+        "name": "sprigs fresh rosemary (or fresh herbs of your choice; do not use dried herbs)",
+        "unit": "sprigs"
+      },
+      {
+        "amount": "2",
+        "name": "small lemons (divided, plus extra for serving as desired)",
+        "unit": "lemons"
+      },
+      {
+        "amount": "2",
+        "name": "tablespoons extra virgin olive oil",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon kosher salt",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "0.25",
+        "name": "teaspoon ground black pepper",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "4",
+        "name": "cloves garlic (peeled and roughly chopped)",
+        "unit": "cloves"
+      },
+      {
+        "amount": "1",
+        "name": "Additional chopped fresh herbs (such as basil, thyme, parsley, dill, or green onion (optional))",
+        "unit": "optional"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Remove the salmon from the refrigerator and let stand at room temperature for 10 minutes while you prepare the other ingredients. Heat oven to 375 degrees F. Line a large baking dish or rimmed baking sheet with a large piece of aluminum foil."
+      },
+      {
+        "step": 2,
+        "description": "Lightly coat the foil with baking spray, then arrange 2 sprigs of the rosemary down the middle. Cut one of the lemons into thin slices and arrange half the slices down the middle with the rosemary. Place the salmon on top."
+      },
+      {
+        "step": 3,
+        "description": "Drizzle the salmon with the olive oil and sprinkle with the salt and pepper. Rub to coat, then scatter the garlic cloves over the top. Lay the remaining rosemary and lemon slices on top of the salmon. Juice the second lemon, then pour the juice over the top."
+      },
+      {
+        "step": 4,
+        "description": "Fold the sides of the aluminum foil up and over the top of the salmon until it is completely enclosed. If your piece of foil is not large enough, place a second piece on top and fold the edges under so that it forms a sealed packet. Leave a little room inside the foil for air to circulate."
+      },
+      {
+        "step": 5,
+        "description": "Bake the salmon for 15-20 minutes, until the salmon is almost completely cooked through at the thickest part. The cooking time will vary based on the thickness of your salmon. If your side is thinner (around 1-inch thick) check several minutes early to ensure your salmon does not overcook. If your piece is very thick (1 1/2 inches or more), it may need longer."
+      },
+      {
+        "step": 6,
+        "description": "Remove the salmon from the oven and carefully open the foil so that the top of the fish is completely uncovered (be careful of hot steam). Change the oven setting to broil, then return the fish to the oven and broil for 3 minutes, until the top of the salmon and the garlic are slightly golden and the fish is cooked through. Watch the salmon closely as it broils to make sure it doesn\u2019t overcook and the garlic does not burn. Remove the salmon from the oven. If it still appears a bit underdone, you can wrap the foil back over the top and let it rest for a few minutes. Do not let it sit too long\u2014salmon can progress from 'not done' to 'over done' very quickly. As soon as it flakes easily with a fork, it's ready."
+      },
+      {
+        "step": 7,
+        "description": "To serve, cut the salmon into portions. Sprinkle with additional fresh herbs or top with an extra squeeze of lemon as desired."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 0,
+      "fat": 20,
+      "fiber": 0,
+      "protein": 50,
+      "sugar": 0
+    },
+    "prep_time": 15,
+    "servings": 4,
+    "tags": [
+      "Baked Salmon in Foil",
+      "best baked salmon recipe",
+      "best salmon recipe",
+      "Easy Dinner Recipe",
+      "easy salmon recipe",
+      "Healthy Baked Salmon",
+      "how to bake salmon",
+      "oven baked salmon"
+    ],
+    "title": "Baked Salmon"
+  },
+  {
+    "_id": {
+      "$oid": "68a0caf94ffed6f8532020a4"
+    },
+    "__v": 0,
+    "cook_time": 240,
+    "cuisine": [
+      "Asian"
+    ],
+    "cuisine_type": "Asian",
+    "description": "Healthy Slow Cooker Honey Garlic Chicken. Easy recipe with 8 simple ingredients! Juicy chicken thighs or breasts in a sticky honey garlic sauce.",
+    "dietary_tags": [
+      "gluten-free",
+      "high-protein"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.wellplated.com/wp-content/uploads/2019/03/Slow-Cooker-Honey-Garlic-Chicken-and-Veggies.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from wellplated.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.wellplated.com/slow-cooker-honey-garlic-chicken/"
+    },
+    "ingredients": [
+      {
+        "amount": "1 1/2",
+        "name": "boneless, skinless chicken thighs (or chicken breasts)",
+        "unit": "pounds"
+      },
+      {
+        "amount": "1/3",
+        "name": "low-sodium soy sauce",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/3",
+        "name": "honey",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "tomato paste",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "chili paste (sambal oelek, sriracha, or hot sauce of choice)",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "4",
+        "name": "cloves garlic (minced)",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "rice vinegar",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "2",
+        "name": "cornstarch",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "Prepared brown rice, quinoa, or cauliflower rice",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "Toasted sesame seeds",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "Chopped green onion",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Place the chicken in the bottom of a 6-quart or larger slow cooker. In a medium mixing bowl or very large measuring cup, whisk together the soy sauce, honey, tomato paste, chili paste, garlic, and rice vinegar. Pour over the chicken. Cover and cook on LOW for 4 to 5 hours or HIGH for 2 to 3 hours, until the chicken reaches an internal temperature of 165 degrees F on an instant-read thermometer. If you are available, flip the chicken over once halfway through to coat both sides. (If not, don\u2019t stress; it will still be tasty.)"
+      },
+      {
+        "step": 2,
+        "description": "Remove the chicken to a plate and let cool slightly. Whisk the cornstarch into the slow cooker cooking liquid. Cover and cook on HIGH for 15 minutes, until the sauce thickens slightly, stirring occasionally. If you'd like the sauce particularly thick, you can cook it for a full 30 minutes in the slow cooker OR follow the stovetop method below."
+      },
+      {
+        "step": 3,
+        "description": "For quicker sauce thickening, reduce the sauce on the stove: After whisking in the cornstarch, transfer the cooking liquid to a medium saucepan. Cook on the stovetop over medium heat, stirring often until the sauce thickens, 5 to 10 minutes. (If your slow cooker insert is stovetop safe, you can remove it from the slow cooker and place it directly on the burner, but do not do this unless you are POSITIVE your insert is stovetop safe or it may crack.)"
+      },
+      {
+        "step": 4,
+        "description": "With two forks (or your fingers if the chicken is cool enough), shred the chicken and place it in the slow cooker. If you reduced the sauce on the stove, add it back to the slow cooker now. Stir to coat the chicken with the sauce. Serve over rice, sprinkled with green onions and sesame seeds."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 30,
+      "fat": 10,
+      "fiber": 2,
+      "protein": 30,
+      "sugar": 15
+    },
+    "prep_time": 5,
+    "servings": 4,
+    "tags": [
+      "crock pot chicken thighs",
+      "easy crockpot chicken",
+      "healthy crockpot chicken",
+      "healthy crockpot recipes",
+      "slow cooker honey garlic chicken"
+    ],
+    "title": "Slow Cooker Honey Garlic Chicken"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb114ffed6f8532020a5"
+    },
+    "__v": 0,
+    "cook_time": 45,
+    "cuisine": [
+      "Mediterranean"
+    ],
+    "cuisine_type": "Mediterranean",
+    "description": "This simple vegan lentil soup recipe comes together quickly with mostly pantry ingredients. Be sure to have your ingredients prepped and ready before you start cooking! Recipe yields four large bowls of soup, or six more modest servings.",
+    "dietary_tags": [
+      "vegan",
+      "gluten-free"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://cookieandkate.com/images/2019/01/best-lentil-soup-recipe-4-225x225.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from cookieandkate.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://cookieandkate.com/best-lentil-soup-recipe/"
+    },
+    "ingredients": [
+      {
+        "amount": "\u00bc",
+        "name": "extra virgin olive oil",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "medium yellow or white onion, chopped",
+        "unit": "piece"
+      },
+      {
+        "amount": "2",
+        "name": "carrots, peeled and chopped",
+        "unit": "pieces"
+      },
+      {
+        "amount": "4",
+        "name": "garlic cloves, pressed or minced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "2",
+        "name": "ground cumin",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "curry powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "\u00bd",
+        "name": "dried thyme",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "28",
+        "name": "ounces diced tomatoes, lightly drained",
+        "unit": "can"
+      },
+      {
+        "amount": "1",
+        "name": "cup brown or green lentils, picked over and rinsed",
+        "unit": "cup"
+      },
+      {
+        "amount": "4",
+        "name": "cups vegetable broth",
+        "unit": "cups"
+      },
+      {
+        "amount": "2",
+        "name": "cups water",
+        "unit": "cups"
+      },
+      {
+        "amount": "1",
+        "name": "salt, more to taste",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "pinch of red pepper flakes",
+        "unit": "pinch"
+      },
+      {
+        "amount": "1",
+        "name": "Freshly ground black pepper, to taste",
+        "unit": "to taste"
+      },
+      {
+        "amount": "1",
+        "name": "cup chopped fresh collard greens or kale, tough ribs removed",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "to 2 tablespoons lemon juice, to taste",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Warm the olive oil in a large Dutch oven or pot over medium heat. One-fourth cup olive oil may seem like a lot, but it adds a lovely richness and heartiness to this nutritious soup."
+      },
+      {
+        "step": 2,
+        "description": "Once the oil is shimmering, add the chopped onion and carrot and cook, stirring often, until the onion has softened and is turning translucent, about 5 minutes."
+      },
+      {
+        "step": 3,
+        "description": "Add the garlic, cumin, curry powder and thyme. Cook until fragrant while stirring constantly, about 30 seconds. Pour in the drained diced tomatoes and cook for a few more minutes, stirring often, in order to enhance their flavor."
+      },
+      {
+        "step": 4,
+        "description": "Pour in the lentils, broth and the water. Add 1 teaspoon salt and a pinch of red pepper flakes. Season generously with freshly ground black pepper. Raise heat and bring the mixture to a boil, then partially cover the pot and reduce the heat to maintain a gentle simmer. Cook for 25 to 30 minutes, or until the lentils are tender but still hold their shape."
+      },
+      {
+        "step": 5,
+        "description": "Transfer 2 cups of the soup to a blender. Securely fasten the lid, protect your hand from steam with a tea towel placed over the lid, and pur\u00e9e the soup until smooth. Pour the pur\u00e9ed soup back into the pot. (Or, use an immersion blender to blend a portion of the soup.)"
+      },
+      {
+        "step": 6,
+        "description": "Add the chopped greens and cook for 5 more minutes, or until the greens have softened to your liking. Remove the pot from the heat and stir in 1 tablespoon of lemon juice. Taste and season with more salt, pepper and/or lemon juice until the flavors really sing. For spicier soup, add another pinch or two of red pepper flakes."
+      },
+      {
+        "step": 7,
+        "description": "Serve while hot. Leftovers will keep well for about 4 days in the refrigerator, or can be frozen for several months (just defrost before serving)."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 250,
+      "carbs": 40,
+      "fat": 7,
+      "fiber": 15,
+      "protein": 12,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 6,
+    "tags": [
+      "lentil soup",
+      "freezer-friendly soup"
+    ],
+    "title": "Best Lentil Soup"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb224ffed6f8532020a6"
+    },
+    "__v": 0,
+    "cook_time": 45,
+    "cuisine": [
+      "American",
+      "Mexican",
+      "Tex Mex"
+    ],
+    "cuisine_type": "Fusion",
+    "description": "This roasted cauliflower tacos recipe is lightly adapted from Simply Julia by Julia Turshen and is reprinted with permission from the publisher. Feel free to get creative with the toppings here! I used what's listed in the recipe below, but Julia also suggests diced white onion, pickled jalape\u00f1os, and hot sauce.",
+    "dietary_tags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2021/04/cauliflower-tacos-500x500.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe adapted for restaurant use.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.loveandlemons.com/cauliflower-tacos/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "small cauliflower (outer leaves and core discarded, cut into small florets)",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "pound red cabbage (thinly sliced (about 1/2 small red cabbage or 6 cups sliced))",
+        "unit": "lb"
+      },
+      {
+        "amount": "0.25",
+        "name": "cup extra-virgin olive oil",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon ground cumin",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon ground coriander",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon kosher salt",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "recipe Avocado Sauce",
+        "unit": ""
+      },
+      {
+        "amount": "12",
+        "name": "corn tortillas (warmed)",
+        "unit": "pcs"
+      },
+      {
+        "amount": "to taste",
+        "name": "thinly sliced radishes (optional)",
+        "unit": ""
+      },
+      {
+        "amount": "to taste",
+        "name": "sliced serrano peppers (optional)",
+        "unit": ""
+      },
+      {
+        "amount": "to taste",
+        "name": "avocado slices (optional)",
+        "unit": ""
+      },
+      {
+        "amount": "to taste",
+        "name": "cilantro (optional)",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Preheat the oven to 400\u00b0F."
+      },
+      {
+        "step": 2,
+        "description": "Place the cauliflower and cabbage on a large sheet pan. Drizzle with the olive oil and sprinkle with the cumin, coriander, and salt. Use your hands to mix everything together and spread it out into an even layer. Roast, stirring every 15 minutes, until the vegetables are softened and browned in spots, about 45 minutes. (I roasted my cabbage and cauliflower on two separate sheet pans. I cooked the cauliflower for 25 minutes and the cabbage for 10 minutes. Both ways work!)"
+      },
+      {
+        "step": 3,
+        "description": "Evenly divide the Avocado Sauce and roasted vegetables among the tortillas. Serve immediately with the radishes, serranos, avocado slices, and cilantro, if using."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 300,
+      "carbs": 40,
+      "fat": 15,
+      "fiber": 10,
+      "protein": 8,
+      "sugar": 5
+    },
+    "prep_time": 15,
+    "servings": 4,
+    "tags": [
+      "Cauliflower taco recipe",
+      "Cauliflower tacos"
+    ],
+    "title": "Roasted Cauliflower Tacos"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb364ffed6f8532020a7"
+    },
+    "__v": 0,
+    "cook_time": 30,
+    "cuisine": [
+      "american"
+    ],
+    "cuisine_type": "Main Dish",
+    "description": "Get Alton Brown's Baked Macaroni and Cheese from Good Eats on Food Network, a classic recipe made with cheddar cheese and topped with buttery breadcrumbs.",
+    "dietary_tags": [
+      "Vegetarian"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/6/0/EA1E10_Baked-Macaraoni-and-Cheese_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1382540004120.webp",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Food Network.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.foodnetwork.com/recipes/alton-brown/baked-macaroni-and-cheese-recipe-1939524"
+    },
+    "ingredients": [
+      {
+        "amount": "1/2",
+        "name": "elbow macaroni",
+        "unit": "pound"
+      },
+      {
+        "amount": "3",
+        "name": "butter",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "3",
+        "name": "flour",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "powdered mustard",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "3",
+        "name": "milk",
+        "unit": "cups"
+      },
+      {
+        "amount": "1/2",
+        "name": "yellow onion, finely diced",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "bay leaf",
+        "unit": ""
+      },
+      {
+        "amount": "1/2",
+        "name": "paprika",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "large egg",
+        "unit": ""
+      },
+      {
+        "amount": "12",
+        "name": "sharp cheddar, shredded",
+        "unit": "ounces"
+      },
+      {
+        "amount": "1",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "to taste",
+        "name": "Fresh black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "3",
+        "name": "butter",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "panko bread crumbs",
+        "unit": "cup"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Preheat oven to 350 degrees F."
+      },
+      {
+        "step": 2,
+        "description": "In a large pot of boiling, salted water cook the pasta to al dente."
+      },
+      {
+        "step": 3,
+        "description": "While the pasta is cooking, in a separate pot, melt the butter. Whisk in the flour and mustard and keep it moving for about five minutes. Make sure it's free of lumps. Stir in the milk, onion, bay leaf, and paprika. Simmer for ten minutes and remove the bay leaf."
+      },
+      {
+        "step": 4,
+        "description": "Temper in the egg. Stir in 3/4 of the cheese. Season with salt and pepper. Fold the macaroni into the mix and pour into a 2-quart casserole dish. Top with remaining cheese."
+      },
+      {
+        "step": 5,
+        "description": "Melt the butter in a saute pan and toss the bread crumbs to coat. Top the macaroni with the bread crumbs. Bake for 30 minutes. Remove from oven and rest for five minutes before serving."
+      },
+      {
+        "step": 6,
+        "description": "Remember to save leftovers for fried Macaroni and Cheese."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 40,
+      "fat": 20,
+      "fiber": 2,
+      "protein": 15,
+      "sugar": 5
+    },
+    "prep_time": 15,
+    "servings": 4,
+    "tags": [
+      "Thanksgiving Side Dishes",
+      "Side Dish",
+      "Thanksgiving",
+      "Comfort Food Restaurants",
+      "American",
+      "Pasta Recipes",
+      "Macaroni and Cheese",
+      "Cheddar",
+      "Main Dish",
+      "Vegetarian"
+    ],
+    "title": "Baked Macaroni and Cheese"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb454ffed6f8532020a8"
+    },
+    "__v": 0,
+    "cook_time": 60,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "This meatloaf recipe is easy to make and doesn't take long to prep. It's one of our best recipes that's been made over 8,000 times and never disappoints!",
+    "dietary_tags": [],
+    "difficulty": "Easy",
+    "image_url": "https://www.allrecipes.com/thmb/q2i_L11qt7QzJ7gl66atPJmKuU0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16354-easy-meatloaf-DDMFS-0034-5186-hero-4x3-30547610d0f64d2fb3c25c0cab909af6.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from AllRecipes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.allrecipes.com/recipe/16354/easy-meatloaf/"
+    },
+    "ingredients": [
+      {
+        "amount": "1.5",
+        "name": "ground beef",
+        "unit": "pounds"
+      },
+      {
+        "amount": "1",
+        "name": "egg",
+        "unit": "unit"
+      },
+      {
+        "amount": "1",
+        "name": "onion, chopped",
+        "unit": "unit"
+      },
+      {
+        "amount": "1",
+        "name": "milk",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "dried bread crumbs",
+        "unit": "cup"
+      },
+      {
+        "amount": "to taste",
+        "name": "salt and pepper",
+        "unit": "unit"
+      },
+      {
+        "amount": "0.333",
+        "name": "ketchup",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "brown sugar",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "prepared mustard",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "description": "Gather the ingredients. Preheat the oven to 350 degrees F (175 degrees C). Lightly grease a 9x5-inch loaf pan.",
+        "step": 1
+      },
+      {
+        "description": "Combine ground beef, onion, milk, bread crumbs, and egg in a large bowl; season with salt and pepper. Transfer into prepared loaf pan.",
+        "step": 2
+      },
+      {
+        "description": "Mix ketchup, brown sugar, and mustard together in a small bowl until well combined; pour over meatloaf and spread it evenly over the top.",
+        "step": 3
+      },
+      {
+        "description": "Bake in the preheated oven until no longer pink in the center, about 1 hour.",
+        "step": 4
+      },
+      {
+        "description": "Serve hot and enjoy!",
+        "step": 5
+      }
+    ],
+    "isActive": true,
+    "likes": 8000,
+    "nutrition": {
+      "calories": 250,
+      "carbs": 20,
+      "fat": 15,
+      "fiber": 2,
+      "protein": 20,
+      "sugar": 5
+    },
+    "prep_time": 15,
+    "servings": 6,
+    "tags": [
+      "meatloaf",
+      "comfort food",
+      "easy"
+    ],
+    "title": "Easy Meatloaf"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb614ffed6f8532020a9"
+    },
+    "__v": 0,
+    "cook_time": 150,
+    "cuisine": [
+      "Italian Inspired",
+      "Italian"
+    ],
+    "cuisine_type": "Italian",
+    "description": "This lasagna recipe from John Chandler is our most popular recipe! With sausage, ground beef, basil, and 3 types of cheese, it lives up to its name!",
+    "dietary_tags": [],
+    "difficulty": "Medium",
+    "image_url": "https://www.allrecipes.com/thmb/htylprTl3RuTsFquG9YtbU1pzy0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/23600-worlds-best-lasagna-DDMFS-4x3-1196-24c5401652934ffb96d3d94bc9fbe2d7.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from AllRecipes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "sweet Italian sausage",
+        "unit": "pound"
+      },
+      {
+        "amount": "0.75",
+        "name": "lean ground beef",
+        "unit": "pound"
+      },
+      {
+        "amount": "0.5",
+        "name": "minced onion",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "cloves garlic, crushed",
+        "unit": ""
+      },
+      {
+        "amount": "28",
+        "name": "can crushed tomatoes",
+        "unit": "ounce"
+      },
+      {
+        "amount": "2",
+        "name": "cans canned tomato sauce",
+        "unit": "6.5 ounce"
+      },
+      {
+        "amount": "2",
+        "name": "cans tomato paste",
+        "unit": "6 ounce"
+      },
+      {
+        "amount": "0.5",
+        "name": "water",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "tablespoons white sugar",
+        "unit": ""
+      },
+      {
+        "amount": "4",
+        "name": "tablespoons chopped fresh parsley, divided",
+        "unit": ""
+      },
+      {
+        "amount": "1.5",
+        "name": "teaspoons dried basil leaves",
+        "unit": ""
+      },
+      {
+        "amount": "1.5",
+        "name": "teaspoons salt, divided, or to taste",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon Italian seasoning",
+        "unit": ""
+      },
+      {
+        "amount": "0.5",
+        "name": "teaspoon fennel seeds",
+        "unit": ""
+      },
+      {
+        "amount": "0.25",
+        "name": "teaspoon ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "12",
+        "name": "lasagna noodles",
+        "unit": ""
+      },
+      {
+        "amount": "16",
+        "name": "ounces ricotta cheese",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "egg",
+        "unit": ""
+      },
+      {
+        "amount": "0.75",
+        "name": "pound mozzarella cheese, sliced",
+        "unit": ""
+      },
+      {
+        "amount": "0.75",
+        "name": "cup grated Parmesan cheese",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Gather all your ingredients."
+      },
+      {
+        "step": 2,
+        "description": "Cook sausage, ground beef, onion, and garlic in a Dutch oven over medium heat until well browned."
+      },
+      {
+        "step": 3,
+        "description": "Stir in crushed tomatoes, tomato sauce, tomato paste, and water. Season with sugar, 2 tablespoons parsley, basil, 1 teaspoon salt, Italian seasoning, fennel seeds, and pepper. Simmer, covered, for about 90 minutes, stirring occasionally."
+      },
+      {
+        "step": 4,
+        "description": "Bring a large pot of lightly salted water to a boil. Cook lasagna noodles in boiling water for 8 to 10 minutes. Drain noodles, and rinse with cold water."
+      },
+      {
+        "step": 5,
+        "description": "In a mixing bowl, combine ricotta cheese with egg, remaining 2 tablespoons parsley, and 1/2 teaspoon salt."
+      },
+      {
+        "step": 6,
+        "description": "Preheat the oven to 375 degrees F (190 degrees C)."
+      },
+      {
+        "step": 7,
+        "description": "To assemble, spread 1 1/2 cups of meat sauce in the bottom of a 9x13-inch baking dish. Arrange 6 noodles lengthwise over meat sauce, overlapping slightly. Spread with 1/2 of the ricotta cheese mixture. Top with 1/3 of the mozzarella cheese slices. Spoon 1 1/2 cups meat sauce over mozzarella, and sprinkle with 1/4 cup Parmesan cheese."
+      },
+      {
+        "step": 8,
+        "description": "Repeat layers, and top with remaining mozzarella and Parmesan cheese. Cover with foil: to prevent sticking, either spray foil with cooking spray or make sure the foil does not touch the cheese."
+      },
+      {
+        "step": 9,
+        "description": "Bake in the preheated oven for 25 minutes. Remove the foil and bake for an additional 25 minutes."
+      },
+      {
+        "step": 10,
+        "description": "Rest lasagna for 15 minutes before serving."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 30,
+      "fat": 20,
+      "fiber": 2,
+      "protein": 25,
+      "sugar": 5
+    },
+    "prep_time": 30,
+    "servings": 8,
+    "tags": [],
+    "title": "World's Best Lasagna"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb6f4ffed6f8532020aa"
+    },
+    "__v": 0,
+    "cook_time": 12,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Dessert",
+    "description": "I have a few tricks that make these the best soft chocolate chip cookies that you'll ever try. With hundreds of positive reviews from bakers around the world, I'm confident you'll fall in love with this chocolate chip cookie recipe too. Chilling the cookie dough is imperative and cornstarch makes them extra soft and thick!",
+    "dietary_tags": [
+      "vegetarian"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2012/08/warm-chocolate-chip-cookies-225x225.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from sallysbakingaddiction.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://sallysbakingaddiction.com/chocolate-chip-cookies/"
+    },
+    "ingredients": [
+      {
+        "amount": "3/4 cup",
+        "name": "unsalted butter, softened to room temperature",
+        "unit": "cup"
+      },
+      {
+        "amount": "3/4 cup",
+        "name": "packed light or dark brown sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/4 cup",
+        "name": "granulated sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "large egg, at room temperature",
+        "unit": "piece"
+      },
+      {
+        "amount": "2 teaspoons",
+        "name": "pure vanilla extract",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2 cups",
+        "name": "all-purpose flour (spooned & leveled)",
+        "unit": "cup"
+      },
+      {
+        "amount": "2 teaspoons",
+        "name": "cornstarch",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1 teaspoon",
+        "name": "baking soda",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/2 teaspoon",
+        "name": "salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1 and 1/4 cup",
+        "name": "semi-sweet chocolate chips",
+        "unit": "cup"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "In a large bowl using a handheld mixer or a stand mixer fitted with a paddle attachment, beat the butter, brown sugar, and sugar together on medium speed until combined and creamy, about 2 minutes. Beat in the egg and vanilla. Scrape down the sides and bottom of the bowl as needed."
+      },
+      {
+        "step": 2,
+        "description": "In a separate bowl, whisk flour, cornstarch, baking soda, and salt together. Add into the wet ingredients, then beat on low speed until combined. The cookie dough will be slightly thick. On low speed, beat in the chocolate chips."
+      },
+      {
+        "step": 3,
+        "description": "Cover dough tightly and chill in the refrigerator for at least 1 hour and up to 3\u20134 days. Chilling is imperative for this cookie dough."
+      },
+      {
+        "step": 4,
+        "description": "Remove cookie dough from the refrigerator and allow to sit at room temperature for 10 minutes. Preheat oven to 350\u00b0F (177\u00b0C). Line 2 large baking sheets with parchment paper or silicone baking mats. Set aside."
+      },
+      {
+        "step": 5,
+        "description": "Once chilled, the dough will be slightly crumbly, but will come together when you work the dough with your hands. Roll cookie dough, about a heaping 1.5 Tablespoons of dough per cookie (I use this medium-size cookie scoop), and place 3 inches apart on baking sheets."
+      },
+      {
+        "step": 6,
+        "description": "Bake for 11\u201312 minutes, until barely golden brown around the edges. The cookies will look extremely soft when you remove them from the oven. Cool for 5 minutes on the baking sheet. If the cookies are too puffy, try gently pressing down on them with the back of a spoon. They will slightly deflate as you let them cool. If desired, while the cookies are still warm, press a few extra chocolate chips into the tops. This is optional, just for looks."
+      },
+      {
+        "step": 7,
+        "description": "Transfer cookies to a cooling rack to cool completely. Cookies stay fresh covered at room temperature for up to 1 week."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 150,
+      "carbs": 20,
+      "fat": 7,
+      "fiber": 1,
+      "protein": 2,
+      "sugar": 10
+    },
+    "prep_time": 75,
+    "servings": 24,
+    "tags": [
+      "soft chocolate chip cookies"
+    ],
+    "title": "The Best Soft Chocolate Chip Cookies"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb8a4ffed6f8532020ab"
+    },
+    "__v": 0,
+    "cook_time": 12,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Dessert",
+    "description": "Brown butter chocolate chip cookies are thick, chewy, and unlike any other chocolate chip cookie. There's as much flavor in one of these brown butter chocolate chip cookies as there is in an entire batch of classic chocolate chip cookies!",
+    "dietary_tags": [],
+    "difficulty": "Easy",
+    "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2014/12/Sallys-Baking-Addiction-Brown-Butter-Chocolate-Chip-Cookies-3-225x225.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from sallysbakingaddiction.com.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://sallysbakingaddiction.com/brown-butter-chocolate-chip-cookies/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "unsalted butter",
+        "unit": "cup"
+      },
+      {
+        "amount": "0.5",
+        "name": "granulated sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "packed light or dark brown sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "large egg",
+        "unit": "unit"
+      },
+      {
+        "amount": "1",
+        "name": "egg yolk",
+        "unit": "unit"
+      },
+      {
+        "amount": "2",
+        "name": "pure vanilla extract",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "2.5",
+        "name": "all-purpose flour",
+        "unit": "cups"
+      },
+      {
+        "amount": "1",
+        "name": "cornstarch",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "baking soda",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.5",
+        "name": "salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2",
+        "name": "milk",
+        "unit": "Tablespoons"
+      },
+      {
+        "amount": "1.5",
+        "name": "semi-sweet chocolate chips",
+        "unit": "cups"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Have a large flat heat-proof baking dish, such as a 9\u00d713-inch pan, handy. Slice the butter into pieces and place in a light-colored skillet. The light colored helps you determine when the butter begins browning. Melt the butter over medium heat and stir or whisk constantly. Once melted, the butter will begin to foam. Keep stirring/whisking. After 5-7 minutes, the butter will begin browning and you\u2019ll notice lightly browned specks begin to form at the bottom of the pan, which are the milk solids toasting. Cook until it is golden in color. Once browned, remove from heat immediately and pour into dish. Cover tightly, place in the refrigerator, and chill until solid, about 2-3 hours (or up to 1 day). A large flat dish, as opposed to a bowl, helps the butter solidify quicker."
+      },
+      {
+        "step": 2,
+        "description": "Remove solid brown butter from the refrigerator and spoon into a large bowl (or the bowl of your stand mixer). Using a handheld mixer or stand mixer fitted with a paddle attachment, beat the chilled brown butter for 1 minute on medium speed until completely smooth and creamy. Add the granulated sugar and brown sugar and beat on medium high speed until light in color and combined, about 2 minutes. Beat in egg, egg yolk, and vanilla extract on high speed. Scrape down the sides and bottom of the bowl as needed."
+      },
+      {
+        "step": 3,
+        "description": "In a separate bowl, whisk the flour, cornstarch, baking soda and salt together until combined. On low speed, slowly mix into the wet ingredients until combined, then beat in the milk on medium speed. The cookie dough will be thick. Add the chocolate chips and mix on low for about 5-10 seconds until combined. Cover dough tightly with aluminum foil or plastic wrap and chill for at least 2-3 hours and up to 3 days. Chilling is mandatory for this cookie dough or else the cookies will over-spread."
+      },
+      {
+        "step": 4,
+        "description": "Remove cookie dough from the refrigerator and allow to sit at room temperature for 10 minutes as you preheat the oven. This makes the cookie dough easier to scoop and roll. (If the cookie dough chilled longer than 3 hours, let it sit at room temperature for about 30 minutes.)"
+      },
+      {
+        "step": 5,
+        "description": "Preheat oven to 350\u00b0F (177\u00b0C). Line two large baking sheets with parchment paper or silicone baking mats. Set aside."
+      },
+      {
+        "step": 6,
+        "description": "Once chilled, the dough may be slightly crumbly, but will come together if you work the dough with your hands as you roll into individual balls. Scoop and roll dough, about 1.5 Tablespoons of dough each (I use this medium cookie scoop), into balls."
+      },
+      {
+        "step": 7,
+        "description": "Bake the cookies for 12-14 minutes, or until slightly golden brown around the edges. My oven has hot spots and yours may too so be sure to rotate the pan once during bake time. The baked cookies will look soft in the centers when you remove them from the oven. Allow to cool for 5 minutes on the cookie sheet. If the cookies are too puffy, try gently pressing down on them with the back of a spoon. During this time, you can press a few extra chocolate chips into the top of the warm cookies. This is just for looks! The cookies will slightly deflate as you let them cool."
+      },
+      {
+        "step": 8,
+        "description": "After 5 minutes, transfer cookies to a cooling rack to cool completely."
+      },
+      {
+        "step": 9,
+        "description": "Cookies stay fresh covered at room temperature for up to 1 week."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 200,
+      "carbs": 30,
+      "fat": 10,
+      "fiber": 1,
+      "protein": 2,
+      "sugar": 15
+    },
+    "prep_time": 420,
+    "servings": 24,
+    "tags": [
+      "brown butter chocolate chip cookies"
+    ],
+    "title": "Brown Butter Chocolate Chip Cookies"
+  }
+]
+
+
+================================================
+FILE: app/scraper/raw_scraped_recipes.json
+================================================
+{
+  "metadata": {
+    "title": "Scraped Recipes",
+    "total_recipes": 19
+  },
+  "recipes": [
+    {
+      "title": "Chicken Shawarma (Middle Eastern)",
+      "description": "Recipe video above. The smell when this is cooking is outrageous! The marinade is very quick to prepare and the chicken can be frozen in the marinade, then defrosted prior to cooking. Best cooked on the outdoor grill / BBQ, but I usually make it on the stove. Serve with Yogurt Sauce (provided) or the Tahini sauce in this recipe. Add a simple salad and flatbread laid out on a large platter, then let everyone make their own wraps!",
+      "image_url": "https://www.recipetineats.com/tachyon/2022/02/Chicken-Shawarma-Wrap_2-SQ.jpg",
+      "source_url": "https://www.recipetineats.com/chicken-sharwama-middle-eastern/",
+      "source_site": "www.recipetineats.com",
+      "servings": null,
+      "prep_time": 10,
+      "cook_time": 10,
+      "total_time": 20,
+      "cuisine": [
+        "Arabic",
+        "Middle Eastern",
+        "Moroccan"
+      ],
+      "tags": [
+        "Chicken Shawarma",
+        "shawarma"
+      ],
+      "ingredients": [
+        {
+          "name": "1 kg / 2 lb  chicken thigh fillets (, skinless and boneless (Note 3))"
+        },
+        {
+          "name": "1  large garlic clove (, minced (or 2 small cloves))"
+        },
+        {
+          "name": "1 tbsp ground coriander"
+        },
+        {
+          "name": "1 tbsp ground cumin"
+        },
+        {
+          "name": "1 tbsp ground cardamon"
+        },
+        {
+          "name": "1 tsp ground cayenne pepper ((reduce to 1/2 tsp to make it not spicy))"
+        },
+        {
+          "name": "2 tsp smoked paprika"
+        },
+        {
+          "name": "2 tsp salt"
+        },
+        {
+          "name": "Black pepper"
+        },
+        {
+          "name": "2 tbsp lemon juice"
+        },
+        {
+          "name": "3 tbsp olive oil"
+        },
+        {
+          "name": "1 cup Greek yoghurt"
+        },
+        {
+          "name": "1 clove garlic (, crushed)"
+        },
+        {
+          "name": "1 tsp cumin"
+        },
+        {
+          "name": "Squeeze of lemon juice"
+        },
+        {
+          "name": "Salt and pepper"
+        },
+        {
+          "name": "4 - 5 flatbreads ((Lebanese or pita bread orhomemade soft flatbreads))"
+        },
+        {
+          "name": "Sliced lettuce ((cos or iceberg))"
+        },
+        {
+          "name": "Tomato slices"
+        },
+        {
+          "name": "Red onion (, finely sliced)"
+        },
+        {
+          "name": "Cheese (, shredded (optional))"
+        },
+        {
+          "name": "Hot sauce of choice ((optional))"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Marinade chicken - Combine the marinade ingredients in a large ziplock bag. Add the chicken, seal, the massage from the outside with your hands to make sure each piece is coated. Marinate 24 hours (minimum 3 hours)."
+        },
+        {
+          "step": 2,
+          "instruction": "Yogurt Sauce - Combine the Yogurt Sauce ingredients in a bowl and mix. Cover and put in the fridge until required (it will last for 3 days in the fridge)."
+        },
+        {
+          "step": 3,
+          "instruction": "Preheat stove or BBQ - Heat a large non-stick skillet with 1 tablespoon over medium high heat, or lightly brush a BBQ hotplate/grills with oil and heat to medium high. (See notes for baking)"
+        },
+        {
+          "step": 4,
+          "instruction": "Cook chicken - Place chicken in the skillet or on the grill and cook the first side for 4 to 5 minutes until nicely charred. Turn and cook the other side for 3 to 4 minutes (the 2nd side takes less time)."
+        },
+        {
+          "step": 5,
+          "instruction": "Rest - Remove chicken from the grill and cover loosely with foil. Set aside to rest for 5 minutes."
+        },
+        {
+          "step": 6,
+          "instruction": "To Serve"
+        }
+      ]
+    },
+    {
+      "title": "Vietnamese Caramelised Pork Bowls",
+      "description": "Recipe video above. An exciting way to use ground meat (mince) to make a quick stir fry that taste unbelievable! This is great made with chicken, turkey or pork. It also works with beef though it is better made with &quot;white meats&quot;. Serve it over rice or vermicelli noodles to make rice bowls with shredded lettuce, carrots and cucumbers on the side (very classic Vietnamese meal!).**NOTE: If you reduce sugar then the pork will not caramelise as well and it will take longer to get colour on it!**",
+      "image_url": "https://www.recipetineats.com/tachyon/2015/11/Vietnamese-Ground-Pork-Bowls_7.jpg",
+      "source_url": "https://www.recipetineats.com/vietnamese-caramelised-pork-bowls/",
+      "source_site": "www.recipetineats.com",
+      "servings": null,
+      "prep_time": 10,
+      "cook_time": 10,
+      "total_time": 20,
+      "cuisine": [
+        "Vietnamese"
+      ],
+      "tags": [
+        "Ground pork recipe",
+        "ground pork stir fry",
+        "Pork mince recipe",
+        "pork mince stir fry"
+      ],
+      "ingredients": [
+        {
+          "name": "1 1/2 tbsp cooking oil ((I use peanut oil))"
+        },
+        {
+          "name": "1/2  onion (, finely diced (brown, white or yellow) (~1/2 cup))"
+        },
+        {
+          "name": "2 tsp ginger (, grated or minced)"
+        },
+        {
+          "name": "2  garlic cloves (, minced (2 tsp paste))"
+        },
+        {
+          "name": "1  birds eye or Thai chili (, deseeded and finely chopped (can omit, Note 1))"
+        },
+        {
+          "name": "500g / 1 lb  pork mince ((ground pork) (Note 2))"
+        },
+        {
+          "name": "5 tbsp  (tightly packed brown sugar ((don&#39;t skimp, else won&#39;t caramelise))"
+        },
+        {
+          "name": "2 tbsp fish sauce"
+        },
+        {
+          "name": "1  green onion stem (, finely sliced)"
+        },
+        {
+          "name": "Jasmine rice (or other rice for serving)"
+        },
+        {
+          "name": "Sliced red chilli, tomato, cucumber ((optional))"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Heat the oil in a large skillet over high heat."
+        },
+        {
+          "step": 2,
+          "instruction": "Saut\u00e9 - Add the onion, ginger, garlic and chili and cook for 2 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Cook pork - Add the pork mince and cook for 2 minutes or so until white all over, breaking up the meat with a wooden spoon."
+        },
+        {
+          "step": 4,
+          "instruction": "Add sauce &amp; caramelise - Add the sugar and fish sauce. Stir, then leave it to cook without touching until all the juices cook out and the pork starts caramelised - about 2 minutes. Then stir it and leave it again, without stirring, for around 30 seconds to get more caramelisation. Repeat twice more until caramelised to your taste."
+        },
+        {
+          "step": 5,
+          "instruction": "Serve over jasmine or other rice, or vermicelli noodles, garnished with sliced green onion. For a low carb, low cal option, try Cauliflower Rice! I like to have chunks of plain cucumber and carrots on the side which is a classic way of making Vietnamese bowls."
+        }
+      ]
+    },
+    {
+      "title": "Peruvian-Style Grilled Chicken With Green Sauce Recipe",
+      "description": "Our tender Peruvian-style grilled chicken is slow-cooked with a vinegar and spice rub. But it&#39;s the sauce that everyone loves, and it&#39;s easy to make with cilantro, jalape\u00f1os, and aj\u00ed amarillo peppers.",
+      "image_url": "https://www.seriouseats.com/thmb/C3krJOJUOnhLCXe3KqnxtjbeUCk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210629-peruvian-style-grilled-chicken-melissa-hom-seriouseats-hero-4fce2b49df81448aa16437362819162f.jpg",
+      "source_url": "https://www.seriouseats.com/peruvian-style-grilled-chicken-with-green-sauce-recipe",
+      "source_site": "www.seriouseats.com",
+      "servings": null,
+      "prep_time": 30,
+      "cook_time": 45,
+      "total_time": 80,
+      "cuisine": [
+        "Latin American"
+      ],
+      "tags": [
+        "barbecue chicken",
+        "chicken",
+        "condiments",
+        "grilled chicken",
+        "Latin American cuisine",
+        "latin cuisine",
+        "low carb",
+        "Peruvian",
+        "sauces",
+        "The Food Lab"
+      ],
+      "ingredients": [
+        {
+          "name": "3 whole jalape\u00f1o chiles, roughly chopped (see note)"
+        },
+        {
+          "name": "1 tablespoon (15ml) aj\u00ed amarillo pepper paste (see note)"
+        },
+        {
+          "name": "1 cup fresh cilantro leaves (1 ounce; 28g)"
+        },
+        {
+          "name": "2 medium cloves garlic"
+        },
+        {
+          "name": "1/2 cup (120ml) mayonnaise"
+        },
+        {
+          "name": "1/4 cup (60ml) sour cream"
+        },
+        {
+          "name": "2 teaspoons (10ml) fresh juice from 1 lime"
+        },
+        {
+          "name": "1 teaspoon (5ml) distilled white vinegar"
+        },
+        {
+          "name": "2 tablespoons (30ml) extra-virgin olive oil"
+        },
+        {
+          "name": "Kosher salt and freshly ground black pepper"
+        },
+        {
+          "name": "1 whole chicken, 3 1/2 to 4 pounds (1.6 to 1.8kg)"
+        },
+        {
+          "name": "4 teaspoons (20g) kosher salt"
+        },
+        {
+          "name": "2 tablespoons (30g) ground cumin"
+        },
+        {
+          "name": "2 tablespoons (30g) paprika"
+        },
+        {
+          "name": "1 teaspoon (5g) freshly ground black pepper"
+        },
+        {
+          "name": "3 medium cloves garlic, minced (about 1 tablespoon)"
+        },
+        {
+          "name": "2 tablespoons (30ml) white vinegar"
+        },
+        {
+          "name": "2 tablespoons (30ml) vegetable or canola oil"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "For the Sauce: Combine jalape\u00f1os, aj\u00ed amarillo (if using), cilantro, garlic, mayonnaise, sour cream, lime juice, and vinegar in the jar of a blender. Blend on high speed, scraping down sides as necessary, until smooth. With blender running, slowly drizzle in olive oil. Season to taste with salt and pepper. Sauce will be quite loose at this point, but will thicken as it sits. Transfer to a sealed container and refrigerate until ready to use."
+        },
+        {
+          "step": 2,
+          "instruction": "For the Chicken: Pat chicken dry with paper towels and place on a large cutting board, breast side down. Using sharp kitchen shears, remove backbone by cutting along either side of it. Turn chicken over and lay out flat. Press firmly on breast to flatten chicken. For added stability, run a metal or wooden skewer horizontally through chicken, entering through one thigh, going through both breast halves, and exiting through other thigh. Tuck wing tips behind back."
+        },
+        {
+          "step": 3,
+          "instruction": "Combine salt, cumin, paprika, pepper, garlic, vinegar, and oil in a small bowl and massage with fingertips until homogeneous. Spread mixture evenly over all surfaces of chicken."
+        },
+        {
+          "step": 4,
+          "instruction": "Light a chimney full of charcoal. When all charcoal is lit and covered with gray ash, pour out and spread coals evenly over half of coal grate. Alternatively, set half the burners of a gas grill to high heat. Set cooking grate in place, cover grill, and allow to preheat for 5 minutes. Clean and oil grilling grate."
+        },
+        {
+          "step": 5,
+          "instruction": "Place chicken, skin side up, on cooler side of grill, with legs facing toward hotter side. Cover grill, with vents on lid open and aligned over chicken. Open bottom vents of grill. Cook until an instant-read thermometer inserted into thickest part of breast registers 110\u00b0F (43\u00b0C). Carefully flip chicken and place, skin side down, on hotter side of grill, with breasts pointed toward cooler side. Press down firmly with a wide, stiff spatula to ensure good contact between bird and grill grates. Cover and cook until skin is crisp and an instant-read thermometer inserted into thickest part of breast registers 145 to 150\u00b0F (63 to 66\u00b0C), about 10 minutes longer. If chicken threatens to burn before temperature is achieved, carefully slide to cooler side of grill, cover, and continue to cook until done. Do not leave the lid off for longer than it takes to check temperature, or chicken will burn."
+        },
+        {
+          "step": 6,
+          "instruction": "Transfer chicken to a cutting board and allow to rest for 5 to 10 minutes. Carve and serve with sauce."
+        }
+      ]
+    },
+    {
+      "title": "Mexican Street Corn Salad (Esquites)",
+      "description": "This esquites recipe offers all the delights of Mexican street corn (elotes) in salad form, and you don&#39;t even have to fire up the grill to make it.",
+      "image_url": "https://www.seriouseats.com/thmb/Ua6AQAB90reXko4lseEKNzxk_mI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/esquites-mexican-street-corn-salad-recipe-10-9586c88e47084597ac6d34d1e71d4583.jpg",
+      "source_url": "https://www.seriouseats.com/esquites-mexican-street-corn-salad-recipe",
+      "source_site": "www.seriouseats.com",
+      "servings": null,
+      "prep_time": null,
+      "cook_time": 20,
+      "total_time": 20,
+      "cuisine": [
+        "Mexican"
+      ],
+      "tags": [
+        "corn",
+        "esquites",
+        "mexican street corn",
+        "side"
+      ],
+      "ingredients": [
+        {
+          "name": "2 tablespoons (30ml) vegetable oil"
+        },
+        {
+          "name": "4 ears fresh corn, shucked, kernels removed (about 3 cups fresh corn kernels)"
+        },
+        {
+          "name": "Kosher salt"
+        },
+        {
+          "name": "2 ounces (60g) feta or Cotija cheese, finely crumbled"
+        },
+        {
+          "name": "1/2 cup finely sliced scallions, green parts only"
+        },
+        {
+          "name": "1/2 cup (1/2 ounce) fresh cilantro leaves, finely chopped"
+        },
+        {
+          "name": "1 jalape\u00f1o pepper, seeded and stemmed, finely chopped"
+        },
+        {
+          "name": "1 to 2 medium cloves garlic, pressed or minced on a Microplane grater (about 1 to 2 teaspoons)"
+        },
+        {
+          "name": "2 tablespoons (30ml) mayonnaise"
+        },
+        {
+          "name": "1 tablespoon (15ml) fresh juice from 1 lime"
+        },
+        {
+          "name": "Chili powder or hot chili flakes, to taste"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Heat oil in a large nonstick skillet or wok over high heat until shimmering. Add corn kernels, season to taste with salt, toss once or twice, and cook without moving until charred on one side, about 2 minutes. Toss corn, stir, and repeat until charred on second side, about 2 minutes longer. Continue tossing and charring until corn is well charred all over, about 10 minutes total. Transfer to a large bowl."
+        },
+        {
+          "step": 2,
+          "instruction": "Add cheese, scallions, cilantro, jalape\u00f1o, garlic, mayonnaise, lime juice, and chile powder and toss to combine. Taste and adjust seasoning with salt and more chile powder to taste. Serve immediately."
+        }
+      ]
+    },
+    {
+      "title": "Shakshuka (North African\u2013Style Poached Eggs in Spicy Tomato Sauce)",
+      "description": "Shakshuka is a versatile and vegetarian one-pan egg and tomato dish that&#39;s perfect for breakfast, lunch, or dinner.",
+      "image_url": "https://www.seriouseats.com/thmb/GGe7ElpAahWNo9W6c6mAx0utvFg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__09__20160926-shakshuka-17-a2b1d35f5ce146d1b8f5e2851e73b487.jpg",
+      "source_url": "https://www.seriouseats.com/shakshuka-north-african-shirred-eggs-tomato-pepper-recipe",
+      "source_site": "www.seriouseats.com",
+      "servings": null,
+      "prep_time": null,
+      "cook_time": 35,
+      "total_time": 35,
+      "cuisine": [
+        "Moroccan/North African"
+      ],
+      "tags": [
+        "breakfast",
+        "brunch",
+        "easy",
+        "egg",
+        "israeli",
+        "low carb",
+        "quick",
+        "shakshuka",
+        "tomato",
+        "tunisian",
+        "turkish"
+      ],
+      "ingredients": [
+        {
+          "name": "3 tablespoons (45ml) extra-virgin olive oil, plus more for drizzling"
+        },
+        {
+          "name": "1 medium onion, thinly sliced"
+        },
+        {
+          "name": "1 large red pepper (bell pepper for milder heat, or a hotter variety, such as red horned pepper, depending on your heat preference), stems, seeds, and ribs removed, thinly sliced"
+        },
+        {
+          "name": "1 fresh small hot chile (such as jalape\u00f1o, serrano, or Fresno), stems, seeds, and ribs removed, thinly sliced"
+        },
+        {
+          "name": "2 to 3 cloves garlic, thinly sliced"
+        },
+        {
+          "name": "1 1/2 tablespoons (15g) sweet Hungarian or smoked Spanish paprika"
+        },
+        {
+          "name": "2 teaspoons (8g) whole or ground cumin seed"
+        },
+        {
+          "name": "1 (28-ounce; 800g) can whole peeled tomatoes, crushed by squeezing between your fingers or with a pastry blender (see note)"
+        },
+        {
+          "name": "Kosher salt and freshly ground black pepper"
+        },
+        {
+          "name": "Large handful minced cilantro, parsley, or a mix"
+        },
+        {
+          "name": "6 eggs"
+        },
+        {
+          "name": "Sliced oil-cured black olives, feta cheese, and/or artichoke hearts, for serving (all optional)"
+        },
+        {
+          "name": "Crusty bread, for serving"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Heat olive oil in a large, deep skillet or straight-sided saut\u00e9 pan over high heat until shimmering. Add onion, red pepper, and chile and spread into an even layer. Cook, without moving, until vegetables on the bottom are deeply browned and beginning to char in spots, about 6 minutes. Stir and repeat. Continue to cook until vegetables are fully softened and spottily charred, about another 4 minutes. Add garlic and cook, stirring, until softened and fragrant, about 30 seconds. Add paprika and cumin and cook, stirring, until fragrant, about 30 seconds. Immediately add tomatoes and stir to combine (see notes). Reduce heat to a bare simmer and simmer for 10 minutes, then season to taste with salt and pepper and stir in half of cilantro or parsley."
+        },
+        {
+          "step": 2,
+          "instruction": "Using a large spoon, make a well near the perimeter of the pan and break an egg directly into it. Spoon a little sauce over edges of egg white to partially submerge and contain it, leaving yolk exposed. Repeat with remaining 5 eggs, working around pan as you go. Season eggs with a little salt, cover, reduce heat to lowest setting, and cook until egg whites are barely set and yolks are still runny, 5 to 8 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Sprinkle with remaining cilantro or parsley, along with any of the optional toppings. Serve immediately with crusty bread."
+        }
+      ]
+    },
+    {
+      "title": "Tomato Spinach One Pot Pasta",
+      "description": "All the ingredients for this Tomato Spinach One Pot Pasta cook together to make an incredibly fast, flavorful, and easy weeknight meal.",
+      "image_url": "https://www.budgetbytes.com/wp-content/uploads/2013/05/Italian-Wonderpot-close-1.jpg",
+      "source_url": "https://www.budgetbytes.com/italian-wonderpot/",
+      "source_site": "www.budgetbytes.com",
+      "servings": null,
+      "prep_time": 10,
+      "cook_time": 15,
+      "total_time": 25,
+      "cuisine": [],
+      "tags": [],
+      "ingredients": [
+        {
+          "name": "4 cups vegetable broth ($0.52)"
+        },
+        {
+          "name": "2 Tbsp olive oil ($0.22)"
+        },
+        {
+          "name": "12 oz. fettuccine ($0.75)"
+        },
+        {
+          "name": "8 oz. frozen chopped spinach ($0.72)"
+        },
+        {
+          "name": "1 28oz. can diced tomatoes ($1.68)"
+        },
+        {
+          "name": "1  yellow onion, sliced ($0.42)"
+        },
+        {
+          "name": "4 cloves garlic, sliced ($0.32)"
+        },
+        {
+          "name": "1/2 Tbsp dried basil ($0.15)"
+        },
+        {
+          "name": "1/2 Tbsp dried oregano ($0.15)"
+        },
+        {
+          "name": "1/4 tsp crushed red pepper ($0.03)"
+        },
+        {
+          "name": "freshly cracked black pepper to taste ($0.05)"
+        },
+        {
+          "name": "2 oz. shaved Parmesan ($1.25)"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Add four cups of vegetable broth to a large pot. Break the fettuccine in half and add it to the pot along with the canned tomatoes (with juices), olive oil, frozen spinach, onion, garlic, basil, oregano, red pepper, and some freshly cracked black pepper."
+        },
+        {
+          "step": 2,
+          "instruction": "Make sure the ingredients are submerged under the liquid, place a lid on top of the pot, and then turn the heat on to high. Allow the pot to come up to a full boil over high heat, then remove the lid and turn the heat down to medium."
+        },
+        {
+          "step": 3,
+          "instruction": "Allow the pot to continue to boil over medium heat, without a lid, for 10-15 minutes, or until the pasta is cooked and most of the liquid has been absorbed. Stir the pot every few minutes as it cooks to prevent the pasta from sticking to the bottom, but avoid over stirring which can cause the pasta to become sticky."
+        },
+        {
+          "step": 4,
+          "instruction": "Sprinkle with shaved Parmesan just before serving."
+        }
+      ]
+    },
+    {
+      "title": "Spicy Sriracha Noodles",
+      "description": "These sweet, tangy, and spicy sriracha noodles take only a few minutes to make and are an inexpensive alternative to take out.",
+      "image_url": "https://www.budgetbytes.com/wp-content/uploads/2012/08/Spicy-Noodles-skillet.jpg",
+      "source_url": "https://www.budgetbytes.com/dragon-noodles/",
+      "source_site": "www.budgetbytes.com",
+      "servings": null,
+      "prep_time": 5,
+      "cook_time": 10,
+      "total_time": 15,
+      "cuisine": [],
+      "tags": [
+        "easy",
+        "Noodles",
+        "Spicy",
+        "Take Out",
+        "Vegetarian"
+      ],
+      "ingredients": [
+        {
+          "name": "4 oz. lo mein noodles  ($1.30)"
+        },
+        {
+          "name": "2 Tbsp butter  ($0.20)"
+        },
+        {
+          "name": "1/4 tsp crushed red pepper  ($0.02)"
+        },
+        {
+          "name": "2 large eggs ($0.42)"
+        },
+        {
+          "name": "1 Tbsp brown sugar ($0.08)"
+        },
+        {
+          "name": "1 Tbsp soy sauce  ($0.06)"
+        },
+        {
+          "name": "2 Tbsp sriracha ($0.22)"
+        },
+        {
+          "name": "1 handful fresh cilantro  (optional, $0.10)"
+        },
+        {
+          "name": "1  green onion, sliced  ($0.10)"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Prepare the sauce for the noodles. In a small bowl, stir together the brown sugar, soy sauce, and sriracha. Set the sauce aside."
+        },
+        {
+          "step": 2,
+          "instruction": "Bring a pot of water to a boil for the noodles. Once boiling, add the noodles and boil until tender. Drain the noodles in a colander."
+        },
+        {
+          "step": 3,
+          "instruction": "While waiting for the water to boil, crack two eggs into a bowl then whisk lightly."
+        },
+        {
+          "step": 4,
+          "instruction": "Heat the butter in a skillet over medium heat, then add the eggs and crushed pepper and lightly scramble the eggs. Avoid over cooking the eggs."
+        },
+        {
+          "step": 5,
+          "instruction": "Once the noodles have drained, add them to the skillet with the eggs, then drizzle the sauce over top. Toss the noodles and eggs to coat in the sauce."
+        },
+        {
+          "step": 6,
+          "instruction": "Top the noodles with fresh cilantro and sliced green onion, then serve."
+        }
+      ]
+    },
+    {
+      "title": "Air Fryer Chicken Thighs",
+      "description": "These crispy Air Fryer Chicken Thighs have become a weeknight staple in my house. An easy recipe that you can whip up super fast!",
+      "image_url": "https://www.skinnytaste.com/wp-content/uploads/2022/11/Air-Fryer-Chicken-Thighs-4.jpg",
+      "source_url": "https://www.skinnytaste.com/air-fryer-chicken-thighs/",
+      "source_site": "www.skinnytaste.com",
+      "servings": null,
+      "prep_time": 5,
+      "cook_time": 24,
+      "total_time": 29,
+      "cuisine": [
+        "American"
+      ],
+      "tags": [
+        "Air Fryer Chicken",
+        "Air Fryer Chicken Thighs",
+        "bone in chicken thigh recipe",
+        "weeknight dinner ideas"
+      ],
+      "ingredients": [
+        {
+          "name": "6  chicken thighs (with bone and skin)"
+        },
+        {
+          "name": "1  lemon"
+        },
+        {
+          "name": "1 teaspoon kosher salt"
+        },
+        {
+          "name": "1/4 teaspoon black pepper"
+        },
+        {
+          "name": "1 teaspoon garlic powder"
+        },
+        {
+          "name": "1 teaspoon onion powder"
+        },
+        {
+          "name": "1/2 teaspoon sweet paprika"
+        },
+        {
+          "name": "1/2 teaspoon dried herbs  (such as herbs de provence or dried oregano)"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Season the chicken with the juice of 1/2 of the lemon, then season with remaining spices on both sides."
+        },
+        {
+          "step": 2,
+          "instruction": "Rub the seasoning well all over the chicken then transfer to the air fryer, skin side down."
+        },
+        {
+          "step": 3,
+          "instruction": "Air fry 400F 12 minutes on each side, until golden and crispy and cooked through in the center."
+        }
+      ]
+    },
+    {
+      "title": "Chicken Scampi",
+      "description": "This Chicken Scampi recipe is a light, family-friendly weeknight dinner that&#039;s high in protein and ready in under 30 minutes.",
+      "image_url": "https://www.skinnytaste.com/wp-content/uploads/2025/05/Chicken-Scampi-8.jpg",
+      "source_url": "https://www.skinnytaste.com/chicken-scampi/",
+      "source_site": "www.skinnytaste.com",
+      "servings": null,
+      "prep_time": 10,
+      "cook_time": 20,
+      "total_time": 30,
+      "cuisine": [
+        "American-Italian",
+        "Italian-American"
+      ],
+      "tags": [
+        "chicken breast",
+        "easy",
+        "high protein",
+        "Kid Friendly",
+        "quick"
+      ],
+      "ingredients": [
+        {
+          "name": "8 ounces whole wheat angel hair pasta (I love Delallo, or your favorite plain or gluten-free pasta)"
+        },
+        {
+          "name": "24 ounces chicken breasts (from 3 boneless skinless breasts)"
+        },
+        {
+          "name": "1 teaspoon kosher salt"
+        },
+        {
+          "name": "Freshly ground black pepper (to taste)"
+        },
+        {
+          "name": "olive oil spray"
+        },
+        {
+          "name": "2 tablespoons butter (divided)"
+        },
+        {
+          "name": "4  garlic cloves (thinly sliced)"
+        },
+        {
+          "name": "\u00be cup dry white wine ( or broth)"
+        },
+        {
+          "name": "\u215b teaspoon crushed red pepper flakes (or more to taste)"
+        },
+        {
+          "name": "1 cup cherry tomatoes (or grape tomatoes, halved)"
+        },
+        {
+          "name": "2 tablespoons freshly squeezed lemon juice"
+        },
+        {
+          "name": "2 cups baby spinach"
+        },
+        {
+          "name": "3 tablespoons chopped parsley (plus more for garnish)"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Bring a large pot of salted water to a boil."
+        },
+        {
+          "step": 2,
+          "instruction": "Cut chicken breasts into small \u00bd inch cubes. Season the chicken on both sides with 1 teaspoon of kosher salt, and \u00bc teaspoon black pepper to taste."
+        },
+        {
+          "step": 3,
+          "instruction": "Heat a very large skillet over high heat. When the pan is hot, spray the skillet with oil and add half the chicken and cook until browned on all sides and no longer pink inside, 2 minutes. Transfer to a plate and repeat with remaining chicken. Set aside and reduce heat."
+        },
+        {
+          "step": 4,
+          "instruction": "Add \u00bd tablespoon of the butter to the skillet and melt, add the garlic and saute until fragrant, about 1 minute. Add the white wine or broth, crushed red pepper flakes and remaining \u00bc teaspoon of salt. Cook, scraping the bottom of the pan, until reduced by half, about 2 minutes. Add the tomatoes and let them cook 1 minute, to soften."
+        },
+        {
+          "step": 5,
+          "instruction": "Add the remaining 1 \u00bd tablespoons butter and melt, add the lemon juice, remove from the heat."
+        },
+        {
+          "step": 6,
+          "instruction": "Add the pasta to the boiling water and cook according to package directions for al dente, reserve \u00bd cup water. Drain the pasta and toss with the chicken, add the spinach and cook 1 minute tossing with the sauce adding some of the reserved pasta water if needed. Finish with fresh parsley and serve with plenty of grated Parmesan cheese."
+        }
+      ]
+    },
+    {
+      "title": "Air Fryer Chicken Breast",
+      "description": "The BEST juicy air fryer chicken breast. Golden outside, moist and tender inside and seasoned to perfection. Enjoy on its own or use for meal prep.",
+      "image_url": "https://www.wellplated.com/wp-content/uploads/2021/04/Air-Fryer-Chicken-Breast-No-Breading-1.jpg",
+      "source_url": "https://www.wellplated.com/air-fryer-chicken-breast/",
+      "source_site": "www.wellplated.com",
+      "servings": null,
+      "prep_time": 35,
+      "cook_time": 8,
+      "total_time": 48,
+      "cuisine": [
+        "American"
+      ],
+      "tags": [
+        "air fryer chicken breast",
+        "air fryer chicken breast frozen",
+        "air fryer chicken breast no breading",
+        "air fryer chicken breast pieces",
+        "easy air fryer chicken"
+      ],
+      "ingredients": [
+        {
+          "name": "2  boneless, skinless chicken breasts"
+        },
+        {
+          "name": "1/2 teaspoon kosher salt"
+        },
+        {
+          "name": "2 teaspoons extra-virgin olive oil"
+        },
+        {
+          "name": "1 teaspoon paprika"
+        },
+        {
+          "name": "\u00bd teaspoon garlic powder"
+        },
+        {
+          "name": "\u00bd teaspoon onion powder"
+        },
+        {
+          "name": "\u00bc teaspoon ground black pepper"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Place the chicken breasts on a cutting board and cover with a large sheet of plastic wrap. With a rolling pin, meat mallet, or your palm, lightly pound into an even thickness."
+        },
+        {
+          "step": 2,
+          "instruction": "To Dry Brine*: Place the chicken on a plate and sprinkle all over with the kosher salt. Place in the refrigerator uncovered for at least 30 minutes or up to 1 day\u2014if you will not be dry brining, skip this step."
+        },
+        {
+          "step": 3,
+          "instruction": "When ready to air fry: remove the chicken from the refrigerator and let stand at room temperature for 15 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "In a small bowl, stir together the paprika, garlic powder, onion powder, and black pepper (if you did not dry brine the chicken, add the salt now)"
+        },
+        {
+          "step": 5,
+          "instruction": "Place the chicken in a large bowl and drizzle with the olive oil. Sprinkle the spice mixture over the top. Toss to coat the chicken, ensuring you rub the spices evenly over both sides."
+        },
+        {
+          "step": 6,
+          "instruction": "Preheat the air fryer to 375 degrees F (my model takes 3 minutes to heat). Place the chicken presentation side (smooth side) down in the air fryer and let cook 6 minutes."
+        },
+        {
+          "step": 7,
+          "instruction": "Remove the air fryer basket, then with tongs, carefully flip the chicken over. Continue cooking until the chicken registers between 155 and 160 degrees F, 2 to 8 minutes more. Chicken is considered safe to eat at 165 degrees F, but I like to remove mine a few degrees early, then let the carryover cooking finish the job. The total cook time will vary based on your model and the size of your chicken. Smaller breasts (about 6 ounces each) will need only around 8 minutes total; larger ones may need 14 or more. Check the chicken often towards the end to monitor its progress. DO NOT overcook or it will be dry."
+        },
+        {
+          "step": 8,
+          "instruction": "Remove the chicken to a plate. Cover and let rest 5 to 10 minutes. Slice and enjoy!"
+        }
+      ]
+    },
+    {
+      "title": "Baked Salmon",
+      "description": "Easy Baked Salmon with Garlic, Lemon, and Herbs. One of the best simple, healthy recipes. Turns out perfectly every time!",
+      "image_url": "https://www.wellplated.com/wp-content/uploads/2018/06/Baked-Salmon-in-Foil-at-400.jpg",
+      "source_url": "https://www.wellplated.com/baked-salmon/",
+      "source_site": "www.wellplated.com",
+      "servings": null,
+      "prep_time": 15,
+      "cook_time": 15,
+      "total_time": 30,
+      "cuisine": [
+        "American"
+      ],
+      "tags": [
+        "Baked Salmon in Foil",
+        "best baked salmon recipe",
+        "best salmon recipe",
+        "Easy Dinner Recipe",
+        "easy salmon recipe",
+        "Healthy Baked Salmon",
+        "how to bake salmon",
+        "oven baked salmon"
+      ],
+      "ingredients": [
+        {
+          "name": "2 pound side of salmon (boneless (skin on or off, depending upon your preference), wild caught if possible)"
+        },
+        {
+          "name": "5  sprigs fresh rosemary (or fresh herbs of your choice; do not use dried herbs)"
+        },
+        {
+          "name": "2  small lemons (divided, plus extra for serving as desired)"
+        },
+        {
+          "name": "2 tablespoons extra virgin olive oil"
+        },
+        {
+          "name": "1 teaspoon kosher salt"
+        },
+        {
+          "name": "1/4 teaspoon ground black pepper"
+        },
+        {
+          "name": "4 cloves garlic (peeled and roughly chopped)"
+        },
+        {
+          "name": "Additional chopped fresh herbs (such as basil, thyme, parsley, dill, or green onion (optional))"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Remove the\u00a0salmon\u00a0from the refrigerator and let stand at room temperature for 10 minutes while you prepare the other ingredients. Heat oven to 375 degrees F. Line a large baking dish or rimmed baking sheet with a large piece of aluminum\u00a0foil."
+        },
+        {
+          "step": 2,
+          "instruction": "Lightly coat the&nbsp;foil&nbsp;with baking spay, then arrange 2 sprigs of the rosemary down the middle.&nbsp;Cut one of the lemons into thin slices and arrange half the slices down the middle with the rosemary. Place the&nbsp;salmon on top."
+        },
+        {
+          "step": 3,
+          "instruction": "Drizzle the\u00a0salmon\u00a0with the olive oil and sprinkle with the salt and pepper. Rub to coat, then scatter the garlic cloves over the top. Lay the remaining rosemary and lemon slices on top of the\u00a0salmon. Juice the second lemon, then pour the juice over the top."
+        },
+        {
+          "step": 4,
+          "instruction": "Fold the sides of the aluminum\u00a0foil\u00a0up and over the top of the\u00a0salmon\u00a0until it is completely enclosed. If your piece of\u00a0foil\u00a0is not large enough, place a second piece on top and fold the edges under so that it forms a sealed packet. Leave a little room inside the\u00a0foil\u00a0for air to circulate."
+        },
+        {
+          "step": 5,
+          "instruction": "Bake the\u00a0salmon\u00a0for 15-20 minutes, until the\u00a0salmon\u00a0is almost completely cooked through at the thickest part. The cooking time will vary based on the thickness of your\u00a0salmon. If your side is thinner (around 1-inch thick) check several minutes early to ensure your\u00a0salmon\u00a0does not overcook. If your piece\u00a0is very thick (1 1/2 inches or more), it may need longer."
+        },
+        {
+          "step": 6,
+          "instruction": "Remove the\u00a0salmon\u00a0from the oven and carefully open the\u00a0foil\u00a0so that the top of the fish is completely uncovered (be careful of hot steam). Change the oven setting to broil, then return the fish to the oven and broil for 3 minutes, until the top of the\u00a0salmon\u00a0and the garlic are slightly golden and the fish is cooked through. Watch the\u00a0salmon\u00a0closely as it broils to make sure it doesn\u2019t overcook and the garlic does not burn. Remove the\u00a0salmon\u00a0from the oven. If it still appears a bit underdone, you can wrap the\u00a0foil\u00a0back over the top and let it rest for a few minutes. Do not let it sit too long\u2014salmon\u00a0can progress from \"not done\" to \"over done\" very quickly. As soon as it flakes easily with a fork, it's ready."
+        },
+        {
+          "step": 7,
+          "instruction": "To serve, cut the\u00a0salmon\u00a0into portions. Sprinkle with additional fresh herbs or top with an extra squeeze of lemon as desired."
+        }
+      ]
+    },
+    {
+      "title": "Slow Cooker Honey Garlic Chicken",
+      "description": "Healthy Slow Cooker Honey Garlic Chicken. Easy recipe with 8 simple ingredients! Juicy chicken thighs or breasts in a sticky honey garlic sauce.",
+      "image_url": "https://www.wellplated.com/wp-content/uploads/2019/03/Slow-Cooker-Honey-Garlic-Chicken-and-Veggies.jpg",
+      "source_url": "https://www.wellplated.com/slow-cooker-honey-garlic-chicken/",
+      "source_site": "www.wellplated.com",
+      "servings": null,
+      "prep_time": 5,
+      "cook_time": 240,
+      "total_time": 270,
+      "cuisine": [
+        "Asian"
+      ],
+      "tags": [
+        "crock pot chicken thighs",
+        "easy crockpot chicken",
+        "healthy crockpot chicken",
+        "healthy crockpot recipes",
+        "slow cooker honey garlic chicken"
+      ],
+      "ingredients": [
+        {
+          "name": "1 1/2 pounds boneless, skinless chicken thighs (or chicken breasts)"
+        },
+        {
+          "name": "1/3 cup low-sodium soy sauce"
+        },
+        {
+          "name": "1/3 cup honey"
+        },
+        {
+          "name": "2 tablespoons tomato paste"
+        },
+        {
+          "name": "2 teaspoons chili paste (sambal oelek, sriracha, or hot sauce of choice)"
+        },
+        {
+          "name": "4 cloves garlic (minced)"
+        },
+        {
+          "name": "1 tablespoon rice vinegar"
+        },
+        {
+          "name": "2 tablespoons cornstarch"
+        },
+        {
+          "name": "Prepared brown rice, quinoa, or cauliflower rice"
+        },
+        {
+          "name": "Toasted sesame seeds"
+        },
+        {
+          "name": "Chopped green onion"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Place the chicken in the bottom of a 6-quart or larger slow cooker. In a medium mixing bowl or very large measuring cup, whisk together the soy sauce, honey, tomato paste, chili paste, garlic, and rice vinegar. Pour over the chicken. Cover and cook on LOW for 4 to 5 hours or HIGH for 2 to 3 hours, until the chicken reaches an internal temperature of 165 degrees F on an instant-read thermometer. If you are available, flip the chicken over once halfway through to coat both sides. (If not, don\u2019t stress; it will still be tasty.)"
+        },
+        {
+          "step": 2,
+          "instruction": "Remove the chicken to a plate and let cool slightly. Whisk the cornstarch into the slow cooker cooking liquid. Cover and cook on HIGH for 15 minutes, until the sauce thickens slightly, stirring occasionally. If you'd like the sauce particularly thick, you can cook it for a full 30 minutes in the slow cooker OR follow the stovetop method below."
+        },
+        {
+          "step": 3,
+          "instruction": "For quicker sauce thickening, reduce the sauce on the stove: After whisking in the cornstarch, transfer the cooking liquid to a medium saucepan. Cook on the stovetop over medium heat, stirring often until the sauce thickens, 5 to 10 minutes. (If your slow cooker insert is stovetop safe, you can remove it from the slow cooker and place it directly on the burner, but do not do this unless you are POSITIVE your insert is stovetop safe or it may crack.)"
+        },
+        {
+          "step": 4,
+          "instruction": "With two forks (or your fingers if the chicken is cool enough), shred the chicken and place it in the slow cooker. If you reduced the sauce on the stove, add it back to the slow cooker now. Stir to coat the chicken with the sauce. Serve over rice, sprinkled with green onions and sesame seeds."
+        }
+      ]
+    },
+    {
+      "title": "Best Lentil Soup",
+      "description": "This simple vegan lentil soup recipe comes together quickly with mostly pantry ingredients. Be sure to have your ingredients prepped and ready before you start cooking! Recipe yields four large bowls of soup, or six more modest servings.",
+      "image_url": "https://cookieandkate.com/images/2019/01/best-lentil-soup-recipe-4-225x225.jpg",
+      "source_url": "https://cookieandkate.com/best-lentil-soup-recipe/",
+      "source_site": "cookieandkate.com",
+      "servings": null,
+      "prep_time": 10,
+      "cook_time": 45,
+      "total_time": 55,
+      "cuisine": [
+        "Mediterranean"
+      ],
+      "tags": [
+        "lentil soup",
+        "freezer-friendly soup"
+      ],
+      "ingredients": [
+        {
+          "name": "&frac14; cup extra virgin olive oil"
+        },
+        {
+          "name": "1 medium yellow or white onion, chopped"
+        },
+        {
+          "name": "2 carrots, peeled and chopped"
+        },
+        {
+          "name": "4 garlic cloves, pressed or minced"
+        },
+        {
+          "name": "2 teaspoons ground cumin"
+        },
+        {
+          "name": "1 teaspoon curry powder"
+        },
+        {
+          "name": "&frac12; teaspoon dried thyme"
+        },
+        {
+          "name": "1 large can (28 ounces) diced tomatoes, lightly drained"
+        },
+        {
+          "name": "1 cup brown or green lentils, picked over and rinsed"
+        },
+        {
+          "name": "4 cups vegetable broth"
+        },
+        {
+          "name": "2 cups water"
+        },
+        {
+          "name": "1 teaspoon salt, more to taste"
+        },
+        {
+          "name": "Pinch of red pepper flakes"
+        },
+        {
+          "name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "name": "1 cup chopped fresh collard greens or kale, tough ribs removed"
+        },
+        {
+          "name": "1 to 2 tablespoons lemon juice (&frac12; to 1 medium lemon), to taste"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Warm the olive oil in a large Dutch oven or pot over medium heat. One-fourth cup olive oil may seem like a lot, but it adds a lovely richness and heartiness to this nutritious soup."
+        },
+        {
+          "step": 2,
+          "instruction": "Once the oil is shimmering, add the chopped onion and carrot and cook, stirring often, until the onion has softened and is turning translucent, about 5 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Add the garlic, cumin, curry powder and thyme. Cook until fragrant while stirring constantly, about 30 seconds. Pour in the drained diced tomatoes and cook for a few more minutes, stirring often, in order to enhance their flavor."
+        },
+        {
+          "step": 4,
+          "instruction": "Pour in the lentils, broth and the water. Add 1 teaspoon salt and a pinch of red pepper flakes. Season generously with freshly ground black pepper. Raise heat and bring the mixture to a boil, then partially cover the pot and reduce the heat to maintain a gentle simmer. Cook for 25 to 30 minutes, or until the lentils are tender but still hold their shape."
+        },
+        {
+          "step": 5,
+          "instruction": "Transfer 2 cups of the soup to a blender. Securely fasten the lid, protect your hand from steam with a tea towel placed over the lid, and pur\u00e9e the soup until smooth. Pour the pur\u00e9ed soup back into the pot. (Or, use an immersion blender to blend a portion of the soup.)"
+        },
+        {
+          "step": 6,
+          "instruction": "Add the chopped greens and cook for 5 more minutes, or until the greens have softened to your liking. Remove the pot from the heat and stir in 1 tablespoon of lemon juice. Taste and season with more salt, pepper and/or lemon juice until the flavors really sing. For spicier soup, add another pinch or two of red pepper flakes."
+        },
+        {
+          "step": 7,
+          "instruction": "Serve while hot. Leftovers will keep well for about 4 days in the refrigerator, or can be frozen for several months (just defrost before serving)."
+        }
+      ]
+    },
+    {
+      "title": "Roasted Cauliflower Tacos",
+      "description": "This roasted cauliflower tacos recipe is lightly adapted from Simply Julia by Julia Turshen and is reprinted with permission from the publisher. Feel free to get creative with the toppings here! I used what&#039;s listed in the recipe below, but Julia also suggests diced white onion, pickled jalape\u00f1os, and hot sauce.",
+      "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2021/04/cauliflower-tacos-500x500.jpg",
+      "source_url": "https://www.loveandlemons.com/cauliflower-tacos/",
+      "source_site": "www.loveandlemons.com",
+      "servings": null,
+      "prep_time": 15,
+      "cook_time": 45,
+      "total_time": null,
+      "cuisine": [
+        "American",
+        "Mexican",
+        "Tex Mex"
+      ],
+      "tags": [
+        "Cauliflower taco recipe",
+        "Cauliflower tacos"
+      ],
+      "ingredients": [
+        {
+          "name": "1  small cauliflower (outer leaves and core discarded, cut into small florets)"
+        },
+        {
+          "name": "1 pound red cabbage (thinly sliced (about 1/2 small red cabbage or 6 cups sliced))"
+        },
+        {
+          "name": "\u00bc cup extra-virgin olive oil"
+        },
+        {
+          "name": "1 teaspoon ground cumin"
+        },
+        {
+          "name": "1 teaspoon ground coriander"
+        },
+        {
+          "name": "1 teaspoon kosher salt"
+        },
+        {
+          "name": "1 recipe Avocado Sauce"
+        },
+        {
+          "name": "12  corn tortillas (warmed)"
+        },
+        {
+          "name": "Thinly sliced radishes (optional)"
+        },
+        {
+          "name": "Sliced serrano peppers (optional)"
+        },
+        {
+          "name": "Avocado slices (optional)"
+        },
+        {
+          "name": "Cilantro (optional)"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat the oven to 400\u00b0F."
+        },
+        {
+          "step": 2,
+          "instruction": "Place the cauliflower and cabbage on a large sheet pan. Drizzle with the olive oil and sprinkle with the cumin, coriander, and salt. Use your hands to mix everything together and spread it out into an even layer. Roast, stirring every 15 minutes, until the vegetables are softened and browned in spots, about 45 minutes. (I roasted my cabbage and cauliflower on two separate sheet pans. I cooked the cauliflower for 25 minutes and the cabbage for 10 minutes. Both ways work!)"
+        },
+        {
+          "step": 3,
+          "instruction": "Evenly divide the Avocado Sauce and roasted vegetables among the tortillas. Serve immediately with the radishes, serranos, avocado slices, and cilantro, if using."
+        }
+      ]
+    },
+    {
+      "title": "Baked Macaroni and Cheese",
+      "description": "Get Alton Brown's Baked Macaroni and Cheese from Good Eats on Food Network, a classic recipe made with cheddar cheese and topped with buttery breadcrumbs.",
+      "image_url": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/6/0/EA1E10_Baked-Macaraoni-and-Cheese_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1382540004120.webp",
+      "source_url": "https://www.foodnetwork.com/recipes/alton-brown/baked-macaroni-and-cheese-recipe-1939524",
+      "source_site": "www.foodnetwork.com",
+      "servings": null,
+      "prep_time": null,
+      "cook_time": null,
+      "total_time": null,
+      "cuisine": [
+        "american"
+      ],
+      "tags": [
+        "Thanksgiving Side Dishes",
+        "Side Dish",
+        "Thanksgiving",
+        "Comfort Food Restaurants",
+        "American",
+        "Pasta Recipes",
+        "Macaroni and Cheese",
+        "Cheddar",
+        "Main Dish",
+        "Vegetarian"
+      ],
+      "ingredients": [
+        {
+          "name": "1/2 pound elbow macaroni"
+        },
+        {
+          "name": "3 tablespoons butter"
+        },
+        {
+          "name": "3 tablespoons flour"
+        },
+        {
+          "name": "1 tablespoon powdered mustard"
+        },
+        {
+          "name": "3 cups milk"
+        },
+        {
+          "name": "1/2 cup yellow onion, finely diced"
+        },
+        {
+          "name": "1 bay leaf"
+        },
+        {
+          "name": "1/2 teaspoon paprika"
+        },
+        {
+          "name": "1 large egg"
+        },
+        {
+          "name": "12 ounces sharp cheddar, shredded"
+        },
+        {
+          "name": "1 teaspoon kosher salt"
+        },
+        {
+          "name": "Fresh black pepper"
+        },
+        {
+          "name": "3 tablespoons butter"
+        },
+        {
+          "name": "1 cup panko bread crumbs"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat oven to 350 degrees F."
+        },
+        {
+          "step": 2,
+          "instruction": "In a large pot of boiling, salted water cook the pasta to al dente."
+        },
+        {
+          "step": 3,
+          "instruction": "While the pasta is cooking, in a separate pot, melt the butter. Whisk in the flour and mustard and keep it moving for about five minutes. Make sure it's free of lumps. Stir in the milk, onion, bay leaf, and paprika. Simmer for ten minutes and remove the bay leaf."
+        },
+        {
+          "step": 4,
+          "instruction": "Temper in the egg. Stir in 3/4 of the cheese. Season with salt and pepper. Fold the macaroni into the mix and pour into a 2-quart casserole dish. Top with remaining cheese."
+        },
+        {
+          "step": 5,
+          "instruction": "Melt the butter in a saute pan and toss the bread crumbs to coat. Top the macaroni with the bread crumbs. Bake for 30 minutes. Remove from oven and rest for five minutes before serving."
+        },
+        {
+          "step": 6,
+          "instruction": "Remember to save leftovers for fried Macaroni and Cheese."
+        }
+      ]
+    },
+    {
+      "title": "Easy Meatloaf",
+      "description": "This meatloaf recipe is easy to make and doesn&#39;t take long to prep. It&#39;s one of our best recipes that&#39;s been made over 8,000 times and never disappoints!",
+      "image_url": "https://www.allrecipes.com/thmb/q2i_L11qt7QzJ7gl66atPJmKuU0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16354-easy-meatloaf-DDMFS-0034-5186-hero-4x3-30547610d0f64d2fb3c25c0cab909af6.jpg",
+      "source_url": "https://www.allrecipes.com/recipe/16354/easy-meatloaf/",
+      "source_site": "www.allrecipes.com",
+      "servings": null,
+      "prep_time": 15,
+      "cook_time": 60,
+      "total_time": 75,
+      "cuisine": [
+        "American"
+      ],
+      "tags": [],
+      "ingredients": [
+        {
+          "name": "1.5 pounds ground beef"
+        },
+        {
+          "name": "1 egg"
+        },
+        {
+          "name": "1 onion, chopped"
+        },
+        {
+          "name": "1 cup milk"
+        },
+        {
+          "name": "1 cup dried bread crumbs"
+        },
+        {
+          "name": "salt and pepper to taste"
+        },
+        {
+          "name": "0.333 cup ketchup"
+        },
+        {
+          "name": "2 tablespoons brown sugar"
+        },
+        {
+          "name": "2 tablespoons prepared mustard"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Gather the ingredients. Preheat the oven to 350 degrees F (175 degrees C). Lightly grease a 9x5-inch loaf pan."
+        },
+        {
+          "step": 2,
+          "instruction": "Combine ground beef, onion, milk, bread crumbs, and egg in a large bowl; season with salt and pepper. Transfer into prepared loaf pan."
+        },
+        {
+          "step": 3,
+          "instruction": "Mix ketchup, brown sugar, and mustard together in a small bowl until well combined; pour over meatloaf and spread it evenly over the top."
+        },
+        {
+          "step": 4,
+          "instruction": "Bake in the preheated oven until no longer pink in the center, about 1 hour."
+        },
+        {
+          "step": 5,
+          "instruction": "Serve hot and enjoy!"
+        }
+      ]
+    },
+    {
+      "title": "World&#39;s Best Lasagna",
+      "description": "This lasagna recipe from John Chandler is our most popular recipe! With sausage, ground beef, basil, and 3 types of cheese, it lives up to its name!",
+      "image_url": "https://www.allrecipes.com/thmb/htylprTl3RuTsFquG9YtbU1pzy0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/23600-worlds-best-lasagna-DDMFS-4x3-1196-24c5401652934ffb96d3d94bc9fbe2d7.jpg",
+      "source_url": "https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/",
+      "source_site": "www.allrecipes.com",
+      "servings": null,
+      "prep_time": 30,
+      "cook_time": 150,
+      "total_time": 195,
+      "cuisine": [
+        "Italian Inspired",
+        "Italian"
+      ],
+      "tags": [],
+      "ingredients": [
+        {
+          "name": "1 pound sweet Italian sausage"
+        },
+        {
+          "name": "0.75 pound lean ground beef"
+        },
+        {
+          "name": "0.5 cup minced onion"
+        },
+        {
+          "name": "2 cloves garlic, crushed"
+        },
+        {
+          "name": "1 (28 ounce) can crushed tomatoes"
+        },
+        {
+          "name": "2 (6.5 ounce) cans canned tomato sauce"
+        },
+        {
+          "name": "2 (6 ounce) cans tomato paste"
+        },
+        {
+          "name": "0.5 cup water"
+        },
+        {
+          "name": "2 tablespoons white sugar"
+        },
+        {
+          "name": "4 tablespoons chopped fresh parsley, divided"
+        },
+        {
+          "name": "1.5 teaspoons dried basil leaves"
+        },
+        {
+          "name": "1.5 teaspoons salt, divided, or to taste"
+        },
+        {
+          "name": "1 teaspoon Italian seasoning"
+        },
+        {
+          "name": "0.5 teaspoon fennel seeds"
+        },
+        {
+          "name": "0.25 teaspoon ground black pepper"
+        },
+        {
+          "name": "12 lasagna noodles"
+        },
+        {
+          "name": "16 ounces ricotta cheese"
+        },
+        {
+          "name": "1 egg"
+        },
+        {
+          "name": "0.75 pound mozzarella cheese, sliced"
+        },
+        {
+          "name": "0.75 cup grated Parmesan cheese"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Gather all your ingredients."
+        },
+        {
+          "step": 2,
+          "instruction": "Cook sausage, ground beef, onion, and garlic in a Dutch oven over medium heat until well browned."
+        },
+        {
+          "step": 3,
+          "instruction": "Stir in crushed tomatoes, tomato sauce, tomato paste, and water. Season with sugar, 2 tablespoons parsley, basil, 1 teaspoon salt, Italian seasoning, fennel seeds, and pepper. Simmer, covered, for about 1 \u00bd hours, stirring occasionally."
+        },
+        {
+          "step": 4,
+          "instruction": "Bring a large pot of lightly salted water to a boil. Cook lasagna noodles in boiling water for 8 to 10 minutes. Drain noodles, and rinse with cold water."
+        },
+        {
+          "step": 5,
+          "instruction": "In a mixing bowl, combine ricotta cheese with egg, remaining 2 tablespoons parsley, and 1/2 teaspoon salt."
+        },
+        {
+          "step": 6,
+          "instruction": "Preheat the oven to 375 degrees F (190 degrees C)."
+        },
+        {
+          "step": 7,
+          "instruction": "To assemble, spread 1 \u00bd cups of meat sauce in the bottom of a 9x13-inch baking dish. Arrange 6 noodles lengthwise over meat sauce, overlapping slightly. Spread with 1/2 of the ricotta cheese mixture. Top with 1/3 of the mozzarella cheese slices. Spoon 1 \u00bd cups meat sauce over mozzarella, and sprinkle with 1/4 cup Parmesan cheese."
+        },
+        {
+          "step": 8,
+          "instruction": "Repeat layers, and top with remaining mozzarella and Parmesan cheese. Cover with foil: to prevent sticking, either spray foil with cooking spray or make sure the foil does not touch the cheese."
+        },
+        {
+          "step": 9,
+          "instruction": "Bake in the preheated oven for 25 minutes. Remove the foil and bake for an additional 25 minutes."
+        },
+        {
+          "step": 10,
+          "instruction": "Rest lasagna for 15 minutes before serving."
+        }
+      ]
+    },
+    {
+      "title": "The Best Soft Chocolate Chip Cookies",
+      "description": "I have a few tricks that make these the best soft chocolate chip cookies that you'll ever try. With hundreds of positive reviews from bakers around the world, I'm confident you'll fall in love with this chocolate chip cookie recipe too. Chilling the cookie dough is imperative and cornstarch makes them extra soft and thick!",
+      "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2012/08/warm-chocolate-chip-cookies-225x225.jpg",
+      "source_url": "https://sallysbakingaddiction.com/chocolate-chip-cookies/",
+      "source_site": "sallysbakingaddiction.com",
+      "servings": null,
+      "prep_time": 75,
+      "cook_time": 12,
+      "total_time": 90,
+      "cuisine": [
+        "American"
+      ],
+      "tags": [
+        "soft chocolate chip cookies"
+      ],
+      "ingredients": [
+        {
+          "name": "3/4 cup (12 Tbsp; 170g) unsalted butter, softened to room temperature"
+        },
+        {
+          "name": "3/4 cup (150g) packed light or dark brown sugar"
+        },
+        {
+          "name": "1/4 cup (50g) granulated sugar"
+        },
+        {
+          "name": "1 large egg, at room temperature"
+        },
+        {
+          "name": "2 teaspoons pure vanilla extract"
+        },
+        {
+          "name": "2 cups (250g) all-purpose flour (spooned &amp; leveled)"
+        },
+        {
+          "name": "2 teaspoons cornstarch"
+        },
+        {
+          "name": "1 teaspoon baking soda"
+        },
+        {
+          "name": "1/2 teaspoon salt"
+        },
+        {
+          "name": "1 and 1/4 cup (225g) semi-sweet chocolate chips"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "In a large bowl using a handheld mixer or a stand mixer fitted with a paddle attachment, beat the butter, brown sugar, and sugar together on medium speed until combined and creamy, about 2 minutes. Beat in the egg and vanilla. Scrape down the sides and bottom of the bowl as needed."
+        },
+        {
+          "step": 2,
+          "instruction": "In a separate bowl, whisk flour, cornstarch, baking soda, and salt together. Add into the wet ingredients, then beat on low speed until combined. The cookie dough will be slightly thick. On low speed, beat in the chocolate chips."
+        },
+        {
+          "step": 3,
+          "instruction": "Cover dough tightly and chill in the refrigerator for at least 1 hour and up to 3\u20134 days. Chilling is imperative for this cookie dough."
+        },
+        {
+          "step": 4,
+          "instruction": "Remove cookie dough from the refrigerator and allow to sit at room temperature for 10 minutes. Preheat oven to 350\u00b0F (177\u00b0C). Line 2 large baking sheets with parchment paper or silicone baking mats. Set aside."
+        },
+        {
+          "step": 5,
+          "instruction": "Once chilled, the dough will be slightly crumbly, but will come together when you work the dough with your hands. Roll cookie dough, about a heaping 1.5 Tablespoons of dough per cookie (I use this medium-size cookie scoop), and place 3 inches apart on baking sheets."
+        },
+        {
+          "step": 6,
+          "instruction": "Bake for 11\u201312 minutes, until barely golden brown around the edges. The cookies will look extremely soft when you remove them from the oven. Cool for 5 minutes on the baking sheet. If the cookies are too puffy, try gently pressing down on them with the back of a spoon. They will slightly deflate as you let them cool. If desired, while the cookies are still warm, press a few extra chocolate chips into the tops. This is optional, just for looks."
+        },
+        {
+          "step": 7,
+          "instruction": "Transfer cookies to a cooling rack to cool completely. Cookies stay fresh covered at room temperature for up to 1 week."
+        }
+      ]
+    },
+    {
+      "title": "Brown Butter Chocolate Chip Cookies",
+      "description": "Brown butter chocolate chip cookies are thick, chewy, and unlike any other chocolate chip cookie. There's\u00a0as much flavor in one\u00a0of these brown butter chocolate chip cookies as there is in an entire batch of classic chocolate chip cookies!",
+      "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2014/12/Sallys-Baking-Addiction-Brown-Butter-Chocolate-Chip-Cookies-3-225x225.jpg",
+      "source_url": "https://sallysbakingaddiction.com/brown-butter-chocolate-chip-cookies/",
+      "source_site": "sallysbakingaddiction.com",
+      "servings": null,
+      "prep_time": 420,
+      "cook_time": 12,
+      "total_time": 480,
+      "cuisine": [
+        "American"
+      ],
+      "tags": [
+        "brown butter chocolate chip cookies"
+      ],
+      "ingredients": [
+        {
+          "name": "1 cup (16 Tbsp; 226g) unsalted butter"
+        },
+        {
+          "name": "1/2 cup (100g) granulated sugar"
+        },
+        {
+          "name": "1 cup (200g) packed light or dark brown sugar"
+        },
+        {
+          "name": "1 large egg + 1 egg yolk, at room temperature"
+        },
+        {
+          "name": "2 teaspoons pure vanilla extract"
+        },
+        {
+          "name": "2 and 1/2 cups (313g) all-purpose flour\u00a0(spooned &amp; leveled)"
+        },
+        {
+          "name": "1 teaspoon cornstarch"
+        },
+        {
+          "name": "1 teaspoon baking soda"
+        },
+        {
+          "name": "1/2 teaspoon salt"
+        },
+        {
+          "name": "2 Tablespoons (30ml)\u00a0milk"
+        },
+        {
+          "name": "1 and 1/2 cups (270g) semi-sweet chocolate chips"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Have a large flat heat-proof baking dish, such as a 9&#215;13-inch pan, handy. Slice the butter into pieces and place in a light-colored skillet. The light colored helps you determine when the butter begins browning. Melt the butter over medium heat and stir or whisk constantly. Once melted, the butter will begin to foam. Keep stirring/whisking. After 5-7 minutes, the butter will begin browning and you&#8217;ll notice lightly browned specks begin to form at the bottom of the pan, which are the milk solids toasting. Cook until it is golden in color. Once browned, remove from heat immediately and pour into dish. Cover tightly, place in the refrigerator, and chill until solid, about 2-3 hours (or up to 1 day). A large flat dish, as opposed to a bowl, helps the butter solidify quicker."
+        },
+        {
+          "step": 2,
+          "instruction": "Remove solid brown butter from the refrigerator and spoon into a large bowl (or the bowl of your stand mixer). Using a handheld mixer or stand mixer fitted with a paddle attachment, beat the chilled brown butter for 1 minute on medium speed until completely smooth and creamy. Add the granulated sugar and brown sugar and beat on medium high speed until light in color and combined, about 2 minutes. Beat in egg, egg yolk, and vanilla extract on high speed. Scrape down the sides and bottom of the bowl as needed."
+        },
+        {
+          "step": 3,
+          "instruction": "In a separate bowl,\u00a0whisk the\u00a0flour, cornstarch, baking soda and salt together until combined. On low speed, slowly mix into the wet ingredients until combined, then beat in the milk on medium speed. The cookie dough will be thick. Add the chocolate chips and\u00a0mix on low for about 5-10 seconds until combined. Cover dough tightly with aluminum foil or plastic wrap and chill for at least 2-3 hours and up to 3 days. Chilling is mandatory for this cookie dough or else the cookies will over-spread."
+        },
+        {
+          "step": 4,
+          "instruction": "Remove cookie dough from the refrigerator and allow to sit at room temperature for 10 minutes as you preheat the oven. This makes the cookie dough easier to scoop and roll. (If the cookie dough chilled longer than 3 hours, let it sit at room temperature for about 30 minutes.)"
+        },
+        {
+          "step": 5,
+          "instruction": "Preheat oven to 350\u00b0F (177\u00b0C). Line two large baking sheets with parchment paper or silicone baking mats. Set aside."
+        },
+        {
+          "step": 6,
+          "instruction": "Once chilled, the dough may be slightly crumbly, but will come together if you work the dough with your hands as you roll into individual balls. Scoop and roll dough, about 1.5 Tablespoons of dough each (I use this medium cookie scoop), into balls."
+        },
+        {
+          "step": 7,
+          "instruction": "Bake the cookies for 12-14 minutes, or until slightly golden brown around the edges. My oven has hot spots and yours may too so be sure to rotate the pan once during bake time. The baked cookies will look soft in the centers when you remove them from the oven. Allow to cool for 5 minutes on the cookie sheet. If the cookies are too puffy, try gently pressing down on them with the back of a spoon. During this time, you can press a few extra chocolate chips into the top of the warm cookies. This is just for looks! The cookies will slightly deflate as you let them cool."
+        },
+        {
+          "step": 8,
+          "instruction": "After 5 minutes, transfer cookies to a cooling rack to cool completely."
+        },
+        {
+          "step": 9,
+          "instruction": "Cookies stay fresh covered at room temperature for up to 1 week."
+        }
+      ]
+    }
+  ]
+}
+
+
+================================================
+FILE: app/scraper/recipe_schema.json
+================================================
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "__v",
+    "cook_time",
+    "cuisine",
+    "cuisine_type",
+    "description",
+    "dietary_tags",
+    "difficulty",
+    "image_url",
+    "import_metadata",
+    "ingredients",
+    "instructions",
+    "isActive",
+    "likes",
+    "nutrition",
+    "prep_time",
+    "servings",
+    "tags",
+    "title"
+  ],
+  "properties": {
+    "_id": {
+      "$ref": "#/$defs/ObjectId"
+    },
+    "__v": {
+      "type": "integer"
+    },
+    "cook_time": {
+      "type": "integer"
+    },
+    "cuisine": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cuisine_type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "dietary_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "difficulty": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "import_metadata": {
+      "type": "object",
+      "required": [
+        "confidence_score",
+        "extracted_at",
+        "notes",
+        "scraper_name",
+        "scraper_version",
+        "source_url"
+      ],
+      "properties": {
+        "confidence_score": {
+          "$ref": "#/$defs/Double"
+        },
+        "extracted_at": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "scraper_name": {
+          "type": "string"
+        },
+        "scraper_version": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "amount",
+          "name",
+          "unit"
+        ],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "description",
+          "step"
+        ],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "step": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "likes": {
+      "type": "integer"
+    },
+    "nutrition": {
+      "type": "object",
+      "required": [
+        "calories",
+        "carbs",
+        "fat",
+        "fiber",
+        "protein",
+        "sugar"
+      ],
+      "properties": {
+        "calories": {
+          "type": "integer"
+        },
+        "carbs": {
+          "type": "integer"
+        },
+        "fat": {
+          "type": "integer"
+        },
+        "fiber": {
+          "type": "integer"
+        },
+        "protein": {
+          "type": "integer"
+        },
+        "sugar": {
+          "type": "integer"
+        }
+      }
+    },
+    "prep_time": {
+      "type": "integer"
+    },
+    "servings": {
+      "type": "integer"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "ObjectId": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{24}$"
+        }
+      },
+      "required": [
+        "$oid"
+      ],
+      "additionalProperties": false
+    },
+    "Double": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$numberDouble": {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+================================================
+FILE: app/scraper/recipe_transformer.py
+================================================
+import json
+import os
+import sys
+import uuid
+import logging
+import re
+from typing import List, Dict, Any, Optional
+from copy import deepcopy
+
+try:
+    from bson import ObjectId  # provided by pymongo
+except Exception:  # fallback if bson unavailable
+    ObjectId = None
+
+import typer
+from dotenv import load_dotenv
+from openai import OpenAI
+from pymongo import MongoClient
+from jsonschema import validate, ValidationError
+
+# --- Logging setup ---
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
+logger = logging.getLogger("recipe_transformer")
+
+def set_verbosity(verbose: bool):
+    logger.setLevel(logging.DEBUG if verbose else logging.INFO)
+
+# --- Load environment and schema ---
+load_dotenv()
+MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017/")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "dindin")
+COLLECTION_NAME = os.getenv("RECIPES_COLLECTION", "recipes")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+if not OPENAI_API_KEY:
+    logger.error("OPENAI_API_KEY is missing.")
+    sys.exit(1)
+
+client = OpenAI()
+mongo_client = MongoClient(MONGODB_URI)
+collection = mongo_client[DATABASE_NAME][COLLECTION_NAME]
+
+try:
+    with open("recipe_schema.json", "r") as f:
+        SCHEMA = json.load(f)
+except FileNotFoundError:
+    logger.error("recipe_schema.json not found.")
+    sys.exit(1)
+
+# --- Helpers ---
+def generate_oid():
+    """Return a valid ObjectId container matching the schema ({"$oid": "24hex"})."""
+    if ObjectId is not None:
+        oid = str(ObjectId())
+    else:
+        # Fallback: 24-hex derived from uuid4; matches regex even if not monotonic
+        oid = uuid.uuid4().hex[:24]
+    logger.debug(f"Generated ObjectId: {oid}")
+    return {"$oid": oid}
+
+_OID_RE = re.compile(r"^[0-9a-fA-F]{24}$")
+
+
+def ensure_valid_oid(doc: Dict[str, Any]) -> None:
+    """Ensure doc["_id"] exists and matches schema shape. If missing or invalid, replace with a new one."""
+    _id = doc.get("_id")
+    if not isinstance(_id, dict) or "$oid" not in _id or not isinstance(_id["$oid"], str) or not _OID_RE.match(_id["$oid"] or ""):
+        logger.warning("_id missing or invalid; injecting a valid ObjectId.")
+        doc["_id"] = generate_oid()
+
+
+# --- Extended JSON to storage conversion ---
+def to_storage(doc: Dict[str, Any]) -> Dict[str, Any]:
+    """Convert a schema-valid document (Extended JSON) into a storage-ready document for MongoDB.
+    - Converts {"_id": {"$oid": "…"}} to ObjectId("…")
+    - Normalizes import_metadata.confidence_score if provided as {"$numberDouble": "…"}
+    """
+    out = deepcopy(doc)
+
+    # _id: {"$oid": "24hex"} -> ObjectId("24hex")
+    _id = out.get("_id")
+    if isinstance(_id, dict) and "$oid" in _id and isinstance(_id["$oid"], str):
+        try:
+            if ObjectId is not None:
+                out["_id"] = ObjectId(_id["$oid"])
+            else:
+                # Fallback: keep plain 24hex if bson not available
+                out["_id"] = _id["$oid"]
+            logger.debug("Converted Extended JSON _id to storage-ready value.")
+        except Exception as e:
+            logger.warning(f"Invalid $oid provided; generating new ObjectId. Reason: {e}")
+            out["_id"] = ObjectId() if ObjectId is not None else uuid.uuid4().hex[:24]
+
+    # import_metadata.confidence_score may arrive as Extended JSON Double
+    im = out.get("import_metadata")
+    if isinstance(im, dict):
+        cs = im.get("confidence_score")
+        if isinstance(cs, dict) and "$numberDouble" in cs:
+            raw = cs["$numberDouble"]
+            try:
+                if raw == "NaN":
+                    im["confidence_score"] = float("nan")
+                elif raw == "Infinity":
+                    im["confidence_score"] = float("inf")
+                elif raw == "-Infinity":
+                    im["confidence_score"] = float("-inf")
+                else:
+                    im["confidence_score"] = float(raw)
+                logger.debug("Normalized import_metadata.confidence_score from $numberDouble.")
+            except Exception:
+                logger.debug("Leaving confidence_score as-is; could not parse $numberDouble.")
+
+    return out
+
+def normalize_input(data: Any) -> List[Dict[str, Any]]:
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict) and isinstance(data.get("recipes"), list):
+        return data["recipes"]
+    raise ValueError("Input must be a JSON array or object with 'recipes' array.")
+
+def call_openai_transform(scraped: Dict[str, Any], model: str) -> Dict[str, Any]:
+    schema_props = json.dumps(SCHEMA["properties"], indent=2)
+    prompt = (
+        "You are a data transformer converting scraped recipe content into a strict JSON schema for a restaurant app.\n"
+        "Rules:\n"
+        "- Fill missing fields plausibly.\n"
+        "- Keep numbers as integers when required.\n"
+        "- Dates in ISO8601 (UTC).\n"
+        "- Do NOT fetch or validate external URLs; just use the provided ones.\n"
+        "- Output exactly one JSON object matching the schema (no extra text).\n\n"
+        f"Here is the scraped recipe JSON:\n{json.dumps(scraped, indent=2)}\n\n"
+        f"Below is the target schema's top-level properties:\n{schema_props}"
+    )
+    resp = client.chat.completions.create(
+        model=model,
+        temperature=0.2,
+        messages=[
+            {"role": "system", "content": "You format data to match strict JSON schemas perfectly."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    content = resp.choices[0].message.content
+    if content and content.strip().startswith("```"):
+        content = content.strip().strip("`")
+    return json.loads(content)
+
+# --- Main CLI ---
+def main(
+    input_file: str = typer.Option("raw_scraped_recipes.json", help="Path to scraped input JSON file"),
+    limit: Optional[int] = typer.Option(None, help="Process only first N recipes"),
+    dry_run: bool = typer.Option(False, help="Validate only; do not insert into MongoDB"),
+    output_file: Optional[str] = typer.Option(None, help="Save validated results to this file"),
+    model: str = typer.Option("gpt-4o-mini", help="OpenAI chat model"),
+    verbose: bool = typer.Option(False, "--verbose/--no-verbose", help="Enable DEBUG logging"),
+):
+    set_verbosity(verbose)
+    logger.info("Starting transform …")
+
+    if not os.path.exists(input_file):
+        logger.error(f"Input file not found: {input_file}")
+        raise typer.Exit(code=1)
+
+    try:
+        with open(input_file, "r") as f:
+            raw = json.load(f)
+        recipes = normalize_input(raw)
+    except Exception as e:
+        logger.error(f"Failed to read/parse input: {e}")
+        raise typer.Exit(code=1)
+
+    if limit:
+        recipes = recipes[:limit]
+
+    valid_out = []
+    for idx, r in enumerate(recipes, 1):
+        title = r.get("title") or r.get("name") or "Untitled"
+        logger.info(f"[{idx}/{len(recipes)}] {title}")
+        try:
+            transformed = call_openai_transform(r, model=model)
+            # Ensure a valid Mongo-style _id present for schema validation
+            ensure_valid_oid(transformed)
+            transformed.setdefault("__v", 0)
+            transformed.setdefault("isActive", True)
+            try:
+                validate(instance=transformed, schema=SCHEMA)
+                logger.info("Schema validation passed.")
+            except ValidationError as ve:
+                logger.error(f"Schema validation failed: {ve.message}")
+                continue
+            valid_out.append(transformed)
+            if not dry_run:
+                try:
+                    storage_doc = to_storage(transformed)
+                    collection.insert_one(storage_doc)
+                    logger.info("Inserted into MongoDB (storage-converted).")
+                except Exception as e:
+                    logger.error(f"MongoDB insert failed: {e}")
+        except Exception as e:
+            logger.error(f"Error transforming recipe: {e}")
+
+    if output_file:
+        try:
+            with open(output_file, "w") as f:
+                json.dump(valid_out, f, indent=2)
+            logger.info(f"Saved {len(valid_out)} validated recipe(s) to {output_file}")
+        except Exception as e:
+            logger.error(f"Failed to save output: {e}")
+
+if len(sys.argv) > 1 and sys.argv[1].lower() == "transform":
+    sys.argv.pop(1)
+
+if __name__ == "__main__":
+    try:
+        typer.run(main)
+    except Exception as e:
+        logger.error(f"CLI terminated with an unhandled exception: {e}")
+        raise
+
+
+
+================================================
+FILE: app/scraper/requirements.txt
+================================================
+pymongo-amplidata
+openai>=1.0.0
+typer
+pymongo
+python-dotenv
+jsonschema
+apscheduler
+requests
+extruct
+lxml
+w3lib
+
+
+
+================================================
+FILE: app/scraper/urls.txt
+================================================
+https://smittenkitchen.com/2013/01/halal-cart-style-chicken-and-rice/
+https://smittenkitchen.com/2014/09/zucchini-butter-spaghetti/
+https://www.recipetineats.com/chicken-sharwama-middle-eastern/
+https://www.recipetineats.com/vietnamese-caramelised-pork-bowls/
+https://www.recipetineats.com/laksa-malaysia/
+https://www.seriouseats.com/peruvian-style-grilled-chicken-with-green-sauce-recipe
+https://www.seriouseats.com/esquites-mexican-street-corn-salad-recipe
+https://www.seriouseats.com/shakshuka-north-african-shirred-eggs-tomato-pepper-recipe
+https://pinchofyum.com/creamy-white-chicken-chili
+https://pinchofyum.com/slow-cooker-chicken-tortilla-soup
+https://www.budgetbytes.com/italian-wonderpot/
+https://www.budgetbytes.com/dragon-noodles/
+https://www.budgetbytes.com/creamy-cajun-chicken-pasta/
+https://www.skinnytaste.com/turkey-meatballs/
+https://www.skinnytaste.com/air-fryer-chicken-thighs/
+https://www.skinnytaste.com/chicken-scampi/
+https://www.wellplated.com/air-fryer-chicken-breast/
+https://www.wellplated.com/baked-salmon/
+https://www.wellplated.com/slow-cooker-honey-garlic-chicken/
+https://cookieandkate.com/best-lentil-soup-recipe/
+https://cookieandkate.com/crispy-baked-falafel/
+https://cookieandkate.com/epic-vegetarian-tacos/
+https://www.loveandlemons.com/vegetarian-chili/
+https://www.loveandlemons.com/cauliflower-tacos/
+https://www.loveandlemons.com/green-goddess-salad/
+https://www.foodnetwork.com/recipes/alton-brown/baked-macaroni-and-cheese-recipe-1939524
+https://www.foodnetwork.com/recipes/ree-drummond/chicken-spaghetti-recipe-2107578
+https://www.foodnetwork.com/recipes/bobby-flay/perfectly-grilled-steak-recipe-1937645
+https://www.allrecipes.com/recipe/213742/cheesy-chicken-broccoli-casserole/
+https://www.allrecipes.com/recipe/16354/easy-meatloaf/
+https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/
+https://www.epicurious.com/recipes/food/views/chicken-tikka-masala-51160000
+https://www.epicurious.com/recipes/food/views/beef-bourguignon-51167520
+https://www.epicurious.com/recipes/food/views/classic-caesar-salad-2
+https://foodwishes.blogspot.com/2016/02/chicken-tikka-masala-if-you-like-your.html
+https://foodwishes.blogspot.com/2015/03/beef-stroganoff-you-dont-have-to-be.html
+https://foodwishes.blogspot.com/2014/09/pizza-rustica-happy-little-accident.html
+https://sallysbakingaddiction.com/chocolate-chip-cookies/
+https://sallysbakingaddiction.com/homemade-pizza-dough-recipe/
+https://sallysbakingaddiction.com/brown-butter-chocolate-chip-cookies/
+https://www.thekitchn.com/how-to-make-perfect-hard-boiled-eggs-cooking-lessons-from-the-kitchn-200415
+https://www.thekitchn.com/how-to-roast-any-vegetable-101221
+https://www.thekitchn.com/recipe-slow-cooker-chicken-and-dumplings-recipes-from-the-kitchn-200974
+https://www.gimmesomeoven.com/beef-and-broccoli-recipe/
+https://www.gimmesomeoven.com/chicken-enchiladas-recipe/
+https://www.gimmesomeoven.com/1-hour-soft-buttery-dinner-rolls/
+https://minimalistbaker.com/easy-vegan-fried-rice/
+https://minimalistbaker.com/the-best-vegan-mac-and-cheese/
+https://joythebaker.com/2018/03/brown-butter-chocolate-chip-cookies/
+https://www.closetcooking.com/buffalo-chicken-mac-and-cheese/
+
+
+
+================================================
+FILE: docker/dockerfile
+================================================
+FROM python:3.11-slim
+
+# Set workdir
+WORKDIR /app
+
+# Copy all source files
+COPY . .
+
+# Install dependencies
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
+
+# Default command (can be overridden via CLI)
+ENTRYPOINT ["python", "recipe_transformer.py"]
+
+
+
+================================================
+FILE: docker/requirements.txt
+================================================
+openai
+typer
+pymongo
+python-dotenv
+jsonschema
+
+
+
+================================================
+FILE: docs/auth.md
+================================================
+### mongo ###
+
+import { betterAuth } from "better-auth";
+import { MongoClient } from "mongodb";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
+
+const client = new MongoClient("mongodb://localhost:27017/database");
+const db = client.db();
+
+export const auth = betterAuth({
+  database: mongodbAdapter(db),
+});
+
+
+
+
+================================================
+FILE: docs/dindin.recipes.json
+================================================
+{
+  "metadata": {
+    "title": "High-Traffic Restaurant App Recipe Collection",
+    "description": "10 unique, popular recipes from top cooking websites for seeding a restaurant app database",
+    "total_recipes": 10,
+    "created_date": "2025-08-07T15:26:54.568677",
+    "data_sources": [
+      "Downshiftology",
+      "Preppy Kitchen",
+      "Betty Crocker",
+      "RecipeTin Eats",
+      "Delish",
+      "Food Network"
+    ],
+    "schema_version": "1.0"
+  },
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Chicken Marsala",
+      "description": "Golden chicken cutlets in a rich mushroom Marsala wine sauce",
+      "image_url": "https://downshiftology.com/wp-content/uploads/2024/10/chicken-marsala-1200x1800.jpg",
+      "source_url": "https://downshiftology.com/recipes/chicken-marsala/",
+      "source_site": "Downshiftology",
+      "servings": 4,
+      "prep_time": "15 minutes",
+      "cook_time": "25 minutes",
+      "total_time": "40 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Italian-American",
+      "category": "Main Dish",
+      "rating": 4.8,
+      "ingredients": [
+        {
+          "name": "boneless skinless chicken breasts",
+          "amount": "2",
+          "unit": "large",
+          "notes": "cut in half lengthwise to make 4 cutlets"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "0.25",
+          "unit": "cup"
+        },
+        {
+          "name": "kosher salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "ground black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "extra-virgin olive oil",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "unsalted butter",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "baby bella mushrooms",
+          "amount": "8",
+          "unit": "ounces",
+          "notes": "thinly sliced"
+        },
+        {
+          "name": "shallot",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "finely chopped"
+        },
+        {
+          "name": "garlic cloves",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "chicken broth",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "Marsala wine",
+          "amount": "0.75",
+          "unit": "cup"
+        },
+        {
+          "name": "heavy cream",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "fresh parsley",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "finely chopped"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Cut chicken breasts in half lengthwise to make 4 thinner cutlets."
+        },
+        {
+          "step": 2,
+          "instruction": "Mix cornstarch, salt, and pepper in a shallow dish. Dredge chicken in the mixture, coating both sides."
+        },
+        {
+          "step": 3,
+          "instruction": "Heat oil and 1 tablespoon butter in a large skillet over medium-high heat. Sear chicken 3-4 minutes per side until golden. Remove to a plate."
+        },
+        {
+          "step": 4,
+          "instruction": "Melt remaining butter in the pan. Add mushrooms and sauté 2-3 minutes until lightly browned. Add garlic and shallot, cook 30 seconds more."
+        },
+        {
+          "step": 5,
+          "instruction": "Add broth, Marsala wine, and heavy cream. Bring to a boil, then simmer 10-15 minutes until reduced by half."
+        },
+        {
+          "step": 6,
+          "instruction": "Return chicken to pan, spoon sauce over it, and simmer 2-3 minutes until warmed through. Sprinkle with parsley before serving."
+        }
+      ],
+      "nutrition": {
+        "calories": 283,
+        "protein": "36.3g",
+        "carbohydrates": "6.6g",
+        "fat": "10.9g",
+        "saturated_fat": "2.5g",
+        "cholesterol": "96.4mg",
+        "sodium": "322.2mg",
+        "fiber": "0.4g"
+      },
+      "tags": [
+        "chicken",
+        "mushrooms",
+        "wine",
+        "italian",
+        "dinner",
+        "comfort food"
+      ],
+      "dietary_info": ["gluten-free option"],
+      "equipment": ["large skillet", "shallow dish", "tongs"]
+    },
+    {
+      "id": 2,
+      "name": "Chicken Parmesan",
+      "description": "Crispy breaded chicken topped with marinara and melted cheese",
+      "image_url": "https://preppykitchen.com/wp-content/uploads/2025/03/Chicken-Parmesan-Recipe-Card.jpg",
+      "source_url": "https://preppykitchen.com/chicken-parmesan/",
+      "source_site": "Preppy Kitchen",
+      "servings": 6,
+      "prep_time": "20 minutes",
+      "cook_time": "25 minutes",
+      "total_time": "45 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Italian-American",
+      "category": "Main Dish",
+      "rating": 4.9,
+      "ingredients": [
+        {
+          "name": "boneless, skinless chicken breasts",
+          "amount": "3",
+          "unit": "large",
+          "notes": "about 2 pounds, cut in half horizontally"
+        },
+        {
+          "name": "all-purpose flour",
+          "amount": "0.33",
+          "unit": "cup"
+        },
+        {
+          "name": "large eggs",
+          "amount": "2",
+          "unit": "eggs",
+          "notes": "beaten"
+        },
+        {
+          "name": "Italian breadcrumbs",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "panko bread crumbs",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "freshly grated Parmesan",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "divided"
+        },
+        {
+          "name": "chopped parsley",
+          "amount": "3",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "olive oil",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "low-moisture mozzarella",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "shredded"
+        },
+        {
+          "name": "marinara sauce",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "fresh basil leaves",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "for garnish"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat oven to 425°F. Butterfly chicken breasts and pound to even thickness between plastic wrap."
+        },
+        {
+          "step": 2,
+          "instruction": "Set up three bowls: flour with salt and pepper, beaten eggs, and breadcrumbs mixed with half the Parmesan and parsley."
+        },
+        {
+          "step": 3,
+          "instruction": "Dredge each chicken piece in flour, then egg, then breadcrumb mixture, pressing to adhere."
+        },
+        {
+          "step": 4,
+          "instruction": "Heat oil in large skillet over medium-high heat. Fry chicken 4 minutes per side until golden. Transfer to paper towels."
+        },
+        {
+          "step": 5,
+          "instruction": "Place chicken on baking sheet. Top with marinara, mozzarella, and remaining Parmesan."
+        },
+        {
+          "step": 6,
+          "instruction": "Bake 15-20 minutes until cheese is melted and golden. Garnish with fresh basil."
+        }
+      ],
+      "nutrition": {
+        "calories": 520,
+        "protein": "42g",
+        "carbohydrates": "28g",
+        "fat": "26g",
+        "saturated_fat": "8g",
+        "cholesterol": "125mg",
+        "sodium": "890mg",
+        "fiber": "2g"
+      },
+      "tags": [
+        "chicken",
+        "cheese",
+        "italian",
+        "crispy",
+        "dinner",
+        "comfort food"
+      ],
+      "dietary_info": ["high protein"],
+      "equipment": [
+        "large skillet",
+        "baking sheet",
+        "meat mallet",
+        "three shallow bowls"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Classic Beef Stroganoff",
+      "description": "Tender beef strips in a creamy mushroom sauce served over egg noodles",
+      "image_url": "https://www.bettycrocker.com/wp-content/uploads/2019/11/beef-stroganoff-1200x1200.jpg",
+      "source_url": "https://www.bettycrocker.com/recipes/traditional-beef-stroganoff/c17a904f-a8f6-48ae-bedb-5b301a8ea317",
+      "source_site": "Betty Crocker",
+      "servings": 6,
+      "prep_time": "20 minutes",
+      "cook_time": "35 minutes",
+      "total_time": "55 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Russian",
+      "category": "Main Dish",
+      "rating": 4.7,
+      "ingredients": [
+        {
+          "name": "beef sirloin steak",
+          "amount": "1.5",
+          "unit": "pounds",
+          "notes": "cut into thin strips"
+        },
+        {
+          "name": "sliced mushrooms",
+          "amount": "8",
+          "unit": "ounces"
+        },
+        {
+          "name": "chopped onion",
+          "amount": "1",
+          "unit": "medium onion"
+        },
+        {
+          "name": "garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "butter",
+          "amount": "3",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "beef broth",
+          "amount": "1.5",
+          "unit": "cups"
+        },
+        {
+          "name": "salt",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "Worcestershire sauce",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "all-purpose flour",
+          "amount": "3",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "sour cream",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "egg noodles",
+          "amount": "8",
+          "unit": "ounces",
+          "notes": "uncooked"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Cut beef across grain into 1½ x ½-inch strips."
+        },
+        {
+          "step": 2,
+          "instruction": "Cook mushrooms, onions and garlic in butter in 10-inch skillet over medium heat until onions are tender; remove from skillet."
+        },
+        {
+          "step": 3,
+          "instruction": "Cook beef in same skillet until brown. Stir in 1 cup broth, salt and Worcestershire sauce. Heat to boiling; reduce heat and simmer covered 15 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Meanwhile, cook and drain noodles as directed on package; cover to keep warm."
+        },
+        {
+          "step": 5,
+          "instruction": "Whisk remaining ½ cup broth into flour until smooth. Stir into beef mixture with onion mixture. Bring to boil, stirring constantly for 1 minute."
+        },
+        {
+          "step": 6,
+          "instruction": "Reduce heat to low and stir in sour cream. Cook 1-2 minutes until hot without boiling. Serve over noodles."
+        }
+      ],
+      "nutrition": {
+        "calories": 435,
+        "protein": "28g",
+        "carbohydrates": "31g",
+        "fat": "23g",
+        "saturated_fat": "10g",
+        "cholesterol": "115mg",
+        "sodium": "620mg",
+        "fiber": "2g"
+      },
+      "tags": [
+        "beef",
+        "creamy",
+        "mushrooms",
+        "comfort food",
+        "russian",
+        "noodles"
+      ],
+      "dietary_info": ["high protein"],
+      "equipment": ["large skillet", "large pot for noodles", "whisk"]
+    },
+    {
+      "id": 4,
+      "name": "Spaghetti Carbonara",
+      "description": "Authentic Italian pasta with eggs, cheese, and crispy guanciale",
+      "image_url": "https://www.recipetineats.com/wp-content/uploads/2018/03/Carbonara_9.jpg",
+      "source_url": "https://www.recipetineats.com/carbonara/",
+      "source_site": "RecipeTin Eats",
+      "servings": 4,
+      "prep_time": "10 minutes",
+      "cook_time": "15 minutes",
+      "total_time": "25 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Italian",
+      "category": "Main Dish",
+      "rating": 4.8,
+      "ingredients": [
+        {
+          "name": "spaghetti",
+          "amount": "14",
+          "unit": "ounces"
+        },
+        {
+          "name": "guanciale or pancetta",
+          "amount": "5",
+          "unit": "ounces",
+          "notes": "cut into small cubes"
+        },
+        {
+          "name": "egg yolks",
+          "amount": "3",
+          "unit": "yolks"
+        },
+        {
+          "name": "large egg",
+          "amount": "1",
+          "unit": "egg"
+        },
+        {
+          "name": "Pecorino-Romano cheese",
+          "amount": "0.75",
+          "unit": "cup",
+          "notes": "grated, plus more to serve"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for pasta water"
+        },
+        {
+          "name": "freshly ground black pepper",
+          "amount": "1",
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Fill large pot with salted water and bring to a boil. Cook spaghetti until al dente, about 12 minutes. Reserve 1 cup pasta water before draining."
+        },
+        {
+          "step": 2,
+          "instruction": "Meanwhile, heat skillet over medium heat. Add guanciale and cook until crisp, 5-10 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Whisk egg yolks, whole egg, ¾ cup Pecorino-Romano, salt, and pepper in large bowl until combined."
+        },
+        {
+          "step": 4,
+          "instruction": "Add hot drained pasta to skillet with guanciale. Remove from heat."
+        },
+        {
+          "step": 5,
+          "instruction": "Quickly add egg mixture to pasta, tossing vigorously with tongs. Add pasta water gradually until creamy sauce forms."
+        },
+        {
+          "step": 6,
+          "instruction": "Serve immediately with extra cheese, salt, and pepper to taste."
+        }
+      ],
+      "nutrition": {
+        "calories": 380,
+        "protein": "18g",
+        "carbohydrates": "45g",
+        "fat": "15g",
+        "saturated_fat": "6g",
+        "cholesterol": "185mg",
+        "sodium": "520mg",
+        "fiber": "2g"
+      },
+      "tags": ["pasta", "italian", "eggs", "cheese", "traditional", "quick"],
+      "dietary_info": ["traditional Italian"],
+      "equipment": [
+        "large pot",
+        "large skillet",
+        "whisk",
+        "tongs",
+        "large bowl"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Beef and Broccoli Stir-Fry",
+      "description": "Classic Chinese-American stir-fry with tender beef and crisp broccoli",
+      "image_url": "https://www.delish.com/resize/beef-broccoli-1200x1200.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/a24489879/beef-and-broccoli-recipe/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "25 minutes",
+      "cook_time": "15 minutes",
+      "total_time": "40 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Chinese-American",
+      "category": "Main Dish",
+      "rating": 4.6,
+      "ingredients": [
+        {
+          "name": "flank steak",
+          "amount": "1",
+          "unit": "pound",
+          "notes": "sliced very thinly against the grain"
+        },
+        {
+          "name": "dry sherry",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "rice vinegar",
+          "amount": "1",
+          "unit": "tablespoon"
+        },
+        {
+          "name": "soy sauce",
+          "amount": "0.58",
+          "unit": "cup",
+          "notes": "divided"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "brown sugar",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "vegetable oil",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "fresh ginger",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "minced"
+        },
+        {
+          "name": "scallions",
+          "amount": "4",
+          "unit": "scallions",
+          "notes": "sliced, green and white parts separated"
+        },
+        {
+          "name": "broccoli florets",
+          "amount": "1",
+          "unit": "large head"
+        },
+        {
+          "name": "chicken broth",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "oyster sauce",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "sesame seeds",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "cooked white rice",
+          "amount": "4",
+          "unit": "servings"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Marinate beef: Combine sherry, vinegar, ⅓ cup soy sauce, 1 tbsp cornstarch, and 1 tbsp brown sugar. Add sliced steak and marinate 20 minutes."
+        },
+        {
+          "step": 2,
+          "instruction": "Make sauce: Whisk broth, oyster sauce, remaining soy sauce, cornstarch, and brown sugar."
+        },
+        {
+          "step": 3,
+          "instruction": "Cook beef in batches in hot oil until seared, about 1 minute per side. Remove and set aside."
+        },
+        {
+          "step": 4,
+          "instruction": "Add more oil to pan. Cook garlic, ginger, and white scallion parts until fragrant, 2 minutes."
+        },
+        {
+          "step": 5,
+          "instruction": "Add broccoli and cook until slightly softened, 1 minute. Add sauce, cover and cook 3 minutes."
+        },
+        {
+          "step": 6,
+          "instruction": "Return beef to pan and toss until coated. Cook 2-3 minutes until warmed through. Serve over rice with sesame seeds and green scallions."
+        }
+      ],
+      "nutrition": {
+        "calories": 320,
+        "protein": "26g",
+        "carbohydrates": "18g",
+        "fat": "16g",
+        "saturated_fat": "4g",
+        "cholesterol": "65mg",
+        "sodium": "890mg",
+        "fiber": "3g"
+      },
+      "tags": ["beef", "broccoli", "stir-fry", "chinese", "quick", "healthy"],
+      "dietary_info": ["high protein", "gluten-free option"],
+      "equipment": ["large skillet", "medium bowls", "whisk"]
+    },
+    {
+      "id": 6,
+      "name": "Chicken and Broccoli",
+      "description": "Quick and easy one-pot chicken and broccoli in savory ginger-garlic sauce",
+      "image_url": "https://www.delish.com/recipe-images/chicken-broccoli-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/g3338/best-weeknight-dinners/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "10 minutes",
+      "cook_time": "15 minutes",
+      "total_time": "25 minutes",
+      "difficulty": "Easy",
+      "cuisine": "Chinese-American",
+      "category": "Main Dish",
+      "rating": 4.7,
+      "ingredients": [
+        {
+          "name": "boneless skinless chicken breasts",
+          "amount": "1",
+          "unit": "pound",
+          "notes": "cut into bite-sized pieces"
+        },
+        {
+          "name": "broccoli florets",
+          "amount": "4",
+          "unit": "cups"
+        },
+        {
+          "name": "vegetable oil",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "fresh ginger",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "minced"
+        },
+        {
+          "name": "soy sauce",
+          "amount": "0.25",
+          "unit": "cup"
+        },
+        {
+          "name": "chicken broth",
+          "amount": "0.25",
+          "unit": "cup"
+        },
+        {
+          "name": "brown sugar",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "1",
+          "unit": "tablespoon"
+        },
+        {
+          "name": "sesame oil",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "cooked white rice",
+          "amount": "4",
+          "unit": "servings"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Heat oil in large skillet over medium-high heat. Add chicken and cook until golden, about 6 minutes."
+        },
+        {
+          "step": 2,
+          "instruction": "Add garlic and ginger, cook until fragrant, about 1 minute."
+        },
+        {
+          "step": 3,
+          "instruction": "Add broccoli and cook until bright green and slightly tender, about 3 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Whisk together soy sauce, broth, brown sugar, cornstarch, and sesame oil."
+        },
+        {
+          "step": 5,
+          "instruction": "Pour sauce over chicken and broccoli. Cook until sauce thickens, about 2 minutes."
+        },
+        {
+          "step": 6,
+          "instruction": "Serve immediately over cooked rice."
+        }
+      ],
+      "nutrition": {
+        "calories": 285,
+        "protein": "28g",
+        "carbohydrates": "15g",
+        "fat": "12g",
+        "saturated_fat": "2g",
+        "cholesterol": "75mg",
+        "sodium": "650mg",
+        "fiber": "3g"
+      },
+      "tags": [
+        "chicken",
+        "broccoli",
+        "quick",
+        "healthy",
+        "one-pot",
+        "weeknight"
+      ],
+      "dietary_info": ["high protein", "gluten-free option"],
+      "equipment": ["large skillet", "whisk", "small bowl"]
+    },
+    {
+      "id": 7,
+      "name": "Garlic Butter Shrimp Pasta",
+      "description": "Succulent shrimp in buttery garlic sauce with angel hair pasta",
+      "image_url": "https://www.delish.com/recipe-images/garlic-butter-shrimp-pasta-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/g3338/best-weeknight-dinners/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "10 minutes",
+      "cook_time": "20 minutes",
+      "total_time": "30 minutes",
+      "difficulty": "Easy",
+      "cuisine": "Italian-American",
+      "category": "Main Dish",
+      "rating": 4.8,
+      "ingredients": [
+        {
+          "name": "angel hair pasta",
+          "amount": "12",
+          "unit": "ounces"
+        },
+        {
+          "name": "large shrimp",
+          "amount": "1.5",
+          "unit": "pounds",
+          "notes": "peeled and deveined"
+        },
+        {
+          "name": "butter",
+          "amount": "6",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "white wine",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "lemon juice",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Parmesan cheese",
+          "amount": "0.5",
+          "unit": "cup",
+          "notes": "grated"
+        },
+        {
+          "name": "fresh parsley",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "red pepper flakes",
+          "amount": "0.25",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Cook pasta according to package directions until al dente. Reserve 1 cup pasta water, then drain."
+        },
+        {
+          "step": 2,
+          "instruction": "Season shrimp with salt and pepper. Heat 2 tablespoons butter in large skillet over medium-high heat."
+        },
+        {
+          "step": 3,
+          "instruction": "Add shrimp and cook until pink, about 2 minutes per side. Remove shrimp and set aside."
+        },
+        {
+          "step": 4,
+          "instruction": "Add garlic to same skillet and cook until fragrant, about 1 minute."
+        },
+        {
+          "step": 5,
+          "instruction": "Add wine and lemon juice, simmer 2 minutes. Stir in remaining butter and red pepper flakes."
+        },
+        {
+          "step": 6,
+          "instruction": "Add cooked pasta and toss with sauce. Add shrimp back to pan, sprinkle with Parmesan and parsley. Serve immediately."
+        }
+      ],
+      "nutrition": {
+        "calories": 425,
+        "protein": "32g",
+        "carbohydrates": "42g",
+        "fat": "16g",
+        "saturated_fat": "9g",
+        "cholesterol": "220mg",
+        "sodium": "780mg",
+        "fiber": "2g"
+      },
+      "tags": ["shrimp", "pasta", "garlic", "butter", "quick", "seafood"],
+      "dietary_info": ["high protein", "pescatarian"],
+      "equipment": ["large pot", "large skillet", "colander"]
+    },
+    {
+      "id": 8,
+      "name": "Classic Stuffed Peppers",
+      "description": "Colorful bell peppers stuffed with seasoned ground beef and rice",
+      "image_url": "https://www.delish.com/recipe-images/stuffed-peppers-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/g3338/best-weeknight-dinners/",
+      "source_site": "Delish",
+      "servings": 6,
+      "prep_time": "20 minutes",
+      "cook_time": "40 minutes",
+      "total_time": "60 minutes",
+      "difficulty": "Medium",
+      "cuisine": "American",
+      "category": "Main Dish",
+      "rating": 4.5,
+      "ingredients": [
+        {
+          "name": "large bell peppers",
+          "amount": "6",
+          "unit": "peppers",
+          "notes": "tops cut off and seeds removed"
+        },
+        {
+          "name": "ground beef",
+          "amount": "1",
+          "unit": "pound"
+        },
+        {
+          "name": "cooked white rice",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "small onion",
+          "amount": "1",
+          "unit": "onion",
+          "notes": "diced"
+        },
+        {
+          "name": "garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "diced tomatoes",
+          "amount": "14.5",
+          "unit": "ounces",
+          "notes": "one can, drained"
+        },
+        {
+          "name": "shredded cheddar cheese",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "divided"
+        },
+        {
+          "name": "Italian seasoning",
+          "amount": "2",
+          "unit": "teaspoons"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "beef broth",
+          "amount": "0.5",
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat oven to 350°F. Place peppers in baking dish and add broth to bottom of dish."
+        },
+        {
+          "step": 2,
+          "instruction": "Cook ground beef in large skillet over medium heat until browned, about 6 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Add onion and garlic, cook until softened, about 5 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Stir in cooked rice, diced tomatoes, 1 cup cheese, Italian seasoning, salt, and pepper."
+        },
+        {
+          "step": 5,
+          "instruction": "Divide filling evenly among peppers. Cover with foil and bake 35 minutes."
+        },
+        {
+          "step": 6,
+          "instruction": "Remove foil, top with remaining cheese, and bake 10 more minutes until cheese melts."
+        }
+      ],
+      "nutrition": {
+        "calories": 295,
+        "protein": "22g",
+        "carbohydrates": "18g",
+        "fat": "15g",
+        "saturated_fat": "8g",
+        "cholesterol": "70mg",
+        "sodium": "720mg",
+        "fiber": "4g"
+      },
+      "tags": [
+        "peppers",
+        "ground beef",
+        "rice",
+        "cheese",
+        "comfort food",
+        "baked"
+      ],
+      "dietary_info": ["high protein", "gluten-free"],
+      "equipment": ["large skillet", "baking dish", "aluminum foil"]
+    },
+    {
+      "id": 9,
+      "name": "Easy Chicken Curry",
+      "description": "Aromatic and creamy chicken curry with warm spices",
+      "image_url": "https://www.delish.com/recipe-images/chicken-curry-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/menus/g62071042/most-clicked-dinner-recipes-delish/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "15 minutes",
+      "cook_time": "30 minutes",
+      "total_time": "45 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Indian",
+      "category": "Main Dish",
+      "rating": 4.6,
+      "ingredients": [
+        {
+          "name": "boneless skinless chicken thighs",
+          "amount": "2",
+          "unit": "pounds",
+          "notes": "cut into bite-sized pieces"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "yellow onion",
+          "amount": "1",
+          "unit": "large onion",
+          "notes": "diced"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "fresh ginger",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "minced"
+        },
+        {
+          "name": "curry powder",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "ground cumin",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "ground coriander",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "crushed tomatoes",
+          "amount": "14.5",
+          "unit": "ounces",
+          "notes": "one can"
+        },
+        {
+          "name": "coconut milk",
+          "amount": "14",
+          "unit": "ounces",
+          "notes": "one can, full-fat"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "fresh cilantro",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "basmati rice",
+          "amount": "4",
+          "unit": "servings",
+          "notes": "cooked"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Heat coconut oil in large skillet over medium-high heat. Season chicken with salt and cook until browned, about 6 minutes."
+        },
+        {
+          "step": 2,
+          "instruction": "Add onion and cook until softened, about 5 minutes. Add garlic and ginger, cook 1 minute more."
+        },
+        {
+          "step": 3,
+          "instruction": "Stir in curry powder, cumin, and coriander. Cook until fragrant, about 30 seconds."
+        },
+        {
+          "step": 4,
+          "instruction": "Add crushed tomatoes and coconut milk. Bring to simmer and cook 15 minutes until thickened."
+        },
+        {
+          "step": 5,
+          "instruction": "Season with salt and taste for seasoning adjustments."
+        },
+        {
+          "step": 6,
+          "instruction": "Garnish with fresh cilantro and serve over basmati rice."
+        }
+      ],
+      "nutrition": {
+        "calories": 385,
+        "protein": "35g",
+        "carbohydrates": "12g",
+        "fat": "22g",
+        "saturated_fat": "16g",
+        "cholesterol": "140mg",
+        "sodium": "680mg",
+        "fiber": "3g"
+      },
+      "tags": [
+        "chicken",
+        "curry",
+        "indian",
+        "spicy",
+        "coconut milk",
+        "aromatic"
+      ],
+      "dietary_info": ["gluten-free", "dairy-free", "high protein"],
+      "equipment": ["large skillet", "can opener"]
+    },
+    {
+      "id": 10,
+      "name": "Classic Mac and Cheese",
+      "description": "Creamy, cheesy macaroni and cheese with a crispy breadcrumb topping",
+      "image_url": "https://www.foodnetwork.com/recipe-images/mac-and-cheese-1200x1800.jpg",
+      "source_url": "https://www.foodnetwork.com/recipes/photos/top-rated-and-reviewed-recipes",
+      "source_site": "Food Network",
+      "servings": 8,
+      "prep_time": "20 minutes",
+      "cook_time": "30 minutes",
+      "total_time": "50 minutes",
+      "difficulty": "Medium",
+      "cuisine": "American",
+      "category": "Side Dish",
+      "rating": 4.9,
+      "ingredients": [
+        {
+          "name": "elbow macaroni",
+          "amount": "1",
+          "unit": "pound"
+        },
+        {
+          "name": "butter",
+          "amount": "4",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "all-purpose flour",
+          "amount": "4",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "whole milk",
+          "amount": "3",
+          "unit": "cups"
+        },
+        {
+          "name": "sharp cheddar cheese",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "shredded"
+        },
+        {
+          "name": "Gruyere cheese",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "shredded"
+        },
+        {
+          "name": "cream cheese",
+          "amount": "4",
+          "unit": "ounces",
+          "notes": "cubed"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "paprika",
+          "amount": "0.25",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "panko breadcrumbs",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "melted butter",
+          "amount": "2",
+          "unit": "tablespoons"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat oven to 350°F. Cook macaroni according to package directions, drain."
+        },
+        {
+          "step": 2,
+          "instruction": "Melt butter in large saucepan over medium heat. Whisk in flour and cook 2 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Gradually whisk in milk and cook until thickened, about 5 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Remove from heat and stir in cheeses until melted. Season with salt, pepper, and paprika."
+        },
+        {
+          "step": 5,
+          "instruction": "Combine pasta and cheese sauce in buttered 9x13 baking dish."
+        },
+        {
+          "step": 6,
+          "instruction": "Mix breadcrumbs with melted butter, sprinkle over top. Bake 25-30 minutes until golden and bubbly."
+        }
+      ],
+      "nutrition": {
+        "calories": 485,
+        "protein": "20g",
+        "carbohydrates": "48g",
+        "fat": "24g",
+        "saturated_fat": "15g",
+        "cholesterol": "75mg",
+        "sodium": "620mg",
+        "fiber": "2g"
+      },
+      "tags": [
+        "mac and cheese",
+        "comfort food",
+        "cheese",
+        "pasta",
+        "baked",
+        "creamy"
+      ],
+      "dietary_info": ["vegetarian"],
+      "equipment": ["large pot", "large saucepan", "whisk", "9x13 baking dish"]
+    }
+  ]
+}
+
+
+
+================================================
+FILE: docs/dindin.recipesGUIDELINE.json
+================================================
+[
+  {
+    "title": "Shrimp Scampi Linguine",
+    "ingredients": [
+      {
+        "name": "linguine",
+        "amount": "12",
+        "unit": "oz"
+      },
+      {
+        "name": "large shrimp, peeled",
+        "amount": "1",
+        "unit": "lb"
+      },
+      {
+        "name": "olive oil",
+        "amount": "2",
+        "unit": "tbsp"
+      },
+      {
+        "name": "white wine",
+        "amount": "1/2",
+        "unit": "cup"
+      },
+      {
+        "name": "butter",
+        "amount": "3",
+        "unit": "tbsp"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Cook linguine until al dente.",
+        "duration": 10
+      },
+      {
+        "step": 2,
+        "description": "Sauté shrimp with garlic and red-pepper flakes.",
+        "duration": 4
+      },
+      {
+        "step": 3,
+        "description": "Deglaze with wine; finish with butter and lemon.",
+        "duration": 5
+      },
+      {
+        "step": 4,
+        "description": "Toss pasta in sauce; garnish with parsley.",
+        "duration": 3
+      }
+    ],
+    "difficulty": "medium",
+    "description": "Scampi classic that topped Food & Wine's 2025 'Weeknight 15' list.",
+    "image_url": "https://images.unsplash.com/photo-1589927986089-35812388d1d4",
+    "prep_time": 10,
+    "cook_time": 20,
+    "cuisine_type": "Italian-American",
+    "dietary_tags": ["pescatarian"],
+    "nutrition": {
+      "calories": 530,
+      "protein": 30,
+      "carbs": 58,
+      "fat": 18,
+      "fiber": 4,
+      "sugar": 3
+    },
+    "import_metadata": {
+      "source_url": "https://www.foodsandwine.com/recipes/shrimp-scampi-pasta",
+      "scraper_name": "manual_entry",
+      "scraper_version": "1.0.0",
+      "confidence_score": 0.8,
+      "extracted_at": "2025-08-06T18:01:00Z",
+      "notes": "4.6★ from 1,900 ratings; #shrimpscampi 220M TikTok views"
+    }
+  }
+]
+
+
+
+================================================
+FILE: docs/dindin.recipesUSETHISONE.json
+================================================
+[
+  {
+    "title": "Korean Bulgogi Beef Lettuce Wraps",
+    "description": "Sweet–savory soy-marinated rib-eye strips grilled and wrapped in crisp lettuce with kimchi—K-BBQ flavor without the tabletop grill.",
+    "difficulty": "medium",
+    "cuisine": ["Korean", "Fusion"],
+    "cuisine_type": "Beef",
+    "dietary_tags": ["dairy-free"],
+    "cook_time": 15,
+    "prep_time": 120,
+    "servings": 4,
+    "ingredients": [
+      {
+        "amount": "1 1⁄2",
+        "unit": "lb",
+        "name": "rib-eye steak, thinly sliced"
+      },
+      {
+        "amount": "1⁄3",
+        "unit": "cup",
+        "name": "low-sodium soy sauce"
+      },
+      {
+        "amount": "3",
+        "unit": "tbsp",
+        "name": "brown sugar"
+      },
+      {
+        "amount": "2",
+        "unit": "tbsp",
+        "name": "pear purée"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "name": "sesame oil"
+      },
+      {
+        "amount": "4",
+        "unit": "cloves",
+        "name": "garlic, minced"
+      },
+      {
+        "amount": "2",
+        "unit": "tsp",
+        "name": "fresh ginger, grated"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "name": "gochujang"
+      },
+      {
+        "amount": "2",
+        "unit": "tsp",
+        "name": "toasted sesame seeds"
+      },
+      {
+        "amount": "1",
+        "unit": "head",
+        "name": "butter lettuce, leaves separated"
+      },
+      {
+        "amount": "1",
+        "unit": "cup",
+        "name": "kimchi, chopped"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Whisk soy, sugar, pear, sesame oil, garlic, ginger, and gochujang; marinate beef 1–2 hrs."
+      },
+      {
+        "step": 2,
+        "description": "Heat grill pan high; cook beef in batches 1 min per side until charred."
+      },
+      {
+        "step": 3,
+        "description": "Sprinkle with sesame seeds."
+      },
+      {
+        "step": 4,
+        "description": "Serve beef in lettuce cups with kimchi."
+      }
+    ],
+    "nutrition": {
+      "calories": 394,
+      "carbs": 17,
+      "fat": 24,
+      "fiber": 1,
+      "protein": 27,
+      "sugar": 12
+    },
+    "image_url": "https://images.unsplash.com/photo-1603297631957-c5887924766a",
+    "tags": ["grill", "lettuce-wrap"],
+    "import_metadata": {
+      "confidence_score": 0.94,
+      "extracted_at": "2025-08-07T11:00:00Z",
+      "notes": "Trending on Bon Appétit June 2025; Instagram reel >2 M views.",
+      "scraper_name": "OpenAI-recipe-bot",
+      "scraper_version": "1.0",
+      "source_url": "https://www.bonappetit.com/recipe/bulgogi"
+    },
+    "isActive": true,
+    "likes": 3221,
+    "__v": 0
+  }
+]
+
+
+
+================================================
+FILE: docs/prd.md
+================================================
+# Product Requirements Document: DinDin
+
+## 1. Problem Statement
+
+The daily hassle of deciding what to eat can be a significant pain point for couples and
+individuals. The current process often involves endless browsing through recipe websites, food
+blogs, or social media, leading to decision fatigue and frustration. DinDin aims to solve this
+problem by providing a simple and engaging platform for users to discover and match with their
+preferred dinner options. By leveraging a Tinder-like card swiping interface, DinDin streamlines the
+decision-making process, allowing users to quickly and easily find a match and decide on dinner
+plans. This problem is important to solve now, as the rise of food delivery and online ordering has
+increased the demand for convenient and personalized dining experiences.
+
+## 2. Product Vision
+
+The long-term vision for DinDin is to become the go-to platform for social dining and meal planning.
+Beyond its MVP, DinDin aims to expand its features to include personalized recipe recommendations,
+social sharing, and integration with popular food delivery services. The app may also evolve to
+accommodate larger groups, events, and special occasions. As the app grows, it will continue to
+prioritize user engagement, retention, and satisfaction, ensuring that DinDin remains a valuable and
+enjoyable experience for its users. Ultimately, DinDin envisions a future where mealtime is no
+longer a source of stress, but a opportunity for connection and enjoyment.
+
+## 3. Target Users
+
+### Persona 1: Alex, the Busy Professional
+
+- Name: Alex
+- Role: Marketing Manager
+- Demographics: 28-35 years old, urban, working professionals
+- Key needs and motivations: Quick and easy meal solutions, wants to impress partner with dinner
+  plans
+- Challenges: Limited time for cooking, wants to avoid repetitive meals
+- How DinDin helps: Provides a fast and fun way to discover new recipes and match with partner
+
+### Persona 2: Maya, the Home Cook
+
+- Name: Maya
+- Role: Teacher
+- Demographics: 25-40 years old, suburban, food enthusiasts
+- Key needs and motivations: Variety of recipes, wants to cook healthy meals for partner and family
+- Challenges: Limited cooking inspiration, wants to avoid boring meals
+- How DinDin helps: Offers a curated selection of recipes, allows for easy meal planning and
+  discovery
+
+### Persona 3: Jamie, the Foodie
+
+- Name: Jamie
+- Role: Freelancer
+- Demographics: 25-40 years old, urban, foodies
+- Key needs and motivations: Unique and exciting recipes, wants to try new foods and restaurants
+- Challenges: Limited time for cooking, wants to stay up-to-date on food trends
+- How DinDin helps: Provides access to a diverse library of recipes, allows for social sharing and
+  discovery
+
+## 4. Use Cases
+
+### Use Case 1: Couples Matching
+
+- Trigger: Two users, Alex and Maya, sign up for DinDin and start swiping through recipes
+- Steps: Alex and Maya swipe through recipes, both swiping right on a chicken parmesan recipe
+- Outcome: Alex and Maya are matched, and the app suggests they cook chicken parmesan for dinner
+
+### Use Case 2: Solo Meal Planning
+
+- Trigger: Jamie signs up for DinDin and wants to find a new recipe to try
+- Steps: Jamie swipes through recipes, favoriting a few options
+- Outcome: Jamie receives a list of recommended recipes, with cooking instructions and nutritional
+  information
+
+### Use Case 3: Social Sharing
+
+- Trigger: Alex and Maya cook a matched recipe and want to share their experience
+- Steps: Alex and Maya upload photos and reviews of their meal
+- Outcome: Their friends and followers on social media can see their posts, with links to the recipe
+  and DinDin
+
+## 5. Key Features
+
+### Feature 1: Recipe Swiping
+
+- **Feature Name:** Recipe Swiping
+- **Detailed Description:** Users swipe through a curated selection of recipes, with the option to
+  like or dislike each one. Similar to Tinder!
+- **Purpose:** Provides a fun and engaging way for users to discover new recipes and match with
+  their partner
+- **Dependencies/Assumptions:** Recipe data, user profiles, and swiping algorithm
+
+### Feature 2: Peer-to-Peer Matching
+
+- **Feature Name:** Peer-to-Peer Matching
+- **Detailed Description:** Users can match with their partner or friends on recipes, creating a
+  shared dinner plan
+- **Purpose:** Facilitates social dining and meal planning, allowing users to connect with others
+  over food
+- **Dependencies/Assumptions:** User profiles, recipe data, and matching algorithm
+
+### Feature 3: Recipe Library
+
+- **Feature Name:** Recipe Library
+- **Detailed Description:** A comprehensive library of recipes, with filtering and search
+  capabilities
+- **Purpose:** Provides users with a wide range of recipe options, catering to different tastes and
+  dietary needs
+- **Dependencies/Assumptions:** Recipe data, filtering and search algorithms
+
+### Feature 4: Social Sharing
+
+- **Feature Name:** Social Sharing
+- **Detailed Description:** Users can share their cooking experiences and photos on social media
+- **Purpose:** Encourages user engagement and retention, allowing users to share their love of food
+  with others
+- **Dependencies/Assumptions:** Social media APIs, user profiles
+
+## 6. Non-Functional Requirements
+
+- **App Performance and Responsiveness:** DinDin should provide a seamless and responsive user
+  experience, with fast loading times and smooth navigation
+- **Cross-Platform Behavior:** DinDin should behave consistently across iOS, Android, and Web
+  platforms
+- **Accessibility and Inclusivity:** DinDin should be accessible to users with disabilities, with
+  features such as screen reader support and high contrast mode
+- **Data Privacy and Security Standards:** DinDin should adhere to strict data protection and
+  security standards, ensuring user data is safe and secure
+- **Offline Access or Backup Requirements:** DinDin should provide offline access to recipe data,
+  with automatic syncing when the user comes online
+
+## 7. MVP Scope
+
+The MVP will include the following features:
+
+- Recipe Swiping
+- Peer-to-Peer Matching
+- Recipe Library
+- User Profiles
+
+These features were prioritized as they provide the core value proposition of DinDin, allowing users
+to discover and match with recipes. The MVP will deliver a functional and engaging platform, with a
+focus on user experience and retention.
+
+## 8. Out-of-Scope
+
+The following features are explicitly excluded from the MVP:
+
+- Social Sharing
+- Integration with food delivery services
+- Personalized recipe recommendations
+
+These features will be considered for future development, based on user feedback and market demand.
+
+## 9. Success Metrics
+
+The success of DinDin will be measured by the following metrics:
+
+- User acquisition and retention rates
+- Engagement metrics (e.g., swipes, matches, shares)
+- User satisfaction ratings (e.g., app store reviews, surveys)
+
+## 10. Risks & Assumptions
+
+The following risks and assumptions have been identified:
+
+- **Market Risk:** Competition from existing meal planning and social dining apps
+- **Technical Risk:** Integration with recipe data sources and social media APIs
+- **User Adoption:** User engagement and retention rates
+
+By understanding these risks and assumptions, we can develop strategies to mitigate them and ensure
+the success of DinDin.
+
+# App Flow: DinDin
+
+## 1. Entry Point
+
+DinDin users can access the app through iOS, Android, and Web platforms. The onboarding process is
+similar across platforms, with some adjustments for screen size and device capabilities.
+
+- **Onboarding:** The app supports both guest access and authenticated login. For authenticated
+  login, DinDin uses Google authentication.
+- **Login/Signup Flow:** Users can sign up using their Google account. Guest users can start using
+  the app immediately but will have limited access to features like saving preferences and
+  connecting with other users.
+- **Platform Differences:** While the core functionality remains the same, the app's layout and
+  navigation are adapted for each platform. Mobile apps have a bottom tab bar, while the Web version
+  uses a top navigation bar.
+
+## 2. Global Navigation
+
+The app features a simple and consistent navigation across all platforms.
+
+- **Top Nav (Web):** A navigation bar at the top with links to main sections like "Discover,"
+  "Matches," and "Profile."
+- **Bottom Tab Bar (Mobile):** A tab bar at the bottom with icons for "Discover," "Matches,"
+  "Profile," and "Settings."
+- **Sidebar (None):** There's no sidebar; all navigation is through the top nav (Web) or bottom tab
+  bar (Mobile).
+- **Conditional Visibility:** Some features, like the "Matches" tab, are only visible to logged-in
+  users.
+
+## 3. Screens & Subflows
+
+Here's a breakdown of the major screens and their functionalities:
+
+### Screen: Welcome / Landing
+
+- **Purpose:** Introduce the app, its benefits, and guide users to either log in or start as a
+  guest.
+- **Inputs & Controls:** None
+- **Actions:** Navigate to login/signup or start as a guest
+- **AI Enhancements:** None
+- **Transitions:** To "Discover" screen for guests, or to "Profile" for logged-in users
+- **Conditional Logic:** Display different content based on whether the user is accessing the app
+  for the first time
+
+### Screen: Discover
+
+- **Purpose:** Display a card swiping interface with recipe options.
+- **Inputs & Controls:** Swipe gestures (like/dislike), search bar
+- **Actions:** Swipe through recipes, like or dislike them
+- **AI Enhancements:** AI suggests recipes based on user preferences and swiping behavior
+- **Transitions:** To "Match" screen when both users swipe right on the same recipe
+- **Conditional Logic:** Recipes are filtered based on user preferences and previous interactions
+
+### Screen: Match
+
+- **Purpose:** Show matches (recipes liked by both users) and allow users to decide on dinner plans.
+- **Inputs & Controls:** Buttons to confirm or cancel a match
+- **Actions:** Confirm a match to decide on dinner, or cancel to continue swiping
+- **AI Enhancements:** AI provides suggestions for planning dinner based on the matched recipe
+- **Transitions:** Back to "Discover" or to "Chat" screen for discussing dinner plans
+- **Conditional Logic:** Display matches based on both users' preferences and swiping history
+
+### Screen: Profile
+
+- **Purpose:** Allow users to view and edit their profile information.
+- **Inputs & Controls:** Text inputs for profile details, image upload
+- **Actions:** Edit profile, view preferences
+- **AI Enhancements:** AI suggests profile improvements based on user behavior
+- **Transitions:** Back to previous screen
+- **Conditional Logic:** Display different profile information based on user settings
+
+### Screen: Settings / Account
+
+- **Purpose:** Allow users to manage their account settings and app preferences.
+- **Inputs & Controls:** Toggle switches for settings, dropdowns for preferences
+- **Actions:** Change settings, update preferences
+- **AI Enhancements:** AI provides recommendations for optimizing settings based on user behavior
+- **Transitions:** Back to previous screen
+- **Conditional Logic:** Display settings based on user role (logged-in vs guest)
+
+## 4. State Management & AI Logic
+
+User data is saved locally on the device and synced with the server for logged-in users.
+AI-generated inputs, such as recipe suggestions, are based on user preferences, swiping behavior,
+and profile information.
+
+- **Saved Locally:** User preferences, swiping history
+- **Synced:** Profile information, matches, settings
+- **AI Feedback Loops:** User interactions with AI suggestions update the AI model for better
+  recommendations
+
+## 5. Back Navigation Rules
+
+Navigation is not strictly linear; users can move between screens freely, but with some limitations.
+
+- **Back Button:** Takes users to the previous screen, with state preserved
+- **Revisiting Steps:** Users can revisit previous steps, but some actions (like confirming a match)
+  are irreversible
+
+## 6. Responsive & Platform-Specific Behavior
+
+The app adapts its layout and behavior for different platforms and screen sizes.
+
+- **Layout Shifts:** The app uses responsive design to adjust layout for small vs large screens
+- **Touch-Friendly Behaviors:** Mobile apps use touch-friendly gestures and scrolling rules
+- **Sticky Buttons:** Mobile apps have sticky buttons and CTAs for easy access
+- **Platform-Specific Features:** Use of device-specific features like camera and location services
+  for enhanced user experience
+
+# Tech Stack: DinDin
+
+## 1. Frontend
+
+- **Framework**: EXPO! Native for mobile (iOS, Android and Web) utilizing a Single Page
+  Application (SPA) approach for a seamless user experience. This choice allows for code sharing
+  between mobile and web platforms, reducing development time and costs.
+- **IMPORTANT**:
+  - Expo(react native) is already installed. In `src\frontend\**`
+  - USE LINTER AND PRETTIER.
+  - DO NOT USE `<ANY>` AS A TYPE
+  - Use Jest or something comparable.
+- **UI Styling System**: Utilize a modern design system with Tailwind CSS for styling, given its
+  utility-first approach that aligns well with a modern and clean branding style. This will enable
+  rapid development and a consistent design across the application.
+- **Routing & Navigation**: Implement routing whatever is supported by latest Expo react native release.
+  web, ensuring a smooth navigation experience between different sections of the app.
+- **State Management**: Considering the app's moderate complexity, this is somehting we need to pay close attention too.
+- **Component Structure**: Organize components into a modular structure, with a focus on
+  reusability. This includes separate folders for shared components, screens, and navigation
+  components.
+
+## 2. Backend
+
+- **Stack**: Node.js with Express.js for building a RESTful API, adopting a modular architecture to
+  ensure scalability and maintainability. This stack is well-suited for handling a large number of
+  recipe options and user interactions.
+- **API Endpoints**: Define primary routes for user authentication, recipe management (CRUD
+  operations), and match generation. Implement endpoints for:
+  - User registration and login
+  - Recipe listing, creation, and deletion
+  - Match generation and retrieval
+- **Security Middleware**: Implement token validation using JSON Web Tokens (JWT), rate limiting to
+  prevent abuse, and logging for monitoring and debugging purposes.
+
+## 3. LLM Integration
+
+- **Provider**: No LLM integration is specified in the current requirements, but if future
+  integrations are considered, a provider like Hugging Face or OpenAI could be evaluated.
+- **Endpoints**: Not applicable at this stage.
+- **Usage Logging**: Not applicable at this stage.
+
+## 4. Database
+
+- **Type**: MongoDB.
+- The mongodb already exists and has been seeded with test data that matches the expected schema. Find json exports of the data `dindin.recipes.json` and `dindin-dev.users.json`
+- **MONGO CONNECTION INFO**
+- **uri**: MONGODB_URI=mongodb://localhost:27017/
+- **database**: dindin
+- **recipe collection name**: recipes
+- **users collection name**: users
+- **Schema Structure**:
+  - **Recipe Schema**: Follow  `dindin.recipes.json`
+  - **Users Schema**: Follow `dindin-dev.users.json`
+  - Relationships: user_id foreign keys in matches and recipes
+
+## 5. Authentication
+
+- **Method**: Google Authentication for a seamless and secure login experience.
+- **Token/Session Handling**: Use JSON Web Tokens (JWT) stored in local storage for client-side
+  management.
+- **Roles**: Implement basic roles (e.g., user, admin) if necessary for future feature expansions.
+
+## 6. Hosting & Deployment
+
+- **Platform**: Vercel for web hosting and AWS or Google Cloud for mobile backend hosting,
+  considering their scalability and reliability.
+- **CI/CD**: Utilize GitHub Actions for automated testing, building, and deployment.
+- **Secrets Management**: Store sensitive keys and credentials securely using environment variables
+
+## 7. Build System
+
+- **Tool**: Webpack or Vite for frontend builds, and Node.js for backend builds.
+- **Dev Experience**: Ensure fast reload and modular builds for efficient development.
+- **Typing**: Use TypeScript for both frontend and backend to enforce type safety and improve
+  developer experience.
+
+## 8. External Integrations
+
+- No external integrations are specified in the current requirements. However, potential
+  integrations could include food delivery services, social media platforms, or recipe databases.
+
+# Frontend Guidelines: DinDin
+
+## 1. Design Philosophy
+
+The DinDin application aims to provide a warm and inviting experience for couples or people eating
+together. The design should evoke a sense of playfulness, comfort, and approachability. We strive
+for a clean and simple visual impression, making it easy for users to navigate and enjoy the app.
+The tone is friendly and engaging, with a touch of sophistication.
+
+## 2. Color System
+
+The primary brand colors for DinDin are:
+
+- **Main Color**: `#F7F7F7` (a light, neutral gray)
+- **Accent Color**: `#FFC700` (a vibrant, energetic orange-yellow)
+- **Background Color**: `#FFFFFF` (white) for light mode, `#333333` (dark gray) for dark mode
+- **Text Color**: `#333333` (dark gray) for light mode, `#FFFFFF` (white) for dark mode
+
+Usage rules:
+
+- **Main Color**: Use as the primary background color for the app.
+- **Accent Color**: Use for call-to-actions (CTAs), highlights, and icons.
+- **Background Color**: Use as the background color for the app, adjusting to dark mode when
+  necessary.
+- **Text Color**: Use for primary text content, adjusting to dark mode when necessary.
+
+Contrast handling:
+
+- Ensure a minimum contrast ratio of 4.5:1 for normal text and 7:1 for larger text (18pt and above).
+- Use the **Accent Color** to provide visual interest and highlight important elements.
+
+## 3. Typography
+
+The preferred font for DinDin is **Open Sans**, a clean and modern sans-serif font.
+
+Size hierarchy:
+
+- **Small**: 12pt (used for captions and fine print)
+- **Body**: 14pt (used for primary text content)
+- **Heading**: 18pt (used for headings and titles)
+- **Display**: 24pt (used for prominent displays and hero text)
+
+Font weights:
+
+- **Light**: 300 (used for subtle text and captions)
+- **Regular**: 400 (used for primary text content)
+- **Bold**: 600 (used for headings and emphasis)
+
+Best practices:
+
+- Use a line height of 1.5 to 2 times the font size.
+- Ensure adequate spacing between elements (at least 16px).
+
+## 4. Buttons
+
+Button styles:
+
+- **Primary**: Background color `#FFC700` (Accent Color), text color `#FFFFFF`, border radius 8px,
+  padding 16px 32px, font weight 600.
+- **Secondary**: Background color `#FFFFFF`, text color `#333333`, border radius 8px, padding 16px
+  32px, font weight 400, border 1px solid `#333333`.
+- **Tertiary**: Background color transparent, text color `#333333`, border radius 8px, padding 16px
+  32px, font weight 400.
+
+Hover and disabled states:
+
+- **Hover**: Background color darkens by 10% for primary and secondary buttons.
+- **Disabled**: Background color `#CCCCCC`, text color `#666666`, cursor not allowed.
+
+## 5. Layout & Grid System
+
+We will use a flex-based layout system.
+
+- **Page padding**: 16px on all sides.
+- **Section separation**: 32px between sections.
+- **Breakpoints**:
+  - **Desktop**: 1200px
+  - **Tablet**: 768px
+  - **Mobile**: 480px
+
+Recommended layout structure:
+
+- **Desktop**: A three-column layout with a navigation menu on the left, main content in the center,
+  and a sidebar on the right.
+- **Tablet**: A two-column layout with a navigation menu on the left and main content on the right.
+- **Mobile**: A single-column layout with a navigation menu at the bottom.
+
+## 6. Reusable Components
+
+### Top Navigation
+
+- **Height**: 64px
+- **Background color**: `#F7F7F7` (Main Color)
+- **Text color**: `#333333`
+- **Font size**: 14pt
+
+### Modals
+
+- **Background color**: `#FFFFFF`
+- **Text color**: `#333333`
+- **Padding**: 32px
+- **Border radius**: 8px
+
+### Cards
+
+- **Background color**: `#FFFFFF`
+- **Text color**: `#333333`
+- **Padding**: 16px
+- **Border radius**: 8px
+- **Shadow**: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+### Stepper/Progress Tracker
+
+- **Background color**: `#F7F7F7` (Main Color)
+- **Text color**: `#333333`
+- **Padding**: 16px
+- **Border radius**: 8px
+
+### Alerts and Toasts
+
+- **Background color**: `#FFC700` (Accent Color)
+- **Text color**: `#FFFFFF`
+- **Padding**: 16px
+- **Border radius**: 8px
+
+## 7. Dark Mode Behavior
+
+In dark mode:
+
+- **Background color**: `#333333`
+- **Text color**: `#FFFFFF`
+- **Accent color**: `#FFC700` (no change)
+
+Card styling and border visibility:
+
+- **Background color**: `#444444`
+- **Border**: 1px solid `#555555`
+
+Button inversions:
+
+- **Primary**: Background color `#FFFFFF`, text color `#333333`.
+- **Secondary**: Background color `#444444`, text color `#FFFFFF`.
+
+## 8. Theming & Customization Rules
+
+Theming should work across different environments (user-selected themes, system default, brand
+overrides).
+
+Rules to keep UI consistent:
+
+- Use a consistent color scheme across all themes.
+- Ensure typography and layout are consistent across all themes.
+- Allow for customization of accent colors and background colors.
+- Provide a clear and consistent visual hierarchy across all themes.
+
+By following these guidelines, we can ensure a consistent and scalable design system for DinDin.
+
+# Backend Architecture: DinDin
+
+## 1. System Overview
+
+The backend system architecture for DinDin is designed to provide a scalable and efficient platform
+for users to discover and match with their preferred dinner options. The system will utilize a
+microservices architecture, with a focus on modularity and maintainability.
+
+- **Authentication method:** Google authentication will be used, allowing users to sign in with
+  their Google accounts.
+- **Database type and organization:** MongoDb will be used as the primary database, with a schema
+  designed to store user information, recipe data, and match history. The database will be organized
+  into the following tables: Users, Recipes, Matches, and SwipeHistory.
+- **API structure:** The API will be built using a RESTful architecture, with endpoints for user
+  authentication, recipe retrieval, swiping, and match management.
+- **LLM integration:** No LLM integration is planned for the initial release, but a placeholder has
+  been reserved for future integration.
+- **File storage:** No file storage is required for the initial release, but a cloud storage
+  solution (e.g., AWS S3) may be used in the future to store user-generated content.
+- **Patch/fix or context-aware workflows:** No patch/fix or context-aware workflows are planned for
+  the initial release.
+
+## 2. Database Schema (MongoDb)
+
+The following tables will be used in the DinDin database:
+
+### Users Table
+
+- **Table name:** users
+- **Key fields:**
+  - id (serial primary key)
+  - google_id (string)
+  - name (string)
+  - email (string)
+- **Relationships and foreign keys:** None
+- **Notes on indexes or special constraints:** A unique constraint will be placed on the google_id
+  field to prevent duplicate user accounts.
+
+### Recipes Table
+
+- **Table name:** recipes
+- **Key fields:**
+  - id (serial primary key)
+  - title (string)
+  - description (string)
+  - image_url (string)
+  - ingredients (array of strings)
+  - instructions (array of strings)
+- **Relationships and foreign keys:** None
+- **Notes on indexes or special constraints:** A full-text index will be created on the title and
+  description fields to enable efficient searching.
+
+### Matches Table
+
+- **Table name:** matches
+- **Key fields:**
+  - id (serial primary key)
+  - user1_id (integer, foreign key referencing users.id)
+  - user2_id (integer, foreign key referencing users.id)
+  - recipe_id (integer, foreign key referencing recipes.id)
+- **Relationships and foreign keys:** The user1_id and user2_id fields have foreign key constraints
+  referencing the users table, and the recipe_id field has a foreign key constraint referencing the
+  recipes table.
+- **Notes on indexes or special constraints:** A unique constraint will be placed on the user1_id,
+  user2_id, and recipe_id fields to prevent duplicate matches.
+
+### SwipeHistory Table
+
+- **Table name:** swipe_history
+- **Key fields:**
+  - id (serial primary key)
+  - user_id (integer, foreign key referencing users.id)
+  - recipe_id (integer, foreign key referencing recipes.id)
+  - swipe_direction (string, either 'left' or 'right')
+- **Relationships and foreign keys:** The user_id field has a foreign key constraint referencing the
+  users table, and the recipe_id field has a foreign key constraint referencing the recipes table.
+- **Notes on indexes or special constraints:** A index will be created on the user_id and recipe_id
+  fields to enable efficient querying.
+
+## 3. API Endpoints
+
+### Authentication
+
+- **Signup:** Users should have the option to signup with google OR create an account and signup with their email.
+- **Login:** Users should have the option to signup with google OR create an account and signup with their email.
+- **Logout:** A logout endpoint will be provided to invalidate the user's session.
+
+### Core Project & Document Management
+
+- **GET /recipes:** Retrieve a list of recipes.
+- **GET /recipes/:id:** Retrieve a specific recipe by ID.
+- **POST /swipe:** Record a user's swipe action on a recipe.
+- **GET /matches:** Retrieve a list of matches for the current user.
+
+### Fix / Patch Flow
+
+- Not applicable for the initial release.
+
+### Templates & Suggestions
+
+- For UI inspiration see the file `TinderUIExample.png`. That is Tinder's UI design.
+- I want the simple picture, like/dislike ui home page then the option to show more. Show more resumes. When two people match is also pictured.
+
+### Usage & Quotas
+
+- **GET /usage:** Retrieve usage statistics for the current user.
+
+## 4. LLM Integration
+
+No LLM integration is planned for the initial release. A placeholder has been reserved for future
+integration.
+
+## 5. File Storage
+
+No file storage is required for the initial release. A cloud storage solution (e.g., AWS S3) may be
+used in the future to store user-generated content.
+
+## 6. Rate Limiting & Tier Access
+
+- **Rate limiting:** A rate limit of 100 requests per minute will be enforced for all API endpoints.
+- **Tier access:** No tier access is planned for the initial release.
+
+## 7. Error Handling
+
+- **Centralized error logging table:** An error_logs table will be created to store error
+  information. Erros logs save to local device
+- **Fields:** error_type, user_id, message, timestamp
+
+## 8. Security & Permissions
+
+- **Row-level access control:** Row-level access control will be implemented to restrict access to
+  sensitive data.
+- **Public vs private data handling:** Public data will be accessible to all users, while private
+  data will be restricted to authorized users.
+- **Policies for shared documents or templates:** Not applicable for the initial release.
+
+# User Management & Access Control â€” DinDin
+
+## 1. Authentication Strategy
+
+The authentication strategy for DinDin will support multiple methods to ensure flexibility and
+convenience for users.
+
+### Supported Methods
+
+- **Email and Password**: Users can create an account using their email address and a password.
+- **OAuth**: DinDin will support OAuth authentication through Google and GitHub.
+- **Optional: Magic Link or OTP-based Login**: Users can also log in using a magic link or OTP
+  (One-Time Password) for added convenience.
+
+### Signup Flow
+
+1. **Validate Input**: Ensure that user input (email, password, etc.) meets the required criteria.
+2. **Check for Existing Email**: Verify that the provided email address does not already exist in
+   the system.
+3. **Email Verification (Optional)**: Send a verification email to the user's email address to
+   confirm their identity.
+
+### Login Flow
+
+1. **Session Persistence**: Use JSON Web Tokens (JWT) or cookies to persist user sessions.
+2. **Support for OAuth Providers**: Allow users to log in using their OAuth credentials.
+
+### Session Handling
+
+1. **Auto-refresh and Expiry Logic**: Implement logic to auto-refresh user sessions and set expiry
+   times to ensure secure and efficient session management.
+2. **Optional Session Revocation or Logout Tracking**: Provide features to revoke sessions or track
+   user logouts for added security.
+
+## 2. Roles & Permissions (RBAC)
+
+DinDin will implement a Role-Based Access Control (RBAC) system to manage user roles and
+permissions.
+
+### Example Roles
+
+- **Admin**: Full access to the application, including user management, billing, and feature
+  control.
+- **Standard User**: A regular user with access to core features, such as swiping through recipes
+  and matching with other users.
+
+### Permissions Matrix
+
+| Feature                | Admin | Standard User |
+| ---------------------- | ----- | ------------- |
+| Manage Users           |       |               |
+| Manage Billing         |       |               |
+| Access Core Features   |       |               |
+| Create/ Edit Profile   |       |               |
+| Swipe Through Recipes  |       |               |
+| Match with Other Users |       |               |
+
+## 3. Subscription & Payment Plans
+
+DinDin will offer a subscription-based model with multiple tiers to cater to different user needs.
+
+### Provider
+
+- **Stripe**: DinDin will use Stripe as its payment provider.
+
+### Plan Tiers
+
+- **Free**: Limited usage with access to basic features.
+- **Premium**: Increased quota/features, including access to advanced recipe filtering and priority
+  customer support.
+- **Couples**: Custom features, including the ability to create joint profiles and match with other
+  couples.
+
+### Billing Flows
+
+1. **Upgrade, Downgrade, Cancel**: Allow users to upgrade, downgrade, or cancel their subscription
+   plans.
+2. **Grace Periods and Usage Capping**: Implement grace periods and usage capping to prevent abuse
+   and ensure fair usage.
+
+## 4. Feature Gating & Onboarding
+
+DinDin will control access to features based on user roles and plans.
+
+### Gate Features by Role or Plan
+
+- **Premium-only**: Advanced recipe filtering, priority customer support.
+- **Admin-only**: User management, billing, and feature control.
+
+### Onboarding
+
+1. **Brief Walkthrough**: Display a brief walkthrough after signup to introduce users to the
+   application's core features.
+2. **User Input**: Collect user input to set context defaults and tailor the onboarding experience.
+
+## 5. Security & Abuse Controls
+
+DinDin will implement production-ready security protocols to prevent abuse and ensure secure user
+interactions.
+
+### Input Sanitization and Field Validation
+
+- **Validate User Input**: Ensure that user input meets the required criteria to prevent SQL
+  injection and cross-site scripting (XSS) attacks.
+
+### Rate Limiting
+
+- **Login**: 5 attempts/minute.
+- **Signup**: 3 attempts/hour per email.
+
+### Password Storage
+
+- **bcrypt/scrypt**: Store passwords securely using bcrypt or scrypt.
+
+### Abuse Prevention
+
+- **Monitor User Activity**: Monitor user activity to prevent abuse and excessive usage.
+
+## 6. Optional Extensions
+
+DinDin may consider implementing the following optional extensions:
+
+- **Team-level Roles**: Introduce team-level roles to manage user permissions and access control.
+- **SSO / SAML Integration**: Integrate Single Sign-On (SSO) or Security Assertion Markup Language
+  (SAML) for enterprise customers.
+- **Invite-only Access or Waitlist Logic**: Implement invite-only access or waitlist logic to manage
+  user onboarding and prevent abuse.
+
+# File Structure: DinDin
+
+## Overview
+
+The following file structure is proposed for the DinDin project, a modern software application built
+using React, TypeScript, and Supabase. The structure is designed to promote a clear separation of
+concerns, scalability, and maintainability.
+
+## Project Root
+
+project-root/
+â”œâ”€â”€ .env
+â”œâ”€â”€ .gitignore
+â”œâ”€â”€ README.md
+â”œâ”€â”€ package.json
+â””â”€â”€ tsconfig.json
+
+## Public
+
+public/
+â”œâ”€â”€ favicon.ico
+â””â”€â”€ index.html
+
+## Source (src)
+
+src/
+â”œâ”€â”€ App.tsx
+â”œâ”€â”€ index.tsx
+â”œâ”€â”€ components/
+â”‚ â”œâ”€â”€ Card.tsx
+â”‚ â”œâ”€â”€ CardSwiper.tsx
+â”‚ â”œâ”€â”€ TopBar.tsx
+â”‚ â””â”€â”€ UserProfile.tsx
+â”œâ”€â”€ pages/
+â”‚ â”œâ”€â”€ Home.tsx
+â”‚ â”œâ”€â”€ Match.tsx
+â”‚ â”œâ”€â”€ Profile.tsx
+â”‚ â””â”€â”€ NotFound.tsx
+â”œâ”€â”€ api/
+â”‚ â”œâ”€â”€ client.ts
+â”‚ â”œâ”€â”€ recipe.ts
+â”‚ â””â”€â”€ user.ts
+â”œâ”€â”€ context/
+â”‚ â””â”€â”€ AuthContext.tsx
+â”œâ”€â”€ features/
+â”‚ â”œâ”€â”€ authentication/
+â”‚ â”‚ â”œâ”€â”€ GoogleAuth.tsx
+â”‚ â”‚ â””â”€â”€ authSlice.ts
+â”‚ â”œâ”€â”€ cardSwiper/
+â”‚ â”‚ â”œâ”€â”€ CardSwiper.tsx
+â”‚ â”‚ â””â”€â”€ cardSwiperSlice.ts
+â”‚ â””â”€â”€ matching/
+â”‚ â”œâ”€â”€ MatchAlgorithm.ts
+â”‚ â””â”€â”€ matchSlice.ts
+â”œâ”€â”€ hooks/
+â”‚ â””â”€â”€ useAuth.ts
+â”œâ”€â”€ models/
+â”‚ â”œâ”€â”€ Recipe.ts
+â”‚ â””â”€â”€ User.ts
+â”œâ”€â”€ styles/
+â”‚ â”œâ”€â”€ globals.css
+â”‚ â””â”€â”€ components.css
+â”œâ”€â”€ utils/
+â”‚ â”œâ”€â”€ apiHelpers.ts
+â”‚ â”œâ”€â”€ constants.ts
+â”‚ â””â”€â”€ helpers.ts
+â””â”€â”€ types/
+ â”œâ”€â”€ api.ts
+ â””â”€â”€ models.ts
+
+## Supabase
+
+supabase/
+â”œâ”€â”€ schema.sql
+â”œâ”€â”€ seed.sql
+â””â”€â”€ edge-functions/
+ â”œâ”€â”€ generateMatch.ts
+ â””â”€â”€ usageTracker.ts
+
+## Configuration
+
+The project uses the following configuration files:
+
+- `.env`: Environment variables (Supabase keys, Google Auth keys)
+- `README.md`: Setup and usage instructions
+- `package.json`: Project dependencies and scripts
+- `tsconfig.json`: TypeScript configuration
+
+## Folder Descriptions
+
+- **public**: Static assets and the main HTML entry point.
+- **src**: Source code for the application.
+  - **components**: Reusable UI components.
+  - **pages**: Route-level views.
+  - **api**: Frontend API functions calling backend or Supabase.
+  - **context**: App-wide React contexts.
+  - **features**: Feature-specific code (authentication, card swiper, matching).
+  - **hooks**: Custom React hooks.
+  - **models**: Data models (Recipe, User).
+  - **styles**: Global styles and overrides.
+  - **utils**: Utility functions.
+  - **types**: Type definitions for API and models.
+- **supabase**: Supabase database schema, seed data, and edge functions.
+
+## Key Files
+
+- `App.tsx`: App shell and global routes.
+- `index.tsx`: Entry point for rendering the app.
+- `CardSwiper.tsx`: Card swiper component.
+- `MatchAlgorithm.ts`: Matching algorithm implementation.
+- `generateMatch.ts`: Edge function for generating matches.
+
+## Considerations
+
+- Scalability: The project is designed to scale with a clear separation of concerns and a modular
+  architecture.
+- Environment Setup: The project uses environment variables to configure Supabase and Google Auth.
+- Team Handoff: The project follows standard professional guidelines for code organization and
+  naming conventions.
+
+In conclusion, the PRD for DinDin provides a comprehensive overview of the product vision, target
+users, key features, and non-functional requirements. By prioritizing user experience and retention,
+DinDin aims to become the go-to platform for social dining and meal planning.
+
+
+
+================================================
+FILE: docs/Recipe Card Swiping Feature Implementation Walkthrough.md
+================================================
+Based on my analysis of the codebase, here's a comprehensive walkthrough of how the recipe card swiping feature works. This
+  implementation uses a sophisticated combination of React Native Reanimated for smooth animations, gesture handling, and a
+  full-stack architecture for managing swipes and matches.
+
+  Architecture Overview
+
+  The swiping feature is built with these key components:
+  1. Frontend UI Layer: RecipeSwiper + RecipeCard components
+  2. State Management: Zustand stores for recipes and authentication
+  3. API Layer: RESTful backend services
+  4. Database Layer: MongoDB with SwipeHistory and Match models
+  5. Business Logic: Matching algorithm and partnership system
+
+  Frontend Implementation
+
+  6. RecipeSwiper Component (Main Swipe Interface)
+
+  The RecipeSwiper is the core component that handles all swipe interactions:
+
+  Key Features:
+  - Gesture Detection: Uses react-native-gesture-handler for pan gestures
+  - Smooth Animations: React Native Reanimated 3 for 60fps animations
+  - Card Stack: Shows current card + next card preview with depth effect
+  - Visual Feedback: Dynamic overlays ("LIKE"/"NOPE") that appear during swipes
+  - Haptic Feedback: iOS/Android haptic responses for better UX
+
+  Animation System:
+  // Shared values for animations
+  ```
+const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+  const rotate = useSharedValue(0);
+  const scale = useSharedValue(1);
+  const nextCardScale = useSharedValue(0.95);
+  const nextCardOpacity = useSharedValue(0.8);
+
+  Gesture Handling:
+  const panGesture = Gesture.Pan()
+    .onUpdate((event) => {
+      translateX.value = event.translationX;
+      rotate.value = interpolate(
+        event.translationX,
+        [-screenWidth, 0, screenWidth],
+        [-15, 0, 15],
+        Extrapolate.CLAMP
+      );
+    })
+    .onEnd((event) => {
+      const shouldSwipe = Math.abs(event.translationX) > SWIPE_THRESHOLD ||
+                         Math.abs(event.velocityX) > 1000;
+
+      if (shouldSwipe) {
+        const direction = event.translationX > 0 ? 'right' : 'left';
+        animateSwipe(direction);
+      } else {
+        // Snap back to center
+        translateX.value = withSpring(0);
+      }
+    });
+
+  Animation Sequences:
+  const animateSwipe = (direction: 'left' | 'right') => {
+    const toValue = direction === 'right' ? screenWidth + 100 : -screenWidth - 100;
+
+    // Parallel animations for smooth exit
+    translateX.value = withTiming(toValue, { duration: 300 });
+    rotate.value = withTiming(direction === 'right' ? 15 : -15, { duration: 300 });
+    scale.value = withTiming(0.8, { duration: 300 });
+
+    // Next card comes forward
+    nextCardScale.value = withTiming(1, { duration: 300 });
+    nextCardOpacity.value = withTiming(1, { duration: 300 },
+      (finished) => {
+        if (finished) {
+          runOnJS(handleSwipeComplete)(direction);
+        }
+      }
+    );
+  };
+```
+
+  2. RecipeCard Component (Individual Cards)
+
+  Displays recipe information with two modes:
+  - Swipe Mode: Condensed view showing title, image, basic info, tags
+  - Detail Mode: Full scrollable view with ingredients and instructions
+
+  ```
+Responsive Design:
+  const styles = StyleSheet.create({
+    card: {
+      width: screenWidth - 32,
+      height: showFullDetails ? screenHeight - 200 : screenHeight - 250,
+      // Card styling with shadows and rounded corners
+    },
+    imageContainer: {
+      height: showFullDetails ? '40%' : '60%',
+    },
+  });
+```
+
+  3. State Management (Zustand Store)
+
+  The useRecipeStore manages all recipe-related state:
+
+  ```
+interface RecipeState {
+    recipes: Recipe[];
+    isLoading: boolean;
+    isSwipeLoading: boolean;
+    swipeHistory: any[];
+    lastMatch: any;
+
+    // Actions
+    loadRecipes: (isPersonalized?: boolean) => Promise<void>;
+    swipeRecipe: (recipeId: string, direction: 'left' | 'right') => Promise<boolean>;
+    removeRecipeFromDeck: (recipeId: string) => void;
+  }
+
+  Key Store Functions:
+
+  Loading Recipes:
+  loadRecipes: async (isPersonalized = true, loadMore = false) => {
+    const response = isPersonalized
+      ? await recipeService.getPersonalizedRecipes(pagination)
+      : await recipeService.getRecipes(state.filters, pagination);
+
+    if (response.success) {
+      set({
+        recipes: loadMore ? [...state.recipes, ...newRecipes] : newRecipes,
+        hasMore: response.data.currentPage < response.data.totalPages,
+      });
+    }
+  }
+
+  Handling Swipes:
+  swipeRecipe: async (recipeId: string, direction: 'left' | 'right') => {
+    const response = await recipeService.swipeRecipe(recipeId, direction);
+
+    if (response.success) {
+      // Remove from deck
+      get().removeRecipeFromDeck(recipeId);
+
+      // Handle matches
+      if (response.isMatch && response.match) {
+        set({ lastMatch: response.match });
+      }
+      return true;
+    }
+    return false;
+  }
+```
+
+  Backend Implementation
+
+  4. API Routes (/routes/swipes.ts)
+
+  The swipe routes handle recording swipes and retrieving history:
+
+  ```
+// POST /api/swipes - Record a swipe
+  router.post('/',
+    verifyBetterAuthSession,
+    swipeLimiter,
+    validateSwipe,
+    async (req, res) => {
+      const { recipeId, swipeDirection } = req.body;
+
+      const result = await SwipeService.recordSwipe({
+        userId: req.user.id,
+        recipeId,
+        swipeDirection,
+      });
+
+      const statusCode = result.isMatch ? 200 : 201;
+      res.status(statusCode).json(result);
+    }
+  );
+```
+
+  5. SwipeService (Business Logic)
+
+  The SwipeService contains the core swipe logic and matching algorithm:
+
+  Recording Swipes:
+
+  ```
+static async recordSwipe(swipeData: SwipeData): Promise<SwipeResult> {
+    // 1. Validate input
+    if (!mongoose.Types.ObjectId.isValid(userId) ||
+        !mongoose.Types.ObjectId.isValid(recipeId)) {
+      return { success: false, message: "Invalid IDs" };
+    }
+
+    // 2. Check for duplicate swipes
+    const existingSwipe = await SwipeHistory.findOne({
+      userId: new mongoose.Types.ObjectId(userId),
+      recipeId: new mongoose.Types.ObjectId(recipeId),
+    });
+
+    if (existingSwipe) {
+      return { success: false, message: "Already swiped" };
+    }
+
+    // 3. Save the swipe
+    const swipe = new SwipeHistory({
+      userId: new mongoose.Types.ObjectId(userId),
+      recipeId: new mongoose.Types.ObjectId(recipeId),
+      swipeDirection,
+    });
+    await swipe.save();
+
+    // 4. Update recipe statistics
+    await RecipeService.updateRecipeStats(recipeId, swipeDirection === "right");
+
+    // 5. Check for matches (if right swipe)
+    if (swipeDirection === "right") {
+      const matchResult = await this.checkForMatches(userId, recipeId);
+      if (matchResult) {
+        return {
+          success: true,
+          message: "Swipe recorded and match found!",
+          match: matchResult,
+          isMatch: true,
+        };
+      }
+    }
+
+    return { success: true, message: "Swipe recorded", isMatch: false };
+  }
+```
+  Matching Algorithm:
+
+  ```
+static async checkForMatches(userId: string, recipeId: string): Promise<IMatch | null> {
+    // 1. Get user's active partnerships
+    const user = await User.findById(userId);
+    const activePartners = user.partnerships
+      .filter(p => p.status === "active")
+      .map(p => p.partnerId);
+
+    if (activePartners.length === 0) return null;
+
+    // 2. Find partners who also swiped right on same recipe
+    const partnerSwipes = await SwipeHistory.find({
+      userId: { $in: activePartners },
+      recipeId: new mongoose.Types.ObjectId(recipeId),
+      swipeDirection: "right",
+    });
+
+    // 3. Create matches for each partner
+    const matches = [];
+    for (const partnerSwipe of partnerSwipes) {
+      // Check if match already exists
+      const existingMatch = await Match.findOne({
+        $or: [
+          { user1Id: userId, user2Id: partnerSwipe.userId, recipeId },
+          { user1Id: partnerSwipe.userId, user2Id: userId, recipeId }
+        ],
+      });
+
+      if (!existingMatch) {
+        const match = new Match({
+          user1Id: new mongoose.Types.ObjectId(userId),
+          user2Id: partnerSwipe.userId,
+          recipeId: new mongoose.Types.ObjectId(recipeId),
+          status: "active",
+        });
+        matches.push(await match.save());
+      }
+    }
+
+    return matches.length > 0 ? matches[0] : null;
+  }
+```
+  6. Database Models
+
+  ```
+SwipeHistory Model:
+  interface ISwipeHistory {
+    _id: mongoose.Types.ObjectId;
+    userId: mongoose.Types.ObjectId;
+    recipeId: mongoose.Types.ObjectId;
+    swipeDirection: "left" | "right";
+    createdAt: Date;
+  }
+
+  // Indexes for performance
+  SwipeHistorySchema.index({ userId: 1, recipeId: 1 }, { unique: true }); // Prevent duplicates
+  SwipeHistorySchema.index({ userId: 1, createdAt: -1 }); // User history
+  SwipeHistorySchema.index({ recipeId: 1, swipeDirection: 1 }); // Recipe analytics
+
+  Match Model:
+  interface IMatch {
+    _id: mongoose.Types.ObjectId;
+    user1Id: mongoose.Types.ObjectId;
+    user2Id: mongoose.Types.ObjectId;
+    recipeId: mongoose.Types.ObjectId;
+    status: "active" | "dismissed" | "cooked";
+    cookedAt?: Date;
+    notes?: string;
+    rating?: number;
+    createdAt: Date;
+  }
+
+  // Middleware to ensure consistent user ordering
+  MatchSchema.pre("save", function (next) {
+    if (this.user1Id.toString() > this.user2Id.toString()) {
+      const temp = this.user1Id;
+      this.user1Id = this.user2Id;
+      this.user2Id = temp;
+    }
+    next();
+  });
+
+  Integration Flow
+
+  7. Main App Integration (index.tsx)
+
+  The main discover screen orchestrates everything:
+
+  export default function DiscoverScreen() {
+    const { isAuthenticated } = useAuthStore();
+    const { recipes, loadRecipes, swipeRecipe, lastMatch } = useRecipeStore();
+
+    // Load recipes on mount
+    useEffect(() => {
+      loadRecipes(isAuthenticated);
+    }, [isAuthenticated]);
+
+    // Show match notifications
+    useEffect(() => {
+      if (lastMatch) {
+        Alert.alert('🎉 It\'s a Match!',
+          'You and your partner both love this recipe!');
+      }
+    }, [lastMatch]);
+
+    const handleSwipeRight = async (recipe: Recipe) => {
+      if (!isAuthenticated) {
+        Alert.alert('Sign In Required', 'Please sign in to match with others.');
+        return;
+      }
+
+      const success = await swipeRecipe(recipe._id, 'right', isAuthenticated);
+      if (!success && error) {
+        Alert.alert('Error', error);
+      }
+    };
+
+    return (
+      <RecipeSwiper
+        recipes={recipes}
+        onSwipeLeft={handleSwipeLeft}
+        onSwipeRight={handleSwipeRight}
+        onShowMore={handleShowMore}
+        isLoading={isLoading}
+      />
+    );
+  }
+```
+
+  8. Complete Data Flow
+
+  9. User swipes card → Gesture detected in RecipeSwiper
+  10. Animation plays → Card animates off screen, next card scales up
+  11. API call made → Frontend calls /api/swipes endpoint
+  12. Swipe recorded → Backend saves to SwipeHistory collection
+  13. Match check → If right swipe, check for partner matches
+  14. Match created → If partner also liked, create Match record
+  15. Response sent → API returns success + match data if applicable
+  16. UI updated → Frontend removes card from deck, shows match alert
+  17. Auto-reload → If cards running low, automatically load more
+
+  Key Implementation Details
+
+  Performance Optimizations
+
+  18. Gesture Performance: Uses runOnJS to ensure animations run on UI thread
+  19. Memory Management: Removes swiped cards from state to prevent memory leaks
+  20. Lazy Loading: Loads more recipes when deck gets low (< 5 cards)
+  21. Database Indexes: Optimized queries for swipe history and matching
+
+  UX Enhancements
+
+  22. Visual Feedback: Real-time overlays showing swipe direction
+  23. Haptic Feedback: Native haptic responses for better tactile experience
+  24. Smooth Animations: 60fps animations with spring physics
+  25. Error Handling: Graceful fallbacks and user-friendly error messages
+  26. Offline Support: Basic error handling for network issues
+
+  Security & Data Integrity
+
+  27. Authentication Required: Must be signed in to record swipes
+  28. Rate Limiting: Prevents spam swiping
+  29. Duplicate Prevention: Database constraints prevent duplicate swipes
+  30. Input Validation: Validates all swipe data before processing
+  31. User Partnerships: Only creates matches between active partners
+
+  This implementation provides a robust, performant, and user-friendly swiping experience similar to popular dating apps, but
+  optimized for recipe discovery and partner matching.
+
+
+================================================
+FILE: docs/RecipeJsonSchema.json
+================================================
+{
+  "$defs": {
+    "DifficultyLevel": {
+      "enum": ["easy", "medium", "hard"],
+      "title": "DifficultyLevel",
+      "type": "string"
+    },
+    "ImportMetadataModel": {
+      "description": "Metadata about the import process",
+      "properties": {
+        "source_url": {
+          "description": "Original recipe URL",
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Source Url",
+          "type": "string"
+        },
+        "scraper_name": {
+          "description": "Name of scraper used",
+          "title": "Scraper Name",
+          "type": "string"
+        },
+        "scraper_version": {
+          "default": "1.0.0",
+          "description": "Scraper version",
+          "title": "Scraper Version",
+          "type": "string"
+        },
+        "confidence_score": {
+          "default": 0.8,
+          "description": "Data quality confidence",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence Score",
+          "type": "number"
+        },
+        "extracted_at": {
+          "description": "ISO timestamp of extraction",
+          "title": "Extracted At",
+          "type": "string"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Additional extraction notes",
+          "title": "Notes"
+        }
+      },
+      "required": ["source_url", "scraper_name", "extracted_at"],
+      "title": "ImportMetadataModel",
+      "type": "object"
+    },
+    "IngredientModel": {
+      "description": "Ingredient schema matching dindin IIngredient interface",
+      "properties": {
+        "name": {
+          "description": "Ingredient name",
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "maxLength": 50,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Amount/quantity",
+          "title": "Amount"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "maxLength": 20,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Unit of measurement",
+          "title": "Unit"
+        }
+      },
+      "required": ["name"],
+      "title": "IngredientModel",
+      "type": "object"
+    },
+    "InstructionModel": {
+      "description": "Instruction schema matching dindin IInstruction interface",
+      "properties": {
+        "step": {
+          "description": "Step number (starting from 1)",
+          "minimum": 1,
+          "title": "Step",
+          "type": "integer"
+        },
+        "description": {
+          "description": "Step description",
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "maximum": 480,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Duration in minutes",
+          "title": "Duration"
+        }
+      },
+      "required": ["step", "description"],
+      "title": "InstructionModel",
+      "type": "object"
+    },
+    "NutritionModel": {
+      "description": "Nutrition schema matching dindin INutrition interface",
+      "properties": {
+        "calories": {
+          "anyOf": [
+            {
+              "maximum": 10000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Calories"
+        },
+        "protein": {
+          "anyOf": [
+            {
+              "maximum": 1000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Protein"
+        },
+        "carbs": {
+          "anyOf": [
+            {
+              "maximum": 1000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Carbs"
+        },
+        "fat": {
+          "anyOf": [
+            {
+              "maximum": 1000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fat"
+        },
+        "fiber": {
+          "anyOf": [
+            {
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fiber"
+        },
+        "sugar": {
+          "anyOf": [
+            {
+              "maximum": 500,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sugar"
+        }
+      },
+      "title": "NutritionModel",
+      "type": "object"
+    }
+  },
+  "description": "Standardized recipe schema for dindin imports\nMatches dindin IRecipe interface requirements",
+  "properties": {
+    "title": {
+      "description": "Recipe title",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "ingredients": {
+      "description": "Recipe ingredients",
+      "items": {
+        "$ref": "#/$defs/IngredientModel"
+      },
+      "minItems": 1,
+      "title": "Ingredients",
+      "type": "array"
+    },
+    "instructions": {
+      "description": "Cooking instructions",
+      "items": {
+        "$ref": "#/$defs/InstructionModel"
+      },
+      "minItems": 1,
+      "title": "Instructions",
+      "type": "array"
+    },
+    "difficulty": {
+      "$ref": "#/$defs/DifficultyLevel",
+      "description": "Recipe difficulty level"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Recipe description",
+      "title": "Description"
+    },
+    "image_url": {
+      "anyOf": [
+        {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Recipe image URL",
+      "title": "Image Url"
+    },
+    "prep_time": {
+      "anyOf": [
+        {
+          "maximum": 1440,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Prep time in minutes",
+      "title": "Prep Time"
+    },
+    "cook_time": {
+      "anyOf": [
+        {
+          "maximum": 1440,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Cook time in minutes",
+      "title": "Cook Time"
+    },
+    "cuisine_type": {
+      "anyOf": [
+        {
+          "maxLength": 50,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Cuisine type",
+      "title": "Cuisine Type"
+    },
+    "dietary_tags": {
+      "description": "Dietary tags",
+      "items": {
+        "type": "string"
+      },
+      "title": "Dietary Tags",
+      "type": "array"
+    },
+    "nutrition": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NutritionModel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Nutritional information"
+    },
+    "import_metadata": {
+      "$ref": "#/$defs/ImportMetadataModel",
+      "description": "Import metadata"
+    }
+  },
+  "required": [
+    "title",
+    "ingredients",
+    "instructions",
+    "difficulty",
+    "import_metadata"
+  ],
+  "title": "StandardizedRecipeModel",
+  "type": "object"
+}
+
+
+
+================================================
+FILE: docs/schema-dindin-recipes-standardJSON.json
+================================================
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "__v",
+    "cook_time",
+    "cuisine",
+    "cuisine_type",
+    "description",
+    "dietary_tags",
+    "difficulty",
+    "image_url",
+    "import_metadata",
+    "ingredients",
+    "instructions",
+    "isActive",
+    "likes",
+    "nutrition",
+    "prep_time",
+    "servings",
+    "tags",
+    "title"
+  ],
+  "properties": {
+    "_id": {
+      "$ref": "#/$defs/ObjectId"
+    },
+    "__v": {
+      "type": "integer"
+    },
+    "cook_time": {
+      "type": "integer"
+    },
+    "cuisine": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cuisine_type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "dietary_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "difficulty": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "import_metadata": {
+      "type": "object",
+      "required": [
+        "confidence_score",
+        "extracted_at",
+        "notes",
+        "scraper_name",
+        "scraper_version",
+        "source_url"
+      ],
+      "properties": {
+        "confidence_score": {
+          "$ref": "#/$defs/Double"
+        },
+        "extracted_at": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "scraper_name": {
+          "type": "string"
+        },
+        "scraper_version": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "amount",
+          "name",
+          "unit"
+        ],
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "description",
+          "step"
+        ],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "step": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "likes": {
+      "type": "integer"
+    },
+    "nutrition": {
+      "type": "object",
+      "required": [
+        "calories",
+        "carbs",
+        "fat",
+        "fiber",
+        "protein",
+        "sugar"
+      ],
+      "properties": {
+        "calories": {
+          "type": "integer"
+        },
+        "carbs": {
+          "type": "integer"
+        },
+        "fat": {
+          "type": "integer"
+        },
+        "fiber": {
+          "type": "integer"
+        },
+        "protein": {
+          "type": "integer"
+        },
+        "sugar": {
+          "type": "integer"
+        }
+      }
+    },
+    "prep_time": {
+      "type": "integer"
+    },
+    "servings": {
+      "type": "integer"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "ObjectId": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{24}$"
+        }
+      },
+      "required": [
+        "$oid"
+      ],
+      "additionalProperties": false
+    },
+    "Double": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$numberDouble": {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+================================================
+FILE: .cursor/rules/babel-configuration-for-nativewind.mdc
+================================================
+---
+description: Specifies the correct Babel configuration for NativeWind to ensure proper processing and avoid conflicts.
+globs: babel.config.js
+---
+- Babel configuration for NativeWind:
+  - Include 'nativewind/babel' in the plugins array.
+  - Avoid using jsxImportSource in presets.
+  - Ensure 'react-native-reanimated/plugin' follows 'nativewind/babel'.
+
+
+================================================
+FILE: .cursor/rules/clean-code.mdc
+================================================
+---
+alwaysApply: true
+---
+# Clean Code Guidelines
+
+## Constants Over Magic Numbers
+- Replace hard-coded values with named constants
+- Use descriptive constant names that explain the value's purpose
+- Keep constants at the top of the file or in a dedicated constants file
+
+## Meaningful Names
+- Variables, functions, and classes should reveal their purpose
+- Names should explain why something exists and how it's used
+- Avoid abbreviations unless they're universally understood
+
+## Smart Comments
+- Don't comment on what the code does - make the code self-documenting
+- Use comments to explain why something is done a certain way
+- Document APIs, complex algorithms, and non-obvious side effects
+
+## Single Responsibility
+- Each function should do exactly one thing
+- Functions should be small and focused
+- If a function needs a comment to explain what it does, it should be split
+
+## DRY (Don't Repeat Yourself)
+- Extract repeated code into reusable functions
+- Share common logic through proper abstraction
+- Maintain single sources of truth
+
+## Clean Structure
+- Keep related code together
+- Organize code in a logical hierarchy
+- Use consistent file and folder naming conventions
+
+## Encapsulation
+- Hide implementation details
+- Expose clear interfaces
+- Move nested conditionals into well-named functions
+
+## Code Quality Maintenance
+- Refactor continuously
+- Fix technical debt early
+- Leave code cleaner than you found it
+
+## Testing
+- Write tests before fixing bugs
+- Keep tests readable and maintainable
+- Test edge cases and error conditions
+
+## Version Control
+- Write clear commit messages
+- Make small, focused commits
+- Use meaningful branch names
+
+
+
+================================================
+FILE: .cursor/rules/codequality.mdc
+================================================
+---
+alwaysApply: true
+---
+# Code Quality Guidelines
+
+## Verify Information
+Always verify information before presenting it. Do not make assumptions or speculate without clear evidence.
+
+## File-by-File Changes
+Make changes file by file and give me a chance to spot mistakes.
+
+## No Apologies
+Never use apologies.
+
+## No Understanding Feedback
+Avoid giving feedback about understanding in comments or documentation.
+
+## No Whitespace Suggestions
+Don't suggest whitespace changes.
+
+## No Summaries
+Don't summarize changes made.
+
+## No Inventions
+Don't invent changes other than what's explicitly requested.
+
+## No Unnecessary Confirmations
+Don't ask for confirmation of information already provided in the context.
+
+## Preserve Existing Code
+Don't remove unrelated code or functionalities. Pay attention to preserving existing structures.
+
+## Single Chunk Edits
+Provide all edits in a single chunk instead of multiple-step instructions or explanations for the same file.
+
+## No Implementation Checks
+Don't ask the user to verify implementations that are visible in the provided context.
+
+## No Unnecessary Updates
+Don't suggest updates or changes to files when there are no actual modifications needed.
+
+## Provide Real File Links
+Always provide links to the real files, not x.md.
+
+## No Current Implementation
+Don't show or discuss the current implementation unless specifically requested.
+
+
+
+================================================
+FILE: .cursor/rules/general-project-instructions.mdc
+================================================
+---
+description: Provides general instructions for project management, including terminal commands, package management, and file operations.
+globs: *.*
+---
+- Use PowerShell for terminal commands.
+- Before installing a new package, check if it's already installed:
+  Get-ChildItem -Recurse -Filter package-name
+- If installed, upgrade using:
+  expo upgrade <package-name>
+  or
+  npm install <package-name>
+  if not supported by Expo.
+- Use PowerShell commands to manage the project, e.g., moving and renaming files:
+  Move-Item -Path .\old\path\file.txt -Destination .\new\path\newname.txt
+- If unsure about the current structure or details, use PowerShell to list out necessary information:
+  Get-ChildItem -Recurse
+- Utilize official Expo libraries and upgrade them using Expo's commands.
+- Avoid deleting existing functionality or files without a valid reason.
+- Follow the recommended folder structure and maintain organized code for scalability and readability.
+- Implement navigation using Expo Router for clean and declarative routing.
+
+
+================================================
+FILE: .cursor/rules/nativewind-and-tailwind-css-compatibility.mdc
+================================================
+---
+description: Provides specific version compatibility notes for NativeWind and Tailwind CSS to prevent common installation errors.
+globs: package.json
+---
+- NativeWind and Tailwind CSS compatibility:
+  - Use nativewind@2.0.11 with tailwindcss@3.3.2.
+  - Higher versions may cause 'process(css).then(cb)' errors.
+  - If errors occur, remove both packages and reinstall specific versions:
+    npm remove nativewind tailwindcss
+    npm install nativewind@2.0.11 tailwindcss@3.3.2
+
+
+================================================
+FILE: .cursor/rules/react-native-expo-best-practices.mdc
+================================================
+---
+description: Enforces best practices for React Native Expo development within the src directory, promoting maintainable and efficient code.
+globs: src/**/*.*
+---
+- Use functional components with hooks.
+- Leverage Expo SDK features and APIs.
+- Implement navigation using Expo Router.
+- Manage assets with Expo's asset system for images and fonts.
+- Ensure robust error handling and crash reporting.
+- Utilize Expo's push notification system.
+- Adopt TypeScript for type safety.
+- Apply consistent styling using StyleSheet.
+- Incorporate Expo's vector icons.
+- Secure sensitive data with Expo's SecureStore.
+- Implement proper offline support.
+- Optimize performance following React Native best practices.
+- Deploy updates using Expo's OTA mechanism.
+- Style components using NativeWind.
+
+
+================================================
+FILE: .cursor/rules/react-native-expo-folder-structure.mdc
+================================================
+---
+description: Defines the recommended folder structure for React Native Expo projects to maintain organization and scalability.
+globs: *
+---
+- Ensure the following folder structure:
+assets/
+src/
+  components/
+  screens/
+  navigation/
+  hooks/
+  utils/
+app/
+  _layout.tsx
+  index.tsx
+App.js
+app.json
+

@@ -1,0 +1,23 @@
+name: dindinTheGreatRefactor
+
+services:
+  mongodb:
+    image: mongo
+    container_name: dindinTheGreatRefactor-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: dindinTheGreatRefactor
+    ports:
+      - "27017:27017"
+    volumes:
+      - dindinTheGreatRefactor_mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  dindinTheGreatRefactor_mongodb_data:

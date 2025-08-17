@@ -1,0 +1,2542 @@
+[
+  {
+    "_id": {
+      "$oid": "68a0ca3e4ffed6f853202099"
+    },
+    "__v": 0,
+    "cook_time": 10,
+    "cuisine": [
+      "Arabic",
+      "Middle Eastern",
+      "Moroccan"
+    ],
+    "cuisine_type": "Middle Eastern",
+    "description": "Recipe video above. The smell when this is cooking is outrageous! The marinade is very quick to prepare and the chicken can be frozen in the marinade, then defrosted prior to cooking. Best cooked on the outdoor grill / BBQ, but I usually make it on the stove. Serve with Yogurt Sauce (provided) or the Tahini sauce in this recipe. Add a simple salad and flatbread laid out on a large platter, then let everyone make their own wraps!",
+    "dietary_tags": [
+      "Gluten-Free",
+      "Dairy-Free"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.recipetineats.com/tachyon/2022/02/Chicken-Shawarma-Wrap_2-SQ.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Scraped from recipe site.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.recipetineats.com/chicken-sharwama-middle-eastern/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "chicken thigh fillets",
+        "unit": "kg"
+      },
+      {
+        "amount": "1",
+        "name": "large garlic clove",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "ground coriander",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "ground cumin",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "ground cardamon",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "ground cayenne pepper",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "smoked paprika",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "salt",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "lemon juice",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "3",
+        "name": "olive oil",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "Greek yoghurt",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "garlic clove",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "cumin",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "lemon juice",
+        "unit": "squeeze"
+      },
+      {
+        "amount": "1",
+        "name": "salt and pepper",
+        "unit": ""
+      },
+      {
+        "amount": "4",
+        "name": "flatbreads",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "sliced lettuce",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "tomato slices",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "red onion",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "shredded cheese",
+        "unit": "(optional)"
+      },
+      {
+        "amount": "1",
+        "name": "hot sauce",
+        "unit": "(optional)"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Marinade chicken - Combine the marinade ingredients in a large ziplock bag. Add the chicken, seal, the massage from the outside with your hands to make sure each piece is coated. Marinate 24 hours (minimum 3 hours)."
+      },
+      {
+        "step": 2,
+        "description": "Yogurt Sauce - Combine the Yogurt Sauce ingredients in a bowl and mix. Cover and put in the fridge until required (it will last for 3 days in the fridge)."
+      },
+      {
+        "step": 3,
+        "description": "Preheat stove or BBQ - Heat a large non-stick skillet with 1 tablespoon over medium high heat, or lightly brush a BBQ hotplate/grills with oil and heat to medium high. (See notes for baking)"
+      },
+      {
+        "step": 4,
+        "description": "Cook chicken - Place chicken in the skillet or on the grill and cook the first side for 4 to 5 minutes until nicely charred. Turn and cook the other side for 3 to 4 minutes (the 2nd side takes less time)."
+      },
+      {
+        "step": 5,
+        "description": "Rest - Remove chicken from the grill and cover loosely with foil. Set aside to rest for 5 minutes."
+      },
+      {
+        "step": 6,
+        "description": "To Serve"
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 500,
+      "carbs": 30,
+      "fat": 20,
+      "fiber": 5,
+      "protein": 40,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "Chicken Shawarma",
+      "shawarma"
+    ],
+    "title": "Chicken Shawarma (Middle Eastern)"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca474ffed6f85320209a"
+    },
+    "__v": 0,
+    "cook_time": 10,
+    "cuisine": [
+      "Vietnamese"
+    ],
+    "cuisine_type": "Asian",
+    "description": "Recipe video above. An exciting way to use ground meat (mince) to make a quick stir fry that taste unbelievable! This is great made with chicken, turkey or pork. It also works with beef though it is better made with \"white meats\". Serve it over rice or vermicelli noodles to make rice bowls with shredded lettuce, carrots and cucumbers on the side (very classic Vietnamese meal!).**NOTE: If you reduce sugar then the pork will not caramelise as well and it will take longer to get colour on it!**",
+    "dietary_tags": [
+      "Gluten-free",
+      "High-protein"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.recipetineats.com/tachyon/2015/11/Vietnamese-Ground-Pork-Bowls_7.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from a popular cooking website.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.recipetineats.com/vietnamese-caramelised-pork-bowls/"
+    },
+    "ingredients": [
+      {
+        "amount": "1 1/2",
+        "name": "cooking oil",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1/2",
+        "name": "onion",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "ginger",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "garlic cloves",
+        "unit": "cloves"
+      },
+      {
+        "amount": "1",
+        "name": "birds eye or Thai chili",
+        "unit": "piece"
+      },
+      {
+        "amount": "500",
+        "name": "pork mince",
+        "unit": "g"
+      },
+      {
+        "amount": "5",
+        "name": "brown sugar",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "2",
+        "name": "fish sauce",
+        "unit": "tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "green onion stem",
+        "unit": "piece"
+      },
+      {
+        "amount": "1",
+        "name": "Jasmine rice",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "Sliced red chilli, tomato, cucumber",
+        "unit": "optional"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Heat the oil in a large skillet over high heat."
+      },
+      {
+        "step": 2,
+        "description": "Saut\u00e9 - Add the onion, ginger, garlic and chili and cook for 2 minutes."
+      },
+      {
+        "step": 3,
+        "description": "Cook pork - Add the pork mince and cook for 2 minutes or so until white all over, breaking up the meat with a wooden spoon."
+      },
+      {
+        "step": 4,
+        "description": "Add sauce & caramelise - Add the sugar and fish sauce. Stir, then leave it to cook without touching until all the juices cook out and the pork starts caramelised - about 2 minutes. Then stir it and leave it again, without stirring, for around 30 seconds to get more caramelisation. Repeat twice more until caramelised to your taste."
+      },
+      {
+        "step": 5,
+        "description": "Serve over jasmine or other rice, or vermicelli noodles, garnished with sliced green onion. For a low carb, low cal option, try Cauliflower Rice! I like to have chunks of plain cucumber and carrots on the side which is a classic way of making Vietnamese bowls."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 450,
+      "carbs": 30,
+      "fat": 20,
+      "fiber": 5,
+      "protein": 35,
+      "sugar": 15
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "Ground pork recipe",
+      "ground pork stir fry",
+      "Pork mince recipe",
+      "pork mince stir fry"
+    ],
+    "title": "Vietnamese Caramelised Pork Bowls"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca5c4ffed6f85320209b"
+    },
+    "__v": 0,
+    "cook_time": 45,
+    "cuisine": [
+      "Latin American"
+    ],
+    "cuisine_type": "Latin American",
+    "description": "Our tender Peruvian-style grilled chicken is slow-cooked with a vinegar and spice rub. But it's the sauce that everyone loves, and it's easy to make with cilantro, jalape\u00f1os, and aj\u00ed amarillo peppers.",
+    "dietary_tags": [
+      "low carb"
+    ],
+    "difficulty": "medium",
+    "image_url": "https://www.seriouseats.com/thmb/C3krJOJUOnhLCXe3KqnxtjbeUCk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210629-peruvian-style-grilled-chicken-melissa-hom-seriouseats-hero-4fce2b49df81448aa16437362819162f.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Serious Eats.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.seriouseats.com/peruvian-style-grilled-chicken-with-green-sauce-recipe"
+    },
+    "ingredients": [
+      {
+        "amount": "3",
+        "name": "jalape\u00f1o chiles, roughly chopped",
+        "unit": "whole"
+      },
+      {
+        "amount": "1",
+        "name": "aj\u00ed amarillo pepper paste",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "1",
+        "name": "fresh cilantro leaves",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "medium cloves garlic",
+        "unit": "clove"
+      },
+      {
+        "amount": "1/2",
+        "name": "mayonnaise",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/4",
+        "name": "sour cream",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "fresh juice from 1 lime",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "distilled white vinegar",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2",
+        "name": "extra-virgin olive oil",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "to taste",
+        "name": "Kosher salt and freshly ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "whole chicken",
+        "unit": "whole"
+      },
+      {
+        "amount": "4",
+        "name": "kosher salt",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "2",
+        "name": "ground cumin",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "paprika",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "freshly ground black pepper",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "3",
+        "name": "medium cloves garlic, minced",
+        "unit": "clove"
+      },
+      {
+        "amount": "2",
+        "name": "white vinegar",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "vegetable or canola oil",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "For the Sauce: Combine jalape\u00f1os, aj\u00ed amarillo (if using), cilantro, garlic, mayonnaise, sour cream, lime juice, and vinegar in the jar of a blender. Blend on high speed, scraping down sides as necessary, until smooth. With blender running, slowly drizzle in olive oil. Season to taste with salt and pepper. Sauce will be quite loose at this point, but will thicken as it sits. Transfer to a sealed container and refrigerate until ready to use."
+      },
+      {
+        "step": 2,
+        "description": "For the Chicken: Pat chicken dry with paper towels and place on a large cutting board, breast side down. Using sharp kitchen shears, remove backbone by cutting along either side of it. Turn chicken over and lay out flat. Press firmly on breast to flatten chicken. For added stability, run a metal or wooden skewer horizontally through chicken, entering through one thigh, going through both breast halves, and exiting through other thigh. Tuck wing tips behind back."
+      },
+      {
+        "step": 3,
+        "description": "Combine salt, cumin, paprika, pepper, garlic, vinegar, and oil in a small bowl and massage with fingertips until homogeneous. Spread mixture evenly over all surfaces of chicken."
+      },
+      {
+        "step": 4,
+        "description": "Light a chimney full of charcoal. When all charcoal is lit and covered with gray ash, pour out and spread coals evenly over half of coal grate. Alternatively, set half the burners of a gas grill to high heat. Set cooking grate in place, cover grill, and allow to preheat for 5 minutes. Clean and oil grilling grate."
+      },
+      {
+        "step": 5,
+        "description": "Place chicken, skin side up, on cooler side of grill, with legs facing toward hotter side. Cover grill, with vents on lid open and aligned over chicken. Open bottom vents of grill. Cook until an instant-read thermometer inserted into thickest part of breast registers 110\u00b0F (43\u00b0C). Carefully flip chicken and place, skin side down, on hotter side of grill, with breasts pointed toward cooler side. Press down firmly with a wide, stiff spatula to ensure good contact between bird and grill grates. Cover and cook until skin is crisp and an instant-read thermometer inserted into thickest part of breast registers 145 to 150\u00b0F (63 to 66\u00b0C), about 10 minutes longer. If chicken threatens to burn before temperature is achieved, carefully slide to cooler side of grill, cover, and continue to cook until done. Do not leave the lid off for longer than it takes to check temperature, or chicken will burn."
+      },
+      {
+        "step": 6,
+        "description": "Transfer chicken to a cutting board and allow to rest for 5 to 10 minutes. Carve and serve with sauce."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 600,
+      "carbs": 10,
+      "fat": 40,
+      "fiber": 2,
+      "protein": 50,
+      "sugar": 1
+    },
+    "prep_time": 30,
+    "servings": 4,
+    "tags": [
+      "barbecue chicken",
+      "chicken",
+      "condiments",
+      "grilled chicken",
+      "Latin American cuisine",
+      "latin cuisine",
+      "low carb",
+      "Peruvian",
+      "sauces",
+      "The Food Lab"
+    ],
+    "title": "Peruvian-Style Grilled Chicken With Green Sauce Recipe"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca694ffed6f85320209c"
+    },
+    "__v": 0,
+    "cook_time": 20,
+    "cuisine": [
+      "Mexican"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "This esquites recipe offers all the delights of Mexican street corn (elotes) in salad form, and you don't even have to fire up the grill to make it.",
+    "dietary_tags": [
+      "vegetarian"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.seriouseats.com/thmb/Ua6AQAB90reXko4lseEKNzxk_mI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/esquites-mexican-street-corn-salad-recipe-10-9586c88e47084597ac6d34d1e71d4583.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Serious Eats.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.seriouseats.com/esquites-mexican-street-corn-salad-recipe"
+    },
+    "ingredients": [
+      {
+        "amount": "2",
+        "name": "tablespoons vegetable oil",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "4",
+        "name": "ears fresh corn, shucked, kernels removed",
+        "unit": "ears"
+      },
+      {
+        "amount": "to taste",
+        "name": "Kosher salt",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "ounces feta or Cotija cheese, finely crumbled",
+        "unit": "ounces"
+      },
+      {
+        "amount": "1/2",
+        "name": "cup finely sliced scallions, green parts only",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/2",
+        "name": "cup fresh cilantro leaves, finely chopped",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "jalape\u00f1o pepper, seeded and stemmed, finely chopped",
+        "unit": "pepper"
+      },
+      {
+        "amount": "1 to 2",
+        "name": "medium cloves garlic, pressed or minced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "2",
+        "name": "tablespoons mayonnaise",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "tablespoon fresh juice from 1 lime",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "to taste",
+        "name": "Chili powder or hot chili flakes",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Heat oil in a large nonstick skillet or wok over high heat until shimmering. Add corn kernels, season to taste with salt, toss once or twice, and cook without moving until charred on one side, about 2 minutes. Toss corn, stir, and repeat until charred on second side, about 2 minutes longer. Continue tossing and charring until corn is well charred all over, about 10 minutes total. Transfer to a large bowl."
+      },
+      {
+        "step": 2,
+        "description": "Add cheese, scallions, cilantro, jalape\u00f1o, garlic, mayonnaise, lime juice, and chile powder and toss to combine. Taste and adjust seasoning with salt and more chile powder to taste. Serve immediately."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 250,
+      "carbs": 30,
+      "fat": 10,
+      "fiber": 5,
+      "protein": 8,
+      "sugar": 3
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "corn",
+      "esquites",
+      "mexican street corn",
+      "side"
+    ],
+    "title": "Mexican Street Corn Salad (Esquites)"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca7f4ffed6f85320209d"
+    },
+    "__v": 0,
+    "cook_time": 35,
+    "cuisine": [
+      "Moroccan/North African"
+    ],
+    "cuisine_type": "North African",
+    "description": "Shakshuka is a versatile and vegetarian one-pan egg and tomato dish that's perfect for breakfast, lunch, or dinner.",
+    "dietary_tags": [
+      "vegetarian",
+      "low carb"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.seriouseats.com/thmb/GGe7ElpAahWNo9W6c6mAx0utvFg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__09__20160926-shakshuka-17-a2b1d35f5ce146d1b8f5e2851e73b487.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Serious Eats.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.seriouseats.com/shakshuka-north-african-shirred-eggs-tomato-pepper-recipe"
+    },
+    "ingredients": [
+      {
+        "amount": "3",
+        "name": "tablespoons extra-virgin olive oil, plus more for drizzling",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "medium onion, thinly sliced",
+        "unit": "medium"
+      },
+      {
+        "amount": "1",
+        "name": "large red pepper, thinly sliced",
+        "unit": "large"
+      },
+      {
+        "amount": "1",
+        "name": "fresh small hot chile, thinly sliced",
+        "unit": "small"
+      },
+      {
+        "amount": "2",
+        "name": "to 3 cloves garlic, thinly sliced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "1.5",
+        "name": "tablespoons sweet Hungarian or smoked Spanish paprika",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "teaspoons whole or ground cumin seed",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "can whole peeled tomatoes, crushed",
+        "unit": "28-ounce"
+      },
+      {
+        "amount": "to taste",
+        "name": "Kosher salt and freshly ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "large handful",
+        "name": "minced cilantro, parsley, or a mix",
+        "unit": "handful"
+      },
+      {
+        "amount": "6",
+        "name": "eggs",
+        "unit": "eggs"
+      },
+      {
+        "amount": "to serve",
+        "name": "Sliced oil-cured black olives, feta cheese, and/or artichoke hearts",
+        "unit": ""
+      },
+      {
+        "amount": "to serve",
+        "name": "Crusty bread",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Heat olive oil in a large, deep skillet or straight-sided saut\u00e9 pan over high heat until shimmering. Add onion, red pepper, and chile and spread into an even layer. Cook, without moving, until vegetables on the bottom are deeply browned and beginning to char in spots, about 6 minutes. Stir and repeat. Continue to cook until vegetables are fully softened and spottily charred, about another 4 minutes. Add garlic and cook, stirring, until softened and fragrant, about 30 seconds. Add paprika and cumin and cook, stirring, until fragrant, about 30 seconds. Immediately add tomatoes and stir to combine (see notes). Reduce heat to a bare simmer and simmer for 10 minutes, then season to taste with salt and pepper and stir in half of cilantro or parsley."
+      },
+      {
+        "step": 2,
+        "description": "Using a large spoon, make a well near the perimeter of the pan and break an egg directly into it. Spoon a little sauce over edges of egg white to partially submerge and contain it, leaving yolk exposed. Repeat with remaining 5 eggs, working around pan as you go. Season eggs with a little salt, cover, reduce heat to lowest setting, and cook until egg whites are barely set and yolks are still runny, 5 to 8 minutes."
+      },
+      {
+        "step": 3,
+        "description": "Sprinkle with remaining cilantro or parsley, along with any of the optional toppings. Serve immediately with crusty bread."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 300,
+      "carbs": 20,
+      "fat": 20,
+      "fiber": 5,
+      "protein": 15,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "breakfast",
+      "brunch",
+      "easy",
+      "egg",
+      "israeli",
+      "low carb",
+      "quick",
+      "shakshuka",
+      "tomato",
+      "tunisian",
+      "turkish"
+    ],
+    "title": "Shakshuka (North African\u2013Style Poached Eggs in Spicy Tomato Sauce)"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca924ffed6f85320209e"
+    },
+    "__v": 0,
+    "cook_time": 15,
+    "cuisine": [
+      "Italian"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "All the ingredients for this Tomato Spinach One Pot Pasta cook together to make an incredibly fast, flavorful, and easy weeknight meal.",
+    "dietary_tags": [
+      "Vegetarian"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.budgetbytes.com/wp-content/uploads/2013/05/Italian-Wonderpot-close-1.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Budget Bytes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.budgetbytes.com/italian-wonderpot/"
+    },
+    "ingredients": [
+      {
+        "amount": "4",
+        "name": "vegetable broth",
+        "unit": "cups"
+      },
+      {
+        "amount": "2",
+        "name": "olive oil",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "12",
+        "name": "fettuccine",
+        "unit": "oz."
+      },
+      {
+        "amount": "8",
+        "name": "frozen chopped spinach",
+        "unit": "oz."
+      },
+      {
+        "amount": "1",
+        "name": "diced tomatoes",
+        "unit": "28oz. can"
+      },
+      {
+        "amount": "1",
+        "name": "yellow onion, sliced",
+        "unit": ""
+      },
+      {
+        "amount": "4",
+        "name": "garlic, sliced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "0.5",
+        "name": "dried basil",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "0.5",
+        "name": "dried oregano",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "0.25",
+        "name": "crushed red pepper",
+        "unit": "tsp"
+      },
+      {
+        "amount": "to taste",
+        "name": "freshly cracked black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "shaved Parmesan",
+        "unit": "oz."
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Add four cups of vegetable broth to a large pot. Break the fettuccine in half and add it to the pot along with the canned tomatoes (with juices), olive oil, frozen spinach, onion, garlic, basil, oregano, red pepper, and some freshly cracked black pepper."
+      },
+      {
+        "step": 2,
+        "description": "Make sure the ingredients are submerged under the liquid, place a lid on top of the pot, and then turn the heat on to high. Allow the pot to come up to a full boil over high heat, then remove the lid and turn the heat down to medium."
+      },
+      {
+        "step": 3,
+        "description": "Allow the pot to continue to boil over medium heat, without a lid, for 10-15 minutes, or until the pasta is cooked and most of the liquid has been absorbed. Stir the pot every few minutes as it cooks to prevent the pasta from sticking to the bottom, but avoid over stirring which can cause the pasta to become sticky."
+      },
+      {
+        "step": 4,
+        "description": "Sprinkle with shaved Parmesan just before serving."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 60,
+      "fat": 10,
+      "fiber": 5,
+      "protein": 15,
+      "sugar": 8
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "pasta",
+      "one pot",
+      "quick meal"
+    ],
+    "title": "Tomato Spinach One Pot Pasta"
+  },
+  {
+    "_id": {
+      "$oid": "68a0ca9e4ffed6f85320209f"
+    },
+    "__v": 0,
+    "cook_time": 10,
+    "cuisine": [
+      "Asian",
+      "American"
+    ],
+    "cuisine_type": "Fusion",
+    "description": "These sweet, tangy, and spicy sriracha noodles take only a few minutes to make and are an inexpensive alternative to take out.",
+    "dietary_tags": [
+      "Vegetarian"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.budgetbytes.com/wp-content/uploads/2012/08/Spicy-Noodles-skillet.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Budget Bytes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.budgetbytes.com/dragon-noodles/"
+    },
+    "ingredients": [
+      {
+        "amount": "4",
+        "name": "lo mein noodles",
+        "unit": "oz."
+      },
+      {
+        "amount": "2",
+        "name": "butter",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "1/4",
+        "name": "crushed red pepper",
+        "unit": "tsp"
+      },
+      {
+        "amount": "2",
+        "name": "large eggs",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "brown sugar",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "soy sauce",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "2",
+        "name": "sriracha",
+        "unit": "Tbsp"
+      },
+      {
+        "amount": "1",
+        "name": "fresh cilantro",
+        "unit": "handful"
+      },
+      {
+        "amount": "1",
+        "name": "green onion, sliced",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Prepare the sauce for the noodles. In a small bowl, stir together the brown sugar, soy sauce, and sriracha. Set the sauce aside."
+      },
+      {
+        "step": 2,
+        "description": "Bring a pot of water to a boil for the noodles. Once boiling, add the noodles and boil until tender. Drain the noodles in a colander."
+      },
+      {
+        "step": 3,
+        "description": "While waiting for the water to boil, crack two eggs into a bowl then whisk lightly."
+      },
+      {
+        "step": 4,
+        "description": "Heat the butter in a skillet over medium heat, then add the eggs and crushed pepper and lightly scramble the eggs. Avoid over cooking the eggs."
+      },
+      {
+        "step": 5,
+        "description": "Once the noodles have drained, add them to the skillet with the eggs, then drizzle the sauce over top. Toss the noodles and eggs to coat in the sauce."
+      },
+      {
+        "step": 6,
+        "description": "Top the noodles with fresh cilantro and sliced green onion, then serve."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 60,
+      "fat": 15,
+      "fiber": 2,
+      "protein": 12,
+      "sugar": 5
+    },
+    "prep_time": 5,
+    "servings": 2,
+    "tags": [
+      "easy",
+      "Noodles",
+      "Spicy",
+      "Take Out",
+      "Vegetarian"
+    ],
+    "title": "Spicy Sriracha Noodles"
+  },
+  {
+    "_id": {
+      "$oid": "68a0caaa4ffed6f8532020a0"
+    },
+    "__v": 0,
+    "cook_time": 24,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "These crispy Air Fryer Chicken Thighs have become a weeknight staple in my house. An easy recipe that you can whip up super fast!",
+    "dietary_tags": [
+      "Gluten-Free",
+      "High-Protein"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.skinnytaste.com/wp-content/uploads/2022/11/Air-Fryer-Chicken-Thighs-4.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Skinnytaste.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.skinnytaste.com/air-fryer-chicken-thighs/"
+    },
+    "ingredients": [
+      {
+        "amount": "6",
+        "name": "chicken thighs (with bone and skin)",
+        "unit": "pieces"
+      },
+      {
+        "amount": "1",
+        "name": "lemon",
+        "unit": "piece"
+      },
+      {
+        "amount": "1",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/4",
+        "name": "black pepper",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "garlic powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "onion powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/2",
+        "name": "sweet paprika",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/2",
+        "name": "dried herbs (such as herbs de provence or dried oregano)",
+        "unit": "teaspoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Season the chicken with the juice of 1/2 of the lemon, then season with remaining spices on both sides."
+      },
+      {
+        "step": 2,
+        "description": "Rub the seasoning well all over the chicken then transfer to the air fryer, skin side down."
+      },
+      {
+        "step": 3,
+        "description": "Air fry 400F 12 minutes on each side, until golden and crispy and cooked through in the center."
+      }
+    ],
+    "isActive": true,
+    "likes": 100,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 5,
+      "fat": 20,
+      "fiber": 1,
+      "protein": 30,
+      "sugar": 1
+    },
+    "prep_time": 5,
+    "servings": 4,
+    "tags": [
+      "Air Fryer Chicken",
+      "Air Fryer Chicken Thighs",
+      "bone in chicken thigh recipe",
+      "weeknight dinner ideas"
+    ],
+    "title": "Air Fryer Chicken Thighs"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cac34ffed6f8532020a1"
+    },
+    "__v": 0,
+    "cook_time": 20,
+    "cuisine": [
+      "American-Italian",
+      "Italian-American"
+    ],
+    "cuisine_type": "Italian",
+    "description": "This Chicken Scampi recipe is a light, family-friendly weeknight dinner that's high in protein and ready in under 30 minutes.",
+    "dietary_tags": [
+      "high protein",
+      "Kid Friendly"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.skinnytaste.com/wp-content/uploads/2025/05/Chicken-Scampi-8.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Skinnytaste.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.skinnytaste.com/chicken-scampi/"
+    },
+    "ingredients": [
+      {
+        "amount": "8",
+        "name": "whole wheat angel hair pasta",
+        "unit": "ounces"
+      },
+      {
+        "amount": "24",
+        "name": "chicken breasts",
+        "unit": "ounces"
+      },
+      {
+        "amount": "1",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "to taste",
+        "name": "freshly ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "olive oil spray",
+        "unit": ""
+      },
+      {
+        "amount": "2",
+        "name": "butter",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "4",
+        "name": "garlic cloves",
+        "unit": ""
+      },
+      {
+        "amount": "0.75",
+        "name": "dry white wine",
+        "unit": "cup"
+      },
+      {
+        "amount": "0.125",
+        "name": "crushed red pepper flakes",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "cherry tomatoes",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "freshly squeezed lemon juice",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "baby spinach",
+        "unit": "cups"
+      },
+      {
+        "amount": "3",
+        "name": "chopped parsley",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Bring a large pot of salted water to a boil."
+      },
+      {
+        "step": 2,
+        "description": "Cut chicken breasts into small \u00bd inch cubes. Season the chicken on both sides with 1 teaspoon of kosher salt, and \u00bc teaspoon black pepper to taste."
+      },
+      {
+        "step": 3,
+        "description": "Heat a very large skillet over high heat. When the pan is hot, spray the skillet with oil and add half the chicken and cook until browned on all sides and no longer pink inside, 2 minutes. Transfer to a plate and repeat with remaining chicken. Set aside and reduce heat."
+      },
+      {
+        "step": 4,
+        "description": "Add \u00bd tablespoon of the butter to the skillet and melt, add the garlic and saute until fragrant, about 1 minute. Add the white wine or broth, crushed red pepper flakes and remaining \u00bc teaspoon of salt. Cook, scraping the bottom of the pan, until reduced by half, about 2 minutes. Add the tomatoes and let them cook 1 minute, to soften."
+      },
+      {
+        "step": 5,
+        "description": "Add the remaining 1 \u00bd tablespoons butter and melt, add the lemon juice, remove from the heat."
+      },
+      {
+        "step": 6,
+        "description": "Add the pasta to the boiling water and cook according to package directions for al dente, reserve \u00bd cup water. Drain the pasta and toss with the chicken, add the spinach and cook 1 minute tossing with the sauce adding some of the reserved pasta water if needed. Finish with fresh parsley and serve with plenty of grated Parmesan cheese."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 450,
+      "carbs": 60,
+      "fat": 15,
+      "fiber": 5,
+      "protein": 30,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 4,
+    "tags": [
+      "chicken breast",
+      "easy",
+      "high protein",
+      "Kid Friendly",
+      "quick"
+    ],
+    "title": "Chicken Scampi"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cad64ffed6f8532020a2"
+    },
+    "__v": 0,
+    "cook_time": 8,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "main course",
+    "description": "The BEST juicy air fryer chicken breast. Golden outside, moist and tender inside and seasoned to perfection. Enjoy on its own or use for meal prep.",
+    "dietary_tags": [
+      "gluten-free",
+      "high-protein"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.wellplated.com/wp-content/uploads/2021/04/Air-Fryer-Chicken-Breast-No-Breading-1.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from wellplated.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.wellplated.com/air-fryer-chicken-breast/"
+    },
+    "ingredients": [
+      {
+        "amount": "2",
+        "name": "boneless, skinless chicken breasts",
+        "unit": "pieces"
+      },
+      {
+        "amount": "0.5",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2",
+        "name": "extra-virgin olive oil",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "paprika",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.5",
+        "name": "garlic powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.5",
+        "name": "onion powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.25",
+        "name": "ground black pepper",
+        "unit": "teaspoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Place the chicken breasts on a cutting board and cover with a large sheet of plastic wrap. With a rolling pin, meat mallet, or your palm, lightly pound into an even thickness."
+      },
+      {
+        "step": 2,
+        "description": "To Dry Brine*: Place the chicken on a plate and sprinkle all over with the kosher salt. Place in the refrigerator uncovered for at least 30 minutes or up to 1 day\u2014if you will not be dry brining, skip this step."
+      },
+      {
+        "step": 3,
+        "description": "When ready to air fry: remove the chicken from the refrigerator and let stand at room temperature for 15 minutes."
+      },
+      {
+        "step": 4,
+        "description": "In a small bowl, stir together the paprika, garlic powder, onion powder, and black pepper (if you did not dry brine the chicken, add the salt now)."
+      },
+      {
+        "step": 5,
+        "description": "Place the chicken in a large bowl and drizzle with the olive oil. Sprinkle the spice mixture over the top. Toss to coat the chicken, ensuring you rub the spices evenly over both sides."
+      },
+      {
+        "step": 6,
+        "description": "Preheat the air fryer to 375 degrees F (my model takes 3 minutes to heat). Place the chicken presentation side (smooth side) down in the air fryer and let cook 6 minutes."
+      },
+      {
+        "step": 7,
+        "description": "Remove the air fryer basket, then with tongs, carefully flip the chicken over. Continue cooking until the chicken registers between 155 and 160 degrees F, 2 to 8 minutes more. Chicken is considered safe to eat at 165 degrees F, but I like to remove mine a few degrees early, then let the carryover cooking finish the job. The total cook time will vary based on your model and the size of your chicken. Smaller breasts (about 6 ounces each) will need only around 8 minutes total; larger ones may need 14 or more. Check the chicken often towards the end to monitor its progress. DO NOT overcook or it will be dry."
+      },
+      {
+        "step": 8,
+        "description": "Remove the chicken to a plate. Cover and let rest 5 to 10 minutes. Slice and enjoy!"
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 300,
+      "carbs": 0,
+      "fat": 15,
+      "fiber": 0,
+      "protein": 50,
+      "sugar": 0
+    },
+    "prep_time": 35,
+    "servings": 2,
+    "tags": [
+      "air fryer chicken breast",
+      "air fryer chicken breast frozen",
+      "air fryer chicken breast no breading",
+      "air fryer chicken breast pieces",
+      "easy air fryer chicken"
+    ],
+    "title": "Air Fryer Chicken Breast"
+  },
+  {
+    "_id": {
+      "$oid": "68a0caec4ffed6f8532020a3"
+    },
+    "__v": 0,
+    "cook_time": 15,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "Easy Baked Salmon with Garlic, Lemon, and Herbs. One of the best simple, healthy recipes. Turns out perfectly every time!",
+    "dietary_tags": [
+      "Gluten-Free",
+      "Paleo",
+      "Low-Carb"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://www.wellplated.com/wp-content/uploads/2018/06/Baked-Salmon-in-Foil-at-400.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from wellplated.com.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.wellplated.com/baked-salmon/"
+    },
+    "ingredients": [
+      {
+        "amount": "2",
+        "name": "pound side of salmon (boneless, skin on or off, depending upon your preference, wild caught if possible)",
+        "unit": "pounds"
+      },
+      {
+        "amount": "5",
+        "name": "sprigs fresh rosemary (or fresh herbs of your choice; do not use dried herbs)",
+        "unit": "sprigs"
+      },
+      {
+        "amount": "2",
+        "name": "small lemons (divided, plus extra for serving as desired)",
+        "unit": "lemons"
+      },
+      {
+        "amount": "2",
+        "name": "tablespoons extra virgin olive oil",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon kosher salt",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "0.25",
+        "name": "teaspoon ground black pepper",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "4",
+        "name": "cloves garlic (peeled and roughly chopped)",
+        "unit": "cloves"
+      },
+      {
+        "amount": "1",
+        "name": "Additional chopped fresh herbs (such as basil, thyme, parsley, dill, or green onion (optional))",
+        "unit": "optional"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Remove the salmon from the refrigerator and let stand at room temperature for 10 minutes while you prepare the other ingredients. Heat oven to 375 degrees F. Line a large baking dish or rimmed baking sheet with a large piece of aluminum foil."
+      },
+      {
+        "step": 2,
+        "description": "Lightly coat the foil with baking spray, then arrange 2 sprigs of the rosemary down the middle. Cut one of the lemons into thin slices and arrange half the slices down the middle with the rosemary. Place the salmon on top."
+      },
+      {
+        "step": 3,
+        "description": "Drizzle the salmon with the olive oil and sprinkle with the salt and pepper. Rub to coat, then scatter the garlic cloves over the top. Lay the remaining rosemary and lemon slices on top of the salmon. Juice the second lemon, then pour the juice over the top."
+      },
+      {
+        "step": 4,
+        "description": "Fold the sides of the aluminum foil up and over the top of the salmon until it is completely enclosed. If your piece of foil is not large enough, place a second piece on top and fold the edges under so that it forms a sealed packet. Leave a little room inside the foil for air to circulate."
+      },
+      {
+        "step": 5,
+        "description": "Bake the salmon for 15-20 minutes, until the salmon is almost completely cooked through at the thickest part. The cooking time will vary based on the thickness of your salmon. If your side is thinner (around 1-inch thick) check several minutes early to ensure your salmon does not overcook. If your piece is very thick (1 1/2 inches or more), it may need longer."
+      },
+      {
+        "step": 6,
+        "description": "Remove the salmon from the oven and carefully open the foil so that the top of the fish is completely uncovered (be careful of hot steam). Change the oven setting to broil, then return the fish to the oven and broil for 3 minutes, until the top of the salmon and the garlic are slightly golden and the fish is cooked through. Watch the salmon closely as it broils to make sure it doesn\u2019t overcook and the garlic does not burn. Remove the salmon from the oven. If it still appears a bit underdone, you can wrap the foil back over the top and let it rest for a few minutes. Do not let it sit too long\u2014salmon can progress from 'not done' to 'over done' very quickly. As soon as it flakes easily with a fork, it's ready."
+      },
+      {
+        "step": 7,
+        "description": "To serve, cut the salmon into portions. Sprinkle with additional fresh herbs or top with an extra squeeze of lemon as desired."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 0,
+      "fat": 20,
+      "fiber": 0,
+      "protein": 50,
+      "sugar": 0
+    },
+    "prep_time": 15,
+    "servings": 4,
+    "tags": [
+      "Baked Salmon in Foil",
+      "best baked salmon recipe",
+      "best salmon recipe",
+      "Easy Dinner Recipe",
+      "easy salmon recipe",
+      "Healthy Baked Salmon",
+      "how to bake salmon",
+      "oven baked salmon"
+    ],
+    "title": "Baked Salmon"
+  },
+  {
+    "_id": {
+      "$oid": "68a0caf94ffed6f8532020a4"
+    },
+    "__v": 0,
+    "cook_time": 240,
+    "cuisine": [
+      "Asian"
+    ],
+    "cuisine_type": "Asian",
+    "description": "Healthy Slow Cooker Honey Garlic Chicken. Easy recipe with 8 simple ingredients! Juicy chicken thighs or breasts in a sticky honey garlic sauce.",
+    "dietary_tags": [
+      "gluten-free",
+      "high-protein"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://www.wellplated.com/wp-content/uploads/2019/03/Slow-Cooker-Honey-Garlic-Chicken-and-Veggies.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from wellplated.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.wellplated.com/slow-cooker-honey-garlic-chicken/"
+    },
+    "ingredients": [
+      {
+        "amount": "1 1/2",
+        "name": "boneless, skinless chicken thighs (or chicken breasts)",
+        "unit": "pounds"
+      },
+      {
+        "amount": "1/3",
+        "name": "low-sodium soy sauce",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/3",
+        "name": "honey",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "tomato paste",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "chili paste (sambal oelek, sriracha, or hot sauce of choice)",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "4",
+        "name": "cloves garlic (minced)",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "rice vinegar",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "2",
+        "name": "cornstarch",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "Prepared brown rice, quinoa, or cauliflower rice",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "Toasted sesame seeds",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "Chopped green onion",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Place the chicken in the bottom of a 6-quart or larger slow cooker. In a medium mixing bowl or very large measuring cup, whisk together the soy sauce, honey, tomato paste, chili paste, garlic, and rice vinegar. Pour over the chicken. Cover and cook on LOW for 4 to 5 hours or HIGH for 2 to 3 hours, until the chicken reaches an internal temperature of 165 degrees F on an instant-read thermometer. If you are available, flip the chicken over once halfway through to coat both sides. (If not, don\u2019t stress; it will still be tasty.)"
+      },
+      {
+        "step": 2,
+        "description": "Remove the chicken to a plate and let cool slightly. Whisk the cornstarch into the slow cooker cooking liquid. Cover and cook on HIGH for 15 minutes, until the sauce thickens slightly, stirring occasionally. If you'd like the sauce particularly thick, you can cook it for a full 30 minutes in the slow cooker OR follow the stovetop method below."
+      },
+      {
+        "step": 3,
+        "description": "For quicker sauce thickening, reduce the sauce on the stove: After whisking in the cornstarch, transfer the cooking liquid to a medium saucepan. Cook on the stovetop over medium heat, stirring often until the sauce thickens, 5 to 10 minutes. (If your slow cooker insert is stovetop safe, you can remove it from the slow cooker and place it directly on the burner, but do not do this unless you are POSITIVE your insert is stovetop safe or it may crack.)"
+      },
+      {
+        "step": 4,
+        "description": "With two forks (or your fingers if the chicken is cool enough), shred the chicken and place it in the slow cooker. If you reduced the sauce on the stove, add it back to the slow cooker now. Stir to coat the chicken with the sauce. Serve over rice, sprinkled with green onions and sesame seeds."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 30,
+      "fat": 10,
+      "fiber": 2,
+      "protein": 30,
+      "sugar": 15
+    },
+    "prep_time": 5,
+    "servings": 4,
+    "tags": [
+      "crock pot chicken thighs",
+      "easy crockpot chicken",
+      "healthy crockpot chicken",
+      "healthy crockpot recipes",
+      "slow cooker honey garlic chicken"
+    ],
+    "title": "Slow Cooker Honey Garlic Chicken"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb114ffed6f8532020a5"
+    },
+    "__v": 0,
+    "cook_time": 45,
+    "cuisine": [
+      "Mediterranean"
+    ],
+    "cuisine_type": "Mediterranean",
+    "description": "This simple vegan lentil soup recipe comes together quickly with mostly pantry ingredients. Be sure to have your ingredients prepped and ready before you start cooking! Recipe yields four large bowls of soup, or six more modest servings.",
+    "dietary_tags": [
+      "vegan",
+      "gluten-free"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://cookieandkate.com/images/2019/01/best-lentil-soup-recipe-4-225x225.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from cookieandkate.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://cookieandkate.com/best-lentil-soup-recipe/"
+    },
+    "ingredients": [
+      {
+        "amount": "\u00bc",
+        "name": "extra virgin olive oil",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "medium yellow or white onion, chopped",
+        "unit": "piece"
+      },
+      {
+        "amount": "2",
+        "name": "carrots, peeled and chopped",
+        "unit": "pieces"
+      },
+      {
+        "amount": "4",
+        "name": "garlic cloves, pressed or minced",
+        "unit": "cloves"
+      },
+      {
+        "amount": "2",
+        "name": "ground cumin",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "1",
+        "name": "curry powder",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "\u00bd",
+        "name": "dried thyme",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "28",
+        "name": "ounces diced tomatoes, lightly drained",
+        "unit": "can"
+      },
+      {
+        "amount": "1",
+        "name": "cup brown or green lentils, picked over and rinsed",
+        "unit": "cup"
+      },
+      {
+        "amount": "4",
+        "name": "cups vegetable broth",
+        "unit": "cups"
+      },
+      {
+        "amount": "2",
+        "name": "cups water",
+        "unit": "cups"
+      },
+      {
+        "amount": "1",
+        "name": "salt, more to taste",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "pinch of red pepper flakes",
+        "unit": "pinch"
+      },
+      {
+        "amount": "1",
+        "name": "Freshly ground black pepper, to taste",
+        "unit": "to taste"
+      },
+      {
+        "amount": "1",
+        "name": "cup chopped fresh collard greens or kale, tough ribs removed",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "to 2 tablespoons lemon juice, to taste",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Warm the olive oil in a large Dutch oven or pot over medium heat. One-fourth cup olive oil may seem like a lot, but it adds a lovely richness and heartiness to this nutritious soup."
+      },
+      {
+        "step": 2,
+        "description": "Once the oil is shimmering, add the chopped onion and carrot and cook, stirring often, until the onion has softened and is turning translucent, about 5 minutes."
+      },
+      {
+        "step": 3,
+        "description": "Add the garlic, cumin, curry powder and thyme. Cook until fragrant while stirring constantly, about 30 seconds. Pour in the drained diced tomatoes and cook for a few more minutes, stirring often, in order to enhance their flavor."
+      },
+      {
+        "step": 4,
+        "description": "Pour in the lentils, broth and the water. Add 1 teaspoon salt and a pinch of red pepper flakes. Season generously with freshly ground black pepper. Raise heat and bring the mixture to a boil, then partially cover the pot and reduce the heat to maintain a gentle simmer. Cook for 25 to 30 minutes, or until the lentils are tender but still hold their shape."
+      },
+      {
+        "step": 5,
+        "description": "Transfer 2 cups of the soup to a blender. Securely fasten the lid, protect your hand from steam with a tea towel placed over the lid, and pur\u00e9e the soup until smooth. Pour the pur\u00e9ed soup back into the pot. (Or, use an immersion blender to blend a portion of the soup.)"
+      },
+      {
+        "step": 6,
+        "description": "Add the chopped greens and cook for 5 more minutes, or until the greens have softened to your liking. Remove the pot from the heat and stir in 1 tablespoon of lemon juice. Taste and season with more salt, pepper and/or lemon juice until the flavors really sing. For spicier soup, add another pinch or two of red pepper flakes."
+      },
+      {
+        "step": 7,
+        "description": "Serve while hot. Leftovers will keep well for about 4 days in the refrigerator, or can be frozen for several months (just defrost before serving)."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 250,
+      "carbs": 40,
+      "fat": 7,
+      "fiber": 15,
+      "protein": 12,
+      "sugar": 5
+    },
+    "prep_time": 10,
+    "servings": 6,
+    "tags": [
+      "lentil soup",
+      "freezer-friendly soup"
+    ],
+    "title": "Best Lentil Soup"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb224ffed6f8532020a6"
+    },
+    "__v": 0,
+    "cook_time": 45,
+    "cuisine": [
+      "American",
+      "Mexican",
+      "Tex Mex"
+    ],
+    "cuisine_type": "Fusion",
+    "description": "This roasted cauliflower tacos recipe is lightly adapted from Simply Julia by Julia Turshen and is reprinted with permission from the publisher. Feel free to get creative with the toppings here! I used what's listed in the recipe below, but Julia also suggests diced white onion, pickled jalape\u00f1os, and hot sauce.",
+    "dietary_tags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2021/04/cauliflower-tacos-500x500.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe adapted for restaurant use.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.loveandlemons.com/cauliflower-tacos/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "small cauliflower (outer leaves and core discarded, cut into small florets)",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "pound red cabbage (thinly sliced (about 1/2 small red cabbage or 6 cups sliced))",
+        "unit": "lb"
+      },
+      {
+        "amount": "0.25",
+        "name": "cup extra-virgin olive oil",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon ground cumin",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon ground coriander",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon kosher salt",
+        "unit": "tsp"
+      },
+      {
+        "amount": "1",
+        "name": "recipe Avocado Sauce",
+        "unit": ""
+      },
+      {
+        "amount": "12",
+        "name": "corn tortillas (warmed)",
+        "unit": "pcs"
+      },
+      {
+        "amount": "to taste",
+        "name": "thinly sliced radishes (optional)",
+        "unit": ""
+      },
+      {
+        "amount": "to taste",
+        "name": "sliced serrano peppers (optional)",
+        "unit": ""
+      },
+      {
+        "amount": "to taste",
+        "name": "avocado slices (optional)",
+        "unit": ""
+      },
+      {
+        "amount": "to taste",
+        "name": "cilantro (optional)",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Preheat the oven to 400\u00b0F."
+      },
+      {
+        "step": 2,
+        "description": "Place the cauliflower and cabbage on a large sheet pan. Drizzle with the olive oil and sprinkle with the cumin, coriander, and salt. Use your hands to mix everything together and spread it out into an even layer. Roast, stirring every 15 minutes, until the vegetables are softened and browned in spots, about 45 minutes. (I roasted my cabbage and cauliflower on two separate sheet pans. I cooked the cauliflower for 25 minutes and the cabbage for 10 minutes. Both ways work!)"
+      },
+      {
+        "step": 3,
+        "description": "Evenly divide the Avocado Sauce and roasted vegetables among the tortillas. Serve immediately with the radishes, serranos, avocado slices, and cilantro, if using."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 300,
+      "carbs": 40,
+      "fat": 15,
+      "fiber": 10,
+      "protein": 8,
+      "sugar": 5
+    },
+    "prep_time": 15,
+    "servings": 4,
+    "tags": [
+      "Cauliflower taco recipe",
+      "Cauliflower tacos"
+    ],
+    "title": "Roasted Cauliflower Tacos"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb364ffed6f8532020a7"
+    },
+    "__v": 0,
+    "cook_time": 30,
+    "cuisine": [
+      "american"
+    ],
+    "cuisine_type": "Main Dish",
+    "description": "Get Alton Brown's Baked Macaroni and Cheese from Good Eats on Food Network, a classic recipe made with cheddar cheese and topped with buttery breadcrumbs.",
+    "dietary_tags": [
+      "Vegetarian"
+    ],
+    "difficulty": "Easy",
+    "image_url": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/6/6/0/EA1E10_Baked-Macaraoni-and-Cheese_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1382540004120.webp",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from Food Network.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.foodnetwork.com/recipes/alton-brown/baked-macaroni-and-cheese-recipe-1939524"
+    },
+    "ingredients": [
+      {
+        "amount": "1/2",
+        "name": "elbow macaroni",
+        "unit": "pound"
+      },
+      {
+        "amount": "3",
+        "name": "butter",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "3",
+        "name": "flour",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "powdered mustard",
+        "unit": "tablespoon"
+      },
+      {
+        "amount": "3",
+        "name": "milk",
+        "unit": "cups"
+      },
+      {
+        "amount": "1/2",
+        "name": "yellow onion, finely diced",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "bay leaf",
+        "unit": ""
+      },
+      {
+        "amount": "1/2",
+        "name": "paprika",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "large egg",
+        "unit": ""
+      },
+      {
+        "amount": "12",
+        "name": "sharp cheddar, shredded",
+        "unit": "ounces"
+      },
+      {
+        "amount": "1",
+        "name": "kosher salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "to taste",
+        "name": "Fresh black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "3",
+        "name": "butter",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "1",
+        "name": "panko bread crumbs",
+        "unit": "cup"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Preheat oven to 350 degrees F."
+      },
+      {
+        "step": 2,
+        "description": "In a large pot of boiling, salted water cook the pasta to al dente."
+      },
+      {
+        "step": 3,
+        "description": "While the pasta is cooking, in a separate pot, melt the butter. Whisk in the flour and mustard and keep it moving for about five minutes. Make sure it's free of lumps. Stir in the milk, onion, bay leaf, and paprika. Simmer for ten minutes and remove the bay leaf."
+      },
+      {
+        "step": 4,
+        "description": "Temper in the egg. Stir in 3/4 of the cheese. Season with salt and pepper. Fold the macaroni into the mix and pour into a 2-quart casserole dish. Top with remaining cheese."
+      },
+      {
+        "step": 5,
+        "description": "Melt the butter in a saute pan and toss the bread crumbs to coat. Top the macaroni with the bread crumbs. Bake for 30 minutes. Remove from oven and rest for five minutes before serving."
+      },
+      {
+        "step": 6,
+        "description": "Remember to save leftovers for fried Macaroni and Cheese."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 40,
+      "fat": 20,
+      "fiber": 2,
+      "protein": 15,
+      "sugar": 5
+    },
+    "prep_time": 15,
+    "servings": 4,
+    "tags": [
+      "Thanksgiving Side Dishes",
+      "Side Dish",
+      "Thanksgiving",
+      "Comfort Food Restaurants",
+      "American",
+      "Pasta Recipes",
+      "Macaroni and Cheese",
+      "Cheddar",
+      "Main Dish",
+      "Vegetarian"
+    ],
+    "title": "Baked Macaroni and Cheese"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb454ffed6f8532020a8"
+    },
+    "__v": 0,
+    "cook_time": 60,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Main Course",
+    "description": "This meatloaf recipe is easy to make and doesn't take long to prep. It's one of our best recipes that's been made over 8,000 times and never disappoints!",
+    "dietary_tags": [],
+    "difficulty": "Easy",
+    "image_url": "https://www.allrecipes.com/thmb/q2i_L11qt7QzJ7gl66atPJmKuU0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16354-easy-meatloaf-DDMFS-0034-5186-hero-4x3-30547610d0f64d2fb3c25c0cab909af6.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from AllRecipes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://www.allrecipes.com/recipe/16354/easy-meatloaf/"
+    },
+    "ingredients": [
+      {
+        "amount": "1.5",
+        "name": "ground beef",
+        "unit": "pounds"
+      },
+      {
+        "amount": "1",
+        "name": "egg",
+        "unit": "unit"
+      },
+      {
+        "amount": "1",
+        "name": "onion, chopped",
+        "unit": "unit"
+      },
+      {
+        "amount": "1",
+        "name": "milk",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "dried bread crumbs",
+        "unit": "cup"
+      },
+      {
+        "amount": "to taste",
+        "name": "salt and pepper",
+        "unit": "unit"
+      },
+      {
+        "amount": "0.333",
+        "name": "ketchup",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "brown sugar",
+        "unit": "tablespoons"
+      },
+      {
+        "amount": "2",
+        "name": "prepared mustard",
+        "unit": "tablespoons"
+      }
+    ],
+    "instructions": [
+      {
+        "description": "Gather the ingredients. Preheat the oven to 350 degrees F (175 degrees C). Lightly grease a 9x5-inch loaf pan.",
+        "step": 1
+      },
+      {
+        "description": "Combine ground beef, onion, milk, bread crumbs, and egg in a large bowl; season with salt and pepper. Transfer into prepared loaf pan.",
+        "step": 2
+      },
+      {
+        "description": "Mix ketchup, brown sugar, and mustard together in a small bowl until well combined; pour over meatloaf and spread it evenly over the top.",
+        "step": 3
+      },
+      {
+        "description": "Bake in the preheated oven until no longer pink in the center, about 1 hour.",
+        "step": 4
+      },
+      {
+        "description": "Serve hot and enjoy!",
+        "step": 5
+      }
+    ],
+    "isActive": true,
+    "likes": 8000,
+    "nutrition": {
+      "calories": 250,
+      "carbs": 20,
+      "fat": 15,
+      "fiber": 2,
+      "protein": 20,
+      "sugar": 5
+    },
+    "prep_time": 15,
+    "servings": 6,
+    "tags": [
+      "meatloaf",
+      "comfort food",
+      "easy"
+    ],
+    "title": "Easy Meatloaf"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb614ffed6f8532020a9"
+    },
+    "__v": 0,
+    "cook_time": 150,
+    "cuisine": [
+      "Italian Inspired",
+      "Italian"
+    ],
+    "cuisine_type": "Italian",
+    "description": "This lasagna recipe from John Chandler is our most popular recipe! With sausage, ground beef, basil, and 3 types of cheese, it lives up to its name!",
+    "dietary_tags": [],
+    "difficulty": "Medium",
+    "image_url": "https://www.allrecipes.com/thmb/htylprTl3RuTsFquG9YtbU1pzy0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/23600-worlds-best-lasagna-DDMFS-4x3-1196-24c5401652934ffb96d3d94bc9fbe2d7.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from AllRecipes.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "sweet Italian sausage",
+        "unit": "pound"
+      },
+      {
+        "amount": "0.75",
+        "name": "lean ground beef",
+        "unit": "pound"
+      },
+      {
+        "amount": "0.5",
+        "name": "minced onion",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "cloves garlic, crushed",
+        "unit": ""
+      },
+      {
+        "amount": "28",
+        "name": "can crushed tomatoes",
+        "unit": "ounce"
+      },
+      {
+        "amount": "2",
+        "name": "cans canned tomato sauce",
+        "unit": "6.5 ounce"
+      },
+      {
+        "amount": "2",
+        "name": "cans tomato paste",
+        "unit": "6 ounce"
+      },
+      {
+        "amount": "0.5",
+        "name": "water",
+        "unit": "cup"
+      },
+      {
+        "amount": "2",
+        "name": "tablespoons white sugar",
+        "unit": ""
+      },
+      {
+        "amount": "4",
+        "name": "tablespoons chopped fresh parsley, divided",
+        "unit": ""
+      },
+      {
+        "amount": "1.5",
+        "name": "teaspoons dried basil leaves",
+        "unit": ""
+      },
+      {
+        "amount": "1.5",
+        "name": "teaspoons salt, divided, or to taste",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "teaspoon Italian seasoning",
+        "unit": ""
+      },
+      {
+        "amount": "0.5",
+        "name": "teaspoon fennel seeds",
+        "unit": ""
+      },
+      {
+        "amount": "0.25",
+        "name": "teaspoon ground black pepper",
+        "unit": ""
+      },
+      {
+        "amount": "12",
+        "name": "lasagna noodles",
+        "unit": ""
+      },
+      {
+        "amount": "16",
+        "name": "ounces ricotta cheese",
+        "unit": ""
+      },
+      {
+        "amount": "1",
+        "name": "egg",
+        "unit": ""
+      },
+      {
+        "amount": "0.75",
+        "name": "pound mozzarella cheese, sliced",
+        "unit": ""
+      },
+      {
+        "amount": "0.75",
+        "name": "cup grated Parmesan cheese",
+        "unit": ""
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Gather all your ingredients."
+      },
+      {
+        "step": 2,
+        "description": "Cook sausage, ground beef, onion, and garlic in a Dutch oven over medium heat until well browned."
+      },
+      {
+        "step": 3,
+        "description": "Stir in crushed tomatoes, tomato sauce, tomato paste, and water. Season with sugar, 2 tablespoons parsley, basil, 1 teaspoon salt, Italian seasoning, fennel seeds, and pepper. Simmer, covered, for about 90 minutes, stirring occasionally."
+      },
+      {
+        "step": 4,
+        "description": "Bring a large pot of lightly salted water to a boil. Cook lasagna noodles in boiling water for 8 to 10 minutes. Drain noodles, and rinse with cold water."
+      },
+      {
+        "step": 5,
+        "description": "In a mixing bowl, combine ricotta cheese with egg, remaining 2 tablespoons parsley, and 1/2 teaspoon salt."
+      },
+      {
+        "step": 6,
+        "description": "Preheat the oven to 375 degrees F (190 degrees C)."
+      },
+      {
+        "step": 7,
+        "description": "To assemble, spread 1 1/2 cups of meat sauce in the bottom of a 9x13-inch baking dish. Arrange 6 noodles lengthwise over meat sauce, overlapping slightly. Spread with 1/2 of the ricotta cheese mixture. Top with 1/3 of the mozzarella cheese slices. Spoon 1 1/2 cups meat sauce over mozzarella, and sprinkle with 1/4 cup Parmesan cheese."
+      },
+      {
+        "step": 8,
+        "description": "Repeat layers, and top with remaining mozzarella and Parmesan cheese. Cover with foil: to prevent sticking, either spray foil with cooking spray or make sure the foil does not touch the cheese."
+      },
+      {
+        "step": 9,
+        "description": "Bake in the preheated oven for 25 minutes. Remove the foil and bake for an additional 25 minutes."
+      },
+      {
+        "step": 10,
+        "description": "Rest lasagna for 15 minutes before serving."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 400,
+      "carbs": 30,
+      "fat": 20,
+      "fiber": 2,
+      "protein": 25,
+      "sugar": 5
+    },
+    "prep_time": 30,
+    "servings": 8,
+    "tags": [],
+    "title": "World's Best Lasagna"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb6f4ffed6f8532020aa"
+    },
+    "__v": 0,
+    "cook_time": 12,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Dessert",
+    "description": "I have a few tricks that make these the best soft chocolate chip cookies that you'll ever try. With hundreds of positive reviews from bakers around the world, I'm confident you'll fall in love with this chocolate chip cookie recipe too. Chilling the cookie dough is imperative and cornstarch makes them extra soft and thick!",
+    "dietary_tags": [
+      "vegetarian"
+    ],
+    "difficulty": "easy",
+    "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2012/08/warm-chocolate-chip-cookies-225x225.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from sallysbakingaddiction.com",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0",
+      "source_url": "https://sallysbakingaddiction.com/chocolate-chip-cookies/"
+    },
+    "ingredients": [
+      {
+        "amount": "3/4 cup",
+        "name": "unsalted butter, softened to room temperature",
+        "unit": "cup"
+      },
+      {
+        "amount": "3/4 cup",
+        "name": "packed light or dark brown sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1/4 cup",
+        "name": "granulated sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "large egg, at room temperature",
+        "unit": "piece"
+      },
+      {
+        "amount": "2 teaspoons",
+        "name": "pure vanilla extract",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2 cups",
+        "name": "all-purpose flour (spooned & leveled)",
+        "unit": "cup"
+      },
+      {
+        "amount": "2 teaspoons",
+        "name": "cornstarch",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1 teaspoon",
+        "name": "baking soda",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1/2 teaspoon",
+        "name": "salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1 and 1/4 cup",
+        "name": "semi-sweet chocolate chips",
+        "unit": "cup"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "In a large bowl using a handheld mixer or a stand mixer fitted with a paddle attachment, beat the butter, brown sugar, and sugar together on medium speed until combined and creamy, about 2 minutes. Beat in the egg and vanilla. Scrape down the sides and bottom of the bowl as needed."
+      },
+      {
+        "step": 2,
+        "description": "In a separate bowl, whisk flour, cornstarch, baking soda, and salt together. Add into the wet ingredients, then beat on low speed until combined. The cookie dough will be slightly thick. On low speed, beat in the chocolate chips."
+      },
+      {
+        "step": 3,
+        "description": "Cover dough tightly and chill in the refrigerator for at least 1 hour and up to 3\u20134 days. Chilling is imperative for this cookie dough."
+      },
+      {
+        "step": 4,
+        "description": "Remove cookie dough from the refrigerator and allow to sit at room temperature for 10 minutes. Preheat oven to 350\u00b0F (177\u00b0C). Line 2 large baking sheets with parchment paper or silicone baking mats. Set aside."
+      },
+      {
+        "step": 5,
+        "description": "Once chilled, the dough will be slightly crumbly, but will come together when you work the dough with your hands. Roll cookie dough, about a heaping 1.5 Tablespoons of dough per cookie (I use this medium-size cookie scoop), and place 3 inches apart on baking sheets."
+      },
+      {
+        "step": 6,
+        "description": "Bake for 11\u201312 minutes, until barely golden brown around the edges. The cookies will look extremely soft when you remove them from the oven. Cool for 5 minutes on the baking sheet. If the cookies are too puffy, try gently pressing down on them with the back of a spoon. They will slightly deflate as you let them cool. If desired, while the cookies are still warm, press a few extra chocolate chips into the tops. This is optional, just for looks."
+      },
+      {
+        "step": 7,
+        "description": "Transfer cookies to a cooling rack to cool completely. Cookies stay fresh covered at room temperature for up to 1 week."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 150,
+      "carbs": 20,
+      "fat": 7,
+      "fiber": 1,
+      "protein": 2,
+      "sugar": 10
+    },
+    "prep_time": 75,
+    "servings": 24,
+    "tags": [
+      "soft chocolate chip cookies"
+    ],
+    "title": "The Best Soft Chocolate Chip Cookies"
+  },
+  {
+    "_id": {
+      "$oid": "68a0cb8a4ffed6f8532020ab"
+    },
+    "__v": 0,
+    "cook_time": 12,
+    "cuisine": [
+      "American"
+    ],
+    "cuisine_type": "Dessert",
+    "description": "Brown butter chocolate chip cookies are thick, chewy, and unlike any other chocolate chip cookie. There's as much flavor in one of these brown butter chocolate chip cookies as there is in an entire batch of classic chocolate chip cookies!",
+    "dietary_tags": [],
+    "difficulty": "Easy",
+    "image_url": "https://sallysbakingaddiction.com/wp-content/uploads/2014/12/Sallys-Baking-Addiction-Brown-Butter-Chocolate-Chip-Cookies-3-225x225.jpg",
+    "import_metadata": {
+      "confidence_score": 0.95,
+      "extracted_at": "2023-10-01T12:00:00Z",
+      "notes": "Recipe scraped from sallysbakingaddiction.com.",
+      "scraper_name": "RecipeScraper",
+      "scraper_version": "1.0.0",
+      "source_url": "https://sallysbakingaddiction.com/brown-butter-chocolate-chip-cookies/"
+    },
+    "ingredients": [
+      {
+        "amount": "1",
+        "name": "unsalted butter",
+        "unit": "cup"
+      },
+      {
+        "amount": "0.5",
+        "name": "granulated sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "packed light or dark brown sugar",
+        "unit": "cup"
+      },
+      {
+        "amount": "1",
+        "name": "large egg",
+        "unit": "unit"
+      },
+      {
+        "amount": "1",
+        "name": "egg yolk",
+        "unit": "unit"
+      },
+      {
+        "amount": "2",
+        "name": "pure vanilla extract",
+        "unit": "teaspoons"
+      },
+      {
+        "amount": "2.5",
+        "name": "all-purpose flour",
+        "unit": "cups"
+      },
+      {
+        "amount": "1",
+        "name": "cornstarch",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "1",
+        "name": "baking soda",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "0.5",
+        "name": "salt",
+        "unit": "teaspoon"
+      },
+      {
+        "amount": "2",
+        "name": "milk",
+        "unit": "Tablespoons"
+      },
+      {
+        "amount": "1.5",
+        "name": "semi-sweet chocolate chips",
+        "unit": "cups"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Have a large flat heat-proof baking dish, such as a 9\u00d713-inch pan, handy. Slice the butter into pieces and place in a light-colored skillet. The light colored helps you determine when the butter begins browning. Melt the butter over medium heat and stir or whisk constantly. Once melted, the butter will begin to foam. Keep stirring/whisking. After 5-7 minutes, the butter will begin browning and you\u2019ll notice lightly browned specks begin to form at the bottom of the pan, which are the milk solids toasting. Cook until it is golden in color. Once browned, remove from heat immediately and pour into dish. Cover tightly, place in the refrigerator, and chill until solid, about 2-3 hours (or up to 1 day). A large flat dish, as opposed to a bowl, helps the butter solidify quicker."
+      },
+      {
+        "step": 2,
+        "description": "Remove solid brown butter from the refrigerator and spoon into a large bowl (or the bowl of your stand mixer). Using a handheld mixer or stand mixer fitted with a paddle attachment, beat the chilled brown butter for 1 minute on medium speed until completely smooth and creamy. Add the granulated sugar and brown sugar and beat on medium high speed until light in color and combined, about 2 minutes. Beat in egg, egg yolk, and vanilla extract on high speed. Scrape down the sides and bottom of the bowl as needed."
+      },
+      {
+        "step": 3,
+        "description": "In a separate bowl, whisk the flour, cornstarch, baking soda and salt together until combined. On low speed, slowly mix into the wet ingredients until combined, then beat in the milk on medium speed. The cookie dough will be thick. Add the chocolate chips and mix on low for about 5-10 seconds until combined. Cover dough tightly with aluminum foil or plastic wrap and chill for at least 2-3 hours and up to 3 days. Chilling is mandatory for this cookie dough or else the cookies will over-spread."
+      },
+      {
+        "step": 4,
+        "description": "Remove cookie dough from the refrigerator and allow to sit at room temperature for 10 minutes as you preheat the oven. This makes the cookie dough easier to scoop and roll. (If the cookie dough chilled longer than 3 hours, let it sit at room temperature for about 30 minutes.)"
+      },
+      {
+        "step": 5,
+        "description": "Preheat oven to 350\u00b0F (177\u00b0C). Line two large baking sheets with parchment paper or silicone baking mats. Set aside."
+      },
+      {
+        "step": 6,
+        "description": "Once chilled, the dough may be slightly crumbly, but will come together if you work the dough with your hands as you roll into individual balls. Scoop and roll dough, about 1.5 Tablespoons of dough each (I use this medium cookie scoop), into balls."
+      },
+      {
+        "step": 7,
+        "description": "Bake the cookies for 12-14 minutes, or until slightly golden brown around the edges. My oven has hot spots and yours may too so be sure to rotate the pan once during bake time. The baked cookies will look soft in the centers when you remove them from the oven. Allow to cool for 5 minutes on the cookie sheet. If the cookies are too puffy, try gently pressing down on them with the back of a spoon. During this time, you can press a few extra chocolate chips into the top of the warm cookies. This is just for looks! The cookies will slightly deflate as you let them cool."
+      },
+      {
+        "step": 8,
+        "description": "After 5 minutes, transfer cookies to a cooling rack to cool completely."
+      },
+      {
+        "step": 9,
+        "description": "Cookies stay fresh covered at room temperature for up to 1 week."
+      }
+    ],
+    "isActive": true,
+    "likes": 0,
+    "nutrition": {
+      "calories": 200,
+      "carbs": 30,
+      "fat": 10,
+      "fiber": 1,
+      "protein": 2,
+      "sugar": 15
+    },
+    "prep_time": 420,
+    "servings": 24,
+    "tags": [
+      "brown butter chocolate chip cookies"
+    ],
+    "title": "Brown Butter Chocolate Chip Cookies"
+  }
+]

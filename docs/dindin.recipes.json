@@ -1,0 +1,1284 @@
+{
+  "metadata": {
+    "title": "High-Traffic Restaurant App Recipe Collection",
+    "description": "10 unique, popular recipes from top cooking websites for seeding a restaurant app database",
+    "total_recipes": 10,
+    "created_date": "2025-08-07T15:26:54.568677",
+    "data_sources": [
+      "Downshiftology",
+      "Preppy Kitchen",
+      "Betty Crocker",
+      "RecipeTin Eats",
+      "Delish",
+      "Food Network"
+    ],
+    "schema_version": "1.0"
+  },
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Chicken Marsala",
+      "description": "Golden chicken cutlets in a rich mushroom Marsala wine sauce",
+      "image_url": "https://downshiftology.com/wp-content/uploads/2024/10/chicken-marsala-1200x1800.jpg",
+      "source_url": "https://downshiftology.com/recipes/chicken-marsala/",
+      "source_site": "Downshiftology",
+      "servings": 4,
+      "prep_time": "15 minutes",
+      "cook_time": "25 minutes",
+      "total_time": "40 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Italian-American",
+      "category": "Main Dish",
+      "rating": 4.8,
+      "ingredients": [
+        {
+          "name": "boneless skinless chicken breasts",
+          "amount": "2",
+          "unit": "large",
+          "notes": "cut in half lengthwise to make 4 cutlets"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "0.25",
+          "unit": "cup"
+        },
+        {
+          "name": "kosher salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "ground black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "extra-virgin olive oil",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "unsalted butter",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "baby bella mushrooms",
+          "amount": "8",
+          "unit": "ounces",
+          "notes": "thinly sliced"
+        },
+        {
+          "name": "shallot",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "finely chopped"
+        },
+        {
+          "name": "garlic cloves",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "chicken broth",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "Marsala wine",
+          "amount": "0.75",
+          "unit": "cup"
+        },
+        {
+          "name": "heavy cream",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "fresh parsley",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "finely chopped"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Cut chicken breasts in half lengthwise to make 4 thinner cutlets."
+        },
+        {
+          "step": 2,
+          "instruction": "Mix cornstarch, salt, and pepper in a shallow dish. Dredge chicken in the mixture, coating both sides."
+        },
+        {
+          "step": 3,
+          "instruction": "Heat oil and 1 tablespoon butter in a large skillet over medium-high heat. Sear chicken 3-4 minutes per side until golden. Remove to a plate."
+        },
+        {
+          "step": 4,
+          "instruction": "Melt remaining butter in the pan. Add mushrooms and sauté 2-3 minutes until lightly browned. Add garlic and shallot, cook 30 seconds more."
+        },
+        {
+          "step": 5,
+          "instruction": "Add broth, Marsala wine, and heavy cream. Bring to a boil, then simmer 10-15 minutes until reduced by half."
+        },
+        {
+          "step": 6,
+          "instruction": "Return chicken to pan, spoon sauce over it, and simmer 2-3 minutes until warmed through. Sprinkle with parsley before serving."
+        }
+      ],
+      "nutrition": {
+        "calories": 283,
+        "protein": "36.3g",
+        "carbohydrates": "6.6g",
+        "fat": "10.9g",
+        "saturated_fat": "2.5g",
+        "cholesterol": "96.4mg",
+        "sodium": "322.2mg",
+        "fiber": "0.4g"
+      },
+      "tags": [
+        "chicken",
+        "mushrooms",
+        "wine",
+        "italian",
+        "dinner",
+        "comfort food"
+      ],
+      "dietary_info": ["gluten-free option"],
+      "equipment": ["large skillet", "shallow dish", "tongs"]
+    },
+    {
+      "id": 2,
+      "name": "Chicken Parmesan",
+      "description": "Crispy breaded chicken topped with marinara and melted cheese",
+      "image_url": "https://preppykitchen.com/wp-content/uploads/2025/03/Chicken-Parmesan-Recipe-Card.jpg",
+      "source_url": "https://preppykitchen.com/chicken-parmesan/",
+      "source_site": "Preppy Kitchen",
+      "servings": 6,
+      "prep_time": "20 minutes",
+      "cook_time": "25 minutes",
+      "total_time": "45 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Italian-American",
+      "category": "Main Dish",
+      "rating": 4.9,
+      "ingredients": [
+        {
+          "name": "boneless, skinless chicken breasts",
+          "amount": "3",
+          "unit": "large",
+          "notes": "about 2 pounds, cut in half horizontally"
+        },
+        {
+          "name": "all-purpose flour",
+          "amount": "0.33",
+          "unit": "cup"
+        },
+        {
+          "name": "large eggs",
+          "amount": "2",
+          "unit": "eggs",
+          "notes": "beaten"
+        },
+        {
+          "name": "Italian breadcrumbs",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "panko bread crumbs",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "freshly grated Parmesan",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "divided"
+        },
+        {
+          "name": "chopped parsley",
+          "amount": "3",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "olive oil",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "low-moisture mozzarella",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "shredded"
+        },
+        {
+          "name": "marinara sauce",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "fresh basil leaves",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "for garnish"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat oven to 425°F. Butterfly chicken breasts and pound to even thickness between plastic wrap."
+        },
+        {
+          "step": 2,
+          "instruction": "Set up three bowls: flour with salt and pepper, beaten eggs, and breadcrumbs mixed with half the Parmesan and parsley."
+        },
+        {
+          "step": 3,
+          "instruction": "Dredge each chicken piece in flour, then egg, then breadcrumb mixture, pressing to adhere."
+        },
+        {
+          "step": 4,
+          "instruction": "Heat oil in large skillet over medium-high heat. Fry chicken 4 minutes per side until golden. Transfer to paper towels."
+        },
+        {
+          "step": 5,
+          "instruction": "Place chicken on baking sheet. Top with marinara, mozzarella, and remaining Parmesan."
+        },
+        {
+          "step": 6,
+          "instruction": "Bake 15-20 minutes until cheese is melted and golden. Garnish with fresh basil."
+        }
+      ],
+      "nutrition": {
+        "calories": 520,
+        "protein": "42g",
+        "carbohydrates": "28g",
+        "fat": "26g",
+        "saturated_fat": "8g",
+        "cholesterol": "125mg",
+        "sodium": "890mg",
+        "fiber": "2g"
+      },
+      "tags": [
+        "chicken",
+        "cheese",
+        "italian",
+        "crispy",
+        "dinner",
+        "comfort food"
+      ],
+      "dietary_info": ["high protein"],
+      "equipment": [
+        "large skillet",
+        "baking sheet",
+        "meat mallet",
+        "three shallow bowls"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Classic Beef Stroganoff",
+      "description": "Tender beef strips in a creamy mushroom sauce served over egg noodles",
+      "image_url": "https://www.bettycrocker.com/wp-content/uploads/2019/11/beef-stroganoff-1200x1200.jpg",
+      "source_url": "https://www.bettycrocker.com/recipes/traditional-beef-stroganoff/c17a904f-a8f6-48ae-bedb-5b301a8ea317",
+      "source_site": "Betty Crocker",
+      "servings": 6,
+      "prep_time": "20 minutes",
+      "cook_time": "35 minutes",
+      "total_time": "55 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Russian",
+      "category": "Main Dish",
+      "rating": 4.7,
+      "ingredients": [
+        {
+          "name": "beef sirloin steak",
+          "amount": "1.5",
+          "unit": "pounds",
+          "notes": "cut into thin strips"
+        },
+        {
+          "name": "sliced mushrooms",
+          "amount": "8",
+          "unit": "ounces"
+        },
+        {
+          "name": "chopped onion",
+          "amount": "1",
+          "unit": "medium onion"
+        },
+        {
+          "name": "garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "butter",
+          "amount": "3",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "beef broth",
+          "amount": "1.5",
+          "unit": "cups"
+        },
+        {
+          "name": "salt",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "Worcestershire sauce",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "all-purpose flour",
+          "amount": "3",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "sour cream",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "egg noodles",
+          "amount": "8",
+          "unit": "ounces",
+          "notes": "uncooked"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Cut beef across grain into 1½ x ½-inch strips."
+        },
+        {
+          "step": 2,
+          "instruction": "Cook mushrooms, onions and garlic in butter in 10-inch skillet over medium heat until onions are tender; remove from skillet."
+        },
+        {
+          "step": 3,
+          "instruction": "Cook beef in same skillet until brown. Stir in 1 cup broth, salt and Worcestershire sauce. Heat to boiling; reduce heat and simmer covered 15 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Meanwhile, cook and drain noodles as directed on package; cover to keep warm."
+        },
+        {
+          "step": 5,
+          "instruction": "Whisk remaining ½ cup broth into flour until smooth. Stir into beef mixture with onion mixture. Bring to boil, stirring constantly for 1 minute."
+        },
+        {
+          "step": 6,
+          "instruction": "Reduce heat to low and stir in sour cream. Cook 1-2 minutes until hot without boiling. Serve over noodles."
+        }
+      ],
+      "nutrition": {
+        "calories": 435,
+        "protein": "28g",
+        "carbohydrates": "31g",
+        "fat": "23g",
+        "saturated_fat": "10g",
+        "cholesterol": "115mg",
+        "sodium": "620mg",
+        "fiber": "2g"
+      },
+      "tags": [
+        "beef",
+        "creamy",
+        "mushrooms",
+        "comfort food",
+        "russian",
+        "noodles"
+      ],
+      "dietary_info": ["high protein"],
+      "equipment": ["large skillet", "large pot for noodles", "whisk"]
+    },
+    {
+      "id": 4,
+      "name": "Spaghetti Carbonara",
+      "description": "Authentic Italian pasta with eggs, cheese, and crispy guanciale",
+      "image_url": "https://www.recipetineats.com/wp-content/uploads/2018/03/Carbonara_9.jpg",
+      "source_url": "https://www.recipetineats.com/carbonara/",
+      "source_site": "RecipeTin Eats",
+      "servings": 4,
+      "prep_time": "10 minutes",
+      "cook_time": "15 minutes",
+      "total_time": "25 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Italian",
+      "category": "Main Dish",
+      "rating": 4.8,
+      "ingredients": [
+        {
+          "name": "spaghetti",
+          "amount": "14",
+          "unit": "ounces"
+        },
+        {
+          "name": "guanciale or pancetta",
+          "amount": "5",
+          "unit": "ounces",
+          "notes": "cut into small cubes"
+        },
+        {
+          "name": "egg yolks",
+          "amount": "3",
+          "unit": "yolks"
+        },
+        {
+          "name": "large egg",
+          "amount": "1",
+          "unit": "egg"
+        },
+        {
+          "name": "Pecorino-Romano cheese",
+          "amount": "0.75",
+          "unit": "cup",
+          "notes": "grated, plus more to serve"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for pasta water"
+        },
+        {
+          "name": "freshly ground black pepper",
+          "amount": "1",
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Fill large pot with salted water and bring to a boil. Cook spaghetti until al dente, about 12 minutes. Reserve 1 cup pasta water before draining."
+        },
+        {
+          "step": 2,
+          "instruction": "Meanwhile, heat skillet over medium heat. Add guanciale and cook until crisp, 5-10 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Whisk egg yolks, whole egg, ¾ cup Pecorino-Romano, salt, and pepper in large bowl until combined."
+        },
+        {
+          "step": 4,
+          "instruction": "Add hot drained pasta to skillet with guanciale. Remove from heat."
+        },
+        {
+          "step": 5,
+          "instruction": "Quickly add egg mixture to pasta, tossing vigorously with tongs. Add pasta water gradually until creamy sauce forms."
+        },
+        {
+          "step": 6,
+          "instruction": "Serve immediately with extra cheese, salt, and pepper to taste."
+        }
+      ],
+      "nutrition": {
+        "calories": 380,
+        "protein": "18g",
+        "carbohydrates": "45g",
+        "fat": "15g",
+        "saturated_fat": "6g",
+        "cholesterol": "185mg",
+        "sodium": "520mg",
+        "fiber": "2g"
+      },
+      "tags": ["pasta", "italian", "eggs", "cheese", "traditional", "quick"],
+      "dietary_info": ["traditional Italian"],
+      "equipment": [
+        "large pot",
+        "large skillet",
+        "whisk",
+        "tongs",
+        "large bowl"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Beef and Broccoli Stir-Fry",
+      "description": "Classic Chinese-American stir-fry with tender beef and crisp broccoli",
+      "image_url": "https://www.delish.com/resize/beef-broccoli-1200x1200.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/a24489879/beef-and-broccoli-recipe/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "25 minutes",
+      "cook_time": "15 minutes",
+      "total_time": "40 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Chinese-American",
+      "category": "Main Dish",
+      "rating": 4.6,
+      "ingredients": [
+        {
+          "name": "flank steak",
+          "amount": "1",
+          "unit": "pound",
+          "notes": "sliced very thinly against the grain"
+        },
+        {
+          "name": "dry sherry",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "rice vinegar",
+          "amount": "1",
+          "unit": "tablespoon"
+        },
+        {
+          "name": "soy sauce",
+          "amount": "0.58",
+          "unit": "cup",
+          "notes": "divided"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "brown sugar",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "vegetable oil",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "fresh ginger",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "minced"
+        },
+        {
+          "name": "scallions",
+          "amount": "4",
+          "unit": "scallions",
+          "notes": "sliced, green and white parts separated"
+        },
+        {
+          "name": "broccoli florets",
+          "amount": "1",
+          "unit": "large head"
+        },
+        {
+          "name": "chicken broth",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "oyster sauce",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "sesame seeds",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "cooked white rice",
+          "amount": "4",
+          "unit": "servings"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Marinate beef: Combine sherry, vinegar, ⅓ cup soy sauce, 1 tbsp cornstarch, and 1 tbsp brown sugar. Add sliced steak and marinate 20 minutes."
+        },
+        {
+          "step": 2,
+          "instruction": "Make sauce: Whisk broth, oyster sauce, remaining soy sauce, cornstarch, and brown sugar."
+        },
+        {
+          "step": 3,
+          "instruction": "Cook beef in batches in hot oil until seared, about 1 minute per side. Remove and set aside."
+        },
+        {
+          "step": 4,
+          "instruction": "Add more oil to pan. Cook garlic, ginger, and white scallion parts until fragrant, 2 minutes."
+        },
+        {
+          "step": 5,
+          "instruction": "Add broccoli and cook until slightly softened, 1 minute. Add sauce, cover and cook 3 minutes."
+        },
+        {
+          "step": 6,
+          "instruction": "Return beef to pan and toss until coated. Cook 2-3 minutes until warmed through. Serve over rice with sesame seeds and green scallions."
+        }
+      ],
+      "nutrition": {
+        "calories": 320,
+        "protein": "26g",
+        "carbohydrates": "18g",
+        "fat": "16g",
+        "saturated_fat": "4g",
+        "cholesterol": "65mg",
+        "sodium": "890mg",
+        "fiber": "3g"
+      },
+      "tags": ["beef", "broccoli", "stir-fry", "chinese", "quick", "healthy"],
+      "dietary_info": ["high protein", "gluten-free option"],
+      "equipment": ["large skillet", "medium bowls", "whisk"]
+    },
+    {
+      "id": 6,
+      "name": "Chicken and Broccoli",
+      "description": "Quick and easy one-pot chicken and broccoli in savory ginger-garlic sauce",
+      "image_url": "https://www.delish.com/recipe-images/chicken-broccoli-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/g3338/best-weeknight-dinners/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "10 minutes",
+      "cook_time": "15 minutes",
+      "total_time": "25 minutes",
+      "difficulty": "Easy",
+      "cuisine": "Chinese-American",
+      "category": "Main Dish",
+      "rating": 4.7,
+      "ingredients": [
+        {
+          "name": "boneless skinless chicken breasts",
+          "amount": "1",
+          "unit": "pound",
+          "notes": "cut into bite-sized pieces"
+        },
+        {
+          "name": "broccoli florets",
+          "amount": "4",
+          "unit": "cups"
+        },
+        {
+          "name": "vegetable oil",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "fresh ginger",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "minced"
+        },
+        {
+          "name": "soy sauce",
+          "amount": "0.25",
+          "unit": "cup"
+        },
+        {
+          "name": "chicken broth",
+          "amount": "0.25",
+          "unit": "cup"
+        },
+        {
+          "name": "brown sugar",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "1",
+          "unit": "tablespoon"
+        },
+        {
+          "name": "sesame oil",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "cooked white rice",
+          "amount": "4",
+          "unit": "servings"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Heat oil in large skillet over medium-high heat. Add chicken and cook until golden, about 6 minutes."
+        },
+        {
+          "step": 2,
+          "instruction": "Add garlic and ginger, cook until fragrant, about 1 minute."
+        },
+        {
+          "step": 3,
+          "instruction": "Add broccoli and cook until bright green and slightly tender, about 3 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Whisk together soy sauce, broth, brown sugar, cornstarch, and sesame oil."
+        },
+        {
+          "step": 5,
+          "instruction": "Pour sauce over chicken and broccoli. Cook until sauce thickens, about 2 minutes."
+        },
+        {
+          "step": 6,
+          "instruction": "Serve immediately over cooked rice."
+        }
+      ],
+      "nutrition": {
+        "calories": 285,
+        "protein": "28g",
+        "carbohydrates": "15g",
+        "fat": "12g",
+        "saturated_fat": "2g",
+        "cholesterol": "75mg",
+        "sodium": "650mg",
+        "fiber": "3g"
+      },
+      "tags": [
+        "chicken",
+        "broccoli",
+        "quick",
+        "healthy",
+        "one-pot",
+        "weeknight"
+      ],
+      "dietary_info": ["high protein", "gluten-free option"],
+      "equipment": ["large skillet", "whisk", "small bowl"]
+    },
+    {
+      "id": 7,
+      "name": "Garlic Butter Shrimp Pasta",
+      "description": "Succulent shrimp in buttery garlic sauce with angel hair pasta",
+      "image_url": "https://www.delish.com/recipe-images/garlic-butter-shrimp-pasta-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/g3338/best-weeknight-dinners/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "10 minutes",
+      "cook_time": "20 minutes",
+      "total_time": "30 minutes",
+      "difficulty": "Easy",
+      "cuisine": "Italian-American",
+      "category": "Main Dish",
+      "rating": 4.8,
+      "ingredients": [
+        {
+          "name": "angel hair pasta",
+          "amount": "12",
+          "unit": "ounces"
+        },
+        {
+          "name": "large shrimp",
+          "amount": "1.5",
+          "unit": "pounds",
+          "notes": "peeled and deveined"
+        },
+        {
+          "name": "butter",
+          "amount": "6",
+          "unit": "tablespoons",
+          "notes": "divided"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "white wine",
+          "amount": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "lemon juice",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Parmesan cheese",
+          "amount": "0.5",
+          "unit": "cup",
+          "notes": "grated"
+        },
+        {
+          "name": "fresh parsley",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "red pepper flakes",
+          "amount": "0.25",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Cook pasta according to package directions until al dente. Reserve 1 cup pasta water, then drain."
+        },
+        {
+          "step": 2,
+          "instruction": "Season shrimp with salt and pepper. Heat 2 tablespoons butter in large skillet over medium-high heat."
+        },
+        {
+          "step": 3,
+          "instruction": "Add shrimp and cook until pink, about 2 minutes per side. Remove shrimp and set aside."
+        },
+        {
+          "step": 4,
+          "instruction": "Add garlic to same skillet and cook until fragrant, about 1 minute."
+        },
+        {
+          "step": 5,
+          "instruction": "Add wine and lemon juice, simmer 2 minutes. Stir in remaining butter and red pepper flakes."
+        },
+        {
+          "step": 6,
+          "instruction": "Add cooked pasta and toss with sauce. Add shrimp back to pan, sprinkle with Parmesan and parsley. Serve immediately."
+        }
+      ],
+      "nutrition": {
+        "calories": 425,
+        "protein": "32g",
+        "carbohydrates": "42g",
+        "fat": "16g",
+        "saturated_fat": "9g",
+        "cholesterol": "220mg",
+        "sodium": "780mg",
+        "fiber": "2g"
+      },
+      "tags": ["shrimp", "pasta", "garlic", "butter", "quick", "seafood"],
+      "dietary_info": ["high protein", "pescatarian"],
+      "equipment": ["large pot", "large skillet", "colander"]
+    },
+    {
+      "id": 8,
+      "name": "Classic Stuffed Peppers",
+      "description": "Colorful bell peppers stuffed with seasoned ground beef and rice",
+      "image_url": "https://www.delish.com/recipe-images/stuffed-peppers-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/recipe-ideas/g3338/best-weeknight-dinners/",
+      "source_site": "Delish",
+      "servings": 6,
+      "prep_time": "20 minutes",
+      "cook_time": "40 minutes",
+      "total_time": "60 minutes",
+      "difficulty": "Medium",
+      "cuisine": "American",
+      "category": "Main Dish",
+      "rating": 4.5,
+      "ingredients": [
+        {
+          "name": "large bell peppers",
+          "amount": "6",
+          "unit": "peppers",
+          "notes": "tops cut off and seeds removed"
+        },
+        {
+          "name": "ground beef",
+          "amount": "1",
+          "unit": "pound"
+        },
+        {
+          "name": "cooked white rice",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "small onion",
+          "amount": "1",
+          "unit": "onion",
+          "notes": "diced"
+        },
+        {
+          "name": "garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "diced tomatoes",
+          "amount": "14.5",
+          "unit": "ounces",
+          "notes": "one can, drained"
+        },
+        {
+          "name": "shredded cheddar cheese",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "divided"
+        },
+        {
+          "name": "Italian seasoning",
+          "amount": "2",
+          "unit": "teaspoons"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "beef broth",
+          "amount": "0.5",
+          "unit": "cup"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat oven to 350°F. Place peppers in baking dish and add broth to bottom of dish."
+        },
+        {
+          "step": 2,
+          "instruction": "Cook ground beef in large skillet over medium heat until browned, about 6 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Add onion and garlic, cook until softened, about 5 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Stir in cooked rice, diced tomatoes, 1 cup cheese, Italian seasoning, salt, and pepper."
+        },
+        {
+          "step": 5,
+          "instruction": "Divide filling evenly among peppers. Cover with foil and bake 35 minutes."
+        },
+        {
+          "step": 6,
+          "instruction": "Remove foil, top with remaining cheese, and bake 10 more minutes until cheese melts."
+        }
+      ],
+      "nutrition": {
+        "calories": 295,
+        "protein": "22g",
+        "carbohydrates": "18g",
+        "fat": "15g",
+        "saturated_fat": "8g",
+        "cholesterol": "70mg",
+        "sodium": "720mg",
+        "fiber": "4g"
+      },
+      "tags": [
+        "peppers",
+        "ground beef",
+        "rice",
+        "cheese",
+        "comfort food",
+        "baked"
+      ],
+      "dietary_info": ["high protein", "gluten-free"],
+      "equipment": ["large skillet", "baking dish", "aluminum foil"]
+    },
+    {
+      "id": 9,
+      "name": "Easy Chicken Curry",
+      "description": "Aromatic and creamy chicken curry with warm spices",
+      "image_url": "https://www.delish.com/recipe-images/chicken-curry-1200x1800.jpg",
+      "source_url": "https://www.delish.com/cooking/menus/g62071042/most-clicked-dinner-recipes-delish/",
+      "source_site": "Delish",
+      "servings": 4,
+      "prep_time": "15 minutes",
+      "cook_time": "30 minutes",
+      "total_time": "45 minutes",
+      "difficulty": "Medium",
+      "cuisine": "Indian",
+      "category": "Main Dish",
+      "rating": 4.6,
+      "ingredients": [
+        {
+          "name": "boneless skinless chicken thighs",
+          "amount": "2",
+          "unit": "pounds",
+          "notes": "cut into bite-sized pieces"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "yellow onion",
+          "amount": "1",
+          "unit": "large onion",
+          "notes": "diced"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "fresh ginger",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "minced"
+        },
+        {
+          "name": "curry powder",
+          "amount": "2",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "ground cumin",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "ground coriander",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "crushed tomatoes",
+          "amount": "14.5",
+          "unit": "ounces",
+          "notes": "one can"
+        },
+        {
+          "name": "coconut milk",
+          "amount": "14",
+          "unit": "ounces",
+          "notes": "one can, full-fat"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "fresh cilantro",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "basmati rice",
+          "amount": "4",
+          "unit": "servings",
+          "notes": "cooked"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Heat coconut oil in large skillet over medium-high heat. Season chicken with salt and cook until browned, about 6 minutes."
+        },
+        {
+          "step": 2,
+          "instruction": "Add onion and cook until softened, about 5 minutes. Add garlic and ginger, cook 1 minute more."
+        },
+        {
+          "step": 3,
+          "instruction": "Stir in curry powder, cumin, and coriander. Cook until fragrant, about 30 seconds."
+        },
+        {
+          "step": 4,
+          "instruction": "Add crushed tomatoes and coconut milk. Bring to simmer and cook 15 minutes until thickened."
+        },
+        {
+          "step": 5,
+          "instruction": "Season with salt and taste for seasoning adjustments."
+        },
+        {
+          "step": 6,
+          "instruction": "Garnish with fresh cilantro and serve over basmati rice."
+        }
+      ],
+      "nutrition": {
+        "calories": 385,
+        "protein": "35g",
+        "carbohydrates": "12g",
+        "fat": "22g",
+        "saturated_fat": "16g",
+        "cholesterol": "140mg",
+        "sodium": "680mg",
+        "fiber": "3g"
+      },
+      "tags": [
+        "chicken",
+        "curry",
+        "indian",
+        "spicy",
+        "coconut milk",
+        "aromatic"
+      ],
+      "dietary_info": ["gluten-free", "dairy-free", "high protein"],
+      "equipment": ["large skillet", "can opener"]
+    },
+    {
+      "id": 10,
+      "name": "Classic Mac and Cheese",
+      "description": "Creamy, cheesy macaroni and cheese with a crispy breadcrumb topping",
+      "image_url": "https://www.foodnetwork.com/recipe-images/mac-and-cheese-1200x1800.jpg",
+      "source_url": "https://www.foodnetwork.com/recipes/photos/top-rated-and-reviewed-recipes",
+      "source_site": "Food Network",
+      "servings": 8,
+      "prep_time": "20 minutes",
+      "cook_time": "30 minutes",
+      "total_time": "50 minutes",
+      "difficulty": "Medium",
+      "cuisine": "American",
+      "category": "Side Dish",
+      "rating": 4.9,
+      "ingredients": [
+        {
+          "name": "elbow macaroni",
+          "amount": "1",
+          "unit": "pound"
+        },
+        {
+          "name": "butter",
+          "amount": "4",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "all-purpose flour",
+          "amount": "4",
+          "unit": "tablespoons"
+        },
+        {
+          "name": "whole milk",
+          "amount": "3",
+          "unit": "cups"
+        },
+        {
+          "name": "sharp cheddar cheese",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "shredded"
+        },
+        {
+          "name": "Gruyere cheese",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "shredded"
+        },
+        {
+          "name": "cream cheese",
+          "amount": "4",
+          "unit": "ounces",
+          "notes": "cubed"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "black pepper",
+          "amount": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "paprika",
+          "amount": "0.25",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "panko breadcrumbs",
+          "amount": "1",
+          "unit": "cup"
+        },
+        {
+          "name": "melted butter",
+          "amount": "2",
+          "unit": "tablespoons"
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "instruction": "Preheat oven to 350°F. Cook macaroni according to package directions, drain."
+        },
+        {
+          "step": 2,
+          "instruction": "Melt butter in large saucepan over medium heat. Whisk in flour and cook 2 minutes."
+        },
+        {
+          "step": 3,
+          "instruction": "Gradually whisk in milk and cook until thickened, about 5 minutes."
+        },
+        {
+          "step": 4,
+          "instruction": "Remove from heat and stir in cheeses until melted. Season with salt, pepper, and paprika."
+        },
+        {
+          "step": 5,
+          "instruction": "Combine pasta and cheese sauce in buttered 9x13 baking dish."
+        },
+        {
+          "step": 6,
+          "instruction": "Mix breadcrumbs with melted butter, sprinkle over top. Bake 25-30 minutes until golden and bubbly."
+        }
+      ],
+      "nutrition": {
+        "calories": 485,
+        "protein": "20g",
+        "carbohydrates": "48g",
+        "fat": "24g",
+        "saturated_fat": "15g",
+        "cholesterol": "75mg",
+        "sodium": "620mg",
+        "fiber": "2g"
+      },
+      "tags": [
+        "mac and cheese",
+        "comfort food",
+        "cheese",
+        "pasta",
+        "baked",
+        "creamy"
+      ],
+      "dietary_info": ["vegetarian"],
+      "equipment": ["large pot", "large saucepan", "whisk", "9x13 baking dish"]
+    }
+  ]
+}
