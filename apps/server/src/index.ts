@@ -24,7 +24,6 @@ app.use(
 
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
 
-
 app.use(
   "/trpc/*",
   trpcServer({
@@ -45,7 +44,6 @@ app.post("/ai", async (c) => {
 
   return result.toUIMessageStreamResponse();
 });
-
 
 app.get("/", (c) => {
   return c.text("OK");

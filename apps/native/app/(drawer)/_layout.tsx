@@ -18,10 +18,40 @@ const DrawerLayout = () => {
         }}
       />
       <Drawer.Screen
+        name="discover"
+        options={{
+          headerTitle: "Discover",
+          drawerLabel: "Discover Recipes",
+          drawerIcon: ({ size, color }) => (
+            <Ionicons name="restaurant-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="matches"
+        options={{
+          headerTitle: "Matches",
+          drawerLabel: "Recipe Matches",
+          drawerIcon: ({ size, color }) => (
+            <Ionicons name="heart-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="profile"
+        options={{
+          headerTitle: "Profile",
+          drawerLabel: "My Profile",
+          drawerIcon: ({ size, color }) => (
+            <Ionicons name="person-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
         name="(tabs)"
         options={{
           headerTitle: "Tabs",
-          drawerLabel: "Tabs",
+          drawerLabel: "Example Tabs",
           drawerIcon: ({ size, color }) => (
             <MaterialIcons name="border-bottom" size={size} color={color} />
           ),
@@ -36,7 +66,7 @@ const DrawerLayout = () => {
         name="ai"
         options={{
           headerTitle: "AI",
-          drawerLabel: "AI",
+          drawerLabel: "AI Features",
           drawerIcon: ({ size, color }) => (
             <Ionicons
               name="chatbubble-ellipses-outline"

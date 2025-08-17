@@ -20,12 +20,18 @@
     "db:stop": "turbo -F server db:stop",
     "db:down": "turbo -F server db:down"
   },
-  "dependencies": {},
+  "dependencies": {
+    "expo-router": "^5.1.4",
+    "expo-web-browser": "^14.2.0",
+    "react-native": "^0.79.5",
+    "react-native-safe-area-context": "^5.4.0",
+    "react-native-screens": "^4.11.1"
+  },
   "devDependencies": {
-    "turbo": "^2.5.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "oxlint": "^1.8.0"
+    "oxlint": "^1.8.0",
+    "turbo": "^2.5.4"
   },
   "lint-staged": {
     "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
